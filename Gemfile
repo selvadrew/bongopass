@@ -36,6 +36,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'toastr-rails'
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
