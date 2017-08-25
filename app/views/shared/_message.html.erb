@@ -1,0 +1,15 @@
+<% unless flash.empty? %>
+	<script type="text/javascript">	
+		<% flash.each do |f| %>
+			<% type = f[0].to_s.gsub('alert','error').gsub('notice','info') %>
+			toastr['<%= type %>']('<%= f[1] %>')
+		<% end %>
+	</script>
+<% end %>	
+<!-- 
+flash[:notice] = "Email format is incorrect"
+- from the above, notice is f[0] and the string about email format is f[1]
+- toastr doesnt have alert and notice so thats why we switched it 
+more at - tylergannon/toastr-rails on github
+
+-->
