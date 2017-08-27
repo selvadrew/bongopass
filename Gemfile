@@ -37,6 +37,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'toastr-rails'
 gem 'sendgrid-ruby'
+gem 'omniauth'
+gem 'omniauth-facebook', '~> 4.0.0'
 
 
 group :development, :test do
