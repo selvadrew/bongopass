@@ -1,0 +1,125 @@
+<div class="panel panel-default">	
+	<div class="panel-heading">	
+		Lets create your event
+	</div>
+
+	<div class="panel-body">
+		<div class="container">	
+
+			<%= form_for @event do |f| %>
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Event Title</label>
+							<%= f.text_field :event_title, placeholder: "Make it short and sweet", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Event location </label>
+							<%= f.text_field :location, placeholder: "Where will it be held", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Start Date </label>
+							<%= f.date_select :start_date , class: "form-control" %>
+						</div>
+					</div>
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Start time </label>
+							<%= f.time_select :start_time , class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> End Date </label>
+							<%= f.date_select :end_date , class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> End time </label>
+							<%= f.time_select :end_time , class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Event Description </label>
+							<%= f.text_area :event_description, rows: 5, placeholder: "Be descriptive", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Organizer Name </label>
+							<%= f.text_field :organizer_name, placeholder: "Name of the hosting organization", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Organizer Description </label>
+							<%= f.text_area :organizer_description, rows: 3, placeholder: "Tell us more about your organization", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group">
+							<label> Event Type </label>
+							<%= f.select :event_type, 
+							[["Appearance or Signing","Appearance or Signing"],
+							 ["Attraction","Attraction"], 
+							 ["Camp, Trip, or Retreat", "Camp, Trip, or Retreat"],
+							 ["Class, Training, or Workshop", "Class, Training, or Workshop"],
+							 ["Concert or Performance","Concert or Performance"],
+							 ["Conference","Conference"],
+							 ["Convention","Convention"],
+							 ["Dinner or Gala","Dinner or Gala"],
+							 ["Festival or Fair","Festival or Fair"],
+							 ["Game or Competition","Game or Competition"],
+							 ["Meeting or Networking Event","Meeting or Networking Event"],
+							 ["Other","Other"],
+							 ["Party or Social Gathering","Party or Social Gathering"],
+							 ["Race or Endurance Event","Race or Endurance Event"],
+							 ["Rally","Rally"],
+							 ["Screening","Screening"],
+							 ["Seminar or Talk","Seminar or Talk"],
+							 ["Tour","Tour"],
+							 ["Tournament","Tournament"],
+							 ["Tradeshow, Consumer Show or Expo","Tradeshow, Consumer Show or Expo"],
+							 ],
+							id: "event_type", prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="actions">	
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				</div>
+
+			<% end %>
+
+		</div>	
+	</div>
+</div>
