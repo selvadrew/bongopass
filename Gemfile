@@ -39,6 +39,8 @@ gem 'toastr-rails'
 gem 'sendgrid-ruby'
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
+gem 'paperclip', "~> 5.0.0"
+gem 'font-awesome-sass'
 
 
 group :development, :test do

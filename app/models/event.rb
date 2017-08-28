@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_many :photos
 
   validates :event_title, presence: true, length: {maximum:50}
   validates :location, presence: true
