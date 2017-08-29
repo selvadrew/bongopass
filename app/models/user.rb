@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :fullname, presence: true, length: {maximum: 50}
 
   has_many :events
+  has_many :tickets
 
   def self.from_omniauth(auth)
   	user = User.where(email: auth.info.email).first

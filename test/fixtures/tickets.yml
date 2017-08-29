@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_type: MyString
+  ticket_name: MyString
+  ticket_quantity: 1
+  ticket_price: 9.99
+  ticket_description: MyString
+  ticket_start_date: 2017-08-29
+  ticket_start_time: 2017-08-29 01:08:37
+  ticket_end_date: 2017-08-29
+  ticket_end_time: 2017-08-29 01:08:37
+  event: one
+
+two:
+  ticket_type: MyString
+  ticket_name: MyString
+  ticket_quantity: 1
+  ticket_price: 9.99
+  ticket_description: MyString
+  ticket_start_date: 2017-08-29
+  ticket_start_time: 2017-08-29 01:08:37
+  ticket_end_date: 2017-08-29
+  ticket_end_time: 2017-08-29 01:08:37
+  event: two
