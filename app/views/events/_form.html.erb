@@ -1,9 +1,11 @@
+
+
 <div class="panel panel-default all">	
 	<div class="panel-heading">	
 		Lets create your event
 	</div>
 
-	<div class="panel-body">
+	<div class="panel-body" >
 		<div class="container">	
 
 			<%= form_for @event, html: {multipart: true} do |f| %>
@@ -78,6 +80,21 @@
 
 				<div id="photos"><%= render 'photos/list' %></div>
 
+
+
+				<div class="fields">	
+					<% f.fields_for :tickets do |builder| %>
+						<%= render 'ticket', f: builder %>
+					<% end %>
+				</div>
+
+
+				<div class="form-actions">	
+					<%= link_to_add_row('Add Ticket', f, :tickets, class: "btn btn-primary") %>
+				</div>
+
+<br>	
+
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
@@ -103,6 +120,7 @@
 							<%= f.select :event_type, 
 							[["Appearance or Signing","Appearance or Signing"],
 							 ["Attraction","Attraction"], 
+							 ["Bar or Nightclub","Bar or Nightclub"],
 							 ["Camp, Trip, or Retreat", "Camp, Trip, or Retreat"],
 							 ["Class, Training, or Workshop", "Class, Training, or Workshop"],
 							 ["Concert or Performance","Concert or Performance"],

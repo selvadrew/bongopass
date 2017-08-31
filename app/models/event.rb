@@ -1,7 +1,10 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :photos
-  has_many :tickets
+    #if event gets deleted, so does its tickets
+  has_many :tickets, dependent: :destroy 
+  accepts_nested_attributes_for :tickets, allow_destroy: true, reject_if: proc {|att| att['ticket_name'].blank? }
+ 
 
   validates :event_title, presence: true, length: {maximum:50}
   validates :location, presence: true

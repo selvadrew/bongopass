@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828061338) do
+ActiveRecord::Schema.define(version: 20170829050837) do
 
   create_table "events", force: :cascade do |t|
     t.string "event_title"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(version: 20170828061338) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.index ["event_id"], name: "index_photos_on_event_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "ticket_type"
+    t.string "ticket_name"
+    t.integer "ticket_quantity"
+    t.decimal "ticket_price"
+    t.string "ticket_description"
+    t.date "ticket_start_date"
+    t.time "ticket_start_time"
+    t.date "ticket_end_date"
+    t.time "ticket_end_time"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_tickets_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :events
   resources :photos
+  resources :tickets #not sure if need it specify?
 end

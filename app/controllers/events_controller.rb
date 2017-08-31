@@ -9,12 +9,14 @@ class EventsController < ApplicationController
 
   def show
     @photos = @event.photos
+    @tickets = @event.tickets 
     
   end
 
-  def new
-    @event = current_user.events.build
-  end
+    def new
+      @event = current_user.events.build
+      @event.tickets.build
+    end
 
   def create
     @event = current_user.events.build(event_params)
@@ -37,9 +39,11 @@ class EventsController < ApplicationController
   def edit
     if current_user.id == @event.user.id 
       @photos = @event.photos
+      @tickets = @event.tickets
     else
      redirect_to root_path, notice: "You don't have permission"
    end
+
   end
 
   def update
@@ -57,6 +61,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   private
     def set_event
       @event = Event.find(params[:id])
@@ -65,8 +70,16 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:event_title, :location, :start_date, :start_time, :end_date, :end_time,
                                     :event_description, :organizer_name, :organizer_description, :event_type,
-                                    :facebook_link, :twitter_link, :instagram_link)
+                                    :facebook_link, :twitter_link, :instagram_link,
+                                    tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy))
     end
+
+    def ticket_params 
+      params.require(:ticket).permit(:ticket_type, :ticket_name, :ticket_quantity, :tickt_price, :ticket_description,
+                                    :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time)
+
+    end
+
 
 
 end
