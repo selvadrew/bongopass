@@ -44,6 +44,55 @@
 				<%= @event.organizer_description %>
 			</div>
 
+			<div class="col-md-8">
+				<%= @tickets[0].ticket_name %>
+			</div>
+
+			<div>
+				<button class="btn btn-success" type="button" data-toggle="modal" data-target="#ticket-modal">
+					Tickets	
+				</button>
+
+				<div class="modal fade" id="ticket-modal">	
+					<div class="modal-dialog">	
+						<div class="modal-content">
+							<div class="modal-header text-center">
+								Select your ticket - One ticket maximum 
+							</div>
+							
+
+							<div class="modal-body">
+								<% @tickets.each do |ticket| %>
+									<div class="row">
+										<div class="col-md-7">
+											<h4> <%= ticket.ticket_name %></h4>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-7">
+											<h4> $<%= ticket.ticket_price %></h4>
+										</div>
+									</div>
+									
+									<hr>
+								<% end %>							
+							</div>
+							
+
+
+
+
+							<div class="modal-footer" >
+								<div class="btn btn-primary"> Checkout </div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
 
 	</div>
 </div>

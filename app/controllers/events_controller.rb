@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   def show
     @photos = @event.photos
     @tickets = @event.tickets 
-    
   end
 
     def new
@@ -75,7 +74,7 @@ class EventsController < ApplicationController
     end
 
     def ticket_params 
-      params.require(:ticket).permit(:ticket_type, :ticket_name, :ticket_quantity, :tickt_price, :ticket_description,
+      params.require(:ticket).permit(:ticket_type, :ticket_name, :ticket_quantity, :ticket_price, :ticket_description,
                                     :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time)
 
     end
