@@ -2,7 +2,11 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :photos, dependent: :destroy 
   has_many :tickets, dependent: :destroy 
-  has_many :orders 
+  ## NEEED TO THROW ABORT HERE BECAUSE IF EVENT GETS DELETED IT CANT DELETE THE TICKETS IF IT HAS ORDERS? 
+
+  has_many :tickets
+  has_many :orders, :through => :tickets  
+
   accepts_nested_attributes_for :tickets, allow_destroy: true, reject_if: proc {|att| att['ticket_name'].blank? }
  
 

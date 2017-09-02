@@ -17,15 +17,22 @@
 						<div class="col-md-2">
 							<%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0  %>
 						</div>
+
 						<div class="col-md-7">
 							<h4> <%= event.event_title %></h4>
 						</div>
+
 						<div class="col-md-3 right">
 							<%= link_to "Update", edit_event_path(event), class: "btn btn-primary"%>
 						</div>
 						<br>
+
 						<div class="col-md-3 right">
 							<%= link_to "View", event_path(event), class: "btn btn-primary"%>
+						</div>
+						
+						<div class="col-md-3 right">
+							<%= link_to "Tickets Sold", sales_path, class: "btn btn-primary"%>
 						</div>
 					</div>
 				<% end %>

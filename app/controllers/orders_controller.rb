@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @event = Event.find(params[:event_id])
+    @ticket = Ticket.find(params[:ticket_id])
   end
 
   # GET /orders/1/edit
@@ -36,10 +36,10 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @event = Event.find(params[:event_id])
-    @seller = @event.user 
+    @ticket = Ticket.find(params[:ticket_id])
+    @seller = @ticket.event.user 
 
-    @order.event_id = @event.id 
+    @order.ticket_id = @ticket.id 
     @order.buyer_id = current_user.id 
     @order.seller_id = @seller.id 
 

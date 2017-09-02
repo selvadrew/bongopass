@@ -73,21 +73,13 @@
 
 									<div class="col-md-3 right"> 
 										<%= if ticket.ticket_quantity > 0 
-												link_to "Purchase", new_event_order_path(@event), class: "btn btn-primary"
+												link_to "Purchase", new_ticket_order_path(ticket), class: "btn btn-primary"
 											else 
 												link_to "Sold Out", event_path(@event), class: "btn btn-danger" end %>
 
 										
 									</div>
 
-
-
-
-										 
-										
-
-										
-									
 									</div>
 									<hr>
 								<% end %>							

@@ -1,5 +1,5 @@
 
-<%= form_for([@event, @order]) do |form| %>
+<%= form_for([@ticket, @order]) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>

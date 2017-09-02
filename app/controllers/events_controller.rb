@@ -29,7 +29,7 @@ class EventsController < ApplicationController
       end
 
       @photos = @event.photos
-      redirect_to edit_event_path(@event), notice: "Saved..."
+      redirect_to event_path(@event), notice: "Saved..."
     else
       render :new 
     end
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
         end
       end
 
-      redirect_to edit_event_path(@event), notice: "Updated..."
+      redirect_to event_path(@event), notice: "Updated..."
 
     else
       render :edit
