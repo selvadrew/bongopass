@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :tickets
+  has_many :sales, class_name: "Order", foreign_key: "seller_id"
+  has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+
 
   def self.from_omniauth(auth)
   	user = User.where(email: auth.info.email).first

@@ -12,10 +12,10 @@ class EventsController < ApplicationController
     @tickets = @event.tickets 
   end
 
-    def new
-      @event = current_user.events.build
-      @event.tickets.build
-    end
+  def new
+    @event = current_user.events.build
+    @event.tickets.build
+  end
 
   def create
     @event = current_user.events.build(event_params)

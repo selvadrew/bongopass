@@ -44,9 +44,6 @@
 				<%= @event.organizer_description %>
 			</div>
 
-			<div class="col-md-8">
-				<%= @tickets[0].ticket_name %>
-			</div>
 
 			<div>
 				<button class="btn btn-success" type="button" data-toggle="modal" data-target="#ticket-modal">
@@ -70,10 +67,28 @@
 									</div>
 									<div class="row">
 										<div class="col-md-7">
-											<h4> $<%= ticket.ticket_price %></h4>
+											<h4> <%= number_to_currency(ticket.ticket_price) %></h4>
 										</div>
+
+
+									<div class="col-md-3 right"> 
+										<%= if ticket.ticket_quantity > 0 
+												link_to "Purchase", new_event_order_path(@event), class: "btn btn-primary"
+											else 
+												link_to "Sold Out", event_path(@event), class: "btn btn-danger" end %>
+
+										
 									</div>
+
+
+
+
+										 
+										
+
+										
 									
+									</div>
 									<hr>
 								<% end %>							
 							</div>
@@ -82,9 +97,7 @@
 
 
 
-							<div class="modal-footer" >
-								<div class="btn btn-primary"> Checkout </div>
-							</div>
+
 							
 						</div>
 					</div>

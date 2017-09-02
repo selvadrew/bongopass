@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  
-
-  root 'pages#home'
 
   devise_for :users, 
   			 :path => '', 
@@ -11,7 +8,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:show]
-  resources :events
   resources :photos
-  resources :tickets #not sure if need it specify?
+  resources :events do 
+    resources :orders
+  end
+
+  root 'pages#home'
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
+
+ 
+ 
 end
