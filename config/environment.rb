@@ -6,4 +6,3 @@ Rails.application.initialize!
 
 
 
-config.action_mailer.default_url_options = { :host => 'https://frozen-taiga-19769.herokuapp.com' }
