@@ -42,6 +42,11 @@ class OrdersController < ApplicationController
     @order.ticket_id = @ticket.id 
     @order.buyer_id = current_user.id 
     @order.seller_id = @seller.id 
+    
+  if @ticket.ticket_quantity > 0
+    @ticket.ticket_quantity = update_inventory
+    @ticket.save
+  end
 
   
 
@@ -90,4 +95,10 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:address, :city, :province)
     end
+
+    def update_inventory
+      @ticket.ticket_quantity - 1 
+    end
+
+
 end

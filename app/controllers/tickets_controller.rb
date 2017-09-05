@@ -21,6 +21,8 @@ class TicketsController < ApplicationController
 	end
 
 	def edit
+		@tickets = current_user.events.tickets
+		
 	end
 
 	def update 

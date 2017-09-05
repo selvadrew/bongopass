@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    if current_user.id == @event.user.id 
+    if current_user.id == @event.user.id
       @photos = @event.photos
       @tickets = @event.tickets
     else
