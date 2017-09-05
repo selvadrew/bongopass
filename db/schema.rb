@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170902033906) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: :cascade do |t|
     t.string "event_title"
     t.string "location"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170902033906) do
     t.string "facebook_link"
     t.string "twitter_link"
     t.string "instagram_link"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170902033906) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "event_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170902033906) do
     t.time "ticket_start_time"
     t.date "ticket_end_date"
     t.time "ticket_end_time"
-    t.integer "event_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_tickets_on_event_id"
@@ -95,4 +98,7 @@ ActiveRecord::Schema.define(version: 20170902033906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "photos", "events"
+  add_foreign_key "tickets", "events"
 end
