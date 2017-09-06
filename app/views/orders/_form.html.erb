@@ -21,6 +21,10 @@
         </div>
       <% end %>
 
+      <div id="stripe_error" class="alert alert-danger" style="display:none">
+        <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+      </div>
+
       <div class="field">
         <%= form.label :address %>
         <%= form.text_field :address, id: :order_address %>
