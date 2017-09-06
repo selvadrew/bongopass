@@ -42,7 +42,8 @@ gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem 'paperclip', "~> 5.0.0"
 gem 'font-awesome-sass'
-gem "figaro"
+gem 'figaro'
+gem 'stripe'
 
 group :production do 
   gem 'pg'
