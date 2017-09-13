@@ -1,9 +1,29 @@
 
 <% @orders.each do |order| %>
-<div class="row">	
-	<%= order.ticket.event.event_title %>
-	<%= order.ticket.event.location %>
-	<%= order.ticket.event.start_date %>
-	<%= order.ticket.event.start_time %>
+<div>	
+	Event Title: <br>
+	<%= order.ticket.event.event_title %>  <br>
+
+	Event Location: <br>
+	<%= order.ticket.event.location %> <br>
+
+	Referral ID of the ticket you bought: <br>
+	<%= order.referral.id%><br>
+
+	Number of referrals <br>
+	<%= Order.where(referral_id: order.referral.id).count %>
+	<br>	
+	<br>
 	<% end %>
 </div>
+
+
+<%= Order.where(referral_id: @referral_id).group(:referral_id).count %>
+<%= @referral_count %>
+<%= @reward_value %>
+<%= @reward_value.sum %>
+
+
+
+
+

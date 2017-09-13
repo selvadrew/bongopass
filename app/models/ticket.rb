@@ -4,6 +4,7 @@ class Ticket < ApplicationRecord
   has_many :orders
 
 
+
   #validates :ticket_name, presence: true
  # validates :ticket_quantity, presence: true
   #validates :ticket_price, presence: true

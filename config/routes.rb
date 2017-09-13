@@ -25,10 +25,12 @@ Rails.application.routes.draw do
     resources :orders
   end
   
+  resources :referrals do 
+    resources :tickets do 
+      resources :orders 
+    end
+  end
+
   
-
-
-
- 
  
 end

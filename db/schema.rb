@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902033906) do
+ActiveRecord::Schema.define(version: 20170910191348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170902033906) do
     t.integer "ticket_id"
     t.integer "buyer_id"
     t.integer "seller_id"
+    t.integer "referral_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -55,6 +56,13 @@ ActiveRecord::Schema.define(version: 20170902033906) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.index ["event_id"], name: "index_photos_on_event_id"
+  end
+
+  create_table "referrals", force: :cascade do |t|
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_referrals_on_order_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -100,5 +108,6 @@ ActiveRecord::Schema.define(version: 20170902033906) do
 
   add_foreign_key "events", "users"
   add_foreign_key "photos", "events"
+  add_foreign_key "referrals", "orders"
   add_foreign_key "tickets", "events"
 end

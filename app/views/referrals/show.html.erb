@@ -1,0 +1,104 @@
+<strong> Referral Page </strong> 
+<div class="panel panel-default">
+	<div class="panel-body">	
+
+		<!-- Image -->
+		<div class="row">
+			<div class="col-md-12">
+			<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
+			</div>
+		</div>
+
+		<br>
+
+		<!-- Main Info -->
+
+			<div class="col-md-8">
+				<div class="row">
+					
+				</div>
+				
+			</div>
+
+			<div class="col-md-8">
+				<h4> <%= @event.event_title %> </h4>
+				<%= @event.start_date %>
+			</div>
+
+			<div class="col-md-8">
+				<%= @event.start_time %>
+			</div>
+			
+			<div class="col-md-8">
+				<%= @event.location %>
+			</div>
+
+			<div class="col-md-8">
+				<%= @event.event_description %>
+			</div>
+
+			<div class="col-md-8">
+				<%= @event.organizer_name %>
+			</div>
+
+			<div class="col-md-8">
+				<%= @event.organizer_description %>
+			</div>
+
+
+			<div>
+				<button class="btn btn-success" type="button" data-toggle="modal" data-target="#ticket-modal">
+					Tickets	
+				</button>
+
+				<div class="modal fade" id="ticket-modal">	
+					<div class="modal-dialog">	
+						<div class="modal-content">
+							<div class="modal-header text-center">
+								Select your ticket - One ticket maximum 
+							</div>
+							
+
+							<div class="modal-body">
+								<% @tickets.each do |ticket| %>
+									<div class="row">
+										<div class="col-md-7">
+											<h4> <%= ticket.ticket_name %></h4>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-7">
+											<h4> <%= number_to_currency(ticket.ticket_price) %></h4>
+										</div>
+
+
+									<div class="col-md-3 right"> 
+										<%= if ticket.ticket_quantity > 0 
+												link_to "Purchase", new_ticket_order_path(ticket), class: "btn btn-primary", data: { turbolinks: false }
+											else 
+												link_to "Sold Out", referral_path(@referral), class: "btn btn-danger" end %>
+
+										
+									</div>
+
+									</div>
+									<hr>
+								<% end %>							
+							</div>
+							
+
+
+
+
+
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+	</div>
+</div>
