@@ -20,8 +20,8 @@
 
 <%= Order.where(referral_id: @referral_id).group(:referral_id).count %>
 <%= @referral_count %>
-<%= @reward_value %>
-<%= @reward_value.sum %>
+<%= @net_rewards_available %>
+
 
 
 

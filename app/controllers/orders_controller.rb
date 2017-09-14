@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   #before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :already_purchased, only: [:create]
+  before_action :calculate_rewards, only: [:purchases, :create, :new]
   
 
   def sales 
@@ -10,54 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def purchases 
-    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
-
-    #GETS ALL THE REFERRAL_IDS THAT BELONG TO THE USER, SINGE @ORDERS ARE THE USERS ORDERS
-    @referral_id = []
-    if @orders 
-      @orders.each do |order|
-        ting = order.referral.id 
-        @referral_id << ting 
-      end
-    end
-
-    #COUNTS THE NUMBER OF TIMES THAT REFERRAL ID IS USED
-    @something = Order.where(referral_id: @referral_id).group(:referral_id).count
-    @referral_count = @something.values
-
-    #TAKES THE REFERRAL COUNT AND CALCULATES THE DOLLAR VALUE OF REWARDS FOR EACH EVENT 
-    @reward_value = []
-    if @referral_count 
-      @referral_count.each do |referral|
-        
-        if referral <= 1
-          amount = 0 
-          @reward_value << amount 
-        
-        elsif referral == 2 
-          amount = 5
-          @reward_value << amount
-
-        elsif referral >= 3 && referral <= 5
-          amount = 10
-          @reward_value << amount
-
-        elsif referral >= 6 && referral <= 9
-          amount = 20
-          @reward_value << amount
-
-        elsif referral >= 10 && referral <= 24
-          amount = 35
-          @reward_value << amount
-
-        elsif referral >= 25
-          amount = 100
-          @reward_value << amount
-
-        end
-      end
-    end
-
+    
   end
 
 
@@ -95,6 +49,20 @@ class OrdersController < ApplicationController
     @order.ticket_id = @ticket.id 
     @order.buyer_id = current_user.id 
     @order.seller_id = @seller.id 
+
+    @order.stripe_fee = @ticket.ticket_price * 0.029 + 0.3
+    @order.organizer_sales = @ticket.ticket_price - @order.stripe_fee
+    @order.bongo_fee = 3.50 
+
+    #calculate how much rewards are used 
+    if @net_rewards_available >= @ticket.ticket_price
+      @order.rewards_used = @ticket.ticket_price 
+    elsif @net_rewards_available == 0 
+      @order.rewards_used = 0 
+    else 
+      @order.rewards_used = @net_rewards_available 
+    end
+
     
     @referral = Referral.find(session[:referral]) if session[:referral]
 
@@ -110,19 +78,19 @@ class OrdersController < ApplicationController
   end
 
   Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
-
-    begin
-      charge = Stripe::Charge.create(
-        :amount => (@ticket.ticket_price * 100).floor,
-        :currency => "cad",
-        :source => token
-        )
-      flash[:notice] = "Thanks for ordering!"
-    rescue Stripe::CardError => e
-      flash[:danger] = e.message
-
-    end
+     token = params[:stripeToken]
+ 
+     begin
+       charge = Stripe::Charge.create(
+         :amount => (@ticket.ticket_price * 100).floor,
+         :currency => "cad",
+         :source => token
+         )
+       flash[:notice] = "Thanks for ordering!"
+     rescue Stripe::CardError => e
+       flash[:danger] = e.message
+ 
+     end
 
 
     respond_to do |format|
@@ -158,11 +126,90 @@ class OrdersController < ApplicationController
     #People can still buy another type of ticket for that event if the event has multiple tickets 
     def already_purchased 
       @ticket = Ticket.find(params[:ticket_id])
-      if Order.joins(:ticket).where(buyer_id: current_user.id).where(ticket_id: @ticket.id)
+      unless Order.joins(:ticket).where(buyer_id: current_user.id).where(ticket_id: @ticket.id).blank?
         redirect_to new_ticket_order_path, notice: "You can only purchase one ticket for this event"
       end
-
     end
+
+
+    def calculate_rewards   
+    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
+    @all_rewards_used = 0 
+    @net_rewards_available = 0
+
+
+    if @orders 
+      @rewards_used_array = []
+      @orders.each do |order|
+        ching = order.rewards_used
+        @rewards_used_array << ching 
+      end
+      @all_rewards_used = @rewards_used_array.inject(0, &:+)
+    end
+
+    
+    
+  
+
+    #GETS ALL THE REFERRAL_IDS THAT BELONG TO THE USER, SINcE @ORDERS ARE THE USERS ORDERS
+    if @orders 
+    @referral_id = []
+      @orders.each do |order|
+        ting = order.referral.id 
+        @referral_id << ting 
+      end
+    
+
+    #COUNTS THE NUMBER OF TIMES THAT REFERRAL ID IS USED
+    @something = Order.where(referral_id: @referral_id).group(:referral_id).count
+    @referral_count = @something.values
+
+    #TAKES THE REFERRAL COUNT AND CALCULATES THE DOLLAR VALUE OF REWARDS FOR EACH EVENT 
+    @reward_value_array = []
+    if @referral_count 
+      @referral_count.each do |referral|
+        
+        if referral <= 1
+          amount = 0 
+          @reward_value_array << amount 
+        
+        elsif referral == 2 
+          amount = 5
+          @reward_value_array << amount
+
+        elsif referral >= 3 && referral <= 5
+          amount = 10
+          @reward_value_array << amount
+
+        elsif referral >= 6 && referral <= 9
+          amount = 20
+          @reward_value_array << amount
+
+        elsif referral >= 10 && referral <= 19
+          amount = 35
+          @reward_value_array << amount
+
+        elsif referral >= 20 && referral <= 29
+          amount = 70
+          @reward_value_array << amount
+
+        else referral >= 30
+          amount = 100
+          @reward_value_array << amount
+
+        end
+      end
+    end
+
+    @all_rewards_earned = @reward_value_array.inject(0, &:+)
+
+    @net_rewards_available = @all_rewards_earned - @all_rewards_used
+  end
+
+  end
+
+
+
 
 end
 
