@@ -19,6 +19,9 @@ module ApplicationHelper
 		link_to(name, '#', class: "add_fields " + args[:class], data: {id: id, fields: fields.gsub("\n", "")}) 
 	end
 
+	def stripe_standard_path 
+		"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_BOtFLtT9QlPS77k2l7g6xujQg17suDUi&scope=read_write"
+	end
 
 
 

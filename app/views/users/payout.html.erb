@@ -1,0 +1,17 @@
+<div class="col-md-9">
+	<div class="panel panel-default">
+		<div class="panel-heading">Payout Method</div>
+		<div class="panel-body">
+			<div class="container">
+				<% if current_user.merchant_id.blank? %>
+					<%= link_to image_tag('stripe_button'), stripe_standard_path %>
+					<% else %>
+					<br/>
+					<div class="text-center">
+						
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -82,10 +82,15 @@ class OrdersController < ApplicationController
  
      begin
        charge = Stripe::Charge.create(
-         :amount => (@ticket.ticket_price * 100).floor,
+         :amount => ((@ticket.ticket_price * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
          :currency => "cad",
-         :source => token
+         :source => token,
+         :destination => {
+          :amount => (@ticket.ticket_price * 100).floor - (@order.stripe_fee * 100).floor,
+          :account => @ticket.event.user.merchant_id 
+        }
          )
+
        flash[:notice] = "Thanks for ordering!"
      rescue Stripe::CardError => e
        flash[:danger] = e.message

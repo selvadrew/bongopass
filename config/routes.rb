@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
-  get 'sales' => "orders#sales"
-  get 'purchases' => "orders#purchases"
-
-
-
-
   devise_for :users, 
   			 :path => '', 
   			 :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
@@ -30,6 +23,12 @@ Rails.application.routes.draw do
       resources :orders 
     end
   end
+
+
+  root 'pages#home'
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
+  get '/payout_method' => "users#payout"
 
   
  

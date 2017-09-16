@@ -27,6 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
+  #original: false 
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
@@ -60,8 +61,8 @@ Rails.application.configure do
     address: 'smtp.sendgrid.net',
     port: 587,
     enable_starttls_auto: true,
-    user_name: 'andrewselvadurai',
-    password: '',
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"],
     authentication: 'plain'
   }
 

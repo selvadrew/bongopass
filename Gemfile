@@ -44,6 +44,7 @@ gem 'paperclip', "~> 5.0.0"
 gem 'font-awesome-sass'
 gem 'figaro'
 gem 'stripe'
+gem 'omniauth-stripe-connect', '~> 2.10.0'
 
 group :production do 
   gem 'pg'
