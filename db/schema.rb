@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915045606) do
+ActiveRecord::Schema.define(version: 20170919064123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,11 +62,44 @@ ActiveRecord::Schema.define(version: 20170915045606) do
     t.index ["event_id"], name: "index_photos_on_event_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "registration_question"
+    t.integer "question_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_questions_on_event_id"
+  end
+
   create_table "referrals", force: :cascade do |t|
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_referrals_on_order_id"
+  end
+
+  create_table "speakers", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.index ["event_id"], name: "index_speakers_on_event_id"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.index ["event_id"], name: "index_sponsors_on_event_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -113,6 +146,9 @@ ActiveRecord::Schema.define(version: 20170915045606) do
 
   add_foreign_key "events", "users"
   add_foreign_key "photos", "events"
+  add_foreign_key "questions", "events"
   add_foreign_key "referrals", "orders"
+  add_foreign_key "speakers", "events"
+  add_foreign_key "sponsors", "events"
   add_foreign_key "tickets", "events"
 end

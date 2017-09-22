@@ -1,0 +1,24 @@
+<section>
+	<div class="row">
+
+<hr>
+		<div class="row">	
+			<div class="col-md-3 select">	
+				<div class="form-group">
+					<label> Question </label>
+					<%= f.text_field :registration_question, placeholder: "Be specific", class: "form-control" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">	
+			<div class="col-md-3 right">	
+				<%= f.hidden_field :_destroy %>
+				<%= link_to "Remove", '#', class: 'remove_record btn btn-primary' %>
+			</div>
+		</div>
+
+
+	<hr>	
+	</div>
+</section>

@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   def show
     @photos = @event.photos
     @tickets = @event.tickets 
+    @speakers = @event.speakers
+    @sponsors = @event.sponsors
   end
 
   def new
@@ -22,13 +24,32 @@ class EventsController < ApplicationController
 
     if @event.save
 
+      #save cover photo
       if params[:images]
         params[:images].each do |image|
           @event.photos.create(image: image)
         end
       end
 
+      #save speaker avatars
+      if params[:avatars]
+        params[:avatars].each do |avatar|
+          @event.speakers.build(avatar: avatar)
+        end
+      end
+
+      #save sponsor logos
+      if params[:logos]
+        params[:logos].each do |logos|
+          @event.sponsors.create(logo: logo)
+        end
+      end
+
+
+
       @photos = @event.photos
+      @speakers = @event.speakers
+      @sponsors = @event.sponsors
       redirect_to event_path(@event), notice: "Saved..."
     else
       render :new 
@@ -39,6 +60,10 @@ class EventsController < ApplicationController
     if current_user.id == @event.user.id
       @photos = @event.photos
       @tickets = @event.tickets
+      @questions = @event.questions 
+      @speakers = @event.speakers
+      @sponsors = @event.sponsors
+
     else
      redirect_to root_path, notice: "You don't have permission"
    end
@@ -47,9 +72,25 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      if params[:images]
-        params[:images].each do |image|
-          @event.photos.create(image: image)
+     
+     if @event.photos.length < 2
+        #save cover photo
+        if params[:images]
+          params[:images].each do |image|
+            @event.photos.create(image: image)
+          end
+        end 
+      end
+
+      #save speaker avatars
+
+
+
+
+      #save sponsor logos
+      if params[:logos]
+        params[:logos].each do |logos|
+          @event.sponsors.create(logo: logo)
         end
       end
 
@@ -70,7 +111,9 @@ class EventsController < ApplicationController
       params.require(:event).permit(:event_title, :location, :start_date, :start_time, :end_date, :end_time,
                                     :event_description, :organizer_name, :organizer_description, :event_type,
                                     :facebook_link, :twitter_link, :instagram_link,
-                                    tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy))
+                                    tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy),
+                                    questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
+                                    speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy))
     end
 
     def ticket_params 
@@ -78,6 +121,8 @@ class EventsController < ApplicationController
                                     :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time)
 
     end
+
+
 
 
 

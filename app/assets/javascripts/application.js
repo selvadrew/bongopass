@@ -21,12 +21,12 @@
 
 
 $(document).on('turbolinks:load', function() {
+
 	$('form').on('click', '.remove_record', function(event) {
-		$(this).prev('text[type=hidden]').val('1');
+		$(this).prev('input[type=hidden]').val('1');
 		$(this).closest('section').hide();
 		return event.preventDefault(); 
 	});
-
 
 	$('form').on('click', '.add_fields', function(event){
 		var regexp, time; 
@@ -36,4 +36,32 @@ $(document).on('turbolinks:load', function() {
 		return event.preventDefault();
 	})
 
+	$('form').on('click', '.add_fieldsq', function(event){
+		var regexp, time; 
+		time = new Date().getTime();
+		regexp = new RegExp($(this).data('id'), 'g');
+		$('.fieldsq').append($(this).data('fieldsq').replace(regexp, time));
+		return event.preventDefault();
+	})
+
+	$('form').on('click', '.add_fieldss', function(event){
+		var regexp, time; 
+		time = new Date().getTime();
+		regexp = new RegExp($(this).data('id'), 'g');
+		$('.fieldss').append($(this).data('fieldss').replace(regexp, time));
+		return event.preventDefault();
+	})
+
+	$('form').on('click', '.add_fieldsSponsor', function(event){
+		var regexp, time; 
+		time = new Date().getTime();
+		regexp = new RegExp($(this).data('id'), 'g');
+		$('.fieldsSponsor').append($(this).data('fieldsSponsor').replace(regexp, time));
+		return event.preventDefault();
+	})
+
 });
+
+
+
+

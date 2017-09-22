@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="col-md-3 right">	
-				<% f.text_field :_destroy, as: :hidden %>
+				<%= f.hidden_field :_destroy %>
 				<%= link_to "Delete", '#', class: 'remove_record btn btn-danger' %>
 			</div>
 		</div>

@@ -1,0 +1,27 @@
+<section>
+
+	<div class="row">	
+		<div class="col-md-3 select">	
+			<div class="form-group">
+				<label> Description </label>
+				<%= f.text_field :description, placeholder: "Be specific", class: "form-control" %>
+			</div>
+
+
+			<div class="form-group">
+				<%= f.file_field :avatar, type: :file %>
+			</div>
+
+		</div>
+		
+	</div>
+
+
+	<div class="row">	
+		<div class="col-md-3 right">	
+			<%= f.hidden_field :_destroy %>
+			<%= link_to "Remove", '#', class: 'remove_record btn btn-primary' %>
+		</div>
+	</div>
+
+</section>

@@ -9,7 +9,8 @@
 		<div class="container">	
 
 			<%= form_for @event, html: {multipart: true} do |f| %>
-
+				
+				<div>
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
@@ -67,18 +68,17 @@
 						</div>
 					</div>
 				</div>
+				</div>
 
 				<!-- Upload Photo -->
 				<div class="row">	
 					<div class="col-md-4">	
 						<div class="form-group">
-							<span class="btn btn-default btn-file">	
-								<i class= "fa fa-cloud-upload fa-lg"></i> Upload Photos
-								<%= file_field_tag "images[]", type: :file, multiple: true %>
-							</span>
+								<%= file_field_tag "images[]", type: :file %>
 						</div>
 					</div>
 				</div>
+
 
 				<div id="photos"><%= render 'photos/list' %></div>
 
@@ -87,7 +87,7 @@
 				<%= f.fields_for :tickets do |ticket| %>
 					<%= render 'ticket', :f => ticket %>
 				<% end -%>
-
+				
 
 				<!-- Add Ticket -->
 				<div class="fields">	
@@ -98,10 +98,51 @@
 
 
 				<div class="form-actions">	
-					<%= link_to_add_row('Add Ticket', f, :tickets, class: "btn btn-primary") %>
+					<%= link_to_add_row_t('Add Ticket', f, :tickets, class: "btn btn-primary") %>
 				</div>
 
+
 <br>	
+
+				<!-- View Registration Question -->
+				<%= f.fields_for :questions do |question| %>
+					<%= render 'question', :f => question %>
+				<% end -%>
+
+
+				<!-- Add Registration Questions -->
+
+				<div class="fieldsq">	
+					<% f.fields_for :questions do |builder| %>
+						<%= render 'question', f: builder %>
+					<% end %>
+				</div>
+
+
+				<div class="form-actions">	
+					<%= link_to_add_row_q('Add Question', f, :questions, class: "btn btn-primary") %>
+				</div>
+
+				<br>
+				
+				SPEAKER
+				<%= f.fields_for :speakers do |speaker| %>
+					<%= render 'speaker', :f => speaker %>
+					<div id="speakers"><%= render 'speakers/list' %></div>
+				<% end -%>
+
+				<!-- Upload Speaker -->
+				<div class="fieldss">	
+					<% f.fields_for :speakers do |builder| %>
+						<%= render 'speaker', f: builder %>
+					<% end %>
+				</div>
+
+				<div class="form-actions">	
+					<%= link_to_add_row_speaker('Add Speaker', f, :speakers, class: "btn btn-primary") %>
+				</div>
+
+
 
 				<div class="row">	
 					<div class="col-md-4 select">	
@@ -156,6 +197,8 @@
 				<div class="actions">	
 					<%= f.submit "Save", class: "btn btn-primary" %>
 				</div>
+
+
 
 			<% end %>
 

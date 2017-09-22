@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  registration_question: MyString
+  question_type: 1
+
+two:
+  event: two
+  registration_question: MyString
+  question_type: 1
