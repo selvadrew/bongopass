@@ -45,6 +45,11 @@ gem 'font-awesome-sass'
 gem 'figaro'
 gem 'stripe'
 gem 'omniauth-stripe-connect', '~> 2.10.0'
+gem 'jquery-timepicker-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'geocoder'
+gem 'jquery-ui-rails', '~> 5.0'
+
 
 group :production do 
   gem 'pg'

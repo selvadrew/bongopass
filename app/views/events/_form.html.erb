@@ -9,6 +9,7 @@
 		<div class="container">	
 
 			<%= form_for @event, html: {multipart: true} do |f| %>
+
 				
 				<div>
 				<div class="row">	
@@ -20,45 +21,26 @@
 					</div>
 				</div>
 
+
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
 							<label> Event location </label>
-							<%= f.text_field :location, placeholder: "Where will it be held", class: "form-control" %>
+							<%= f.text_field :location, placeholder: "Where will it be held", class: "form-control", id: "user_input_autocomplete_address"%>
 						</div>
 					</div>
 				</div>
+				
+				<!-- Date and Time Selection -->
+				    <p id="basicExample">
+				        <%= f.date_field :start_date, type: "text", class: "date start" %>
+				        <%= f.time_field :start_time, type: "text", class: "time start" %> to
+				        <%= f.date_field :end_date, type: "text", class: "date end" %>
+				        <%= f.time_field :end_time, type: "text", class: "time end" %>
+				    </p>
 
-				<div class="row">	
-					<div class="col-md-4 select">	
-						<div class="form-group">
-							<label> Start Date </label>
-							<%= f.date_select :start_date , class: "form-control" %>
-						</div>
-					</div>
-					<div class="col-md-4 select">	
-						<div class="form-group">
-							<label> Start time </label>
-							<%= f.time_select :start_time , class: "form-control" %>
-						</div>
-					</div>
-				</div>
 
-				<div class="row">	
-					<div class="col-md-4 select">	
-						<div class="form-group">
-							<label> End Date </label>
-							<%= f.date_select :end_date , class: "form-control" %>
-						</div>
-					</div>
-
-					<div class="col-md-4 select">	
-						<div class="form-group">
-							<label> End time </label>
-							<%= f.time_select :end_time , class: "form-control" %>
-						</div>
-					</div>
-				</div>
+				<!-- END Date and Time Selection -->
 
 				<div class="row">	
 					<div class="col-md-4 select">	
@@ -104,25 +86,6 @@
 
 <br>	
 
-				<!-- View Registration Question -->
-				<%= f.fields_for :questions do |question| %>
-					<%= render 'question', :f => question %>
-				<% end -%>
-
-
-				<!-- Add Registration Questions -->
-
-				<div class="fieldsq">	
-					<% f.fields_for :questions do |builder| %>
-						<%= render 'question', f: builder %>
-					<% end %>
-				</div>
-
-
-				<div class="form-actions">	
-					<%= link_to_add_row_q('Add Question', f, :questions, class: "btn btn-primary") %>
-				</div>
-
 				<br>
 				
 				SPEAKER
@@ -140,6 +103,24 @@
 
 				<div class="form-actions">	
 					<%= link_to_add_row_speaker('Add Speaker', f, :speakers, class: "btn btn-primary") %>
+				</div>
+
+
+				SPONSORS
+				<%= f.fields_for :sponsors do |sponsor| %>
+					<%= render 'sponsor', :f => sponsor %>
+
+				<% end -%>
+
+				<!-- Upload Sponsor -->
+				<div class="fieldssponsor">	
+					<% f.fields_for :sponsors do |builder| %>
+						<%= render 'sponsor', f: builder %>
+					<% end %>
+				</div>
+
+				<div class="form-actions">	
+					<%= link_to_add_row_sponsor('Add Sponsor', f, :sponsors, class: "btn btn-primary") %>
 				</div>
 
 
@@ -194,14 +175,41 @@
 					</div>
 				</div>
 
+
+
+
 				<div class="actions">	
 					<%= f.submit "Save", class: "btn btn-primary" %>
 				</div>
 
-
-
 			<% end %>
-
-		</div>	
+		</div>
 	</div>
 </div>
+
+
+
+
+<script>
+    // initialize input widgets first
+    $('#basicExample .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia'
+    });
+
+    $('#basicExample .date').datepicker({
+        'format': 'yyyy/m/d',
+        'autoclose': true
+    });
+
+    // initialize datepair
+    var basicExampleEl = document.getElementById('basicExample');
+    var datepair = new Datepair(basicExampleEl);
+
+
+
+</script>
+
+
+
+    

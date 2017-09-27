@@ -17,6 +17,10 @@
 //= require jquery_ujs
 //= require toastr
 //= require bootstrap-sprockets
+//= require jquery.timepicker.js
+//= require Datepair
+//= require jquery.datepair.js
+//= require bootstrap-datepicker
 
 
 
@@ -52,13 +56,14 @@ $(document).on('turbolinks:load', function() {
 		return event.preventDefault();
 	})
 
-	$('form').on('click', '.add_fieldsSponsor', function(event){
+	$('form').on('click', '.add_fieldssponsor', function(event){
 		var regexp, time; 
 		time = new Date().getTime();
 		regexp = new RegExp($(this).data('id'), 'g');
-		$('.fieldsSponsor').append($(this).data('fieldsSponsor').replace(regexp, time));
+		$('.fieldssponsor').append($(this).data('fieldssponsor').replace(regexp, time));
 		return event.preventDefault();
 	})
+
 
 });
 

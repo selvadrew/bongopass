@@ -10,8 +10,11 @@ class Event < ApplicationRecord
 
   accepts_nested_attributes_for :tickets, allow_destroy: true, reject_if: proc {|att| att['ticket_name'].blank? }
   accepts_nested_attributes_for :questions, allow_destroy: true, reject_if: proc {|att| att['registration_question'].blank? }
-  accepts_nested_attributes_for :speakers, allow_destroy: true, reject_if: proc {|att| att['description'].blank? }
-  accepts_nested_attributes_for :sponsors, allow_destroy: true, reject_if: proc {|att| att['description'].blank? }
+  accepts_nested_attributes_for :speakers, allow_destroy: true, reject_if: proc {|att| att['speaker_name'].blank? }
+  accepts_nested_attributes_for :sponsors, allow_destroy: true, reject_if: proc {|att| att['logo'].blank? }
+
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed? 
 
 
   validates :event_title, presence: true, length: {maximum:50}

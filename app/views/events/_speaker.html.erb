@@ -1,15 +1,22 @@
 <section>
 
 	<div class="row">	
-		<div class="col-md-3 select">	
+		<div class="col-md-3 select">
+
 			<div class="form-group">
-				<label> Description </label>
-				<%= f.text_field :description, placeholder: "Be specific", class: "form-control" %>
+				<label> Speaker Avatar </label>			
+				<%= f.file_field :avatar, type: :file %>
+			</div>			
+
+			<div class="form-group">
+				<label> Name </label>
+				<%= f.text_field :speaker_name, class: "form-control" %>
 			</div>
 
 
 			<div class="form-group">
-				<%= f.file_field :avatar, type: :file %>
+				<label> Description </label>
+				<%= f.text_field :description, class: "form-control" %>
 			</div>
 
 		</div>

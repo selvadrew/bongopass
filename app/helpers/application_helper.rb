@@ -41,15 +41,19 @@ module ApplicationHelper
 	def link_to_add_row_sponsor(name, f, association, **args)
 		new_object = f.object.send(association).klass.new 
 		id = new_object.object_id 
-		fieldsSponsor = f.fields_for(association, new_object, child_index: id) do |builder|
+		fieldssponsor = f.fields_for(association, new_object, child_index: id) do |builder|
 			render(association.to_s.singularize, f: builder) 
 		end
-		link_to(name, '#', class: "add_fieldsSponsor " + args[:class], data: {id: id, fieldsSponsor: fieldsSponsor.gsub("\n", "")}) 
+		link_to(name, '#', class: "add_fieldssponsor " + args[:class], data: {id: id, fieldssponsor: fieldssponsor.gsub("\n", "")}) 
 	end
 
 
 	def stripe_standard_path 
 		"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_BOtFLtT9QlPS77k2l7g6xujQg17suDUi&scope=read_write"
+	end
+
+	def time_format(datetime)
+  		datetime.strftime('%H:%M') unless datetime.blank?
 	end
 
 

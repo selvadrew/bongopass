@@ -88,11 +88,7 @@ class EventsController < ApplicationController
 
 
       #save sponsor logos
-      if params[:logos]
-        params[:logos].each do |logos|
-          @event.sponsors.create(logo: logo)
-        end
-      end
+
 
       redirect_to event_path(@event), notice: "Updated..."
 
@@ -113,7 +109,8 @@ class EventsController < ApplicationController
                                     :facebook_link, :twitter_link, :instagram_link,
                                     tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy),
                                     questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
-                                    speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy))
+                                    speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy),
+                                    sponsors_attributes: Sponsor.attribute_names.map(&:to_sym).push(:id, :logo, :_destroy))
     end
 
     def ticket_params 

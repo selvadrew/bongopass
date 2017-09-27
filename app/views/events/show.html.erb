@@ -76,25 +76,50 @@
 												link_to "Purchase", new_ticket_order_path(ticket), class: "btn btn-primary", data: { turbolinks: false }
 											else 
 												link_to "Sold Out", event_path(@event), class: "btn btn-danger" end %>
-
-										
 									</div>
-
 									</div>
 									<hr>
 								<% end %>							
 							</div>
-							
-
-
-
-
-
-							
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+
+			    <style>
+			       #map {
+			        height: 400px;
+			        width: 100%;
+			       }
+			    </style>
+
+			    <div id="map"></div>
+			    <script>
+			      function initMap() {
+			        var uluru = {lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			          zoom: 14,
+			          center: uluru
+			        });
+			        var marker = new google.maps.Marker({
+			          position: uluru,
+			          map: map
+			        });
+			      }
+			    </script>
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&callback=initMap">
+			    </script>
+
+
+				</div>
+			</div>
+
+
+
 
 
 
