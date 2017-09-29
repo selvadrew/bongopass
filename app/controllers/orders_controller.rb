@@ -143,7 +143,7 @@ class OrdersController < ApplicationController
     @net_rewards_available = 0
 
 
-    if @orders 
+    unless @orders.nil? 
       @rewards_used_array = []
       @orders.each do |order|
         ching = order.rewards_used
