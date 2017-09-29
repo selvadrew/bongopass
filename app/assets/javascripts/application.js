@@ -21,6 +21,8 @@
 //= require Datepair
 //= require jquery.datepair.js
 //= require bootstrap-datepicker
+//= require summernote
+
 
 
 
@@ -66,6 +68,7 @@ $(document).on('turbolinks:load', function() {
 
 
 });
+
 
 
 

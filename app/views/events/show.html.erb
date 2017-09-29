@@ -4,7 +4,7 @@
 		<!-- Image -->
 		<div class="row">
 			<div class="col-md-12">
-			<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
+			<%= image_tag @photos[0].image.url(:medium) %>
 			</div>
 		</div>
 
@@ -33,7 +33,7 @@
 			</div>
 
 			<div class="col-md-8">
-				<%= @event.event_description %>
+				<%= @event.event_description.html_safe %>
 			</div>
 
 			<div class="col-md-8">

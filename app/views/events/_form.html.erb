@@ -8,7 +8,8 @@
 	<div class="panel-body" >
 		<div class="container">	
 
-			<%= form_for @event, html: {multipart: true} do |f| %>
+			<%= simple_form_for @event, html: {multipart: true} do |f| %>
+			<%= f.error_notification %>
 
 				
 				<div>
@@ -43,10 +44,10 @@
 				<!-- END Date and Time Selection -->
 
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-8 select">	
 						<div class="form-group">
 							<label> Event Description </label>
-							<%= f.text_area :event_description, rows: 5, placeholder: "Be descriptive", class: "form-control" %>
+							<%= f.input :event_description, as: :summernote  %>
 						</div>
 					</div>
 				</div>
