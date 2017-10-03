@@ -85,11 +85,16 @@ class OrdersController < ApplicationController
          :amount => ((@ticket.ticket_price * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
          :currency => "cad",
          :source => token,
+         #:receipt_email => "andrew.selvadurai6@gmail.com",
          :destination => {
           :amount => (@ticket.ticket_price * 100).floor - (@order.stripe_fee * 100).floor,
           :account => @ticket.event.user.merchant_id 
         }
          )
+
+       if charge
+          OrderMailer.send_email_to_buyer(@order.buyer, @ticket.event).deliver_later
+        end
 
        flash[:notice] = "Thanks for ordering!"
      rescue Stripe::CardError => e
@@ -137,24 +142,21 @@ class OrdersController < ApplicationController
     end
 
 
-    def calculate_rewards   
+    def calculate_rewards
     @orders = Order.all.where(buyer: current_user).order("created_at DESC")
     @all_rewards_used = 0 
     @net_rewards_available = 0
 
 
-    unless @orders.nil? 
+    if @orders 
       @rewards_used_array = []
       @orders.each do |order|
         ching = order.rewards_used
         @rewards_used_array << ching 
       end
+
       @all_rewards_used = @rewards_used_array.inject(0, &:+)
     end
-
-    
-    
-  
 
     #GETS ALL THE REFERRAL_IDS THAT BELONG TO THE USER, SINcE @ORDERS ARE THE USERS ORDERS
     if @orders 

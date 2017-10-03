@@ -5,7 +5,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
-         :confirmable, :omniauthable
+         :confirmable, :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
   validates :fullname, presence: true, length: {maximum: 50}
 
@@ -28,10 +28,13 @@ class User < ApplicationRecord
   			user.email = auth.info.email 
   			user.image = auth.info.image
   			user.password = Devise.friendly_token[0,20]
-  			#user.skip_confirmation!
+  			user.skip_confirmation!
   			end
 		end
 	end
+
+
+
 
 
 	def self.new_with_session(params, session)

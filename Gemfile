@@ -52,6 +52,7 @@ gem 'jquery-ui-rails', '~> 5.0'
 gem 'summernote-rails'
 gem 'simple_form'
 gem 'aws-sdk', '2.10.47'
+gem 'omniauth-google-oauth2'
 
 
 
