@@ -7,6 +7,6 @@ aws = {
 	bucket: ENV.fetch('S3_BUCKET_NAME'),
 }
 
-Refile.cache = Refile::S3.new(max_size: 3.megabytes, prefix: "cache", **aws)
-Refile.store = Refile::S3.new(prefix: "store", **aws)
+Refile.cache = Refile::S3.new(max_size: 10.megabytes, prefix: "cache", **aws)
+Refile.store = Refile::S3.new(max_size: 10.megabytes, prefix: "store", **aws)
 #Refile.store = Refile::S3.new(max_size: 4.megabytes, **aws)

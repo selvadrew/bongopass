@@ -4,7 +4,7 @@
 		<div class="panel-body">
 			<div class="container">
 				<% if current_user.merchant_id.blank? %>
-					<%= link_to image_tag('stripe_button'), stripe_standard_path %>
+					<%= link_to image_tag('https://s3.ca-central-1.amazonaws.com/bongopass/stripe_button.png'), stripe_standard_path %>
 					<% else %>
 					<br/>
 					<div class="text-center">
