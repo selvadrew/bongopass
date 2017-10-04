@@ -7,6 +7,8 @@ class Event < ApplicationRecord
   has_many :questions, dependent: :destroy 
   has_many :speakers, dependent: :destroy
   has_many :sponsors, dependent: :destroy
+  has_many :images, dependent: :destroy
+
 
   accepts_nested_attributes_for :tickets, allow_destroy: true, reject_if: proc {|att| att['ticket_name'].blank? }
   accepts_nested_attributes_for :questions, allow_destroy: true, reject_if: proc {|att| att['registration_question'].blank? }

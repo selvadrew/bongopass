@@ -110,7 +110,8 @@ class EventsController < ApplicationController
                                     tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy),
                                     questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
                                     speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy),
-                                    sponsors_attributes: Sponsor.attribute_names.map(&:to_sym).push(:id, :logo, :_destroy))
+                                    sponsors_attributes: Sponsor.attribute_names.map(&:to_sym).push(:id, :logo, :_destroy),
+                                    images_attributes: Image.attribute_names.map(&:to_sym))
     end
 
     def ticket_params 

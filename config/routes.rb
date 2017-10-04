@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :photos, only: [:create, :destroy]
   resources :speakers, only: [:create, :destroy]
   resources :sponsors, only: [:create, :destroy]
+  resources :images, only: [:create, :destroy]
   
   
   resources :events do 
