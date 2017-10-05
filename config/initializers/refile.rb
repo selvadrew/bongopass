@@ -10,3 +10,5 @@ aws = {
 Refile.cache = Refile::S3.new(max_size: 10.megabytes, prefix: "cache", **aws)
 Refile.store = Refile::S3.new(max_size: 10.megabytes, prefix: "store", **aws)
 #Refile.store = Refile::S3.new(max_size: 4.megabytes, **aws)
+
+Refile.cdn_host = "https://d1vc1zztydspts.cloudfront.net"
