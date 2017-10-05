@@ -109,6 +109,8 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     storage: :s3,
+    #:url => ':s3_alias_url',
+    s3_host_alias: "d1vc1zztydspts.cloudfront.net",
     s3_credentials: {
       bucket: ENV.fetch('S3_BUCKET_NAME'),
       access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
