@@ -56,6 +56,7 @@ gem 'omniauth-google-oauth2'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "refile-s3", '~> 0.2.0'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 
