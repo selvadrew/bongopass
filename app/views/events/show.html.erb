@@ -49,6 +49,7 @@ document.getElementById('shareBtn').onclick = function() {
 			<div>
 			<%= image_tag @photos[0].image.url(:medium), class: "img-responsive cover-photo"%>
 			</div>
+			<%= image_url @photos[0].image.url(:medium)%>
 
 
 		<br>
