@@ -26,7 +26,7 @@ class EventsController < ApplicationController
             },
             og: {
               title:    @event.event_title,
-              description: @event.event_description,
+              description: @event.organizer_name,
               type:     'article',
               url:      event_url(@event),
               image:    @photos[0].image.url(:original)
