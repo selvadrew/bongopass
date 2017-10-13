@@ -75,7 +75,6 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-window.open('fb-messenger://share?link=' + encodeURIComponent(link) + '&app_id=' + encodeURIComponent(app_id));
 
 
 
