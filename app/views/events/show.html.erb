@@ -32,7 +32,7 @@
 <a href="http://www.facebook.com/dialog/send?
   app_id=1870680056482347
   &amp;link=<%=event_url(@event)%>
-  &amp;redirect_uri=https://frozen-taiga-19769.herokuapp.com/">Send in Messenger</a>
+  &amp;redirect_uri=<%=event_url(@event)%>">Send in Messenger</a>
 
 <script>
 document.getElementById('shareBtn').onclick = function() {
