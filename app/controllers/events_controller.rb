@@ -34,7 +34,7 @@ class EventsController < ApplicationController
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
             #  { href: 'http://example.com/feed.rss', type: 'application/rss+xml', title: 'RSS' }
-            #]
+            
   end
 
   def new
