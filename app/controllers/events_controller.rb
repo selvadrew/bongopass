@@ -25,7 +25,7 @@ class EventsController < ApplicationController
               image: 'http://lorempixel.com/320/240/cats'
             },
             og: {
-              title:    "Cat Blog",
+              title:    @event.event_title,
               description: @event.event_description,
               type:     'article',
               url:      event_url(@event),
