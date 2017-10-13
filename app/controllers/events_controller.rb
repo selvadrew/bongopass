@@ -21,8 +21,8 @@ class EventsController < ApplicationController
               card: "summary",
               site: "@event",
               title: "Crazy About Cats",
-              description:  @event.event_description,
-              image: 'http://lorempixel.com/320/240/cats'
+              description:  @event.event_description
+             # image: 'http://lorempixel.com/320/240/cats'
             },
             og: {
               title:    @event.event_title,
