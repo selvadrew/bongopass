@@ -2,7 +2,7 @@
 <meta property="og:url"                content="<%= event_url(@event) %>" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="<%= @event.event_title %>" />
-<meta property="og:description"        content="<%= @event.event_description %>" />
+<meta property="og:description"        content="<%= @event.event_organizer %>" />
 <meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
 
 
@@ -30,6 +30,10 @@
 
 
 <div id="shareBtn" class="btn btn-success clearfix">Share</div>
+<a href="http://www.facebook.com/dialog/send?
+  app_id=1870680056482347
+  &amp;link=<%=event_url(@event)%>
+  &amp;redirect_uri=https://frozen-taiga-19769.herokuapp.com/">Send in Messenger</a>
 
 <script>
 document.getElementById('shareBtn').onclick = function() {
@@ -39,7 +43,16 @@ document.getElementById('shareBtn').onclick = function() {
     href: "<%= event_url(@event) %>",
   }, function(response){});
 }
+
+
+FB.ui({
+  method: 'send',
+  link: '<%= event_url(@event) %>',
+});
 </script>
+
+
+
 
 <div >
 	<div>	
