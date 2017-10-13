@@ -12,6 +12,29 @@ class EventsController < ApplicationController
     @tickets = @event.tickets 
     @speakers = @event.speakers
     @sponsors = @event.sponsors
+
+    set_meta_tags title: @event.event_title,
+            site: 'Bongo Pass',
+            reverse: true,
+            description: @event.event_description, 
+            twitter: {
+              card: "summary",
+              site: "@event",
+              title: "Crazy About Cats",
+              description:  @event.event_description,
+              image: 'http://lorempixel.com/320/240/cats'
+            },
+            og: {
+              title:    "Cat Blog",
+              description: @event.event_description,
+              type:     'article',
+              url:      event_url(@event),
+              image:    'http://lorempixel.com/320/240/cats'
+            }#,
+            #alternate: [
+            #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
+            #  { href: 'http://example.com/feed.rss', type: 'application/rss+xml', title: 'RSS' }
+            #]
   end
 
   def new
@@ -111,7 +134,8 @@ class EventsController < ApplicationController
                                     questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
                                     speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy),
                                     sponsors_attributes: Sponsor.attribute_names.map(&:to_sym).push(:id, :logo, :_destroy),
-                                    images_attributes: Image.attribute_names.map(&:to_sym))
+                                    images_attributes: Image.attribute_names.map(&:to_sym),
+                                    photos_attributes: Photo.attribute_names.map(&:to_sym))
     end
 
     def ticket_params 

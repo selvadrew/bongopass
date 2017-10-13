@@ -6,6 +6,9 @@
 @import "jquery.timepicker";
 @import "bootstrap-datepicker3";
 @import "summernote";
+@import "social-share-button";
+
+
 
 
 
@@ -62,6 +65,52 @@ label {
 .panel-heading.preview img{
 	width: 100%; 
 }
+
+      /*
+      Event create page
+      */
+
+.create-event-title {
+	font-size: 1.5em;
+}
+
+.detail-panel {
+	background-color: #00A1F1;
+	color: white;
+	text-align: center;
+	padding: 0.25em;
+}
+
+.detail-hr {
+	background-color: black;
+}
+
+
+.input_box {
+	border: 1px solid #bbc6cc;
+}
+
+.date-selection {
+	font: sans-serif;
+}
+
+
+
+      /*
+      Event show page
+      */
+
+.cover-photo {
+	display: block;
+	width: 100%;
+	border: 0;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+}
+			       
 
 
 

@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   has_many :images, dependent: :destroy
 
 
-  accepts_nested_attributes_for :tickets, allow_destroy: true, reject_if: proc {|att| att['ticket_name'].blank? }
+  accepts_nested_attributes_for :tickets, allow_destroy: true, reject_if: proc {|att| att['ticket_price'].blank? }
   accepts_nested_attributes_for :questions, allow_destroy: true, reject_if: proc {|att| att['registration_question'].blank? }
   accepts_nested_attributes_for :speakers, allow_destroy: true, reject_if: proc {|att| att['speaker_name'].blank? }
   accepts_nested_attributes_for :sponsors, allow_destroy: true, reject_if: proc {|att| att['logo'].blank? }
@@ -19,7 +19,7 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :location_changed? 
 
 
-  validates :event_title, presence: true, length: {maximum:50}
+  validates :event_title, presence: true, length: {maximum:75}
   validates :location, presence: true
   validates :start_date, presence: true
   validates :start_time, presence: true
@@ -27,8 +27,9 @@ class Event < ApplicationRecord
   validates :end_time, presence: true
   validates :event_description, presence: true
   validates :organizer_name, presence: true
-  validates :organizer_description, presence: true
+  validates :organizer_description, presence: false
   validates :event_type, presence: true
+
 
  
 

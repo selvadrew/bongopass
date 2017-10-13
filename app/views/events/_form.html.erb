@@ -1,23 +1,22 @@
 
 
-<div class="panel panel-default all">	
-	<div class="panel-heading">	
-		Lets create your event
-	</div>
+	<div class="container">
 
-	<div class="panel-body" >
 		<div class="container">	
+			<h1 class="create-event-title">
+			Let's Create Your Event
+			</h1>
 
 			<%= simple_form_for @event, html: {multipart: true} do |f| %>
 			<%= f.error_notification %>
 
-				
+				<p>Key Details</p>
+				<hr class="style11">
 				<div>
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
-							<label> Event Title</label>
-							<%= f.text_field :event_title, placeholder: "Make it short and sweet", class: "form-control" %>
+							<%= f.input :event_title, placeholder: "Make it short and sweet", class: "form-control", input_html: {class: "input_box"}%>
 						</div>
 					</div>
 				</div>
@@ -26,27 +25,29 @@
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
-							<label> Event location </label>
-							<%= f.text_field :location, placeholder: "Where will it be held", class: "form-control", id: "user_input_autocomplete_address"%>
+							<%= f.input :location, placeholder: "Where will it be held", class: "form-control", input_html: {id: "user_input_autocomplete_address", class: "input_box"}%>
 						</div>
 					</div>
 				</div>
 				
 				<!-- Date and Time Selection -->
 				    <p id="basicExample">
-				        <%= f.date_field :start_date, type: "text", class: "date start" %>
-				        <%= f.time_field :start_time, type: "text", class: "time start" %> to
-				        <%= f.date_field :end_date, type: "text", class: "date end" %>
-				        <%= f.time_field :end_time, type: "text", class: "time end" %>
+				    	<label class="date-selection"> Begins </label> <br>
+				        <%= f.date_field :start_date, type: "text", class: "date start input_box", value: f.object.start_date.try(:strftime,"%d/%m/%Y") %>
+				        <%= f.time_field :start_time, type: "text", class: "time start input_box", value: f.object.start_time.try(:strftime,"%l:%M.%p") %> 
+				        <br> <br> 
+				        <label class="date-selection"> Ends </label> 
+				        <br>
+				        <%= f.date_field :end_date, type: "text", class: "date end input_box", value: f.object.end_date.try(:strftime,"%d/%m/%Y") %>
+				        <%= f.time_field :end_time, type: "text", class: "time end input_box", value: f.object.end_time.try(:strftime,"%l:%M.%p") %>
 				    </p>
 
 
-				<!-- END Date and Time Selection -->
+				<!-- END.. Date and Time Selection -->
 
 				<div class="row">	
 					<div class="col-md-8 select">	
 						<div class="form-group">
-							<label> Event Description </label>
 							<%= f.input :event_description, as: :summernote  %>
 						</div>
 					</div>
@@ -67,14 +68,14 @@
 
 
 				<!-- View Ticket -->
-				<%= f.fields_for :tickets do |ticket| %>
+				<%= f.simple_fields_for :tickets do |ticket| %>
 					<%= render 'ticket', :f => ticket %>
 				<% end -%>
 				
 
 				<!-- Add Ticket -->
 				<div class="fields">	
-					<% f.fields_for :tickets do |builder| %>
+					<% f.simple_fields_for :tickets do |builder| %>
 						<%= render 'ticket', f: builder %>
 					<% end %>
 				</div>
@@ -88,7 +89,9 @@
 <br>	
 
 				<br>
-				
+<!-- leave out speaker and sponsor for now  -->
+				<% if false %>
+
 				SPEAKER
 				<%= f.fields_for :speakers do |speaker| %>
 					<%= render 'speaker', :f => speaker %>
@@ -123,14 +126,15 @@
 				<div class="form-actions">	
 					<%= link_to_add_row_sponsor('Add Sponsor', f, :sponsors, class: "btn btn-primary") %>
 				</div>
+				 
+				<% end %>
 
 
 
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
-							<label> Organizer Name </label>
-							<%= f.text_field :organizer_name, placeholder: "Name of the hosting organization", class: "form-control" %>
+							<%= f.input :organizer_name, placeholder: "Name of the hosting organization", class: "form-control", input_html: {class: "input_box"} %>
 						</div>
 					</div>
 				</div>
@@ -138,8 +142,7 @@
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
-							<label> Organizer Description </label>
-							<%= f.text_area :organizer_description, rows: 3, placeholder: "Tell us more about your organization", class: "form-control" %>
+							<%= f.input :organizer_description, rows: 3, placeholder: "Tell us more about your organization", class: "form-control", input_html: {class: "input_box"} %>
 						</div>
 					</div>
 				</div>
@@ -147,12 +150,10 @@
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
-							<label> Event Type </label>
-							<%= f.select :event_type, 
+							<%= f.input :event_type, :collection =>
 							[["Appearance or Signing","Appearance or Signing"],
 							 ["Attraction","Attraction"], 
 							 ["Bar or Nightclub","Bar or Nightclub"],
-							 ["Camp, Trip, or Retreat", "Camp, Trip, or Retreat"],
 							 ["Class, Training, or Workshop", "Class, Training, or Workshop"],
 							 ["Concert or Performance","Concert or Performance"],
 							 ["Conference","Conference"],
@@ -186,7 +187,7 @@
 			<% end %>
 		</div>
 	</div>
-</div>
+
 
 
 
@@ -199,13 +200,15 @@
     });
 
     $('#basicExample .date').datepicker({
-        'format': 'yyyy/m/d',
+        'format': 'd/m/yyyy',
         'autoclose': true
     });
+
 
     // initialize datepair
     var basicExampleEl = document.getElementById('basicExample');
     var datepair = new Datepair(basicExampleEl);
+
 
 
 

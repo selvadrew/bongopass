@@ -22,6 +22,8 @@
 //= require jquery.datepair.js
 //= require bootstrap-datepicker
 //= require summernote
+//= require social-share-button
+
 
 
 
@@ -41,6 +43,8 @@ $(document).on('turbolinks:load', function() {
 		$('.fields').append($(this).data('fields').replace(regexp, time));
 		return event.preventDefault();
 	})
+
+	/*
 
 	$('form').on('click', '.add_fieldsq', function(event){
 		var regexp, time; 
@@ -66,9 +70,12 @@ $(document).on('turbolinks:load', function() {
 		return event.preventDefault();
 	})
 
+	*/
 
 });
 
+
+window.open('fb-messenger://share?link=' + encodeURIComponent(link) + '&app_id=' + encodeURIComponent(app_id));
 
 
 

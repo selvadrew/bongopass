@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+
+event:
+  time:
+    formats:
+      short: "%H:%M"
+

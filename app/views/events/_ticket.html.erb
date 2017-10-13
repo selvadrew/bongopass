@@ -5,22 +5,19 @@
 		<div class="row">	
 			<div class="col-md-3 select">	
 				<div class="form-group">
-					<label> Ticket Name</label>
-					<%= f.text_field :ticket_name, placeholder: "Name of ticket", class: "form-control" %>
+					<%= f.input :ticket_name, placeholder: "Name of ticket", class: "form-control" %>
 				</div>
 			</div>
 
 			<div class="col-md-2 select">	
 				<div class="form-group">
-					<label> Ticket Quantity</label>
-					<%= f.number_field :ticket_quantity, placeholder: "Number of tickets", class: "form-control" %>
+					<%= f.input :ticket_quantity, placeholder: "Number of tickets", class: "form-control" %>
 				</div>
 			</div>
 
 			<div class="col-md-2 select">	
 				<div class="form-group">
-					<label> Price </label>
-					<%= f.number_field :ticket_price, :step => "0.01", placeholder: "Price", class: "form-control" %>
+					<%= f.input :ticket_price, :step => "0.01", placeholder: "Price", class: "form-control" %>
 				</div>
 			</div>
 		</div>
@@ -28,8 +25,7 @@
 		<div class="row">	
 			<div class="col-md-4 select">	
 				<div class="form-group">
-					<label> Ticket Description </label>
-					<%= f.text_field :ticket_description, placeholder: "If ticket value needs to be described", class: "form-control" %>
+					<%= f.input :ticket_description, placeholder: "If ticket value needs to be described", class: "form-control" %>
 				</div>
 			</div>
 
