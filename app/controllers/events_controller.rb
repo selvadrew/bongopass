@@ -30,6 +30,7 @@ class EventsController < ApplicationController
               type:     'article',
               url:      event_url(@event),
               image:    @photos[0].image.url(:original)
+              app_id:   '1870680056482347'
             }#,
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
