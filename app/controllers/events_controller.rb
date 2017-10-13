@@ -29,7 +29,7 @@ class EventsController < ApplicationController
               description: @event.event_description,
               type:     'article',
               url:      event_url(@event),
-              image:    'http://lorempixel.com/320/240/cats'
+              image:    @event.photos[0]
             }#,
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
