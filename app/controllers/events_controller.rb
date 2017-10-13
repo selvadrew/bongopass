@@ -28,7 +28,7 @@ class EventsController < ApplicationController
               title:    @event.event_title,
               description: @event.event_description,
               type:     'article',
-              url:      "https://frozen-taiga-19769.herokuapp.com" + event_path(@event),
+              url:      event_url(@event),
               image:    'http://lorempixel.com/320/240/cats'
             }#,
             #alternate: [
