@@ -29,7 +29,7 @@ class EventsController < ApplicationController
               description: @event.event_description,
               type:     'article',
               url:      event_url(@event),
-              image:    @photos[0].image.url(:original)
+              image:    @photos[0].image.url(:original),
               app_id:   '1870680056482347'
             }#,
             #alternate: [
