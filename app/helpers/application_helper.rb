@@ -55,10 +55,6 @@ module ApplicationHelper
   		datetime.strftime('%H:%M') unless datetime.blank?
 	end
 
-	def og_image_url
-		@photos[0].image.url(:medium)
-	end
-
 
 end
 
