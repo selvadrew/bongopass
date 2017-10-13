@@ -2,7 +2,7 @@
 <meta property="og:url"                content="<%= event_url(@event) %>" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="<%= @event.event_title %>" />
-<meta property="og:description"        content="<%= @event.event_organizer %>" />
+<meta property="og:description"        content="<%= @event.organizer_name %>" />
 <meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
 
 
@@ -26,7 +26,6 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
 
 
 <div id="shareBtn" class="btn btn-success clearfix">Share</div>
