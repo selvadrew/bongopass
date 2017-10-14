@@ -52,9 +52,13 @@ document.getElementById('messengerBtn').onclick = function() {
 <!-- Twitter Share Features-->
 
 <a class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text=Hello%20world"
-  data-size="large">
-Tweet</a>
+  href="https://twitter.com/share"
+  data-size="large"
+  data-text="Check out <%= @event.event_title %>"
+  data-url="<%= event_url(@event) %>"
+  data-related="twitterapi,twitter">
+Tweet
+</a>
 
 <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],
