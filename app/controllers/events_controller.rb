@@ -21,7 +21,8 @@ class EventsController < ApplicationController
               card:             "summary",
               site:             "@event",
               title:            @event.event_title,
-              description:      @event.organizer_name
+              description:      @event.organizer_name,
+              image:            "https://d1vc1zztydspts.cloudfront.net/attachments/57f8368ad546f79c078326455e97f4d761e7e5a0/store/61a538d65a951acd00f8e2011c143ffd7c68ff33c94117803c47f5561eba/8-2.jpg"
             },
             og: {
               title:            @event.event_title,
