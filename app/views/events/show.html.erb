@@ -56,7 +56,8 @@ document.getElementById('messengerBtn').onclick = function() {
   data-size="large"
   data-text="Check out <%= @event.event_title %>"
   data-url="<%= event_url(@event) %>"
-  data-related="twitterapi,twitter">
+  data-related="twitterapi,twitter"
+  data-image="<%=@photos[0].image.url(:original)%>">
 Tweet
 </a>
 
