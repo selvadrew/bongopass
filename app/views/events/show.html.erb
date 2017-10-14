@@ -29,7 +29,8 @@
 
 
 <div id="shareBtn" class="btn btn-success clearfix">Share</div>
-<a class="btn btn-success" href="http://www.facebook.com/dialog/send?
+
+<a id="messengerBtn" class="btn btn-success" href="http://www.facebook.com/dialog/send?
   app_id=1870680056482347
   &amp;link=<%=event_url(@event)%>
   &amp;redirect_uri=<%=event_url(@event)%>">Send in Messenger</a>
@@ -43,11 +44,12 @@ document.getElementById('shareBtn').onclick = function() {
   }, function(response){});
 }
 
-
-FB.ui({
-  method: 'send',
-  link: '<%= event_url(@event) %>',
-});
+document.getElementById('messengerBtn').onclick = function() {
+	FB.ui({
+	  method: 'send',
+	  link: '<%= event_url(@event) %>',
+	});
+}
 </script>
 
 
