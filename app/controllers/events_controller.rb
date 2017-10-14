@@ -21,8 +21,7 @@ class EventsController < ApplicationController
               card:             "summary",
               site:             "@event",
               title:            @event.event_title,
-              description:      @event.organizer_name,
-              image:            @photos[0].image.url(:original)
+              description:      @event.organizer_name
             },
             og: {
               title:            @event.event_title,
