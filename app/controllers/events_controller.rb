@@ -16,20 +16,20 @@ class EventsController < ApplicationController
     set_meta_tags title: @event.event_title,
             site: 'Bongo Pass',
             reverse: true,
-            description: @event.event_description, 
+            description:        @event.organizer_name, 
             twitter: {
-              card: "summary",
-              site: "@event",
-              title: "Crazy About Cats",
-              description:  @event.event_description
-             # image: 'http://lorempixel.com/320/240/cats'
+              card:             "summary",
+              site:             "@event",
+              title:            @event.event_title,
+              description:      @event.organizer_name,
+              image:            @photos[0].image.url(:original)
             },
             og: {
-              title:    @event.event_title,
-              description: @event.organizer_name,
-              type:     'article',
-              url:      event_url(@event),
-              image:    @photos[0].image.url(:original)
+              title:            @event.event_title,
+              description:      @event.organizer_name,
+              type:             'article',
+              url:              event_url(@event),
+              image:            @photos[0].image.url(:original)
             }#,
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
