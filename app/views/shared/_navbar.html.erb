@@ -1,22 +1,37 @@
 <!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
+<nav class=" navbar-default">
   <div class="container">
     <div class="navbar-header">
 
-      <a class="navbar-brand"><%= link_to "Bongo Pass", root_path, class: "navbar-brand" %> </a>
+      <a class="bongo-design"><%= link_to "bongopass", root_path, class: "bongo-design" %> </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
 
-<!-- if user is not signed in  -->
+<!-- if user is NOT signed in  -->
         <% if (!user_signed_in?) %>
-          <li><%= link_to "Log In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+
+          <li class="dropdown about-button-position"><a href="#about" class="about-button dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Pricing", events_path %></li>
+            </ul>
+          </li>        
+
+          <li class="login-button"><%= link_to "Log In", new_user_session_path, class: "login-text" %></li>
+          <li class="create-event-button"><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "create-event-text" %></li>
+
+          <!-- <li><%= link_to "Log In", new_user_session_path %></li> -->
+          <!-- <li><%= link_to "Sign Up", new_user_registration_path %></li> -->
+
+<!-- if user IS signed in  -->
         <% else %>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><%= link_to "Create Event", new_event_path, data: { turbolinks: false } %></li>
-          
+          <li class="dropdown about-button-position"><a href="#about" class="about-button dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Pricing", events_path %></li>
+            </ul>
+          </li>
+
+          <!-- username and dropdown menu  -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <% if avatar_url(current_user) %>
@@ -24,8 +39,6 @@
               <% end -%>
               <%= current_user.fullname %> <span class="caret"></span>
             </a>
-
-
 
             <ul class="dropdown-menu">
               <li><%= link_to "My Events", events_path %></li>
@@ -37,6 +50,11 @@
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
+
+          <!-- create event  -->
+
+          <li class="create-event-button"><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "create-event-text" %></li>
+
         <% end %>
 
       </ul>

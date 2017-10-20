@@ -1,44 +1,95 @@
-<div class="row">	
-	<div class="col-md-3">
-		<ul class="sidebar-list">
-			<li class="sidebar-item"><%= link_to "Your Listing", events_path, class: "sidebar-link active" %></li>
-			<li class="sidebar-item"><%= link_to "Your Tickets", events_path, class: "sidebar-link" %></li>
-		</ul>
-	</div>
-	<div class="col-md-9">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				Listings	
+
+<div class="row">
+
+	<div class="col-md-3 boxed">
+		<div class="boxed-text">
+			<div class="box-data">
+				10
 			</div>
-			<div class="panel-body">
-				
-				<% @events.each do |event| %>
-					<div class="row">
-						<div class="col-md-2">
-							<%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0  %>
-						</div>
-
-						<div class="col-md-7">
-							<h4> <%= event.event_title %></h4>
-						</div>
-
-						<div class="col-md-3 right">
-							<%= link_to "Update", edit_event_path(event), class: "btn btn-primary", data: {turbolinks: false}%>
-						</div>
-						<br>
-
-						<div class="col-md-3 right">
-							<%= link_to "View", event_path(event), class: "btn btn-primary"%>
-						</div>
-						
-						<div class="col-md-3 right">
-							<%= link_to "Tickets Sold", sales_path, class: "btn btn-primary"%>
-						</div>
-					</div>
-				<% end %>
+			<div class="box-description">
+			TOTAL EVENTS
 			</div>
-			
 		</div>
 	</div>
+
+	<div class="col-md-3 boxed">
+		<div class="boxed-text">
+			<div class="box-data">
+				40
+			</div>
+			<div class="box-description">
+			MY ATTENDEES REWARDED BY BONGOPASS
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 boxed">
+		<div class="boxed-text">
+			<div class="box-data">
+				$200
+			</div>
+			<div class="box-description">
+			PAID OUT TO MY ATTENDEES
+			</div>
+
+		</div>
+	</div>	
+
+	<div class="col-md-3 boxed">
+		<div class="boxed-text">
+			<div class="box-data">
+				$1000
+			</div>
+			<div class="box-description">
+			REWARDS USED TO BUY MY TICKETS AT A DISCOUNT
+			</div>
+		</div>
+	</div>		
+	
+
+
+</div>
+
+<br>
+<br>
+
+<div class="container">	
+
+	<div class=" panel-default">
+		<div class="panel-heading">
+			MY EVENTS	
+		</div>
+		<div class="panel-body">
+			
+			<% @events.order(:start_date).reverse.each do |event| %>
+				<div class="row">
+					<div class="col-md-2">
+						<%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0  %>
+					</div>
+
+					<div class="col-md-2">
+						<h4> <%= event.event_title %></h4>
+					</div>
+
+					<div class="col-md-2">
+						<h4> <%= event.start_date.to_time.strftime('%a, %B %d') %></h4>
+					</div>
+
+					<div class="col-md-2 ">
+						<%= link_to "Update", edit_event_path(event), class: "btn btn-primary", data: {turbolinks: false}%>
+					</div>
+
+					<div class="col-md-2 ">
+						<%= link_to "View", event_path(event), class: "btn btn-primary"%>
+					</div>
+					
+					<div class="col-md-2 ">
+						<%= link_to "Tickets Sold", sales_path(event), class: "btn btn-primary"%>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
 
 </div>

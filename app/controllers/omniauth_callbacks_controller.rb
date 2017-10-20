@@ -32,7 +32,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
 #STRIPE AUTHENTICATION
-
+#=begin
 	def stripe_connect
 		auth_data = request.env["omniauth.auth"]
 		@user = current_user 
@@ -62,6 +62,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		end
 	end
 
+#=end
 
 
 

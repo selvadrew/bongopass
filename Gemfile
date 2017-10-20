@@ -59,6 +59,7 @@ gem "refile-s3", '~> 0.2.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'social-share-button'
 gem 'meta-tags'
+gem "braintree", "~> 2.78.0"
 
 
 

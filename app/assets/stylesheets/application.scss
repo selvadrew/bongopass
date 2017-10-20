@@ -8,9 +8,13 @@
 @import "summernote";
 @import "social-share-button";
 
-
-
-
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'PT Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/
 
 
 
@@ -106,29 +110,190 @@ label {
 	border: 0;
 }
 
+/* red- #e61d2b  blue- #0061d5*/
+
 
 section.hero {
     position: relative;
     overflow: hidden;
-    background: #5f357d;
-    background: -webkit-radial-gradient(circle farthest-corner at right bottom,#ffd08a 0,#ffa376 28%,#d26578 52%,#682a84 79%,#241668 100%);
-    background: radial-gradient(circle farthest-corner at right bottom,#ffd08a 0,#ffa376 28%,#d26578 52%,#682a84 79%,#241668 100%);
-    background-image: radial-gradient(circle at right bottom, rgb(255, 208, 138) 0px, rgb(255, 163, 118) 28%, rgb(210, 101, 120) 52%, rgb(104, 42, 132) 79%, rgb(36, 22, 104) 100%);
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: initial;
+    background: white;
     margin-left: -10px;
     margin-right: -10px;
 
     box-sizing: border-box;
     display: block;
 }
+
+.bongo-design {
+	color: #232f3e;
+	font-family: 'Comfortaa', cursive;
+	font-size: 40px;
+	font-weight: 900;
+	padding-top: 1em;
+}
+
+.create-event {
+	color: white ;
+
+}
+/* green - #39B54A */
+
+.create-event-button {
+	color: white;
+	padding-top: 2px;
+}
+
+.create-event-text {
+	color: white !important;
+	font-size: 16px;
+}
+
+.navbar-right {
+	font-size: 16px;
+	color: white !important;
+}
+
+.navbar-default {
+	color: white;
+}
+
+
+.dropdown-toggle {
+	color: white !important;
+}
+
+.landing-slogan {
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.landing-attendees {
+	font-family: 'Lato', sans-serif;
+	color: white;
+	text-align: center;
+	font-size: 50px;
+	font-weight: 800;
+
+}
+
+.navbar-default {
+	background-color: white;
+	color: black;
+}
+
+.about-button-position  {
+	padding-top: 2px ;
+	height: 100%;
+}
+
+.about-button  {
+	color: white !important;
+}
+
+#navbar ul li a:hover {
+  background-color: black !important ;
+  height: 100%;
+  color:white ;
+}
+
+
+.login-text {
+	color: white !important;
+}
+
+.boxed {
+	border: 1px;
+	border-style: solid;
+	border-color: white;
+	height: 125px;
+	background-color: #13B57D;
+	text-align: center;
+
+}
+
+.boxed-text {
+	margin-left: auto;
+  	margin-right: auto;
+  	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+  	color: white;
+  }
+
+.box-data {
+	font-family: 'Lato', sans-serif ;
+	font-size: 40px;
+	font-weight: 800;
+}
+
+.box-description {
+	font-size: 10px;
+	font-family: 'Lato', sans-serif ;
+}
+
+.airplane-share {
+	text-align: center;
+	padding-left: 250px;
+}
+
+.slogan-area {
+	background-color: white;
+
+}
+
+
+.landing-page-cover-photo {
+	height: 500px;
+	width: 100%;
+}
+
+.image-text {
+  z-index: 10;
+  color: #fff;
+  font-size: 50px;
+  position: absolute;
+
+  font-weight: 200;
+  width: 100%;
+  padding-top: 0.5em;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.style1 {
+    background: url(https://pacdn.500px.org/5762704/95e5880af48921832829062cf90c3d75df727761/cover_2048.jpg?21) no-repeat center center ;
+    filter: brightness(40%);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    z-index: -1;
+    position: absolute
+
+}
+
+.harness {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 30px;
+	color: #fff;
+	padding-top: 20px;
+}
+
+
+.cover-page-button {
+	background-color: #0099e5;
+	font-family: 'Montserrat', sans-serif;
+	border: #0099e5;
+}
+
+
+
 
 
 			       

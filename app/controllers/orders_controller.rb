@@ -83,35 +83,30 @@ class OrdersController < ApplicationController
      begin
        charge = Stripe::Charge.create(
          :amount => ((@ticket.ticket_price * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
-         :currency => "cad",
-         :source => token,
+         :currency => "usd",
+         :description => "Example charge",
+         :source => token
          #:receipt_email => "andrew.selvadurai6@gmail.com",
-         :destination => {
-          :amount => (@ticket.ticket_price * 100).floor - (@order.stripe_fee * 100).floor,
-          :account => @ticket.event.user.merchant_id 
-        }
+         #:destination => {
+         # :amount => (@ticket.ticket_price * 100).floor - (@order.stripe_fee * 100).floor,
+         # :account => @ticket.event.user.merchant_id 
+           #}
          )
 
        if charge
           OrderMailer.send_email_to_buyer(@order.buyer, @ticket.event).deliver_later
         end
-
        flash[:notice] = "Thanks for ordering!"
-     rescue Stripe::CardError => e
-       flash[:danger] = e.message
+       redirect_to root_url
+
+        rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_ticket_order_path
+
  
      end
 
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to root_url }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-      end
     end
 
 
