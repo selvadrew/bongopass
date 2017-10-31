@@ -7,6 +7,7 @@ class ReferralsController < ApplicationController
 		@event = @referral.order.ticket.event 
 		@photos = @event.photos
     	@tickets = @event.tickets 
+    	@user = User.where(id: @referral.order.buyer_id).first
 	end
 
 

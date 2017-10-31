@@ -51,7 +51,7 @@
           </div>
           <div class="col-md-4">
             <%= label_tag :card_code, "CVC" %>
-            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control", required: true } %>
           </div>
         </div>
       </div>
@@ -63,6 +63,11 @@
           </div>
           <div class="col-md-3">
             <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
+          </div>
+
+          <div class="col-md-3">
+            <%= label_tag :postal_code, "Postal Code" %>
+            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control", required: true } %>
           </div>
         </div>
       </div>

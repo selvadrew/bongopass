@@ -1,4 +1,6 @@
 class UsersController < ApplicationController 
+	before_action :authenticate_user!, only: [:paypal_payout]
+
 	def show 
 		@user = User.find(params[:id])
 	end
@@ -21,5 +23,9 @@ class UsersController < ApplicationController
 	      render :action => 'new'
 	    end
   	end
+
+
+
+
 
 end

@@ -29,6 +29,7 @@ class Event < ApplicationRecord
   validates :organizer_name, presence: true
   validates :organizer_description, presence: false
   validates :event_type, presence: true
+  validates :venue, presence: false
 
 
  

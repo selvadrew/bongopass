@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
-  get '/payout_method' => "users#payout"
+  get '/payout_method' => "users#paypal_payout"
 
   
  

@@ -97,15 +97,22 @@ class OrdersController < ApplicationController
           OrderMailer.send_email_to_buyer(@order.buyer, @ticket.event).deliver_later
         end
        flash[:notice] = "Thanks for ordering!"
-       redirect_to root_url
 
         rescue Stripe::CardError => e
         flash[:error] = e.message
-        redirect_to new_ticket_order_path
+        return redirect_to new_ticket_order_path
 
- 
      end
 
+       respond_to do |format|
+            if @order.save
+              format.html { redirect_to root_url }
+              format.json { render :show, status: :created, location: @order }
+            else
+              format.html { render :new }
+              format.json { render json: @order.errors, status: :unprocessable_entity }
+            end
+            end
 
     end
 
@@ -153,7 +160,7 @@ class OrdersController < ApplicationController
       @all_rewards_used = @rewards_used_array.inject(0, &:+)
     end
 
-    #GETS ALL THE REFERRAL_IDS THAT BELONG TO THE USER, SINcE @ORDERS ARE THE USERS ORDERS
+    #GETS ALL THE REFERRAL_IDS THAT BELONG TO THE USER, SINCE @ORDERS ARE THE USERS ORDERS
     if @orders 
     @referral_id = []
       @orders.each do |order|
@@ -183,17 +190,37 @@ class OrdersController < ApplicationController
           amount = 10
           @reward_value_array << amount
 
-        elsif referral >= 6 && referral <= 9
+        elsif referral >= 6 && referral <= 8
           amount = 20
           @reward_value_array << amount
 
-        elsif referral >= 10 && referral <= 19
-          amount = 35
+        elsif referral >= 9 && referral <= 11
+          amount = 30
           @reward_value_array << amount
 
-        elsif referral >= 20 && referral <= 29
-          amount = 70
+        elsif referral >= 12 && referral <= 14
+          amount = 40
           @reward_value_array << amount
+
+        elsif referral >= 15 && referral <= 17
+          amount = 50
+          @reward_value_array << amount
+
+        elsif referral >= 18 && referral <= 20
+          amount = 60
+          @reward_value_array << amount     
+
+        elsif referral >= 21 && referral <= 23
+          amount = 70
+          @reward_value_array << amount    
+
+        elsif referral >= 24 && referral <= 26
+          amount = 80
+          @reward_value_array << amount    
+
+        elsif referral >= 27 && referral <= 29
+          amount = 90
+          @reward_value_array << amount          
 
         else referral >= 30
           amount = 100

@@ -129,7 +129,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:event_title, :location, :start_date, :start_time, :end_date, :end_time,
                                     :event_description, :organizer_name, :organizer_description, :event_type,
-                                    :facebook_link, :twitter_link, :instagram_link,
+                                    :facebook_link, :twitter_link, :instagram_link, :venue, 
                                     tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy),
                                     questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
                                     speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy),

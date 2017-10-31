@@ -1,29 +1,52 @@
 
-<% @orders.each do |order| %>
-<div>	
-	Event Title: <br>
-	<%= order.ticket.event.event_title %>  <br>
+<div class="container credit-box">
 
-	Event Location: <br>
-	<%= order.ticket.event.location %> <br>
+	<div>
+		Your Bongo Credits 
+	</div>
 
-	Referral ID of the ticket you bought: <br>
-	<%= order.referral.id%><br>
 
-	Number of referrals <br>
-	<%= Order.where(referral_id: order.referral.id).count %>
-	<br>	
-	<br>
-	<% end %>
+	<div>
+		Your Current Balance: <%= @net_rewards_available %>
+	</div>
+
+
+
+
+
+
+
 </div>
 
 
-<%= Order.where(referral_id: @referral_id).group(:referral_id).count %>
-<%= @referral_count %>
-<%= @net_rewards_available %>
+<div class="container">
+	<table>
+	  <thead>
+	    <tr>
+		  <th>Bongo Page</th>
+	      <th>Event</th>
+	      <th>Date</th>
+	      <th>Referrals</th>
+
+	    </tr>
+	  </thead>
+	  <tbody>
+
+	    <% @orders.each do |order| %>
+	     <tr>
+	      <td><%= link_to "Share", referral_path(Referral.find(order.referral.id)) %></td>
+	      <td><%= order.ticket.event.event_title %></td>
+	      <td><%= order.ticket.event.start_date %></td>
+	      <td><%= Order.where(referral_id: order.referral.id).count %></td>
+
+	    <% end %>
 
 
+	  </tbody>
+	</table>
+</div>
 
-
-
+	<%= Order.where(referral_id: @referral_id).group(:referral_id).count %>
+	<%= @referral_count %>
+	<%= @net_rewards_available %>
 
