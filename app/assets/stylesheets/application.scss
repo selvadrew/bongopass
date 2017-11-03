@@ -24,6 +24,10 @@ body, html {
   height: 100%;
 }
 
+.gray-background {
+	background-color: #f7f8fa;
+}
+
 .avatar-small {
 	width: 28px; 
 }
@@ -40,12 +44,6 @@ body, html {
 	width: 100%; 
 }
 
-label {
-	color: #565a5c;
-	font-size: 1.1em;
-	font-weight: 500;
-	margin-bottom: 10px;
-}
 
 .btn:focus {
 	color: white;
@@ -89,6 +87,7 @@ label {
 
 .create-event-title {
 	font-size: 1.5em;
+	text-align: center;
 }
 
 .detail-panel {
@@ -110,6 +109,32 @@ label {
 .date-selection {
 	font: sans-serif;
 }
+
+
+.simple_form label {
+	text-transform: uppercase;
+	font-size: 1em;
+	color: black;
+	font-weight: 500;
+	margin-bottom: 10px;
+
+}
+
+
+.start-date {
+	width: 40%;
+	display: inline-block;
+}
+
+.end-date {
+	width: 40%;
+	display: inline-block;
+}
+
+#basicExample {
+	padding-bottom: 5px;
+}
+
 
 
 
@@ -580,7 +605,7 @@ section.hero {
 }
 
 
-
+/*
 table {
   font-family: 'Arial';
   margin: 25px auto;
@@ -616,6 +641,7 @@ table {
     }
   }
 }
+*/
 
 
 

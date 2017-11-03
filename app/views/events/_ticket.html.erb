@@ -1,35 +1,35 @@
 <section>
-<div class="row">
+<div >
 
 <hr>
-		<div class="row">	
-			<div class="col-md-3 select">	
+		<div>	
+			<div class="select">	
 				<div class="form-group">
 					<%= f.input :ticket_name, placeholder: "Name of ticket", class: "form-control" %>
 				</div>
 			</div>
 
-			<div class="col-md-2 select">	
+			<div>	
 				<div class="form-group">
 					<%= f.input :ticket_quantity, placeholder: "Number of tickets", class: "form-control" %>
 				</div>
 			</div>
 
-			<div class="col-md-2 select">	
+			<div>	
 				<div class="form-group">
 					<%= f.input :ticket_price, :step => "0.01", placeholder: "Price", class: "form-control" %>
 				</div>
 			</div>
 		</div>
 
-		<div class="row">	
-			<div class="col-md-4 select">	
+		<div>	
+			<div >	
 				<div class="form-group">
 					<%= f.input :ticket_description, placeholder: "If ticket value needs to be described", class: "form-control" %>
 				</div>
 			</div>
 
-			<div class="col-md-3 right">	
+			<div>	
 				<%= f.hidden_field :_destroy %>
 				<%= link_to "Delete", '#', class: 'remove_record btn btn-danger' %>
 			</div>

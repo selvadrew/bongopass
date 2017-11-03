@@ -1,11 +1,81 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update]
+  before_action :set_event, only: [:show, :edit, :update, :sold]
   before_action :authenticate_user!, except: [:show]
 
+  def sold
+    @orders = Order.all.where(seller: current_user).order("created_at DESC")
+    @tickets = Ticket.all.where(event_id: @event.id)
+    @event_orders = Order.joins(:ticket).where(tickets: { event_id: @event.id })
+
+
+    #order.ticket.event_id
+  end
 
   def index
     @events = current_user.events
+    @bongopass_purchases = Order.all.where(seller: current_user).count(:referral_id)
+    @referral_id_count_array = Order.all.where(seller: current_user).group(:referral_id).where.not("referral_id" => nil).count
+    @referral_count = @referral_id_count_array.values
+
+    @reward_value_array = []
+    if @referral_count 
+      @referral_count.each do |referral|
+        
+        if referral <= 1
+          amount = 0 
+          @reward_value_array << amount 
+        
+        elsif referral == 2 
+          amount = 5
+          @reward_value_array << amount
+
+        elsif referral >= 3 && referral <= 5
+          amount = 10
+          @reward_value_array << amount
+
+        elsif referral >= 6 && referral <= 8
+          amount = 20
+          @reward_value_array << amount
+
+        elsif referral >= 9 && referral <= 11
+          amount = 30
+          @reward_value_array << amount
+
+        elsif referral >= 12 && referral <= 14
+          amount = 40
+          @reward_value_array << amount
+
+        elsif referral >= 15 && referral <= 17
+          amount = 50
+          @reward_value_array << amount
+
+        elsif referral >= 18 && referral <= 20
+          amount = 60
+          @reward_value_array << amount     
+
+        elsif referral >= 21 && referral <= 23
+          amount = 70
+          @reward_value_array << amount    
+
+        elsif referral >= 24 && referral <= 26
+          amount = 80
+          @reward_value_array << amount    
+
+        elsif referral >= 27 && referral <= 29
+          amount = 90
+          @reward_value_array << amount          
+
+        else referral >= 30
+          amount = 100
+          @reward_value_array << amount
+
+        end
+      end
+    end
+
+    @all_rewards_earned = @reward_value_array.inject(0, &:+)
   end
+
 
   def show
     @photos = @event.photos
@@ -119,6 +189,8 @@ class EventsController < ApplicationController
       render :edit
     end
   end
+
+
 
 
   private

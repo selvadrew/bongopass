@@ -1,0 +1,44 @@
+<div class="container">
+	
+<% @event_orders.each do |order| %>
+	<div class="row">	
+		<%= order.ticket.event.event_title %>
+	</div>
+	<div class="row">	
+		<%= order.buyer.fullname %>
+	</div>
+	<div class="row">	
+		<%= order.ticket.ticket_name %>
+	</div>
+	<br>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+
+<% @tickets.order(:ticket_price).each do |ticket| %>
+	<div class="row">	
+		<b><%= ticket.ticket_name %> </b>
+	</div>
+
+	<div class="row">	
+		<%= ticket.ticket_price %>
+	</div>
+
+
+	<% ticket.orders.order(:created_at).each do |orders| %>
+		<div class="row">
+			<%= orders.buyer.fullname %>
+			<%= orders.buyer.email %>
+			<%= orders.buyer.created_at.strftime('%b %e') %>
+		</div>
+	<% end %>	
+
+
+	<br>
+<% end %>
+
+
+</div>

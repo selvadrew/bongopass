@@ -1,10 +1,9 @@
-
 <div class="row">
 
 	<div class="col-md-3 boxed">
 		<div class="boxed-text">
 			<div class="box-data">
-				10
+				<%= @events.count %>
 			</div>
 			<div class="box-description">
 			TOTAL EVENTS
@@ -15,36 +14,28 @@
 	<div class="col-md-3 boxed">
 		<div class="boxed-text">
 			<div class="box-data">
-				40
+				<%= @bongopass_purchases %>
 			</div>
 			<div class="box-description">
-			ATTENDEES REWARDED
+			SALES GENERATED FROM AN ATTENDEES BONGOPASS PAGE
 			</div>
+<!-- After an attendee purchases a ticket they have access to a personalized bongopass page to share with friends. This is the total count of purchases from all of your attendees' bongopass pages -->
 		</div>
 	</div>
 
 	<div class="col-md-3 boxed">
 		<div class="boxed-text">
 			<div class="box-data">
-				$200
+				$<%= @all_rewards_earned %>
 			</div>
 			<div class="box-description">
-			CREDITED TO MY ATTENDEES
+			CREDITED TO MY ATTENDEES BY BONGOPASS
 			</div>
-
+<!-- The total amount Bongopass has credited your attendees. Attendees will be able to use their credits for all future events on Bongopass, including yours! This credit is paid out from Bongopass fees collected from all events on our platform and does not include any of your ticket sales. -->
 		</div>
 	</div>	
 
-	<div class="col-md-3 boxed">
-		<div class="boxed-text">
-			<div class="box-data">
-				$1000
-			</div>
-			<div class="box-description">
-			CREDITS USED TO BUY MY TICKETS
-			</div>
-		</div>
-	</div>		
+	
 	
 
 
@@ -84,7 +75,7 @@
 					</div>
 					
 					<div class="col-md-2 ">
-						<%= link_to "Tickets Sold", sales_path(event), class: "btn btn-primary"%>
+						<%= link_to "Tickets Sold", sold_event_path(event), class: "btn btn-primary"%>
 					</div>
 				</div>
 			<% end %>

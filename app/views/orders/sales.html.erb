@@ -1,4 +1,5 @@
-
+<div class="container">
+	
 <% @orders.each do |order| %>
 	<div class="row">	
 		<%= order.ticket.event.event_title %>
@@ -6,4 +7,8 @@
 	<div class="row">	
 		<%= order.buyer.fullname %>
 	</div>
-			<% end %>
+	<br>
+<% end %>
+
+
+</div>

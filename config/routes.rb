@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :speakers, only: [:create, :destroy]
   resources :sponsors, only: [:create, :destroy]
   resources :images, only: [:create, :destroy]
+
   
   
   resources :events do 
@@ -28,6 +29,12 @@ Rails.application.routes.draw do
     end
   end
 
+
+resources :events, only: [:index] do 
+  member do 
+    get 'sold'
+  end
+end
 
   root 'pages#home'
   get 'sales' => "orders#sales"
