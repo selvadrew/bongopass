@@ -4,8 +4,11 @@
 
 		<div class="container">	
 			<h1 class="create-event-title">
-			Let's Create Your Event
+				Let's Create Your Event
 			</h1>
+			<h2 class="explain-requirement">
+				To help attendees discover your event, all fields are required.  
+			</h2>
 
 			<%= simple_form_for @event, html: {multipart: true} do |f| %>
 			<%= f.error_notification %>
@@ -41,8 +44,8 @@
 				<!-- Date and Time Selection -->
 				    <p id="basicExample">
 				    	<label class="date-selection"> Begins </label> <br>
-				        <%= f.date_field :start_date, type: "text", class: "date start input_box form-control start-date", value: f.object.start_date.try(:strftime,"%d/%m/%Y"), placeholder: "Date" %>
-				        <%= f.time_field :start_time, type: "text", class: "time start input_box form-control end-date", value: f.object.start_time.try(:strftime,"%l:%M.%p"), placeholder: "Time" %> 
+				        <%= f.date_field :start_date, type: "text", class: "date start input_box form-control start-date", value: f.object.start_date.try(:strftime,"%d/%m/%Y"), placeholder: "Date"%>
+				        <%= f.time_field :start_time, type: "text", class: "time start input_box form-control start-date", value: f.object.start_time.try(:strftime,"%l:%M.%p"), placeholder: "Time" %> 
 				        <br> <br> 
 				        <label class="date-selection"> Ends </label> 
 				        <br>
@@ -53,7 +56,7 @@
 
 				<!-- END.. Date and Time Selection -->
 
-				<div class="row">	
+				<div class="row event-description-div">	
 					<div class="col-md-8 select">	
 						<div class="form-group event-description-title">
 							<%= f.input :event_description, as: :summernote  %>
@@ -66,7 +69,10 @@
 				<div class="row">	
 					<div class="col-md-4">	
 						<div class="form-group">
-								<%= file_field_tag "images[]", type: :file %>
+							<label>COVER PHOTO</label>
+							<div class="cover-photo-box">
+								<%= file_field_tag "images[]", type: :file, required: true %>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -74,6 +80,8 @@
 
 
 				<div id="photos"><%= render 'photos/list' %></div>
+
+				<hr class="ticket-hr">	
 
 
 				<!-- View Ticket -->
@@ -91,7 +99,7 @@
 
 
 				<div class="form-actions">	
-					<%= link_to_add_row_t('Add Ticket', f, :tickets, class: "btn btn-primary") %>
+					<%= link_to_add_row_t('New Ticket', f, :tickets, class: "btn new-ticket-button") %>
 				</div>
 
 
@@ -156,6 +164,7 @@
 					</div>
 				</div>
 
+<% if false %>
 				<div class="row">	
 					<div class="col-md-4 select">	
 						<div class="form-group">
@@ -185,12 +194,14 @@
 						</div>
 					</div>
 				</div>
+<% end %>
 
 
 
-
+				<div class="create-button-position">
 				<div class="actions">	
-					<%= f.submit "Save", class: "btn btn-primary" %>
+					<%= f.submit "Create", class: "btn form-create-button" %>
+				</div>
 				</div>
 
 			<% end %>

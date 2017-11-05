@@ -83,24 +83,24 @@ class EventsController < ApplicationController
     @speakers = @event.speakers
     @sponsors = @event.sponsors
 
-    set_meta_tags title: @event.event_title,
-            site: 'Bongo Pass',
-            reverse: true,
-            description:        @event.organizer_name, 
-            twitter: {
-              card:             "summary",
-              site:             "@event",
-              title:            @event.event_title,
-              description:      @event.organizer_name,
-              image:            @photos[0].image.url(:original)
-            },
-            og: {
-              title:            @event.event_title,
-              description:      @event.organizer_name,
-              type:             'article',
-              url:              event_url(@event),
-              image:            @photos[0].image.url(:original)
-            }#,
+   # set_meta_tags title: @event.event_title,
+   #         site: 'Bongo Pass',
+   #         reverse: true,
+   #         description:        @event.organizer_name, 
+   #         twitter: {
+   #           card:             "summary",
+   #           site:             "@event",
+   #           title:            @event.event_title,
+   #           description:      @event.organizer_name,
+   #           image:            @photos[0].image.url(:original)
+   #         },
+   #         og: {
+   #           title:            @event.event_title,
+   #           description:      @event.organizer_name,
+   #           type:             'article',
+   #           url:              event_url(@event),
+   #            image:            @photos[0].image.url(:original)
+   #         }#,
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
             #  { href: 'http://example.com/feed.rss', type: 'application/rss+xml', title: 'RSS' }

@@ -3,9 +3,15 @@
 <div class="gray-background" >
 	<div class="cover-photo-container">	
 		<!-- Image -->
-		<div>
-		<%= image_tag @photos[0].image.url(:medium), class: "img-responsive cover-photo"%>
-		</div>
+		<%if @photos.present? %>
+			<div>
+			<%= image_tag @photos[0].image.url(:medium), class: "img-responsive cover-photo"%>
+			</div>
+		<% else %>
+			<div class="photo-request">
+				Please upload a cover photo. All events on Bongopass require a photo. 
+			</div>
+		<% end %>
 	</div>
 
 
@@ -133,7 +139,10 @@
 				  data-text="Check out <%= @event.event_title %>"
 				  data-url="<%= event_url(@event) %>"
 				  data-related="twitterapi,twitter"
-				  data-image="<%=@photos[0].image.url(:original)%>">
+				  <% if @photos.present? %>
+				  data-image="<%=@photos[0].image.url(:original)%>"
+				  <% end %>
+				  >
 				Share on Twitter
 				</a>
 			</div>
@@ -218,8 +227,9 @@
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="<%= @event.event_title %>" />
 <meta property="og:description"        content="<%= @event.organizer_name %>" />
+<%if @photos.present? %>
 <meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
-
+<% end %>
 
 
 

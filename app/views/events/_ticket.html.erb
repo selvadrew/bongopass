@@ -1,23 +1,21 @@
 <section>
 <div >
 
-<hr>
 		<div>	
 			<div class="select">	
 				<div class="form-group">
-					<%= f.input :ticket_name, placeholder: "Name of ticket", class: "form-control" %>
+					<%= f.input :ticket_name, placeholder: "General Admission", class: "form-control" %>
 				</div>
 			</div>
 
-			<div>	
-				<div class="form-group">
-					<%= f.input :ticket_quantity, placeholder: "Number of tickets", class: "form-control" %>
-				</div>
-			</div>
 
-			<div>	
-				<div class="form-group">
-					<%= f.input :ticket_price, :step => "0.01", placeholder: "Price", class: "form-control" %>
+			<div class="cover-quantity-price-box">
+				<div class="quantity-price-box">	
+						<%= f.input :ticket_quantity, placeholder: "300", class: "form-control", label: "Quantity" %>
+				</div>
+
+				<div class="quantity-price-box">	
+						<%= f.input :ticket_price, :step => "0.01", placeholder: "$20.00", class: "form-control", label: "Price" %>
 				</div>
 			</div>
 		</div>
@@ -25,18 +23,16 @@
 		<div>	
 			<div >	
 				<div class="form-group">
-					<%= f.input :ticket_description, placeholder: "If ticket value needs to be described", class: "form-control" %>
+					<%= f.input :ticket_description, placeholder: "If the ticket's rights need clarification", class: "form-control" %>
 				</div>
 			</div>
 
-			<div>	
+			<div class="remove-ticket-button">	
 				<%= f.hidden_field :_destroy %>
-				<%= link_to "Delete", '#', class: 'remove_record btn btn-danger' %>
+				<%= link_to "Remove", '#', class: 'remove_record btn btn-default' %>
 			</div>
 		</div>
 
-
-
-<hr>	
-	</div>
+</div>
+<hr class="ticket-hr">	
 </section>

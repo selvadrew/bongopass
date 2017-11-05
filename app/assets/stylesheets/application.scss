@@ -87,7 +87,12 @@ body, html {
 
 .create-event-title {
 	font-size: 1.5em;
-	text-align: center;
+	text-align: left;
+}
+
+.explain-requirement{
+	font-size: 0.75em;
+	text-align: left;
 }
 
 .detail-panel {
@@ -117,7 +122,6 @@ body, html {
 	color: black;
 	font-weight: 500;
 	margin-bottom: 10px;
-
 }
 
 
@@ -126,14 +130,70 @@ body, html {
 	display: inline-block;
 }
 
-.end-date {
-	width: 40%;
-	display: inline-block;
-}
 
 #basicExample {
 	padding-bottom: 5px;
 }
+
+.form-control {
+	height: 40px;
+}
+
+.event-description-div {
+	padding-bottom: 15px;
+}
+
+.quantity-price-box {
+	width: 45%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.cover-quantity-price-box {
+	display: block;
+}
+
+.remove-ticket-button {
+	display: block;
+	text-align: right;
+}
+
+.ticket-hr {
+	display: block;
+	background-color: rgba(0, 153, 229, 0.37);
+	color: rgba(0, 153, 229, 0.37);
+	border: none;
+	height: 3px;
+}
+
+.new-ticket-button {
+	background-color: #0099e5;
+	color: white;
+}
+
+.form-create-button {
+	background-color: #34bf49;
+	color: white;
+}
+
+.create-button-postion {
+	text-align: right;
+	display: block;
+	padding-bottom: 30px;
+	width: 100%;
+}
+
+.cover-photo-box {
+	border-style: outset ;
+	width: 100% ;
+	padding: 5px;
+	overflow: hidden;
+}
+
+
+
+
+
 
 
 
@@ -400,6 +460,12 @@ body, html {
 
 .referral-header {
 	padding: 20px;
+}
+
+.photo-request {
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
 }
 
 @media screen and (min-width: 800px) {
