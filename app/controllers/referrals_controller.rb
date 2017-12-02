@@ -8,6 +8,10 @@ class ReferralsController < ApplicationController
 		@photos = @event.photos
     	@tickets = @event.tickets 
     	@user = User.where(id: @referral.order.buyer_id).first
+    	@current_purchases = Order.where(referral_id: @referral.id).count
+    	@friends_joined = Order.where(referral_id: @referral.id)
+    	@bongopass_fee = 3.50
+
 	end
 
 

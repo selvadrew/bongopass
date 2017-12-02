@@ -1,6 +1,10 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+<div class="set-background">
+<div class="container center">
 <div class="row">
 
-	<div class="col-md-3 boxed">
+	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
 				<%= @events.count %>
@@ -11,41 +15,36 @@
 		</div>
 	</div>
 
-	<div class="col-md-3 boxed">
+	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
 				<%= @bongopass_purchases %>
 			</div>
 			<div class="box-description">
-			SALES GENERATED FROM AN ATTENDEES BONGOPASS PAGE
+			SALES GENERATED FROM YOUR ATTENDEES
 			</div>
 <!-- After an attendee purchases a ticket they have access to a personalized bongopass page to share with friends. This is the total count of purchases from all of your attendees' bongopass pages -->
 		</div>
 	</div>
 
-	<div class="col-md-3 boxed">
+	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
 				$<%= @all_rewards_earned %>
 			</div>
 			<div class="box-description">
-			CREDITED TO MY ATTENDEES BY BONGOPASS
+			CREDITED TO YOUR ATTENDEES BY BONGOPASS
 			</div>
 <!-- The total amount Bongopass has credited your attendees. Attendees will be able to use their credits for all future events on Bongopass, including yours! This credit is paid out from Bongopass fees collected from all events on our platform and does not include any of your ticket sales. -->
 		</div>
 	</div>	
-
-	
-	
-
-
 </div>
 
 <br>
 <br>
 
 <div class="container">	
-
+<div class="index-event-container">
 	<div class=" panel-default">
 		<div class="panel-heading">
 			MY EVENTS	
@@ -53,34 +52,44 @@
 		<div class="panel-body">
 			
 			<% @events.order(:start_date).reverse.each do |event| %>
-				<div class="row">
-					<div class="col-md-2">
-						<%= image_tag event.photos[0].image.url(:thumb) if event.photos.length > 0  %>
-					</div>
+				<div class="row event-row">
 
-					<div class="col-md-2">
+					<div class="col-md-4 index-event-title">
 						<h4> <%= event.event_title %></h4>
 					</div>
 
-					<div class="col-md-2">
-						<h4> <%= event.start_date.to_time.strftime('%a, %B %d') %></h4>
+					<div class="col-md-3">
+						<h4> <%= event.start_date.to_time.strftime('%A, %B %d') %></h4>
 					</div>
 
-					<div class="col-md-2 ">
-						<%= link_to "Update", edit_event_path(event), class: "btn btn-primary", data: {turbolinks: false}%>
+					<div class="col-md-1">
+						<h4> <%= Order.joins(:ticket).where(tickets: { event_id: event.id }).count %>/<%= Order.joins(:ticket).where(tickets: { event_id: event.id }).count + event.tickets.where(event_id: event.id).sum(:ticket_quantity) %></h4>
 					</div>
 
-					<div class="col-md-2 ">
-						<%= link_to "View", event_path(event), class: "btn btn-primary"%>
+					<div class="col-md-1">
+						<h4> <%= number_to_currency(Order.joins(:ticket).where(tickets: { event_id: event.id }).sum(:organizer_sales)) %> </h4>
+					</div>
+
+					<div class="col-md-1 col-xs-4 ">
+						<%= link_to "Update", edit_event_path(event), class: "btn btn-primary index-buttons", data: {turbolinks: false}%>
+					</div>
+
+					<div class="col-md-1 col-xs-4 ">
+						<%= link_to "View", event_path(event), class: "btn btn-primary index-buttons"%>
 					</div>
 					
-					<div class="col-md-2 ">
-						<%= link_to "Tickets Sold", sold_event_path(event), class: "btn btn-primary"%>
+					<div class="col-md-1 col-xs-4 ">
+						<%= link_to "Sales", sold_event_path(event), class: "btn btn-primary index-buttons"%>
 					</div>
+
+
+
 				</div>
 			<% end %>
 		</div>
 	</div>
 
-
+</div>
+</div>
+</div>
 </div>

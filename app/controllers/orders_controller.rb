@@ -34,6 +34,19 @@ class OrdersController < ApplicationController
     @ticket = Ticket.find(params[:ticket_id])
     @order.referral_id = session[:referral]
     @referral = Referral.find(session[:referral]) if session[:referral]
+    @bongopass_fee = 3.50
+
+    #calculate how much rewards are used 
+    if @net_rewards_available >= @ticket.ticket_price
+      @order.rewards_used = @ticket.ticket_price 
+    elsif @net_rewards_available == 0 
+      @order.rewards_used = 0 
+    else 
+      @order.rewards_used = @net_rewards_available 
+    end
+
+    @payment_amount = (@ticket.ticket_price - @order.rewards_used) + @bongopass_fee
+
   end
 
   # GET /orders/1/edit
@@ -84,7 +97,7 @@ class OrdersController < ApplicationController
      begin
        charge = Stripe::Charge.create(
          :amount => ((@ticket.ticket_price * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
-         :currency => "usd",
+         :currency => @ticket.event.event_currency,
          :description => "Example charge",
          :source => token
          #:receipt_email => "andrew.selvadurai6@gmail.com",
@@ -107,7 +120,7 @@ class OrdersController < ApplicationController
 
        respond_to do |format|
             if @order.save
-              format.html { redirect_to root_url }
+              format.html { redirect_to referral_path(@order.referral) }
               format.json { render :show, status: :created, location: @order }
             else
               format.html { render :new }
@@ -129,7 +142,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :city, :province)
+      params.require(:order).permit(:first_name, :last_name)
     end
 
     def update_inventory

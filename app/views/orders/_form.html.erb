@@ -1,16 +1,70 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
 
 
-<div class="row"> 
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <%= image_tag @ticket.event.photos[0].image.url %>
+<div class="order-container"> 
+<div class="container big-container order-page-row">
+<div class="row order-page-row"> 
+  <div class="col-xs-12 col-sm-5 col-md-5">
+    <div class="order-picture">
+      <%= image_tag @ticket.event.photos[0].image.url(:medium) %>
     </div>
-    <h3><%= @ticket.event.event_title %></h3>
-    <h3><%= @ticket.ticket_name %></h3>
-    <h4><%= number_to_currency(@ticket.ticket_price) %></h4>
+    <h3 class="o-event-title"><%= @ticket.event.event_title %></h3>
+    <div class="pass-information">
+      <div class="o-ticket-name">
+        <h4>Pass Name: <%= @ticket.ticket_name %></h4>    
+      </div>
+
+      <div class="price-credit-wrapper">
+        <div class="price-credit-title">
+          <h5 class="price-title">Price</h5>
+          <h5 class="credit-title">Credits Applied</h5>
+        </div>
+
+        <div class="price-credit-data">
+          <h5><%= number_to_currency(@ticket.ticket_price + @bongopass_fee) %></h5>
+          <h5><span class="minus-sign">-</span><%= number_to_currency(@order.rewards_used) %> </h5> 
+        </div>
+      </div>
+
+      <div class="total-wrapper">
+        <div class="total-title">
+           <h5 class="total-title-text">Total</h5>
+        </div>
+        <div class="total-data">
+          <h5 class="total-data-text"><%= number_to_currency(@payment_amount) %> </h5>
+        </div>
+      </div>
+
+      <div class="delivery-method">
+        Delivery Method 
+      </div>
+
+      <div class="will-call">
+        Will Call: Please arrive at the venue with your photo ID and confirmation email. 
+      </div>
+
+      <div class="refund-policy">
+        Refund Policy 
+      </div>
+
+      <div class="will-call">
+        No refunds.
+      </div>
+
+
+
+    </div>
   </div>
 
-  <div class="col-md-8">
+
+
+
+
+
+
+
+
+  <div class="col-xs-12 col-sm-7 col-md-7 order-page-row">
     <%= form_for([@ticket, @order]) do |form| %>
       <% if order.errors.any? %>
         <div id="error_explanation">
@@ -28,55 +82,79 @@
         <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
       </div>
 
-      <div class="field">
-        <%= form.label :address %>
-        <%= form.text_field :address, id: :order_address %>
+      <div class="name-title">
+        Full Name of Attendee 
       </div>
 
-      <div class="field">
-        <%= form.label :city %>
-        <%= form.text_field :city, id: :order_city %>
-      </div>
-
-      <div class="field">
-        <%= form.label :province %>
-        <%= form.text_field :province, id: :order_province %>
-      </div>
-
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-8">
-            <%= label_tag :card_number, "Credit Card Number" %>
-            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
-          </div>
-          <div class="col-md-4">
-            <%= label_tag :card_code, "CVC" %>
-            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control", required: true } %>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= label_tag nil, "Expiration Date" %>
-        <div class="row">
-          <div class="col-md-3">
-            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" } %>
-          </div>
-          <div class="col-md-3">
-            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
-          </div>
-
-          <div class="col-md-3">
-            <%= label_tag :postal_code, "Postal Code" %>
-            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control", required: true } %>
-          </div>
+      <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <div class="field">
+              <%= form.text_field :first_name, id: :first_name, placeholder: "First Name", class: "form-control", required: true %>
+            </div>
         </div>
       </div>
 
 
-      <div class="actions">
-        <%= form.submit "Complete Order", class: "btn btn-success" %>
+      <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <div class="field">
+              <%= form.text_field :last_name, id: :last_name, placeholder: "Last Name", class: "form-control", required: true %>
+            </div>
+        </div>
       </div>
+
+
+      <div class="payment-title">
+        Pay by Credit Card
+      </div>
+
+      <div class="form-group">
+        <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control", placeholder: "Credit Card Number" } %>
+          </div>
+        </div>
+
+        <div class="row payment-rows">
+
+          <div class="col-md-5 col-xs-8 order-alignment ">
+            <div class="expiration-date-month">
+            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control", placeholder:"Month" } %>
+            </div>
+
+            <div class="expiration-date-year">
+            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control", placeholder:"Year" } %>
+            </div>
+          </div>
+          
+          <div class="col-md-3 col-xs-4">
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control", required: true, placeholder: "CVC" } %>
+          </div>
+
+        </div>
+
+
+        
+        <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control", required: true, placeholder: "Zip Code" } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row payment-rows">
+      <div class="col-md-8 order-alignment ">
+        <div class="actions">
+          <%= form.submit "Complete Order", class: "btn btn-success order-page-button" %>
+        </div>
+      </div>
+      </div>
+
+
+
     <% end %>
   </div>
+</div>
+</div>
 </div>
 

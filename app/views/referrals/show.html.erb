@@ -1,17 +1,317 @@
-<div class="referral-header">
-	<% unless current_user.blank? %>
-	Hey <%= current_user.fullname %>,
-	<% end %>
-	<%= @user.fullname %> is going to this event and has invited you to attend. Check it out. 
-</div>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+<div class="font-set-show-page">
 
-<div >
-	<div class="cover-photo-container">	
-		<!-- Image -->
-		<div>
-		<%= image_tag @photos[0].image.url(:medium), class: "img-responsive cover-photo"%>
+<% if current_user.present? && current_user.id == @referral.order.buyer_id %>
+
+	<div class="clearfix page-header container big-container page-header-referral">
+
+
+
+	<div class="row">
+		<div class="event-content col-xs-12 col-sm-6 col-md-6">
+
+			<p class="you-are-going-top">
+				Woohoo, you're going! Now you can share your Pass and receive up to $100 for helping your friends discover this experience.<br>
+			</p>
+
+			<div class="invite-explanation">
+			Know any friends that may be interested in this event? BongoPass will credit your account with <b>$10 for every 3 passes purchased on this page, up to a maximum of $100</b>. You can use this credit towards any future event on BongoPass!
+
+			</div>
+ 			<br>
+
+		</div>
+
+
+
+		<div class="col-xs-12 col-sm-6 col-md-6 boxy">
+
+			<div class="boxed boxed-add">
+			<div class="boxed-text boxed-text-add">
+				<div class="box-data box-data-add">
+					<%= @current_purchases %>
+				</div>
+				<div class="box-description box-description-add">
+					<% if @current_purchases == 1 %>
+	 					friend is joining you! 
+	 				<% else %>
+	 					friends are joining you!
+	 				<% end %>
+				</div>
+
+					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
+						Show Friends 	
+					</div>
+
+
+
+
+ 			</div>
+ 			</div>
+
+ 			<div class="holder-social-media-share-buttons">
+
+				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
+
+
+				<a class="btn social-media-share-buttons-twitter"
+				  href="https://twitter.com/share"
+				  data-size="large"
+				  data-text="Check out <%= @event.event_title %>"
+				  data-url="<%= event_url(@event) %>"
+				  data-related="twitterapi,twitter"
+				  <% if @photos.present? %>
+				  data-image="<%=@photos[0].image.url(:original)%>"
+				  <% end %>
+				  >
+				Share on Twitter
+				</a>
+
+ 				<!-- Trigger -->
+				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
+				    Copy to Clipboard
+				</button>
+
+ 				<!-- Target -->
+				<div id="bar"><%= referral_url(@referral) %></div>
+
+
+			</div>
+
+
+ 			<div class="only-you-can-see-mobile">
+ 				Note: When you share this page, others will only see the event content below. <i class="fa fa-arrow-down" aria-hidden="true"></i>
+ 				<br> 
+ 			</div>
 		</div>
 	</div>
+
+
+ 	<div class="only-you-can-see">
+		Note: When you share this page, others will only see the event content below. <i class="fa fa-arrow-down" aria-hidden="true"></i>
+		<br>
+	</div>
+
+
+	</div>
+
+<% end %>
+
+
+
+	<div class="modal fade" id="friends-modal">
+		<div class="modal-dialog">	
+			<div class="modal-content">
+				<div class="modal-header text-center modal-header-joined">
+					Friends joining <%= @referral.order.first_name %>   
+				</div>
+				
+				<div class="modal-body">
+					<div class="friends-joined">
+						<% @friends_joined.order(:created_at).each do |friends|%>
+							<div class="friends-name">
+								<%= friends.buyer.fullname %>
+							</div>	
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+<div class="top-color-section">
+	<div class="clearfix page-header container big-container ">
+
+			  	<div class="event-venue-section invite-section-for-mobile">
+	           		<p class="invite-sentence">
+	           			<span class="inviter-name"> <%= @referral.order.first_name %> <%= @referral.order.last_name %> </span> 
+	           			is going to this event and has invited you to attend. Check it out! <br>
+	           			<% if @friends_joined.count > 0 %>
+		           			<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
+								Show friends joining <%= @referral.order.first_name %>  	
+							</div>
+						<% end %>
+	           		</p>
+	           	</div>
+
+
+	<p class="event-organizer-presents">
+		<%= @event.organizer_name %> Presents:
+	</p>
+
+		<div class="row">
+			<div class="event-content col-xs-12 col-sm-7 col-md-8">
+				<div class="event-title-date">
+				<h1 class="headline-event-title"><%= @event.event_title %> </h1>
+
+
+				<div class="calendar-map-wrapper">
+					<div class="alignment-wrapper">
+					<div class="event-section-w-on">
+						<h5 class="on-only">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</h5>
+						<h5 class="headline-event-date"><%= @event.start_date.strftime('%A, %B %e') %> <br> <%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %>
+						</h5>
+					</div>
+
+					<div class="event-section-w-on ">
+						<h5 class="on-only">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</h5>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map see-location" href="#show-map">View Address</a>
+						</h5>
+					</div>
+					</div>
+				</div>
+
+
+				</div><!--titles-->
+	  		</div>
+
+	  		<div class="col-xs-12 col-sm-5 col-md-4">
+	  			<div class="event-venue-section">
+	           		<p class="invite-sentence">
+	           			<span class="inviter-name"> <%= @referral.order.first_name %> <%= @referral.order.last_name %></span> is going to this event and has invited you to attend. Check it out!
+						<% if @friends_joined.count > 0 %>
+		           			<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
+								Show friends joining <%= @referral.order.first_name %>	
+							</div>
+						<% end %>
+	           		</p>
+	           	</div>
+	   		</div>
+		</div>
+	</div>
+</div>
+
+<div class="container big-container">
+
+
+<div class="col-xs-12 col-sm-7 col-md-8 main-content-section">
+
+	<div class="cover-photo-container">	
+		<!-- Image -->
+		<%if @photos.present? %>
+			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+		<% else %>
+			<div class="photo-request">
+				Please upload a cover photo. All events on Bongopass require a photo. 
+			</div>
+		<% end %>
+	</div>
+
+
+		<!-- Event Description -->
+
+	<div class="event-description">
+		<div class="description-title">DESCRIPTION</div>
+		<%= @event.event_description.html_safe %>
+	</div>
+
+	<% if @event.organizer_description %>
+
+	<div class="event-organizer-block">
+		<div class="description-title">
+			ABOUT THE HOST 
+		</div>
+		<div class="show-organizer-description">
+			<%= @event.organizer_description %>
+		</div>
+	</div>
+
+	<% end %>
+
+
+</div>
+
+
+
+
+<div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile">
+
+	<div class="ticket-wrapper-for-mobile">
+		<div class="description-title no-display-larger">
+			SELECT YOUR PASS
+		</div>
+
+	<% @tickets.order(:ticket_price).each do |ticket| %>
+
+	<% if ticket.ticket_quantity > 0 %>
+
+	<%= link_to new_ticket_order_path(ticket), data: { turbolinks: false } do %>
+
+		<div class="ticket-box clearfix hvrbox">
+		    <div class="hvrbox-layer_top">
+		          <div class="hvrbox-text">
+		            Get Pass
+		          </div>
+		    </div>
+
+
+			<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+				<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+				<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+			</div>
+
+			<div>
+				<p class="btn-tickets-modal-page hvrbox-layer_bottom"> <%= number_to_currency(ticket.ticket_price + @bongopass_fee) %> </p>	
+			</div>
+
+
+		</div>
+
+		<% end %>
+
+		<% else %>
+
+		<div class="ticket-box clearfix hvrbox">
+		    <div class="hvrbox-layer_top">
+		    	  <div class="hvrbox-text">
+		            Sold Out
+		          </div>
+
+
+		    </div>
+
+
+			<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+				<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+				<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+			</div>
+
+			<div>
+				<p class="btn-tickets-modal-page hvrbox-layer_bottom"> Sold Out </p>	
+			</div>
+
+
+		</div>
+
+		<% end %>
+
+
+	<% end %>	
+
+
+
+	</div>
+
+
+	<div class="messenger-button">
+		<a id="messengerBtn" class="btn btn-default social-media-share-buttons-messenger"><span class="align">Plan Your Experience With Friends</span></a>
+	</div>
+	
+</div>
+
 
 
 
@@ -20,117 +320,37 @@
 		<!-- Main Info -->
 		<div class="main-info">
 
-
-			<h4 class="event-title"> <%= @event.event_title %> </h4>
 			
 		<!-- onatby stuff -->
 			<div class="onatby-first-container">	
 			<div class="onatby-second-container">
-			<!-- Start Date -->
-			<div class="onatby-section" >
-				<div class="onatby-block">
-					<div class="onatby-color-box-on">on</div>
-				</div>
-				<div class="onatby-block-content">
-					<%if @event.start_date == @event.end_date %>
-						<p> <%= @event.start_date.strftime('%A, %B %e') %> <br>
-							<%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %>
-						</p>
-					<% else %>
-						<p> <%= @event.start_date.strftime('%B %e') %> - <%= @event.end_date.strftime('%B %e') %> <br>
-							<%= @event.start_time.strftime('%l:%M%p') %> 
-						</p>
-					<% end %>
-				</div>
+
+
+
+
+
+
+
+
+<!-- old host with dash line 
+			<div class="organizer-section">
+				<p class="organizer-host">host</p> 
+				<p class="organizer-blue-name"> <%= @event.organizer_name %> </p> 
 			</div>
-
-			
-			<!-- Venue -->
-			<div class="onatby-section">
-				<div class="onatby-block">
-					<div class="onatby-color-box-at">at</div>
-				</div>
-
-				<div class="onatby-block-content">
-					<%if @event.venue %>
-							<p class="test"> <%= @event.venue %> <br> <%= @event.location %> </p>
-					<% else %>
-							<p> <%= @event.location %> </p>
-					<% end %>
-				</div>
-			</div>
-
-			<!-- Organizer -->
-			<%if @event.organizer_name %>
-			<div class="onatby-section">
-				<div class="onatby-block">
-					<div class="onatby-color-box-by">by</div>
-				</div>
-				<div class="onatby-block-content">
-					<p> <%= @event.organizer_name %> </p>
-				</div>
-			</div>
-			<% end %>
-			</div>
-			</div>
-
-
-			<!-- Ticket -->
-
-			<div>
-				<div class="ticket-button-holder">
-				<button class="btn btn-tickets-referral-page" type="button" data-toggle="modal" data-target="#ticket-modal">
-					Join <%= @user.fullname %>	
-				</button>
-				</div>
-
-				<div class="modal fade" id="ticket-modal">	
-					<div class="modal-dialog">	
-						<div class="modal-content">
-							<div class="modal-header text-center">
-								One Ticket Maximum 
-							</div>
-							
-
-							<div class="modal-body">
-								<div class="ticket-info-section">
-								<% @tickets.order(:ticket_price).each do |ticket| %>
-									<div class="ticket-box clearfix">
-									<div class="ticket-name-price-desc">							
-										<p> <%= ticket.ticket_name %> </p>
-										<p> <%= number_to_currency(ticket.ticket_price) %> </p>
-										<p> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
-									</div>
-									<div> 
-										<%= if ticket.ticket_quantity > 0 
-												link_to "Select", new_ticket_order_path(ticket), class: "btn btn-tickets-modal-page", data: { turbolinks: false }
-											else 
-												link_to "Sold Out", event_path(@event), class: "btn btn-tickets-modal-page-sold-out" end %>
-									</div>
-									</div>
-									<hr>
-								<% end %>							
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+-->
 
 
 
-			<!-- Event Description -->
-
-			<div class="event-description">
-				<div class="description-title">DESCRIPTION</div>
-				<%= @event.event_description.html_safe %>
-			</div>
+	
 
 
+
+
+<%if false %>
 			<!-- Share Buttons -->
 			<div class="holder-social-media-share-buttons">
 				<div id="shareBtn" class="btn btn-default social-media-share-buttons-fb">Share on Facebook</div>
-				<a id="messengerBtn" class="btn btn-default social-media-share-buttons-messenger">Send to Messenger</a>
+
 
 				<a class="btn btn-default social-media-share-buttons-twitter"
 				  href="https://twitter.com/share"
@@ -138,45 +358,23 @@
 				  data-text="Check out <%= @event.event_title %>"
 				  data-url="<%= event_url(@event) %>"
 				  data-related="twitterapi,twitter"
-				  data-image="<%=@photos[0].image.url(:original)%>">
+				  <% if @photos.present? %>
+				  data-image="<%=@photos[0].image.url(:original)%>"
+				  <% end %>
+				  >
 				Share on Twitter
 				</a>
+
 			</div>
+<% end %>
 
 
-			<% if @event.organizer_description %>
 
-			<div class="event-organizer-block">
-				<div class="show-organizer-title">
-					Organizer
-				</div>
-				<div class="show-organizer-name">
-					<%= @event.organizer_name %>
-				</div>
-
-				<div class="show-organizer-title">
-					About Organizer 
-				</div>
-				<div class="show-organizer-description">
-					<%= @event.organizer_description %>
-				</div>
-			</div>
-
-			<% else %>
-			<div class="event-organizer-block">
-				<div class="show-organizer-title">
-					Organizer
-				</div>
-				<div class="show-organizer-name">
-					<%= @event.organizer_name %>
-				</div>
-			</div>
-			<% end %>
 
 			</div>
 
 
-			<div>
+			<div id="show-map">
 				<div>
 
 			    <style>
@@ -208,9 +406,38 @@
 
 				</div>
 			</div>
+
+
+
+						<!-- address below map  -->
+
+
+				<div class="address-below-map">
+
+					<p >
+						<%= @event.venue %> <br> at
+					</p>
+					
+					<p class="date-location-bold">
+						<%= @event.location %> 
+					</p>
+				</div>
+
 		
 
+	</div>
+
+<!-- Show button-->
+
+
+
+
 </div>
+
+
+
+
+
 
 
 
@@ -224,7 +451,6 @@
 <meta property="og:title"              content="<%= @event.event_title %>" />
 <meta property="og:description"        content="<%= @event.organizer_name %>" />
 <meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
-
 
 
 
@@ -286,6 +512,18 @@ window.twttr = (function(d, s, id) {
   return t;
 }(document, "script", "twitter-wjs"));</script>
 
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+</script>
 
 
 

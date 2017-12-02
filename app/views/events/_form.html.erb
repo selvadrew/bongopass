@@ -1,13 +1,13 @@
 
 <div class="gray-background">
-	<div class="container">
+	<div class="container dt-show-container">
 
 		<div class="container">	
 			<h1 class="create-event-title">
 				Let's Create Your Event
 			</h1>
 			<h2 class="explain-requirement">
-				To help attendees discover your event, all fields are required.  
+				To help attendees discover your event, all fields are required unless otherwise specified. Please keep in mind, people who have never heard of your business or events will view this page through our unique sharing feature so be as informative as possible. 
 			</h2>
 
 			<%= simple_form_for @event, html: {multipart: true} do |f| %>
@@ -15,9 +15,8 @@
 
 				
 				<br>
-				<div>
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-6 select">	
 						<div class="form-group">
 							<%= f.input :event_title, placeholder: "Make it short and sweet", class: "form-control", input_html: {class: "input_box"}%>
 						</div>
@@ -26,7 +25,7 @@
 
 
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-6 select">	
 						<div class="form-group">
 							<%= f.input :location, placeholder: "Be specific", class: "form-control", input_html: {id: "user_input_autocomplete_address", class: "input_box"}%>
 						</div>
@@ -34,7 +33,7 @@
 				</div>
 
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-6 select">	
 						<div class="form-group">
 							<%= f.input :venue, placeholder: "Venue name", class: "form-control", input_html: {class: "input_box"}%>
 						</div>
@@ -42,16 +41,18 @@
 				</div>
 				
 				<!-- Date and Time Selection -->
+				<div class="col-md-6 date-override">
 				    <p id="basicExample">
 				    	<label class="date-selection"> Begins </label> <br>
 				        <%= f.date_field :start_date, type: "text", class: "date start input_box form-control start-date", value: f.object.start_date.try(:strftime,"%d/%m/%Y"), placeholder: "Date"%>
 				        <%= f.time_field :start_time, type: "text", class: "time start input_box form-control start-date", value: f.object.start_time.try(:strftime,"%l:%M.%p"), placeholder: "Time" %> 
-				        <br> <br> 
+				        <br><br>
 				        <label class="date-selection"> Ends </label> 
 				        <br>
 				        <%= f.date_field :end_date, type: "text", class: "date end input_box form-control start-date", value: f.object.end_date.try(:strftime,"%d/%m/%Y") %>
 				        <%= f.time_field :end_time, type: "text", class: "time end input_box form-control start-date", value: f.object.end_time.try(:strftime,"%l:%M.%p") %>
 				    </p>
+				</div>
 
 
 				<!-- END.. Date and Time Selection -->
@@ -63,7 +64,7 @@
 						</div>
 					</div>
 				</div>
-				</div>
+
 
 				<!-- Upload Photo -->
 				<div class="row">	
@@ -81,27 +82,46 @@
 
 				<div id="photos"><%= render 'photos/list' %></div>
 
-				<hr class="ticket-hr">	
 
-
-				<!-- View Ticket -->
-				<%= f.simple_fields_for :tickets do |ticket| %>
-					<%= render 'ticket', :f => ticket %>
-				<% end -%>
-				
-
-				<!-- Add Ticket -->
-				<div class="fields">	
-					<% f.simple_fields_for :tickets do |builder| %>
-						<%= render 'ticket', f: builder %>
-					<% end %>
+				<div class="row">	
+					<div class="col-md-4 select">	
+						<div class="form-group ">
+							<%= f.input :event_currency, :collection =>
+							[["USD","usd"],
+							 ["CAD","cad"],
+							 ],
+							id: "event_currency", prompt: "Select...", class: "form-control", input_html: {class: "currency_box"}, label: "Ticket Currency" %>
+						</div>
+					</div>
 				</div>
 
 
-				<div class="form-actions">	
-					<%= link_to_add_row_t('New Ticket', f, :tickets, class: "btn new-ticket-button") %>
-				</div>
+				<div class="row ticket-section-holder">
+				<div class="col-md-6 ticket-section-indent">
 
+					<hr class="ticket-hr ">	
+
+
+					<!-- View Ticket -->
+					<%= f.simple_fields_for :tickets do |ticket| %>
+						<%= render 'ticket', :f => ticket %>
+					<% end -%>
+					
+
+					<!-- Add Ticket -->
+					<div class="fields">	
+						<% f.simple_fields_for :tickets do |builder| %>
+							<%= render 'ticket', f: builder %>
+						<% end %>
+					</div>
+
+
+					<div class="form-actions">	
+						<%= link_to_add_row_t('New Ticket', f, :tickets, class: "btn new-ticket-button") %>
+					</div>
+
+				</div>
+				</div>
 
 <br>	
 
@@ -149,7 +169,7 @@
 	
 
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-6 select">	
 						<div class="form-group">
 							<%= f.input :organizer_name, placeholder: "Name of the hosting organization", class: "form-control", input_html: {class: "input_box"} %>
 						</div>
@@ -157,16 +177,16 @@
 				</div>
 
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-6 select">	
 						<div class="form-group">
-							<%= f.input :organizer_description, rows: 3, placeholder: "Tell us more about your organization", class: "form-control", input_html: {class: "input_box"} %>
+							<%= f.input :organizer_description, rows: 5, placeholder: "Tell us more about your organization", class: "form-control", input_html: {class: "input_box"} %>
 						</div>
 					</div>
 				</div>
 
 <% if false %>
 				<div class="row">	
-					<div class="col-md-4 select">	
+					<div class="col-md-6 select">	
 						<div class="form-group">
 							<%= f.input :event_type, :collection =>
 							[["Appearance or Signing","Appearance or Signing"],

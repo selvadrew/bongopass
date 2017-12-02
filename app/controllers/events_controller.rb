@@ -6,6 +6,7 @@ class EventsController < ApplicationController
     @orders = Order.all.where(seller: current_user).order("created_at DESC")
     @tickets = Ticket.all.where(event_id: @event.id)
     @event_orders = Order.joins(:ticket).where(tickets: { event_id: @event.id })
+    @bongopass_purchases = Order.joins(:ticket).where(tickets: { event_id: @event.id }).count(:referral_id)
 
 
     #order.ticket.event_id
@@ -82,29 +83,33 @@ class EventsController < ApplicationController
     @tickets = @event.tickets 
     @speakers = @event.speakers
     @sponsors = @event.sponsors
+    @ticket_price_min = @tickets.minimum(:ticket_price)
+    @ticket_price_max = @tickets.maximum(:ticket_price)
+    @bongopass_fee = 3.50
 
-   # set_meta_tags title: @event.event_title,
-   #         site: 'Bongo Pass',
-   #         reverse: true,
-   #         description:        @event.organizer_name, 
-   #         twitter: {
-   #           card:             "summary",
-   #           site:             "@event",
-   #           title:            @event.event_title,
-   #           description:      @event.organizer_name,
-   #           image:            @photos[0].image.url(:original)
-   #         },
-   #         og: {
-   #           title:            @event.event_title,
-   #           description:      @event.organizer_name,
-   #           type:             'article',
-   #           url:              event_url(@event),
-   #            image:            @photos[0].image.url(:original)
-   #         }#,
+    set_meta_tags title: @event.event_title,
+            site: 'Bongo Pass',
+            reverse: true,
+            description: @event.event_description, 
+            twitter: {
+              card: "summary",
+              site: "@event",
+              title: "Crazy About Cats",
+              description:  @event.event_description
+             # image: 'http://lorempixel.com/320/240/cats'
+            },
+            og: {
+              title:    @event.event_title,
+              description: @event.organizer_name,
+              type:     'article',
+              url:      event_url(@event),
+              image:    @photos[0].image.url(:original)
+            }#,
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
             #  { href: 'http://example.com/feed.rss', type: 'application/rss+xml', title: 'RSS' }
-            
+
+
   end
 
   def new
@@ -164,6 +169,7 @@ class EventsController < ApplicationController
   end
 
   def update
+
     if @event.update(event_params)
      
      if @event.photos.length < 2
@@ -175,20 +181,21 @@ class EventsController < ApplicationController
         end 
       end
 
-      #save speaker avatars
-
-
-
-
-      #save sponsor logos
-
 
       redirect_to event_path(@event), notice: "Updated..."
 
     else
+
       render :edit
     end
+
   end
+
+
+
+    def destroy
+
+    end
 
 
 
@@ -201,7 +208,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:event_title, :location, :start_date, :start_time, :end_date, :end_time,
                                     :event_description, :organizer_name, :organizer_description, :event_type,
-                                    :facebook_link, :twitter_link, :instagram_link, :venue, 
+                                    :facebook_link, :twitter_link, :instagram_link, :venue, :event_currency,
                                     tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy),
                                     questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
                                     speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy),

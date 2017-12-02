@@ -1,44 +1,118 @@
-<div class="container">
-	
-<% @event_orders.each do |order| %>
-	<div class="row">	
-		<%= order.ticket.event.event_title %>
-	</div>
-	<div class="row">	
-		<%= order.buyer.fullname %>
-	</div>
-	<div class="row">	
-		<%= order.ticket.ticket_name %>
-	</div>
-	<br>
-<% end %>
+<div class="set-background">
+<div class="container center">
+<div class="row">
 
-<br>
-<br>
-<br>
-<br>
+	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+		<div class="boxed-text">
+			<div class="box-data">
+				<%= @event_orders.count %>
+			</div>
+			<div class="box-description">
+			TOTAL SALES
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+		<div class="boxed-text">
+			<div class="box-data">
+				<%= @bongopass_purchases %>
+			</div>
+			<div class="box-description">
+			SALES GENERATED FROM YOUR ATTENDEES
+			</div>
+<!-- After an attendee purchases a ticket they have access to a personalized bongopass page to share with friends. This is the total count of purchases from all of your attendees' bongopass pages -->
+		</div>
+	</div>
+
+	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+		<div class="boxed-text">
+			<div class="box-data">
+				<%= number_to_currency(@event_orders.sum(:organizer_sales)) %>
+			</div>
+			<div class="box-description">
+			NET SALES
+			</div>
+<!-- The total amount Bongopass has credited your attendees. Attendees will be able to use their credits for all future events on Bongopass, including yours! This credit is paid out from Bongopass fees collected from all events on our platform and does not include any of your ticket sales. -->
+		</div>
+	</div>	
+</div>
+</div>
+
+
+
+
+
+<div class="container sold-container">
+
+
+	<div class="description-title">
+		SUMMARY
+	</div>
+
+
+<table class="table sold-summary-table">
+  <tr class="sold-ticket-table-header">
+    <th>Pass Type</th>
+    <th>Sales</th>
+    <th>Net Sales</th>
+  </tr>
+
+
+	<% @tickets.order(:ticket_price).each do |ticket| %>
+		  <tr>
+    <td> <b><%= ticket.ticket_name %> </b> </td>
+    <td> <b><%= ticket.orders.where(ticket_id: ticket.id).count %>/<%= ticket.ticket_quantity + ticket.orders.where(ticket_id: ticket.id).count %></b> </td>
+    <td> <b><%= number_to_currency(ticket.orders.where(ticket_id: ticket.id).sum(:organizer_sales)) %></b> </td>
+  </tr> 
+
+	<% end %>	
+</table>
+
+
+
+
+
+	<div class="description-title">
+		SALES BY PASS TYPE
+	</div>
 
 <% @tickets.order(:ticket_price).each do |ticket| %>
-	<div class="row">	
+	<div class="sold-ticket-name">	
 		<b><%= ticket.ticket_name %> </b>
 	</div>
 
-	<div class="row">	
-		<%= ticket.ticket_price %>
-	</div>
+
+<table class="table passes-table">
+  <tr class="sold-ticket-table-header">
+    <th>Name</th>
+    <th>Email</th>
+    <th>Purchase Date</th>
+    <th>Friends Invited</th>
+  </tr>
 
 
 	<% ticket.orders.order(:created_at).each do |orders| %>
-		<div class="row">
-			<%= orders.buyer.fullname %>
-			<%= orders.buyer.email %>
-			<%= orders.buyer.created_at.strftime('%b %e') %>
-		</div>
-	<% end %>	
+		  <tr>
+    <td> <%= orders.first_name %> <%= orders.last_name %> </td>
+    <td class="long-email"> <%= orders.buyer.email %> </td>
+    <td> <%= orders.buyer.created_at.strftime('%b %e') %> </td>
+    <td> <%= Order.where(referral_id: orders.referral.id).count if Order.where(referral_id: orders.referral.id).count > 0 %> </td>
+  </tr> 
 
+	<% end %>	
+</table>
 
 	<br>
 <% end %>
 
 
 </div>
+</div>
+
+
+
+
+ 
+
+

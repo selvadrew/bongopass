@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
 	has_one :referral
 
-	validates :address, :city, :province, presence: true 
+	validates :first_name, :last_name, presence: true 
 	validate :quantity_available 
 	
 	after_create :create_referral 
@@ -23,8 +23,6 @@ class Order < ApplicationRecord
 	def create_referral
       referral = Referral.create(order_id: self.id)
     end
-
-
 
 
 	

@@ -19,34 +19,50 @@
 </div>
 
 
-<div class="container">
-	<table>
-	  <thead>
-	    <tr>
-		  <th>Bongo Page</th>
-	      <th>Event</th>
-	      <th>Date</th>
-	      <th>Referrals</th>
-
-	    </tr>
-	  </thead>
-	  <tbody>
-
-	    <% @orders.each do |order| %>
-	     <tr>
-	      <td><%= link_to "Share", referral_path(Referral.find(order.referral.id)) %></td>
-	      <td><%= order.ticket.event.event_title %></td>
-	      <td><%= order.ticket.event.start_date %></td>
-	      <td><%= Order.where(referral_id: order.referral.id).count %></td>
-
-	    <% end %>
+<div class="container">	
+<div class="index-event-container">
 
 
-	  </tbody>
-	</table>
+<div class=" panel-default col-md-7">
+		<div class="panel-heading purchases-panel">
+			MY PASSES	
+		</div>
+
+		<div class="panel-body">
+			
+			<% @orders.each do |order| %>
+				<div class="row purchases-passes">
+
+					<div class="col-md-3 share-button-wrapper">
+						<div> <%= link_to "Share", referral_path(Referral.find(order.referral.id)), class:"purchases-share-button" %>
+						</div>
+					</div>
+
+					<div class="col-md-9">
+						<p class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
+						<p class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </p>
+					</div>
+
+					<div class="col-md-4">
+
+					</div>
+
+				
+
+
+
+				</div>
+			<% end %>
+		</div>
 </div>
 
-	<%= Order.where(referral_id: @referral_id).group(:referral_id).count %>
-	<%= @referral_count %>
-	<%= @net_rewards_available %>
+
+</div>
+</div>
+
+
+
+
+
+
 

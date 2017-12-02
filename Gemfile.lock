@@ -81,6 +81,7 @@ GEM
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     climate_control (0.2.0)
+    clipboard-rails (1.7.1)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.2)
@@ -325,6 +326,7 @@ DEPENDENCIES
   braintree (~> 2.78.0)
   byebug
   capybara (~> 2.13)
+  clipboard-rails
   coffee-rails (~> 4.2)
   devise
   figaro

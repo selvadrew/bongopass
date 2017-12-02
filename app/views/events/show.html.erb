@@ -1,12 +1,79 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
 
-<div class="gray-background" >
+<div class="font-set-show-page">
+
+
+<div class="edit-event-large">
+	<% if current_user.present? && current_user.id == @event.user_id %>
+		<%= link_to "Edit Event", edit_event_path(@event), class: "edit-event"%>
+	<% end %>
+</div>
+
+<div class="top-color-section">
+	<div class="clearfix page-header container big-container">
+	
+	<p class="edit-event-small">
+		<% if current_user.present? && current_user.id == @event.user_id %>
+			<%= link_to "Edit Event", edit_event_path(@event), class: "edit-event-mobile"%>
+		<% end %>
+	</p>
+
+
+	<p class="event-organizer-presents">
+		<%= @event.organizer_name %> Presents:
+	</p>
+
+		<div class="row">
+			<div class="event-content col-xs-12 col-sm-7 col-md-8">
+				<div class="event-title-date">
+				<h1 class="headline-event-title"><%= @event.event_title %> </h1>
+
+				<div class="calendar-map-wrapper">
+					<div class="alignment-wrapper">
+					<div class="event-section-w-on">
+						<h5 class="on-only">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</h5>
+						<h5 class="headline-event-date"><%= @event.start_date.strftime('%A, %B %e') %> <br> <%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %>
+						</h5>
+					</div>
+
+
+					<div class="event-section-w-on location-for-mobile">
+						<h5 class="on-only">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</h5>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map" href="#show-map">View Address</a>
+						</h5>
+					</div>
+					</div>
+				</div>
+
+				</div><!--titles-->
+	  		</div>
+
+	  		<div class="col-xs-12 col-sm-5 col-md-4">
+	  			<div class="event-venue-section disable-blue-event">
+	           		<p class="event-venue-actual-name"><%= @event.venue %></p>
+	           		<p class="see-location">
+	           			<a class="show-map" href="#show-map">View Address</a>
+	           		</p>
+	           	</div>
+	   		</div>
+		</div>
+	</div>
+</div>
+
+<div class="container big-container">
+
+
+<div class="col-xs-12 col-sm-7 col-md-8 main-content-section">
+
 	<div class="cover-photo-container">	
 		<!-- Image -->
 		<%if @photos.present? %>
-			<div>
-			<%= image_tag @photos[0].image.url(:medium), class: "img-responsive cover-photo"%>
-			</div>
+			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
 		<% else %>
 			<div class="photo-request">
 				Please upload a cover photo. All events on Bongopass require a photo. 
@@ -15,123 +82,145 @@
 	</div>
 
 
+		<!-- Event Description -->
+
+	<div class="event-description">
+		<div class="description-title">DESCRIPTION</div>
+		<%= @event.event_description.html_safe %>
+	</div>
+
+	<% if @event.organizer_description %>
+
+	<div class="event-organizer-block">
+		<div class="description-title">
+			ABOUT THE HOST 
+		</div>
+		<div class="show-organizer-description">
+			<%= @event.organizer_description %>
+		</div>
+	</div>
+
+	<% end %>
+
+
+</div>
+
+
+
+
+<div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile">
+
+	<div class="ticket-wrapper-for-mobile">
+		<div class="no-display-larger">
+			SELECT YOUR PASS
+		</div>
+
+	<% @tickets.order(:ticket_price).each do |ticket| %>
+
+	<% if ticket.ticket_quantity > 0 %>
+
+	<%= link_to new_ticket_order_path(ticket), data: { turbolinks: false } do %>
+
+		<div class="ticket-box clearfix hvrbox">
+		    <div class="hvrbox-layer_top">
+		          <div class="hvrbox-text">
+		            Get Pass
+		          </div>
+		    </div>
+
+
+			<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+				<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+				<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+			</div>
+
+			<div>
+				<p class="btn-tickets-modal-page hvrbox-layer_bottom"> <%= number_to_currency(ticket.ticket_price + @bongopass_fee) %> </p>	
+			</div>
+
+
+		</div>
+
+		<% end %>
+
+		<% else %>
+
+		<div class="ticket-box clearfix hvrbox">
+		    <div class="hvrbox-layer_top">
+		    	  <div class="hvrbox-text">
+		            Sold Out
+		          </div>
+
+
+		    </div>
+
+
+			<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+				<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+				<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+			</div>
+
+			<div>
+				<p class="btn-tickets-modal-page hvrbox-layer_bottom"> Sold Out </p>	
+			</div>
+
+
+		</div>
+
+		<% end %>
+
+
+	<% end %>	
+
+
+	</div>
+
+
+	<div class="messenger-button">
+		<a id="messengerBtn" class="btn btn-default social-media-share-buttons-messenger"><span class="align">Plan Your Experience With Friends</span></a>
+	</div>
+	
+</div>
+
+
+
 
 		<br>
 
 		<!-- Main Info -->
 		<div class="main-info">
 
-
-			<h4 class="event-title"> <%= @event.event_title %> </h4>
 			
 		<!-- onatby stuff -->
 			<div class="onatby-first-container">	
 			<div class="onatby-second-container">
-			<!-- Start Date -->
-			<div class="onatby-section" >
-				<div class="onatby-block">
-					<div class="onatby-color-box-on">on</div>
-				</div>
-				<div class="onatby-block-content">
-					<%if @event.start_date == @event.end_date %>
-						<p> <%= @event.start_date.strftime('%A, %B %e') %> <br>
-							<%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %>
-						</p>
-					<% else %>
-						<p> <%= @event.start_date.strftime('%B %e') %> - <%= @event.end_date.strftime('%B %e') %> <br>
-							<%= @event.start_time.strftime('%l:%M%p') %> 
-						</p>
-					<% end %>
-				</div>
+
+
+
+
+
+
+
+
+<!-- old host with dash line 
+			<div class="organizer-section">
+				<p class="organizer-host">host</p> 
+				<p class="organizer-blue-name"> <%= @event.organizer_name %> </p> 
 			</div>
-
-			
-			<!-- Venue -->
-			<div class="onatby-section">
-				<div class="onatby-block">
-					<div class="onatby-color-box-at">at</div>
-				</div>
-
-				<div class="onatby-block-content">
-					<%if @event.venue %>
-							<p class="test"> <%= @event.venue %> <br> <%= @event.location %> </p>
-					<% else %>
-							<p> <%= @event.location %> </p>
-					<% end %>
-				</div>
-			</div>
-
-			<!-- Organizer -->
-			<%if @event.organizer_name %>
-			<div class="onatby-section">
-				<div class="onatby-block">
-					<div class="onatby-color-box-by">by</div>
-				</div>
-				<div class="onatby-block-content">
-					<p> <%= @event.organizer_name %> </p>
-				</div>
-			</div>
-			<% end %>
-			</div>
-			</div>
-
-
-			<!-- Ticket -->
-
-			<div>
-				<div class="ticket-button-holder">
-				<button class="btn btn-tickets-show-page" type="button" data-toggle="modal" data-target="#ticket-modal">
-					Tickets	
-				</button>
-				</div>
-
-				<div class="modal fade" id="ticket-modal">	
-					<div class="modal-dialog">	
-						<div class="modal-content">
-							<div class="modal-header text-center">
-								One Ticket Maximum 
-							</div>
-							
-
-							<div class="modal-body">
-								<div class="ticket-info-section">
-								<% @tickets.order(:ticket_price).each do |ticket| %>
-									<div class="ticket-box clearfix">
-									<div class="ticket-name-price-desc">							
-										<p> <%= ticket.ticket_name %> </p>
-										<p> <%= number_to_currency(ticket.ticket_price) %> </p>
-										<p> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
-									</div>
-									<div> 
-										<%= if ticket.ticket_quantity > 0 
-												link_to "Select", new_ticket_order_path(ticket), class: "btn btn-tickets-modal-page", data: { turbolinks: false }
-											else 
-												link_to "Sold Out", event_path(@event), class: "btn btn-tickets-modal-page-sold-out" end %>
-									</div>
-									</div>
-									<hr>
-								<% end %>							
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+-->
 
 
 
-			<!-- Event Description -->
-
-			<div class="event-description">
-				<div class="description-title">DESCRIPTION</div>
-				<%= @event.event_description.html_safe %>
-			</div>
+	
 
 
+
+
+<%if false %>
 			<!-- Share Buttons -->
 			<div class="holder-social-media-share-buttons">
 				<div id="shareBtn" class="btn btn-default social-media-share-buttons-fb">Share on Facebook</div>
-				<a id="messengerBtn" class="btn btn-default social-media-share-buttons-messenger">Send to Messenger</a>
+
 
 				<a class="btn btn-default social-media-share-buttons-twitter"
 				  href="https://twitter.com/share"
@@ -145,42 +234,17 @@
 				  >
 				Share on Twitter
 				</a>
+
 			</div>
+<% end %>
 
 
-			<% if @event.organizer_description %>
 
-			<div class="event-organizer-block">
-				<div class="show-organizer-title">
-					Organizer
-				</div>
-				<div class="show-organizer-name">
-					<%= @event.organizer_name %>
-				</div>
-
-				<div class="show-organizer-title">
-					About Organizer 
-				</div>
-				<div class="show-organizer-description">
-					<%= @event.organizer_description %>
-				</div>
-			</div>
-
-			<% else %>
-			<div class="event-organizer-block">
-				<div class="show-organizer-title">
-					Organizer
-				</div>
-				<div class="show-organizer-name">
-					<%= @event.organizer_name %>
-				</div>
-			</div>
-			<% end %>
 
 			</div>
 
 
-			<div>
+			<div id="show-map">
 				<div>
 
 			    <style>
@@ -212,9 +276,33 @@
 
 				</div>
 			</div>
+
+
+
+						<!-- address below map  -->
+
+
+				<div class="address-below-map">
+
+					<p >
+						<%= @event.venue %> <br> at
+					</p>
+					
+					<p class="date-location-bold">
+						<%= @event.location %> 
+					</p>
+				</div>
+
 		
 
 </div>
+</div>
+
+
+
+
+
+
 
 
 
@@ -227,9 +315,7 @@
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="<%= @event.event_title %>" />
 <meta property="og:description"        content="<%= @event.organizer_name %>" />
-<%if @photos.present? %>
 <meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
-<% end %>
 
 
 

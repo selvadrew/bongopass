@@ -23,6 +23,8 @@
 //= require bootstrap-datepicker
 //= require summernote
 //= require social-share-button
+//= require clipboard
+
 
 
 
@@ -71,6 +73,32 @@ $(document).on('turbolinks:load', function() {
 	})
 
 	*/
+
+	$(document).ready(function(){  
+  
+	  var clipboard = new Clipboard('.clipboard-btn');
+	  console.log(clipboard);
+		
+	});
+
+
+
+	(function() {
+	  $(".btn-addcart").on("click", function() {
+
+	    var $this = $(this),
+	        oldText = $this.text();
+
+	    $this.text("Copied");
+	    $this.attr("disabled", "disabled");
+
+	    setTimeout(function() {
+	      $this.text(oldText);
+	      $this.removeAttr("disabled");
+	    }, 2000);
+
+	  });
+	})();
 
 });
 
