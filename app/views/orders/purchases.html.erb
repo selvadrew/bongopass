@@ -1,60 +1,66 @@
 
-<div class="container credit-box">
-
-	<div>
-		Your Bongo Credits 
-	</div>
-
-
-	<div>
-		Your Current Balance: <%= @net_rewards_available %>
-	</div>
-
-
-
-
-
-
-
-</div>
 
 
 <div class="container">	
 <div class="index-event-container">
-
-
-<div class=" panel-default col-md-7">
 		<div class="panel-heading purchases-panel">
-			MY PASSES	
+			My Passes	
 		</div>
+
+<div class=" panel-default col-xs-12 col-sm-6 col-md-7">
+
+		<% if @orders.count < 1 %>
+		<div class="panel-body no-passes">
+			You haven't purchased any passes yet.
+		</div>
+
+
+		<% end %>
 
 		<div class="panel-body">
 			
 			<% @orders.each do |order| %>
 				<div class="row purchases-passes">
 
-					<div class="col-md-3 share-button-wrapper">
-						<div> <%= link_to "Share", referral_path(Referral.find(order.referral.id)), class:"purchases-share-button" %>
-						</div>
-					</div>
-
-					<div class="col-md-9">
+					<div class="col-md-9 col-sm-9">
 						<p class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
 						<p class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </p>
 					</div>
 
-					<div class="col-md-4">
-
+					<div class="col-md-3 col-sm-3 share-button-wrapper">
+						<div> <%= link_to "Invite Friends", referral_path(Referral.find(order.referral.id)), class:"purchases-share-button" %>
+						</div>
 					</div>
-
-				
-
 
 
 				</div>
 			<% end %>
 		</div>
 </div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-5">
+
+			<div class="boxed boxed-add boxed-for-purchases">
+			<div class="boxed-text boxed-text-add">
+				<div class="box-data box-data-add">
+					<%= number_to_currency(@net_rewards_available) %>
+				</div>
+				<div class="box-description box-description-add">
+					BongoPass Credits Available
+				</div>
+
+ 			</div>
+ 			</div>
+	
+</div>
+
+
+
+
+
+
+
 
 
 </div>
