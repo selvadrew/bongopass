@@ -3,7 +3,7 @@
   <div class="container">
     <div class="navbar-header">
 
-      <a class="bongo-design"><%= link_to "bongopass", root_path, class: "bongo-design" %> </a>
+      <a class="bongo-design bongo-design">bongopass </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -18,10 +18,10 @@
           </li>        
 
           <li class="l"><%= link_to "Log In", new_user_session_path, class: "" %></li>
-          <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "" %></li>
+          <!-- <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "" %></li> -->
 
           <!-- <li><%= link_to "Log In", new_user_session_path %></li> -->
-          <!-- <li><%= link_to "Sign Up", new_user_registration_path %></li> -->
+           <li><%= link_to "Sign Up", new_user_registration_path %></li> 
 
 <!-- if user IS signed in  -->
         <% else %>
@@ -41,7 +41,10 @@
             </a>
 
             <ul class="dropdown-menu">
+            <% if current_user && current_user.create_permission == "allow" %>
               <li><%= link_to "My Events", events_path %></li>
+            <% end %>
+            
               <li><%= link_to "My Passes", purchases_path %></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
@@ -50,9 +53,10 @@
           </li>
 
           <!-- create event  -->
-
+          <% if current_user && current_user.create_permission == "allow" %>
           <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "" %></li>
-
+          <% end %>
+            
         <% end %>
 
       </ul>

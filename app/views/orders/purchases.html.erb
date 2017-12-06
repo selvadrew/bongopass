@@ -24,6 +24,7 @@
 
 					<div class="col-md-9 col-sm-9">
 						<p class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
+						<p class="purchases-date"> <%= order.ticket.event.venue %> </p>
 						<p class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </p>
 					</div>
 

@@ -35,6 +35,12 @@
         </div>
       </div>
 
+<% if @payment_amount == 3.50 %>
+      <div class="minimum-amount">
+        There is a minimum limit of $3.50 for this event
+      </div>
+<% end %>
+
       <div class="delivery-method">
         Delivery Method 
       </div>
@@ -51,7 +57,7 @@
         No refunds.
       </div>
 
-      <div class="refund-policy">
+      <div class="limit-policy">
         One Pass Limit Per Attendee
       </div>
 

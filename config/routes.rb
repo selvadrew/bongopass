@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+
+
   devise_for :users, 
   			 :path => '', 
   			 :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile', :sign_up => 'registration'},
@@ -40,6 +43,7 @@ end
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
   get '/payout_method' => "users#paypal_payout"
+
 
   
  

@@ -31,7 +31,7 @@
 				<%= number_to_currency(@event_orders.sum(:organizer_sales)) %>
 			</div>
 			<div class="box-description">
-			NET SALES
+			NET SALES / PAYOUT AMOUNT
 			</div>
 <!-- The total amount Bongopass has credited your attendees. Attendees will be able to use their credits for all future events on Bongopass, including yours! This credit is paid out from Bongopass fees collected from all events on our platform and does not include any of your ticket sales. -->
 		</div>
@@ -45,17 +45,18 @@
 
 <div class="container sold-container">
 
-
-	<div class="description-title">
+<div class="sold-summary-wrapper">
+	
+	<div class="description-title-summary">
 		SUMMARY
 	</div>
 
 
 <table class="table sold-summary-table">
   <tr class="sold-ticket-table-header">
-    <th>Pass Type</th>
-    <th>Sales</th>
-    <th>Net Sales</th>
+    <th class="pass-type-row">Pass Type</th>
+    <th class="sold-net-sales-row">Sold</th>
+    <th class="sold-net-sales-row">Net Sales</th>
   </tr>
 
 
@@ -68,6 +69,23 @@
 
 	<% end %>	
 </table>
+
+</div>
+
+
+<div class="payout-details-wrapper">
+
+
+	<div class="payout-details-description">
+		<div class="payout-details-title">
+			PAYOUT DETAILS
+		</div>
+
+		Your payout will be issued via PayPal to <%= current_user.email %> 3-5 days after the event is over. (Allow 4-5 business days for your payout to arrive). Email Andrew, your account manager at andrew@bongopass.com if you have any questions. 
+	</div>
+
+
+</div>
 
 
 

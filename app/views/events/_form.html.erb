@@ -1,3 +1,5 @@
+<% if current_user && current_user.create_permission == 'allow' %>
+
 
 <div class="gray-background">
 	<div class="container dt-show-container">
@@ -90,7 +92,7 @@
 							[["USD","usd"],
 							 ["CAD","cad"],
 							 ],
-							id: "event_currency", prompt: "Select...", class: "form-control", input_html: {class: "currency_box"}, label: "Ticket Currency" %>
+							id: "event_currency", prompt: "Select...", class: "form-control", input_html: {class: "currency_box"}, label: "Pass Currency" %>
 						</div>
 					</div>
 				</div>
@@ -117,7 +119,7 @@
 
 
 					<div class="form-actions">	
-						<%= link_to_add_row_t('New Ticket', f, :tickets, class: "btn new-ticket-button") %>
+						<%= link_to_add_row_t('New Pass', f, :tickets, class: "btn new-ticket-button") %>
 					</div>
 
 				</div>
@@ -229,6 +231,13 @@
 	</div>
 
 </div>
+
+<% else %>
+
+Sorry, you need to be a verified artist, DJ, event organizer, or venue to create an event on Bongopass. Apply to join the BongoPass Community. 
+
+
+<% end %>
 
 
 

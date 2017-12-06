@@ -27,7 +27,6 @@ body, html {
 }
 
 .navbar-z-position {
-	z-index: 100;
 	position: relative;
 }
 
@@ -833,7 +832,6 @@ body, html {
 		max-width: 1170px;
 		margin-left: auto;
 		margin-right: auto;
-		z-index: 2;
 		position: relative;
 		padding-bottom: 60px;
 		
@@ -1251,9 +1249,8 @@ table {
 }
 
 .sold-ticket-name {
-	background: #232323;
-	color: white;
-	padding: 10px;
+	color: #348efa;
+	padding: 5px;
 	display: inline-block;
 }
 
@@ -1268,6 +1265,62 @@ table {
 .sold-summary-table {
 	table-layout: auto;
 	width: auto !important;
+}
+
+.sold-summary-wrapper {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 40px;
+}
+
+.payout-details-wrapper {
+	display: block;
+	vertical-align: top;
+}
+
+.description-title-summary {
+	font-size: 18px;
+	font-weight: 600;
+	padding-bottom: 5px;
+	padding-top: 40px;
+	color: black;
+}
+
+.payout-details-title {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	padding-bottom: 5px;
+	color: black;
+}
+
+.payout-details-description {
+	display: block;
+	width: 300px;
+	border: 1px solid;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+@media (min-width: 576px)  {
+	.pass-type-row {
+		min-width: 300px;
+	}
+
+	.sold-net-sales-row {
+		min-width: 100px;
+	}
+}
+
+@media (min-width: 900px) {
+	.payout-details-description {
+	    margin-top: 70px;
+	}
+
+	.payout-details-wrapper {
+		display: inline-block;
+	}
+
 }
 
 
@@ -1332,7 +1385,11 @@ table {
     padding-bottom: 10px;
 }
 
+.panel-my-events {
+	background: #f6f7f8 !important;
+	font-weight: 900;
 
+}
 
 .index-event-title {
 	font-weight: 600 !important;
@@ -1946,6 +2003,14 @@ table {
 	font-weight: 600;
 }
 
+.limit-policy {
+	margin-top: 34px;
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 100px;
+
+}
+
 .will-call {
 	margin-top: 10px;
 	font-size: 12px;
@@ -2032,6 +2097,7 @@ table {
 .boxed-for-purchases {
 	margin-top: 15px;
 	width: 100% !important;
+	border-radius: 3px;
 }
 
 
