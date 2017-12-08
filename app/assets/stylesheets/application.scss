@@ -26,6 +26,118 @@ body, html {
 
 }
 
+
+
+/* HOME PAGE */
+
+.home-background {
+	background: #1d1d1d;
+	color: white;
+	height: 100%;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+.parallax-overlay {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.centrize {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: #1d1d1d;
+}
+
+.v-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vc_column_container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.vc_column_container, .vc_column-inner {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.title h2 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    font-size: 60px;
+    font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 1px;
+}
+
+.wpb_content_element{
+    margin-bottom: 35px;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.wpb_wrapper p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+.blue-dot {
+	color: #348efa;
+}
+
+.application-form a {
+	padding: 10px;
+	background: #348efa;
+	border-radius: 20px;
+	display: inline-block;
+	color: white !important;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 80px;
+}
+
+
+.application-form-button {
+	color: white !important;
+}
+
+@media (min-width: 992px) {
+	.vc_col-md-8 {
+	    width: 66.66666667%;
+	}
+
+}
+
+@media (min-width: 1200px){
+	.home-container {
+	    width: 1170px !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+
 .navbar-z-position {
 	position: relative;
 }
@@ -1175,7 +1287,7 @@ section.hero {
 }
 
 .style1 {
-    background: url(https://drscdn.500px.org/photo/231048293/q%3D80_m%3D1500_k%3D1/v2?webp=true&sig=af92c96f987e3d711bb7ba4c710801bd92f11525251d54991665131da29833a9) no-repeat center center ;
+    background: url(https://drscdn.500px.org/photo/67141103/q%3D80_m%3D1500/v2?user_id=22403173&webp=true&sig=39cc9acb2df2899997421f2b9dcd3a245f7166e233fa6b8e4f359dad1db6bc16) no-repeat center center ;
     filter: brightness(60%);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1249,7 +1361,6 @@ table {
 }
 
 .sold-ticket-name {
-	color: #348efa;
 	padding: 5px;
 	display: inline-block;
 }
@@ -1282,7 +1393,7 @@ table {
 	font-size: 18px;
 	font-weight: 600;
 	padding-bottom: 5px;
-	padding-top: 40px;
+	padding-top: 10px;
 	color: black;
 }
 
@@ -1302,6 +1413,10 @@ table {
     padding: 10px;
 }
 
+.guest-list {
+	margin-top: 20px;
+}
+
 @media (min-width: 576px)  {
 	.pass-type-row {
 		min-width: 300px;
@@ -1314,11 +1429,15 @@ table {
 
 @media (min-width: 900px) {
 	.payout-details-description {
-	    margin-top: 70px;
+	    margin-top: 40px;
 	}
 
 	.payout-details-wrapper {
 		display: inline-block;
+	}
+
+	.guest-list {
+		text-align: right;
 	}
 
 }

@@ -61,6 +61,9 @@ gem 'social-share-button'
 gem 'meta-tags'
 gem "braintree", "~> 2.78.0"
 gem 'clipboard-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'mail_form', '~> 1.7' 
 
 
 

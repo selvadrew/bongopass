@@ -1,16 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :sold]
   before_action :authenticate_user!, except: [:show]
+  before_action :is_authorized, only: [:sold]
 
-  def sold
-    @orders = Order.all.where(seller: current_user).order("created_at DESC")
-    @tickets = Ticket.all.where(event_id: @event.id)
-    @event_orders = Order.joins(:ticket).where(tickets: { event_id: @event.id })
-    @bongopass_purchases = Order.joins(:ticket).where(tickets: { event_id: @event.id }).count(:referral_id)
-
-
-    #order.ticket.event_id
-  end
 
   def index
     @events = current_user.events
@@ -102,8 +94,8 @@ class EventsController < ApplicationController
               title:    @event.event_title,
               description: @event.organizer_name,
               type:     'article',
-              url:      event_url(@event),
-              image:    @photos[0].image.url(:original)
+              url:      event_url(@event)#,
+             # image:    @photos[0].image.url(:original)
             }#,
             #alternate: [
             #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
@@ -193,9 +185,26 @@ class EventsController < ApplicationController
 
 
 
-    def destroy
 
+
+  def sold
+    @orders = Order.all.where(seller: current_user).order("created_at DESC")
+    @tickets = Ticket.all.where(event_id: @event.id)
+    @event_orders = Order.joins(:ticket).where(tickets: { event_id: @event.id })
+    @bongopass_purchases = Order.joins(:ticket).where(tickets: { event_id: @event.id }).count(:referral_id)
+    @event_orders_pdf = Order.joins(:ticket).where(tickets: { event_id: @event.id }).order('LOWER(last_name)')
+
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name_of_your_choice",
+               template: "events/sold.pdf.erb",
+               locals: {:event_orders => @event_orders_pdf}
+      end
     end
+
+  end
 
 
 
@@ -223,7 +232,9 @@ class EventsController < ApplicationController
 
     end
 
-
+    def is_authorized
+      redirect_to root_path, alert: "You don't have permission" unless current_user.id == @event.user_id
+    end
 
 
 

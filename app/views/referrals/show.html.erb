@@ -110,7 +110,7 @@
 					<div class="friends-joined">
 						<% @friends_joined.order(:created_at).each do |friends|%>
 							<div class="friends-name">
-								<%= friends.buyer.fullname %>
+								<%= friends.first_name %> <%= friends.last_name %>
 							</div>	
 						<% end %>
 					</div>
@@ -134,7 +134,7 @@
 			  	<div class="event-venue-section invite-section-for-mobile">
 	           		<p class="invite-sentence">
 	           			<span class="inviter-name"> <%= @referral.order.first_name %> <%= @referral.order.last_name %> </span> 
-	           			is going to this event and has invited you to attend. Check it out! <br>
+	           			is going to this event and has invited you to join. Check it out! <br>
 	           			<% if @friends_joined.count > 0 %>
 		           			<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
 								Show friends joining <%= @referral.order.first_name %>  	
@@ -181,7 +181,7 @@
 	  		<div class="col-xs-12 col-sm-5 col-md-4">
 	  			<div class="event-venue-section">
 	           		<p class="invite-sentence">
-	           			<span class="inviter-name"> <%= @referral.order.first_name %> <%= @referral.order.last_name %></span> is going to this event and has invited you to attend. Check it out!
+	           			<span class="inviter-name"> <%= @referral.order.first_name %> <%= @referral.order.last_name %></span> is going to this event and has invited you to join. Check it out!
 						<% if @friends_joined.count > 0 %>
 		           			<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
 								Show friends joining <%= @referral.order.first_name %>	
@@ -450,7 +450,9 @@
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="<%= @event.event_title %>" />
 <meta property="og:description"        content="<%= @event.organizer_name %>" />
+<% if @photos[0] %>
 <meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
+<% end %>
 
 
 

@@ -1,0 +1,26 @@
+<br>
+<% if event_orders.first %>
+<b> Guest List for <%= event_orders.first.ticket.event.event_title %> </b>
+<br>
+as of <%= Time.now.strftime('%A, %B %e, %l:%M%p')%>
+<% else %>
+There are currently no guests for this event.
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+
+<% event_orders.each do |orders| %>
+	<tr>
+	    <td class="pdf-last-name"> <%= orders.last_name %> </td> -----
+	    <td> <%= orders.first_name %>  </td> -----
+	    <td class="long-email"> <%= orders.buyer.email %> </td> -----
+	    <td> <%= orders.ticket.ticket_name %>  </td>
+	    <br>
+	    <br>
+	  <!--  <td class="long-email"> <%= orders.buyer.email %> </td> -->
+ 	</tr> 
+
+<% end %>

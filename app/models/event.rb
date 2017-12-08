@@ -33,7 +33,7 @@ class Event < ApplicationRecord
   validates :event_currency, presence: true
 
 
- 
+
 
 
 

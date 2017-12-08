@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
 
-resources :events, only: [:index] do 
+resources :events, except: [:edit] do 
   member do 
     get 'sold'
   end
@@ -44,6 +44,9 @@ end
   get 'purchases' => "orders#purchases"
   get '/payout_method' => "users#paypal_payout"
 
+
+  match '/join', to: 'joins#new', via: 'get'
+  resources "joins", only: [:new, :create]
 
   
  

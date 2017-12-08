@@ -45,6 +45,10 @@
 
 <div class="container sold-container">
 
+<p class="guest-list">
+	<%= link_to 'Print Guest List', sold_event_path(@event, :format => :pdf), target: :_blank %>
+</p>
+
 <div class="sold-summary-wrapper">
 	
 	<div class="description-title-summary">
@@ -81,13 +85,11 @@
 			PAYOUT DETAILS
 		</div>
 
-		Your payout will be issued via PayPal to <%= current_user.email %> 3-5 days after the event is over. (Allow 4-5 business days for your payout to arrive). Email Andrew, your account manager at andrew@bongopass.com if you have any questions. 
+		Your payout will be issued via PayPal to <%= @event.user.email %> 3-5 days after the event is over. (Allow 4-5 business days for your payout to arrive). Email Andrew, your account manager at andrew@bongopass.com if you have any questions. 
 	</div>
 
 
 </div>
-
-
 
 
 
@@ -110,11 +112,11 @@
   </tr>
 
 
-	<% ticket.orders.order(:created_at).each do |orders| %>
+	<% ticket.orders.order(:created_at).reverse_order.each do |orders| %>
 		  <tr>
     <td> <%= orders.first_name %> <%= orders.last_name %> </td>
     <td class="long-email"> <%= orders.buyer.email %> </td>
-    <td> <%= orders.buyer.created_at.strftime('%b %e') %> </td>
+    <td> <%= orders.created_at.strftime('%b %e') %> </td>
     <td> <%= Order.where(referral_id: orders.referral.id).count if Order.where(referral_id: orders.referral.id).count > 0 %> </td>
   </tr> 
 

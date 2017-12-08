@@ -76,7 +76,7 @@
 			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
 		<% else %>
 			<div class="photo-request">
-				Please upload a cover photo. All events on Bongopass require a photo. 
+				Please upload an event photo. All events on Bongopass require a photo. 
 			</div>
 		<% end %>
 	</div>
@@ -315,7 +315,9 @@
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="<%= @event.event_title %>" />
 <meta property="og:description"        content="<%= @event.organizer_name %>" />
-<meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
+<% if @photos[0] %>
+<meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />	
+<% end %>	
 
 
 
