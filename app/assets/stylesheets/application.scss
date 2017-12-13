@@ -17,13 +17,16 @@ font-family: 'Montserrat', sans-serif;
 */
 
 
+
+
+
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   background-color: #f6f7f8;
-
+  -webkit-font-smoothing: antialiased;
 }
 
 
@@ -35,15 +38,14 @@ body, html {
 	color: white;
 	height: 100%;
 	width: 100%;
+	overflow: auto;
 	-webkit-font-smoothing: antialiased;
 }
 
 .parallax-overlay {
     position: relative;
     padding-top: 40px;
-    padding-bottom: 100px;
     color: #fff;
-    height: 100%;
     width: 100%;
 }
 
@@ -116,6 +118,10 @@ body, html {
 	color: white !important;
 }
 
+.application-form-button:hover {
+	text-decoration: none;
+}
+
 @media (min-width: 992px) {
 	.vc_col-md-8 {
 	    width: 66.66666667%;
@@ -131,9 +137,243 @@ body, html {
 
 
 
+/* JOIN FORM */
+
+.join-popup {
+	padding: 10px 15px 15px 15px;
+	background: #efefef;
+	color: black;
+	margin-top: 15px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.join-form {
+	text-align: center;
+}
+
+.join-form-inputs {
+	text-align: center !important;
+	font-weight: bold;
+	background-color: white;
+}
+
+
+.col-centered{
+	float: none;
+	margin: 0 auto;
+}
+
+.join-submit {
+	width: 100%;
+	background: #348efa;
+	border-color: #348efa;
+	color: white;
+}
+
+.join-submit:hover {
+	background: #348efa;
+	border-color: #348efa;
+}
+
+.join-network {
+	margin-bottom: 30px;
+}
 
 
 
+/* Login forms */
+
+
+
+
+.google-button {
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+  width: 100%;
+
+  
+  &:focus,
+  &:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+  }
+  
+  &:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+  }
+}
+
+
+.facebook-button {
+	background: #4267b2 !important;
+	color: white !important;
+	margin-bottom: 10px !important;
+	margin-top: 20px;
+}
+
+.fb-square-login {
+	font-size: 21px;
+}
+
+.google-border-wrapper {
+	border: 1px solid #dddddd;
+}
+    
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+
+  box-sizing: border-box;
+}
+
+.google-button__icon--plus {
+  width: 27px;
+}
+
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Roboto',arial,sans-serif;
+}
+
+
+
+
+.continue-with-social-account {
+	display: block;
+	width: 100%;
+}
+
+.social-account-facebook {
+	width: 100%;
+	background: #4267b2;
+	color: white;
+	margin-bottom: 10px;
+	margin-top: 30px;
+	height: 40px;
+	vertical-align: middle;
+	line-height: 40px;
+	padding: 0px !important;
+}
+
+.social-account-google {
+	width: 100%;
+	background-color: #fafafa;
+	color: #555555;
+	border: 1px solid #dddddd;
+	height: 40px;
+	vertical-align: middle;
+	line-height: 40px;
+	padding: 0px !important;
+	margin-bottom: 30px;
+	display: inline-block;
+}
+
+.social-account-google:hover {
+	color: #555555 !important;
+	background-color: #fafafa;
+}
+
+.google-logo {
+	float: left;
+}
+
+.line-ting {
+    overflow: hidden;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: gray;
+}
+.line-ting:before,
+.line-ting:after {
+    background-color: gray;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+.line-ting:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.line-ting:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.or-sign-in {
+	margin-top: 30px;
+}
+
+.member-log-in {
+	color: #348efa;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.join-sign-up {
+	background: #1d1d1d;
+	color: white;
+	width: 100px;
+}
+
+.join-log-in {
+	margin-top: 20px;
+}
+
+.remember-forgot {
+	display: block;
+}
+
+.remember-me {
+	float: left;
+	display: inline-block;
+}
+
+.forgot-password {
+	float: right;
+	display: inline-block;
+}
+
+@media screen and (min-width: 500px) {
+	.icon-big-screen {
+		margin-left: -10px !important;
+	}
+
+	.popup-box {
+		box-shadow: 0 0 8px rgba(0,0,0,0.4);
+		background: #EDF0F3;
+		padding: 10px 50px 10px 50px;
+		margin-top: 30px;
+		border-radius: 10px;
+	}
+
+	.black-background {
+		background: #1d1d1d;
+		height: 100%;
+		width: 100%;
+	}
+}
 
 
 
@@ -209,6 +449,25 @@ body, html {
       Event create page
       */
 
+
+.bongopass-instruction-modal {
+	font-size: 20px;
+	margin-top: 30px;
+	color: #348efa;
+	font-weight: bold;
+	cursor: pointer;
+
+}
+
+.bongopass-explained-bullet {
+	margin-bottom: 20px;
+	font-size: 15px;
+}
+
+.warning-text {
+	color: red;
+}
+
 .create-event-title {
 	font-size: 1.5em;
 	text-align: left;
@@ -273,11 +532,15 @@ body, html {
 }
 
 .event_event_currency {
-	padding-top: 10px;
+	padding-top: 15px;
+}
+
+.create-organizer-name {
+	padding-top: 15px;
 }
 
 .currency_box {
-	width: 100px;
+	width: 140px;
 }
 
 .quantity-price-box {
@@ -304,15 +567,24 @@ body, html {
 	margin-top: 10px !important;
 }
 
+.create-ticket-wrapper {
+	padding: 20px;
+	border: 1px solid gray;
+	margin-bottom: 15px;
+	background: #EDF0F3;
+}
+
 .new-ticket-button {
-	background-color: #0099e5;
+	background-color: #348efa;
 	color: white;
+	width: 100%;
 }
 
 .form-create-button {
 	background-color: #34bf49;
 	color: white;
-	width: 200px;
+	width: 100%;
+	font-weight: bold;
 }
 
 .create-button-position {
@@ -321,6 +593,12 @@ body, html {
 	padding-bottom: 80px;
 	padding-top: 30px;
 	width: 100%;
+}
+
+.create-event-header {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    margin-top: 40px;
 }
 
 .cover-photo-box {
@@ -335,18 +613,21 @@ body, html {
 	padding-left: 0px !important;
 }
 
-@media screen and (min-width: 800px) {
-	.dt-show-container {
-		padding-left: 120px;
-		padding-right: 120px;
+@media screen and (min-width: 1200px) {
+	.width-create-events {
+		width: 1000px !important;
 	}
+
+}
+
+@media screen and (min-width: 800px) {
 
 	.form-control {
 		height: 45px;
 	}
 
-	.container {
-		width: 100%;
+	.width-container {
+		width: 100%; 
 	}
 
 	#basicExample {
@@ -372,7 +653,6 @@ body, html {
 
 	.create-button-position {
 		text-align: left;
-		padding: 30px;
 	}
 
 
@@ -770,6 +1050,7 @@ body, html {
     color: white;
     display: inline-block;
     font-size: 11px;
+    font-weight: 600;
 }
 
 
@@ -781,6 +1062,7 @@ body, html {
 	color: white;
 	display: block;
 	font-size: 11px;
+	font-weight: 600;
 }
 
 .messenger-button {
@@ -841,6 +1123,7 @@ body, html {
     display: block;
     margin-bottom: 10px;
     font-size: 11px;
+    font-weight: 600;
 }
 
 .event-organizer-block {
@@ -1491,6 +1774,7 @@ table {
 .box-description {
 	font-size: 11px;
 	font-family: 'Lato', sans-serif ;
+	font-weight: bold;
 }
 
 
@@ -1669,7 +1953,7 @@ table {
 }
 .see-location {
 	font-size: 9px;
-    font-weight: normal;
+    font-weight: 500;
     color: #FFFFFF;
 }
 .show-map.show-map:visited {
@@ -1687,7 +1971,7 @@ table {
 
 .event-organizer-presents {
 	font-size: 11px;
-    font-weight: 400;
+    font-weight: 600;
     font-style: italic;
     color: white;
     margin-bottom: 5px;
@@ -1862,7 +2146,7 @@ table {
 
 .invite-sentence {
 	font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     color: #FFFFFF;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
     padding-top: 3px;
@@ -1910,6 +2194,7 @@ table {
 
 .box-description-add {
 	font-size: 15px !important;
+	font-weight: 700;
 }
 
 .only-you-can-see {
@@ -1951,6 +2236,7 @@ table {
 	cursor: pointer;
 	margin-top: 2px;
 	color: white;
+	font-weight: 600;
 
 }
 
@@ -2197,6 +2483,7 @@ table {
 	padding: 10px;
 	border-radius: 3px;
 	font-size: 17px;
+	font-weight: 700;
 }
 
 .share-button-wrapper {
@@ -2226,6 +2513,120 @@ table {
 
 }
 
+
+
+
+/* Support Page */
+.trams-conditions #toggle4 {
+  font-size: 15px;
+  color: #747474;
+  text-decoration: none;
+  padding-left: 30px;
+  background-size: 9%;
+}
+
+.trams-conditions {
+  padding: 0 10px;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.trams-conditions:hover {
+	text-decoration: none;
+}
+
+
+
+
+.trams-conditions .trams-con {
+  display: none;
+  overflow: auto;
+}
+
+.question-wrapper {
+	display: block !important;
+}
+
+.fa-plus, .fa-minus {
+	cursor: pointer;
+}
+
+.fa-plus:before {
+    background: black;
+    color: white;
+    padding: 3px 4px 3px 4px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 5px;
+
+}
+
+.question-headers {
+	padding-left: 5px;
+	margin-bottom: 40px;
+}
+
+
+.support-question {
+	display: inline-block;
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	margin-top: 0px;
+	letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.trams-con {
+	display: block;
+	vertical-align: top;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px;
+    line-height: 1.1;
+    font-size: 15px;
+}
+
+.question-answer {
+	display: inline-block;
+	vertical-align: top;
+    width: 80%;
+    padding-left: 5px;
+}
+
+
+.contact-for-more-support {
+	font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 80px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.support-header {
+	border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+
+.feedback-opening {
+    max-width: 700px;
+    margin: 25px auto;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.feedback-form {
+	border-bottom: 1px solid gray !important;
+    border: none;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+.feedback-input {
+	height: 100px;
+}
+
+.send-feedback-submit {
+	margin-bottom: 50px;
+}
 
 
 

@@ -1,4 +1,6 @@
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+
+
 <div class="font-set-show-page">
 
 <% if current_user.present? && current_user.id == @referral.order.buyer_id %>
@@ -11,11 +13,11 @@
 		<div class="event-content col-xs-12 col-sm-6 col-md-6">
 
 			<p class="you-are-going-top">
-				Woohoo, you're going! Now you can share your Pass and receive up to $100 for helping your friends discover this experience.<br>
+				Woohoo, you're going! Now you can share your personal event page and receive up to $100 for helping your friends discover this experience.<br>
 			</p>
 
 			<div class="invite-explanation">
-			Know any friends that may be interested in this event? BongoPass will credit your account with <b>$10 for every 3 passes purchased on this page, up to a maximum of $100</b>. You can use this credit towards any future event on BongoPass!
+			Know any friends that may be interested in this event? BongoPass will credit your account with <b>$10 for every 3 passes purchased on this page, up to a maximum of $100</b>. You can use this credit towards any future event on BongoPass! Find this page under "My Passes" to share your personal Pass and keep track of who's joining you.
 
 			</div>
  			<br>
@@ -122,10 +124,8 @@
 
 
 
-
-
-
-
+<div class="show-button">
+	
 
 
 <div class="top-color-section">
@@ -305,10 +305,19 @@
 
 	</div>
 
+<%if false %>
 
 	<div class="messenger-button">
 		<a id="messengerBtn" class="btn btn-default social-media-share-buttons-messenger"><span class="align">Plan Your Experience With Friends</span></a>
 	</div>
+
+	<div class="messenger-button">
+		<a id="messengerBtn"><i class="btn fab fa-facebook-messenger"></i></a>
+	</div>
+	
+<% end %>
+
+
 	
 </div>
 
@@ -427,14 +436,12 @@
 
 	</div>
 
-<!-- Show button-->
-
-
 
 
 </div>
 
-
+<!-- Show button-->
+</div>
 
 
 

@@ -1,40 +1,74 @@
-<div class="row"> 
-  <div class="col-md-6 col-md-offset-3 text-center">
+<div class="black-background">
+<div class="row black-background"> 
+  <div class="col-xs-11 col-sm-7 col-md-5 col-centered text-center">
 
-  <%= link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
-  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-primary" %>
+  <div class="popup-box">
+
+    <h3>Login to Bongopass</h3>
+
+  <%= link_to user_facebook_omniauth_authorize_path, class: "google-button__text google-button facebook-button" do %>
+    <span class="google-button__icon">
+  <i class="fa fa-facebook-square fb-square-login" aria-hidden="true"></i>
+  </span>
+  <span class="google-button__text text-size-button">Continue With Facebook</span> 
+  <% end %>
 
 
-    
-    <h2>Log in</h2>
+  
+  <%= link_to user_google_oauth2_omniauth_authorize_path, class: "google-button__text google-button google-border-wrapper" do %>
+    <span class="google-button__icon icon-big-screen">
+    <svg viewBox="0 0 366 372" xmlns="http://www.w3.org/2000/svg"><path d="M125.9 10.2c40.2-13.9 85.3-13.6 125.3 1.1 22.2 8.2 42.5 21 59.9 37.1-5.8 6.3-12.1 12.2-18.1 18.3l-34.2 34.2c-11.3-10.8-25.1-19-40.1-23.6-17.6-5.3-36.6-6.1-54.6-2.2-21 4.5-40.5 15.5-55.6 30.9-12.2 12.3-21.4 27.5-27 43.9-20.3-15.8-40.6-31.5-61-47.3 21.5-43 60.1-76.9 105.4-92.4z" id="Shape" fill="#EA4335"/><path d="M20.6 102.4c20.3 15.8 40.6 31.5 61 47.3-8 23.3-8 49.2 0 72.4-20.3 15.8-40.6 31.6-60.9 47.3C1.9 232.7-3.8 189.6 4.4 149.2c3.3-16.2 8.7-32 16.2-46.8z" id="Shape" fill="#FBBC05"/><path d="M361.7 151.1c5.8 32.7 4.5 66.8-4.7 98.8-8.5 29.3-24.6 56.5-47.1 77.2l-59.1-45.9c19.5-13.1 33.3-34.3 37.2-57.5H186.6c.1-24.2.1-48.4.1-72.6h175z" id="Shape" fill="#4285F4"/><path d="M81.4 222.2c7.8 22.9 22.8 43.2 42.6 57.1 12.4 8.7 26.6 14.9 41.4 17.9 14.6 3 29.7 2.6 44.4.1 14.6-2.6 28.7-7.9 41-16.2l59.1 45.9c-21.3 19.7-48 33.1-76.2 39.6-31.2 7.1-64.2 7.3-95.2-1-24.6-6.5-47.7-18.2-67.6-34.1-20.9-16.6-38.3-38-50.4-62 20.3-15.7 40.6-31.5 60.9-47.3z" fill="#34A853"/></svg>
+  </span>
+  <span class="google-button__text text-size-button">Continue With Google</span> 
+  <% end %>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h4 class="line-ting">or</h4>
+
+
+
+
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render 'shared/devisemes'%>
 
       <div class="form-group">
-        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+        <%= f.input :email, autofocus: true, :class => "form-control", :placeholder => "Email", label: false %>
       </div>
 
       <div class="form-group">
-        <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
+        <%= f.input :password, autocomplete: "off", :class => "form-control", :placeholder => "Password", label: false  %>
       </div>
 
+<div class="remember-forgot">
       <% if devise_mapping.rememberable? %>
-        <div class="form-group">
+        <div class="form-group remember-me">
           <%= f.check_box :remember_me %> Remember Me
         </div>
       <% end %>
 
-      <div class="actions">
-        <%= f.submit "Log in", :class => "btn btn-primary" %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-password" %><br />
+      <% end -%>
+</div>
+
+      <div class="actions join-log-in">
+        <%= f.submit "Log in", :class => "btn join-sign-up " %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
+
+
+
+
+<footer class="or-sign-in">
+  Not a member yet?
+  <%= link_to "Sign up", new_registration_path(resource_name), class: "member-log-in" %><br />
+</footer>
+
+  </div>
 
   </div>
 </div>
 
-
+</div>
 
 

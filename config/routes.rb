@@ -22,11 +22,11 @@ Rails.application.routes.draw do
     resources :tickets
   end
 
-  resources :tickets do 
+  resources :tickets, :path => 'new-pass' do 
     resources :orders
   end
   
-  resources :referrals do 
+  resources :referrals, :path => 'invitation' do 
     resources :tickets do 
       resources :orders 
     end
@@ -44,9 +44,13 @@ end
   get 'purchases' => "orders#purchases"
   get '/payout_method' => "users#paypal_payout"
 
+  #get 'support' => "pages#support"
 
-  match '/join', to: 'joins#new', via: 'get'
+
+  get 'join' => "joins#new"
+  get 'support' => "supports#new"
   resources "joins", only: [:new, :create]
+  resources "supports", only: [:new, :create]
 
   
  

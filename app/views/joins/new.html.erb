@@ -1,16 +1,37 @@
+<div class="container  home-background">
 <div align="center">
-  <h3>Send A message to Us</h3>
+ 
 
-  <%= simple_form_for @join, :html => {:class => 'form-horizontal' } do |f| %>
-    <%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :message, :as => :text, :required => true %>
+  <%= simple_form_for @join, :html => {:class => '' } do |f| %>
+
+<div class="col-md-5 col-centered">
+  
+  <div class="join-popup">
+     <h3 class="join-network">Join the Bongopass Network</h3>
+  
+    <%= f.input :full_name, :required => true, :placeholder => "Full Name", label: false, input_html: {class: "join-form-inputs"} %>
+    <%= f.input :email, :required => true, label: false, :placeholder => "Email", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :phone, label: false, :placeholder => "Phone Number", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :company, label: false, :required => true, :placeholder => "Company", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :website, label: false, :required => true, :placeholder => "Website or Facebook Page", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :ticket_count, label: false, :required => true, :placeholder => "# Guests per event", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :event_count, label: false, :required => true, :placeholder => "# Events per year", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :tell_us_more, label: false, :required => true, :placeholder => "Tell us more so we could serve you better", input_html: {class: "join-form-inputs"} %>
+
+
     <div class= "hidden">
       <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+      <%= f.input :user, :input_html => { :value => @email} %>
     </div>
     <div>
-      </br>
-      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+      <br>
+      <%= f.submit 'Submit Application', :class=> "btn join-submit" %>
     </div>
+</div>
+
+</div>
   <% end %>
+
+
+</div> 
 </div>

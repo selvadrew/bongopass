@@ -12,6 +12,11 @@ class Ticket < ApplicationRecord
  # validates :ticket_end_date, presence: true
 #  validates :ticket_end_time, presence: true
 
+
+ def to_param 
+    "#{id}-23-s59i-#{ticket_name.parameterize}"
+  end
+
 end
 
 

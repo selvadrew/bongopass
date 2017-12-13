@@ -33,6 +33,9 @@ class Event < ApplicationRecord
   validates :event_currency, presence: true
 
 
+  def to_param 
+    "#{id}-25-7b509a4-s59i7l86-#{event_title.parameterize}"
+  end
 
 
 
