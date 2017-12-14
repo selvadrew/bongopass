@@ -29,6 +29,14 @@ body, html {
   -webkit-font-smoothing: antialiased;
 }
 
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+.nav-text {
+	color: #484848 !important;
+	font-weight: 500 !important;
+}
 
 
 /* HOME PAGE */
@@ -335,6 +343,7 @@ body, html {
 	background: #1d1d1d;
 	color: white;
 	width: 100px;
+	font-weight: bold;
 }
 
 .join-log-in {
@@ -372,6 +381,7 @@ body, html {
 		background: #1d1d1d;
 		height: 100%;
 		width: 100%;
+		overflow: auto;
 	}
 }
 
@@ -393,7 +403,7 @@ body, html {
 
 
 .avatar-small {
-	width: 28px; 
+	width: 18px; 
 }
 
 .avatar-medium {
@@ -466,6 +476,15 @@ body, html {
 
 .warning-text {
 	color: red;
+}
+
+.here-underline {
+	text-decoration: underline;
+}
+
+.modal-margin-exit {
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .create-event-title {
@@ -572,6 +591,7 @@ body, html {
 	border: 1px solid gray;
 	margin-bottom: 15px;
 	background: #EDF0F3;
+	border-radius: 5px;
 }
 
 .new-ticket-button {
@@ -1013,6 +1033,7 @@ body, html {
 	padding-right: 20px;
 	padding-left: 20px;
 	display: block;
+	overflow: hidden;
 }
 
 .description-title {
@@ -1460,11 +1481,17 @@ section.hero {
 }
 
 .bongo-design {
-	color: #232f3e;
+	color: #232f3e !important;
 	font-family: 'Comfortaa', cursive;
-	font-size: 40px;
-	font-weight: 900;
-	padding-top: 1em;
+    font-size: 25px;
+    font-weight: 900;
+    padding: 2px 0px 0px 0px !important;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+
+.pass-color {
+
 }
 
 .create-event {
@@ -1488,8 +1515,6 @@ section.hero {
 	color: white !important;
 }
 
-.navbar-default {
-}
 
 
 .dropdown-toggle {
@@ -1513,8 +1538,8 @@ section.hero {
 }
 
 .navbar-default {
-	background-color: white;
-	color: black;
+	border-bottom: 1px solid #e4e4e4 !important;
+	background-color: #f6f7f8 !important;
 }
 
 .about-button-position  {
@@ -1811,6 +1836,11 @@ table {
 		padding-left: 45px;
 		padding-right: 45px;
 	}
+
+	.bongo-design {
+		padding-top: 2px;
+	}
+
 }
 
 /* new show page */
@@ -2136,6 +2166,10 @@ table {
 		text-align: center;
 	}
 
+	.bongo-design {
+		margin-left: 10px;
+	}
+
 
 
 }
@@ -2205,7 +2239,7 @@ table {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 20px;
-    border: 1px solid #e61d2b;
+    border: 1px solid #232323;
 }
 
 
@@ -2262,7 +2296,7 @@ table {
 	    text-align: center;
 	    padding: 10px;
 	    margin-top: 20px;
-	    border: 1px solid #e61d2b;
+	    border: 1px solid #232323;
 
 	}
 
@@ -2467,6 +2501,7 @@ table {
 	color: white !important;
 	margin-top: 20px;
 	font-size: 16px;
+	font-weight: bold;
 }
 
 .purchases-passes {
@@ -2618,6 +2653,7 @@ table {
     border: none;
     border-radius: 0px;
     font-weight: bold;
+    font-size: 15px;
 }
 
 .feedback-input {
@@ -2626,6 +2662,7 @@ table {
 
 .send-feedback-submit {
 	margin-bottom: 50px;
+	font-weight: bold;
 }
 
 

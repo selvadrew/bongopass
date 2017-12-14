@@ -39,7 +39,12 @@ resources :events, except: [:edit] do
   end
 end
 
-  root 'pages#home'
+
+devise_scope :user do
+  root to: "devise/sessions#new"
+end
+
+  get 'host' => 'pages#home'  
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
   get '/payout_method' => "users#paypal_payout"
