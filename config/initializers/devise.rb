@@ -284,6 +284,10 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {}
 
 
+  config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.production?
+
+
+
 
 end
 
