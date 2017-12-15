@@ -35,7 +35,7 @@ body, html {
 
 .nav-text {
 	color: #484848 !important;
-	font-weight: 500 !important;
+	font-weight: 400 !important;
 }
 
 
@@ -1048,6 +1048,8 @@ body, html {
 	padding-left: 20px;
 	display: block;
 	overflow: hidden;
+	line-height: 22px;
+	color: #1d1d1d;
 }
 
 .description-title {
@@ -1061,6 +1063,7 @@ body, html {
 .description-title-display {
 	font-size: 16px !important;
 	padding-bottom: 15px !important;
+	color: #292929 !important;
 }
 
 .no-display-larger {
@@ -1068,7 +1071,7 @@ body, html {
 	font-weight: 500;
 	padding-bottom: 20px;
 	padding-top: 0px;
-	color: black;
+	color: #292929;
 }
 
 .holder-social-media-share-buttons {
@@ -1170,6 +1173,8 @@ body, html {
 	padding-right: 20px;
 	padding-left: 20px;
 	display: block;
+	line-height: 22px;
+	color: #1d1d1d;
 
 }
 
@@ -2231,7 +2236,6 @@ table {
 .you-are-going-top {
 	font-size: 18px;
 	font-weight: 700; 
-	color: black;
 	max-width: 780px;
 
 }
@@ -2249,7 +2253,7 @@ table {
 }
 
 .share-link-header {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .boxed-text-add {
@@ -2278,6 +2282,7 @@ table {
     padding-bottom: 10px;
     margin-top: 20px;
     border: 1px solid gray;
+    font-weight: 500;
 }
 
 
