@@ -17,13 +17,14 @@
         <!-- if user is NOT signed in  -->
         <% if (!user_signed_in?) %>
 
-          <li><%= link_to "Help", support_path, class: "nav-text" %></li>
+          <li class="hidden-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
           <li><%= link_to "Log In", new_user_session_path, class: "nav-text" %></li>
           <li><%= link_to "Sign Up", new_user_registration_path, class: "nav-text"  %></li> 
+          <li class="visible-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
 
         <% else %>
 
-          <li class="hidden-xs "><%= link_to "Help", support_path, class: "nav-text" %></li>
+          <li class="hidden-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
 
           <li class="dropdown hidden-xs">
             <a href="#" class="dropdown-toggle nav-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -52,6 +53,7 @@
 
           <% if current_user && current_user.create_permission == "allow" %>
             <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "nav-text visible-xs" %></li>
+            <li class="visible-xs"><%= link_to "My Events", events_path, class: "nav-text"  %></li>
           <% end %>
 
           <li class="visible-xs"><%= link_to "My Passes", purchases_path, class: "nav-text"  %></li>

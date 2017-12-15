@@ -153,7 +153,7 @@ class OrdersController < ApplicationController
     def already_purchased 
       @ticket = Ticket.find(params[:ticket_id])
       unless Order.joins(:ticket).where(buyer_id: current_user.id).where(ticket_id: @ticket.id).blank?
-        redirect_to new_ticket_order_path, notice: "You can only purchase one ticket for this event"
+        redirect_to new_ticket_order_path, notice: "You can only purchase one Pass for this event"
       end
     end
 
