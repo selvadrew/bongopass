@@ -13,19 +13,21 @@
 		<div class="event-content col-xs-12 col-sm-6 col-md-6">
 
 			<p class="you-are-going-top">
-				Woohoo, you're going! Now you can share this personal event page and receive up to $100 for helping your friends discover this experience.<br>
+				Woohoo, you're going! Now you can invite your friends with your personal event page and receive up to $100 for helping them discover a new experience.<br>
 			</p>
 
 			<div class="invite-explanation">
-			Know any friends that would be interested in this event? Bongopass will credit your account with <b>$10 for every 3 passes purchased on this page, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass! Find this page under "My Passes" to share your personal event page and keep track of who's joining you.
+			Know any friends that would be interested in this event or are already planning to join you? Bongopass will credit your account with <b>$10 for every 3 passes purchased on this page, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass!
 			</div>
  			<br>
 
 		</div>
 
-
+	
 
 		<div class="col-xs-12 col-sm-6 col-md-6 boxy">
+
+			<p class="share-link-header">Share your link to send an invitation. </p>
 
 			<div class="boxed boxed-add">
 			<div class="boxed-text boxed-text-add">
@@ -43,10 +45,6 @@
 					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
 						Show Friends 	
 					</div>
-
-
-
-
  			</div>
  			</div>
 
@@ -81,7 +79,7 @@
 
 
  			<div class="only-you-can-see-mobile">
- 				Note: When you share this page, others will only see the event content below. </i>
+ 				Note: When you invite others, they will see the event details below. </i>
  				<br> 
  			</div>
 		</div>
@@ -89,7 +87,7 @@
 
 
  	<div class="only-you-can-see">
-		Note: When you share this page, others will only see the event content below. 
+		Note: When you invite others, they will see the event details below. 
 		<br>
 	</div>
 
@@ -193,12 +191,25 @@
 	</div>
 </div>
 
+<div class="container cover-photo-mobile-container">
+	<div class="cover-photo-container">	
+		<!-- Image -->
+		<%if @photos.present? %>
+			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+		<% else %>
+			<div class="photo-request">
+				Please upload a cover photo. All events on Bongopass require a photo. 
+			</div>
+		<% end %>
+	</div>
+</div>
+
 <div class="container big-container">
 
 
 <div class="col-xs-12 col-sm-7 col-md-8 main-content-section">
 
-	<div class="cover-photo-container">	
+	<div class="cover-photo-container cover-photo-big-screen">	
 		<!-- Image -->
 		<%if @photos.present? %>
 			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
@@ -441,7 +452,6 @@
 
 <!-- Show button-->
 </div>
-
 
 
 

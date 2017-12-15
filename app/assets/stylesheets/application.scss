@@ -119,6 +119,8 @@ body, html {
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-bottom: 80px;
+	text-transform: uppercase;
+	font-size: 13px;
 }
 
 
@@ -141,6 +143,15 @@ body, html {
 	.home-container {
 	    width: 1170px !important;
 	}
+}
+
+
+@media (max-width: 767px) {
+	.title h2 {
+		font-size: 48px;
+		font-weight: 200;
+	}
+
 }
 
 
@@ -2003,7 +2014,7 @@ table {
 
 
 .event-organizer-presents {
-	font-size: 11px;
+	font-size: 12px;
     font-weight: 600;
     font-style: italic;
     color: white;
@@ -2232,6 +2243,10 @@ table {
     height: 162px !important;
 }
 
+.share-link-header {
+	font-weight: 600;
+}
+
 .boxed-text-add {
 	top: 45% !important;
 }
@@ -2257,7 +2272,7 @@ table {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 20px;
-    border: 1px solid #232323;
+    border: 1px solid gray;
 }
 
 
@@ -2308,13 +2323,15 @@ table {
 
 
 @media screen and (max-width: 768px) {
+
+
 	.only-you-can-see-mobile {
 		display: block;
 	    font-size: 14px;
 	    text-align: center;
 	    padding: 10px;
 	    margin-top: 20px;
-	    border: 1px solid #232323;
+	    border: 1px solid gray;
 
 	}
 
@@ -2520,6 +2537,7 @@ table {
 	margin-top: 20px;
 	font-size: 16px;
 	font-weight: bold;
+	border-radius: 2px;
 }
 
 .purchases-passes {
@@ -2559,11 +2577,24 @@ table {
 	border-radius: 3px;
 }
 
+.cover-photo-mobile-container {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
+.cover-photo-big-screen {
+	display: none;
+}
 
 @media screen and (min-width: 768px) { 
 
+	.cover-photo-mobile-container {
+		display: none;
+	}
 
-
+	.cover-photo-big-screen {
+		display: block;
+	}
 }
 
 
