@@ -65,12 +65,25 @@
 	</div>
 </div>
 
+
+<div class="container cover-photo-mobile-container">
+	<div class="cover-photo-container">	
+		<!-- Image -->
+		<%if @photos.present? %>
+			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+		<% else %>
+			<div class="photo-request">
+				Please upload an event photo. All events on Bongopass require a photo. 
+			</div>
+		<% end %>
+	</div>
+</div>
+
+
 <div class="container big-container">
-
-
 <div class="col-xs-12 col-sm-7 col-md-8 main-content-section">
 
-	<div class="cover-photo-container">	
+	<div class="cover-photo-container cover-photo-big-screen">	
 		<!-- Image -->
 		<%if @photos.present? %>
 			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
