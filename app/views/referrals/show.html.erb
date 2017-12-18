@@ -13,7 +13,7 @@
 		<div class="event-content col-xs-12 col-sm-6 col-md-6">
 
 			<p class="you-are-going-top">
-				Woohoo, you're going! Now you can invite your friends with your personal event page and receive up to $100 for helping them discover a new experience.<br>
+				Woohoo, you're going! Now you can invite friends with your personal event page and receive up to $100 for helping them discover a new experience.<br>
 			</p>
 
 			<div id="learn-more">Learn more</div>
@@ -30,28 +30,6 @@
 
 			<p class="share-link-header">Share your link to send an invitation. </p>
 
-			<div class="boxed boxed-add">
-			<div class="boxed-text boxed-text-add">
-				<div class="box-data box-data-add">
-					<%= @current_purchases %>
-				</div>
-				<div class="box-description box-description-add">
-					<% if @current_purchases == 1 %>
-	 					friend is joining you! 
-	 				<% else %>
-	 					friends are joining you!
-	 				<% end %>
-				</div>
-					
-					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
-						<% if @current_purchases == 1 %>
-						Show Friend
-						<% else %>
-						Show Friends 	
-						<% end %>
-					</div>
- 			</div>
- 			</div>
 
  			<div class="holder-social-media-share-buttons">
 
@@ -76,13 +54,36 @@
 				Share on Twitter
 				</a>
 
-
 				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
-
-
-
-
 			</div>
+
+
+
+
+
+			<div class="boxed boxed-add">
+			<div class="boxed-text boxed-text-add">
+				<div class="box-data box-data-add">
+					<%= @current_purchases %>
+				</div>
+				<div class="box-description box-description-add">
+					<% if @current_purchases == 1 %>
+	 					friend is joining you! 
+	 				<% else %>
+	 					friends are joining you!
+	 				<% end %>
+				</div>
+					
+					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
+						<% if @current_purchases == 1 %>
+						Show Friend
+						<% else %>
+						Show Friends 	
+						<% end %>
+					</div>
+ 			</div>
+ 			</div>
+
 
 
  			<div class="only-you-can-see-mobile">
