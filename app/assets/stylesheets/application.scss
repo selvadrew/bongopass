@@ -31,7 +31,6 @@ body, html {
 
 html {
 	background-color: #232323 ;
-	overflow: auto;
 	height: 100%;
 }
 
@@ -56,6 +55,11 @@ html {
 	}
 
 @media (min-width: 992px) { 
+
+	.cover-photo {
+		min-height: 345px;
+	}
+
 	.background-splash {
 		height: 425px;
 	}
@@ -68,6 +72,11 @@ html {
 
 
 @media (min-width: 1200px) { 
+
+	.cover-photo {
+		min-height: 362px;
+	}
+
 	.background-splash {
 	  height: 440px;
 	}
@@ -789,6 +798,7 @@ html {
 	width: 100%;
 	height: auto;
 	border: 0;
+	object-fit: cover;
 }
 
 
@@ -1157,7 +1167,6 @@ html {
     width: 200px;
     height: 162px;
     vertical-align: middle;
-    margin-top: 15px;
 }
 
 .social-media-share-buttons-fb {
@@ -1169,8 +1178,8 @@ html {
     margin-bottom: 10px;
     color: white;
     display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     display: block;
 }
 
@@ -1182,8 +1191,10 @@ html {
 	padding-right: 10px;
 	color: white;
 	display: block;
-	font-size: 12px;
-	font-weight: 600;
+	font-size: 13px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .messenger-button {
@@ -1243,8 +1254,8 @@ html {
     color: white;
     display: block;
     margin-bottom: 10px;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .event-organizer-block {
@@ -1418,7 +1429,7 @@ html {
 	.date-location-bold {
 		font-size: 16px;
 		font-weight: 500;
-		margin-bottom: 0px;
+		margin-bottom: 10px;
 		color: white;
 	}
 
@@ -1529,7 +1540,9 @@ html {
 
 	.ticket-box {
 	    padding: 10px;
-	    box-shadow: -1px 2px 5px 1px black;
+	    -webkit-box-shadow: 0 4px 4px black;
+			-moz-box-shadow: 0 4px 4px black;
+			box-shadow: 0 4px 4px black;
 	    margin-bottom: 10px;
 	    font-family: 'Montserrat', sans-serif;
 	    background: #2f2f2f;
@@ -1925,6 +1938,11 @@ table {
 	display: none;
 }
 
+.ticket-wrapper-for-mobile {
+	display: block;
+	padding-bottom: 40px;
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -1942,6 +1960,10 @@ table {
 	  position: -webkit-sticky;
 	  position: sticky;
 	  top: 0px;
+	}
+
+	.ticket-wrapper-for-mobile {
+		display: none;
 	}
 
 }
@@ -2020,6 +2042,8 @@ table {
 	/* background-color: #f6f7f8; */
 	background-color: #2f2f2f;
 	position: relative;
+	overflow: auto;
+	height: 100%;
 }
 
 
@@ -2203,7 +2227,7 @@ table {
 }
 
 .event-description-content {
-	padding-bottom: 40px;
+	padding-bottom: 30px;
 }
 
 
@@ -2224,11 +2248,14 @@ table {
 
 	.no-display-larger {
 		display: block;
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: 600;
 		padding-bottom: 15px;
 		padding-top: 40px;
-		color: black;
+	}
+
+	.ticket-box {
+		background: #232323;
 	}
 
 	.background-splash {
@@ -2244,9 +2271,6 @@ table {
 
 
 
-	.main-info {
-		padding: 0px!important; 
-	}
 
 	.onatby-first-container {
 		padding: 0px !important;
@@ -2283,9 +2307,6 @@ table {
 		display: none;
 	}
 
-	.show-organizer-description {
-		padding-bottom: 20px;
-	}
 
 	.show-map {
 		font-size: 10px;
@@ -2323,12 +2344,23 @@ table {
     margin-bottom: 5px;
 }
 
+#learn-more {
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+
+
 .inviter-name {
 	text-transform: capitalize;
 }
 
 .page-header-referral {
 	background: none !important;
+	padding-top: 40px;
 }
 
 .you-are-going-top {
@@ -2355,6 +2387,7 @@ table {
     height: 162px !important;
     background-color: #348efa !important;
     border: none;
+    margin-bottom: 15px;
 }
 
 .share-link-header {
@@ -2431,6 +2464,10 @@ table {
 	margin-bottom: 10px;
 }
 
+.no-friends-name {
+	text-align: center;
+}
+
 .modal-header-joined {
 	background: #348efa;
 	color: white;
@@ -2471,10 +2508,10 @@ table {
 /* Order form */
 
 .order-page-row {
-	height: 100%;
-	background-color: #f6f7f8;
-
+	background-color: #232323;
+	color: white;
 }
+
 
 .order-picture {
 	text-align: center;
@@ -2482,14 +2519,11 @@ table {
 
 .o-event-title, .o-ticket-name {
 	text-align: center;
+	font-weight: 600;
 }
 
 .order-container {
-	font-family: 'Montserrat', sans-serif;
-	background-color: #f6f7f8;
-	padding-top: 30px;
-	height: 100%;
-	z-index: 100;
+	background-color: #232323 !important;
 }
 
 .pass-information {
@@ -2499,6 +2533,7 @@ table {
 .price-credit-wrapper {
 	display: block;
 	width: 100%;
+	padding-top: 35px;
 }
 
 .price-credit-title {
@@ -2524,8 +2559,8 @@ table {
 	float: left;
 	display: block;
 	width: 100%;
-	border-top: 1px solid rgba(46, 62, 72, 0.12);
-	border-bottom: 1px solid rgba(46, 62, 72, 0.12);
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 
 }
 
@@ -2583,8 +2618,9 @@ table {
 
 .order-page-button {
 	width: 100%;
-	background: #353535;
-	color: white;
+  background: #2f2f2f;
+  color: wheat;
+  font-weight: bold;
 }
 
 .delivery-method {
@@ -2613,6 +2649,12 @@ table {
 	
 }
 
+.order-form-inputs {
+	background-color: #2f2f2f; 
+	border: none !important;
+	color: white; font-weight: 600;
+}
+
 
 
 @media screen and (min-width: 992px) {
@@ -2625,7 +2667,7 @@ table {
 	}
 
 	.new_order {
-		border-left: 1px solid rgba(46, 62, 72, 0.12);
+		border-left: 1px solid grey;
 		height: 100%;
 	}
 }
@@ -2634,6 +2676,10 @@ table {
 @media screen and (max-width: 767px) { 
 	.name-title {
 		margin-top: 50px;
+	}
+
+	.order-page-row { 
+		padding-bottom: 40px;
 	}
 }
 
@@ -2716,6 +2762,10 @@ table {
 
 	.cover-photo-big-screen {
 		display: block;
+	}
+
+	.order-page-row {
+		height: 100%;
 	}
 }
 
@@ -2847,7 +2897,92 @@ table {
 
 			       
 
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal-picture {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-height: 80%;
+    width: auto;
+    max-width: 80%;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: wheat !important;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: wheat;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
 
 
 

@@ -13,10 +13,11 @@
 		<div class="event-content col-xs-12 col-sm-6 col-md-6">
 
 			<p class="you-are-going-top">
-				Woohoo, you're going! Now you can invite your friends with your personal event page and receive up to $100 for helping them discover a new experience on Bongopass.<br>
+				Woohoo, you're going! Now you can invite your friends with your personal event page and receive up to $100 for helping them discover a new experience.<br>
 			</p>
 
-			<div class="invite-explanation">
+			<div id="learn-more">Learn more</div>
+			<div class="invite-explanation hidden" id="learn-more-content">
 			Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation and we'll credit your account with <b>$10 for every 3 passes purchased on your page, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass!
 			</div>
  			<br>
@@ -41,8 +42,6 @@
 	 					friends are joining you!
 	 				<% end %>
 				</div>
-
-				<% unless @friends_joined.count == 0 %>
 					
 					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
 						<% if @current_purchases == 1 %>
@@ -51,14 +50,18 @@
 						Show Friends 	
 						<% end %>
 					</div>
-				<% end %>
  			</div>
  			</div>
 
  			<div class="holder-social-media-share-buttons">
 
-				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
+ 				<!-- Target -->
+				<div id="bar"><%= referral_url(@referral) %></div>
 
+ 				<!-- Trigger -->
+				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
+				    Copy to Clipboard
+				</button>
 
 				<a class="btn social-media-share-buttons-twitter"
 				  href="https://twitter.com/share"
@@ -73,20 +76,17 @@
 				Share on Twitter
 				</a>
 
- 				<!-- Trigger -->
-				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
-				    Copy to Clipboard
-				</button>
 
- 				<!-- Target -->
-				<div id="bar"><%= referral_url(@referral) %></div>
+				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
+
+
 
 
 			</div>
 
 
  			<div class="only-you-can-see-mobile">
- 				Note: When you invite others, they will only see the content below. </i>
+ 				Note: When you invite friends, they will only see the content below. </i>
  				<br> 
  			</div>
 		</div>
@@ -94,7 +94,7 @@
 
 
  	<div class="only-you-can-see">
-		Note: When you invite others, they will only see the content below. 
+		Note: When you invite friends, they will only see the content below. 
 		<br>
 	</div>
 
@@ -114,11 +114,21 @@
 				
 				<div class="modal-body">
 					<div class="friends-joined">
-						
-						<% @friends_joined.order(:created_at).each do |friends|%>
-							<div class="friends-name">
-								<%= friends.first_name %> <%= friends.last_name %>
-							</div>	
+
+						<% if @friends_joined.count == 0 %>
+
+						<div class="no-friends-name">
+							No friends have joined through your personal event page yet. 
+						</div>
+
+						<% else %>
+							
+							<% @friends_joined.order(:created_at).each do |friends|%>
+								<div class="friends-name">
+									<%= friends.first_name %> <%= friends.last_name %>
+								</div>	
+							<% end %>
+
 						<% end %>
 
 					</div>
@@ -229,13 +239,15 @@
 	<div class="cover-photo-container cover-photo-big-screen">	
 		<!-- Image -->
 		<%if @photos.present? %>
-			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo", id:"myImg"%>
 		<% else %>
 			<div class="photo-request">
 				Please upload an event photo. All events on Bongopass require a photo. 
 			</div>
 		<% end %>
 	</div>
+
+
 
 
 
@@ -261,8 +273,72 @@
 
 	<% end %>
 
+
+
+<div class="ticket-wrapper-for-mobile">
+
+		<div class="no-display-larger">
+				SELECT YOUR PASS
+		</div>
+
+		<% @tickets.order(:ticket_price).each do |ticket| %>
+
+
+
+			<% if ticket.ticket_quantity > 0 %>
+
+			<%= link_to new_ticket_order_path(ticket), data: { turbolinks: false } do %>
+
+			<div class="ticket-box clearfix hvrbox">
+
+			    <div class="hvrbox-layer_top">
+			          <div class="hvrbox-text">
+			            Get Pass
+			          </div>
+			    </div>
+
+
+					<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+						<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+						<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+					</div>
+
+					<div class="hvrbox-layer_bottom">
+						<p class="btn-tickets-modal-page "> <%= number_to_currency(ticket.ticket_price + @bongopass_fee) %> </p>	
+					</div>
+
+			</div>
+
+			<% end %>
+
+			<% else %>
+
+			<div class="ticket-box clearfix hvrbox">
+			    <div class="hvrbox-layer_top">
+			    	  <div class="hvrbox-text">
+			            Sold Out
+			          </div>
+			    </div>
+
+				<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+					<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+					<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+				</div>
+
+				<div>
+					<p class="btn-tickets-modal-page hvrbox-layer_bottom"> Sold Out </p>	
+				</div>
+			</div>
+
+			<% end %>
+			
+		<% end %>	
+	</div> <!-- ticket-wrapper-for-mobile -->
+
+
+
 <div class="event-organizer-block">
-		<div class="description-title description-title-display" id="section2">
+		<div class="description-title description-title-display">
 			LOCATION 
 		</div>
 
@@ -270,7 +346,7 @@
 						<%= @event.location %> 
 					</p>
 
-			<div id="show-map">
+			<div id="section2">
 				<div>
 
 			    <style>
@@ -289,6 +365,7 @@
 			          zoom: 14,
 			          center: uluru,
 			          mapTypeControl: false, 
+			          fullscreenControl: false,
 			          styles: [
   {
     "elementType": "geometry",
@@ -512,7 +589,7 @@ new google.maps.event.trigger( marker, 'click' );
 
 <div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile sidebar" id="sidebar">
 
-	<div class="ticket-wrapper-for-mobile">
+	<div class="">
 		<div class="description-title no-display-larger">
 			SELECT YOUR PASS
 		</div>
@@ -670,6 +747,36 @@ new google.maps.event.trigger( marker, 'click' );
 </div>
 
 
+
+	<!-- The Modal -->
+<div id="myModal" class="modal-picture">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
 
 
 

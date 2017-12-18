@@ -44,7 +44,7 @@
 						<h5 class="on-only">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 						</h5>
-						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map" href="#section2">View Address</a>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="section2"  href="#section2">View Address</a>
 						</h5>
 					</div>
 					</div>
@@ -57,7 +57,7 @@
 	  			<div class="event-venue-section disable-blue-event">
 	           		<p class="event-venue-actual-name"><%= @event.venue %></p>
 	           		<p class="see-location">
-	           			<a class="show-map" href="#section2">View Address</a>
+	           			<a class="section2"  href="#section2">View Address</a>
 	           		</p>
 	           	</div>
 	   		</div>
@@ -99,13 +99,16 @@
 	<div class="cover-photo-container cover-photo-big-screen">	
 		<!-- Image -->
 		<%if @photos.present? %>
-			<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+				<%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo", id:"myImg"%>
 		<% else %>
 			<div class="photo-request">
 				Please upload an event photo. All events on Bongopass require a photo. 
 			</div>
 		<% end %>
 	</div>
+
+
+
 
 
 		<!-- Event Description -->
@@ -130,8 +133,95 @@
 
 	<% end %>
 
+
+
+	<div class="ticket-wrapper-for-mobile">
+
+		<div class="no-display-larger">
+				SELECT YOUR PASS
+		</div>
+
+		<% @tickets.order(:ticket_price).each do |ticket| %>
+
+
+
+			<% if ticket.ticket_quantity > 0 %>
+
+			<%= link_to new_ticket_order_path(ticket), data: { turbolinks: false } do %>
+
+			<div class="ticket-box clearfix hvrbox">
+
+			    <div class="hvrbox-layer_top">
+			          <div class="hvrbox-text">
+			            Get Pass
+			          </div>
+			    </div>
+
+
+					<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+						<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+						<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+					</div>
+
+					<div class="hvrbox-layer_bottom">
+						<p class="btn-tickets-modal-page "> <%= number_to_currency(ticket.ticket_price + @bongopass_fee) %> </p>	
+					</div>
+
+			</div>
+
+			<% end %>
+
+			<% else %>
+
+			<div class="ticket-box clearfix hvrbox">
+			    <div class="hvrbox-layer_top">
+			    	  <div class="hvrbox-text">
+			            Sold Out
+			          </div>
+			    </div>
+
+				<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+					<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+					<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+				</div>
+
+				<div>
+					<p class="btn-tickets-modal-page hvrbox-layer_bottom"> Sold Out </p>	
+				</div>
+			</div>
+
+			<% end %>
+			
+		<% end %>	
+	</div> <!-- ticket-wrapper-for-mobile -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="event-organizer-block">
-		<div class="description-title description-title-display" id="section2">
+		<div class="description-title description-title-display">
 			LOCATION 
 		</div>
 
@@ -139,7 +229,7 @@
 						<%= @event.location %> 
 					</p>
 
-			<div id="show-map">
+			<div id="section2">
 				<div>
 
 			    <style>
@@ -158,6 +248,7 @@
 			          zoom: 14,
 			          center: uluru,
 			          mapTypeControl: false, 
+			          fullscreenControl: false,
 			          styles: [
   {
     "elementType": "geometry",
@@ -371,13 +462,6 @@ new google.maps.event.trigger( marker, 'click' );
 				</div>
 			</div>
 
-
-
-						<!-- address below map  -->
-
-
-		
-
 </div>
 
 
@@ -389,7 +473,7 @@ new google.maps.event.trigger( marker, 'click' );
 <div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper sidebar" id="sidebar">
 
 	
-	<div class="ticket-wrapper-for-mobile">
+	<div class="">
 
 		<div class="no-display-larger">
 				SELECT YOUR PASS
@@ -446,25 +530,16 @@ new google.maps.event.trigger( marker, 'click' );
 
 			<% end %>
 
-
 		<% end %>	
-
-
-
 	</div> <!-- ticket-wrapper-for-mobile -->
 
-
-
+</div>
 
 <%if false %>
 	<div class="messenger-button">
 		<a id="messengerBtn" class="btn btn-default social-media-share-buttons-messenger"><span class="align">Plan Your Experience With Friends</span></a>
 	</div>
 <% end %>
-	
-</div>
-
-
 
 
 		<br>
@@ -534,7 +609,35 @@ new google.maps.event.trigger( marker, 'click' );
 
 
 
+	<!-- The Modal -->
+<div id="myModal" class="modal-picture">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
 
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
 
 
 
@@ -611,6 +714,7 @@ window.twttr = (function(d, s, id) {
 
   return t;
 }(document, "script", "twitter-wjs"));</script>
+
 
 
 

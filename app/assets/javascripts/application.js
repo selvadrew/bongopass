@@ -107,10 +107,9 @@ $(document).on('turbolinks:load', function() {
 
 
 
-
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+  $(".section2").on('click', function(event) {
 
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
@@ -132,7 +131,21 @@ $(document).ready(function(){
 
 
 
+$(document).on('turbolinks:load', function(){
+    $("#learn-more").click(function(){
+        $("#learn-more-content").toggleClass('hidden', 800);
+    });
+});
+
+
+
 var sidebar = document.getElementById('sidebar');
 Stickyfill.add(sidebar);
+
+
+
+
+
+
 
 

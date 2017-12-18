@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
 
 
-<div class="order-container"> 
+<div class="font-set-show-page order-container"> 
 <div class="container big-container order-page-row">
 <div class="row order-page-row"> 
-  <div class="col-xs-12 col-sm-5 col-md-5">
+  <div class="col-xs-12 col-sm-5 col-md-5 order-de">
     <div class="order-picture">
       <%= image_tag @ticket.event.photos[0].image.url(:medium) %>
     </div>
@@ -102,7 +102,7 @@
       <div class="row payment-rows">
           <div class="col-md-8 order-alignment ">
             <div class="field">
-              <%= form.text_field :first_name, id: :first_name, placeholder: "First Name", class: "form-control", required: true %>
+              <%= form.text_field :first_name, id: :first_name, placeholder: "First Name", class: "form-control order-form-inputs", required: true %>
             </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
       <div class="row payment-rows">
           <div class="col-md-8 order-alignment ">
             <div class="field">
-              <%= form.text_field :last_name, id: :last_name, placeholder: "Last Name", class: "form-control", required: true %>
+              <%= form.text_field :last_name, id: :last_name, placeholder: "Last Name", class: "form-control order-form-inputs", required: true %>
             </div>
         </div>
       </div>
@@ -124,7 +124,7 @@
       <div class="form-group">
         <div class="row payment-rows">
           <div class="col-md-8 order-alignment ">
-            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control", placeholder: "Credit Card Number" } %>
+            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control order-form-inputs", placeholder: "Credit Card Number" } %>
           </div>
         </div>
 
@@ -132,16 +132,16 @@
 
           <div class="col-md-5 col-xs-8 order-alignment ">
             <div class="expiration-date-month">
-            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control", placeholder:"Month" } %>
+            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control order-form-inputs", placeholder:"Month" } %>
             </div>
 
             <div class="expiration-date-year">
-            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control", placeholder:"Year" } %>
+            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control order-form-inputs", placeholder:"Year" } %>
             </div>
           </div>
           
           <div class="col-md-3 col-xs-4">
-            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control", required: true, placeholder: "CVC" } %>
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control order-form-inputs", required: true, placeholder: "CVC" } %>
           </div>
 
         </div>
@@ -150,7 +150,7 @@
         
         <div class="row payment-rows">
           <div class="col-md-8 order-alignment ">
-            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control", required: true, placeholder: "Zip Code" } %>
+            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control order-form-inputs", required: true, placeholder: "Zip Code" } %>
           </div>
         </div>
       </div>
@@ -170,4 +170,5 @@
 </div>
 </div>
 </div>
+
 
