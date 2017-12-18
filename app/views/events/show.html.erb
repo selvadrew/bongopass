@@ -44,7 +44,7 @@
 						<h5 class="on-only">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 						</h5>
-						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map" href="#show-map">View Address</a>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map" href="#section2">View Address</a>
 						</h5>
 					</div>
 					</div>
@@ -57,13 +57,26 @@
 	  			<div class="event-venue-section disable-blue-event">
 	           		<p class="event-venue-actual-name"><%= @event.venue %></p>
 	           		<p class="see-location">
-	           			<a class="show-map" href="#show-map">View Address</a>
+	           			<a class="show-map" href="#section2">View Address</a>
 	           		</p>
 	           	</div>
 	   		</div>
 		</div>
 	</div>
 </div>
+
+<div class="splash-container">
+<div class="background-splash">
+	<%if @photos.present? %>
+		<%= image_tag @photos[0].image.url(:thumb), class: "splash-image"%>
+	<% end %>
+</div>
+</div>
+
+
+
+
+
 
 
 <div class="container cover-photo-mobile-container">
@@ -98,8 +111,10 @@
 		<!-- Event Description -->
 
 	<div class="event-description">
-		<div class="description-title description-title-display">DESCRIPTION</div>
+		<div class="description-title description-title-display description-title-mobile">DESCRIPTION</div>
+		<div class="event-description-content">
 		<%= @event.event_description.html_safe %>
+		</div>
 	</div>
 
 	<% if @event.organizer_description %>
@@ -115,78 +130,331 @@
 
 	<% end %>
 
+<div class="event-organizer-block">
+		<div class="description-title description-title-display" id="section2">
+			LOCATION 
+		</div>
+
+				  <p class="date-location-bold">
+						<%= @event.location %> 
+					</p>
+
+			<div id="show-map">
+				<div>
+
+			    <style>
+			  		#map {
+			        height: 350px;
+			        width: 100%;
+			       }
+			       
+			    </style>
+
+			    <div id="map"></div>
+			    <script>
+			      function initMap() {
+			        var uluru = {lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			          zoom: 14,
+			          center: uluru,
+			          mapTypeControl: false, 
+			          styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#181818"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1b1b1b"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#2c2c2c"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8a8a8a"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#373737"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#3c3c3c"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#4e4e4e"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#000000"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#3d3d3d"
+      }
+    ]
+  }
+]
+			        });
+			        var marker = new google.maps.Marker({
+			          position: uluru,
+			          map: map,
+			              icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        strokeColor: "#E6BE73",
+        scale: 5
+    },
+			        });
+
+			        marker.addListener('click', function() {
+    infowindow.open(map, marker);
+});
+new google.maps.event.trigger( marker, 'click' );
+
+
+			      }
+			    </script>
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&callback=initMap">
+			    </script>
+
+
+				</div>
+			</div>
+
+
+
+						<!-- address below map  -->
+
+
+		
+
+</div>
+
 
 </div>
 
 
 
 
-<div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile">
+<div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper sidebar" id="sidebar">
 
+	
 	<div class="ticket-wrapper-for-mobile">
+
 		<div class="no-display-larger">
-			SELECT YOUR PASS
+				SELECT YOUR PASS
 		</div>
 
-	<% @tickets.order(:ticket_price).each do |ticket| %>
-
-	<% if ticket.ticket_quantity > 0 %>
-
-	<%= link_to new_ticket_order_path(ticket), data: { turbolinks: false } do %>
-
-		<div class="ticket-box clearfix hvrbox">
-		    <div class="hvrbox-layer_top">
-		          <div class="hvrbox-text">
-		            Get Pass
-		          </div>
-		    </div>
+		<% @tickets.order(:ticket_price).each do |ticket| %>
 
 
-			<div class="ticket-name-price-desc hvrbox-layer_bottom">							
-				<p class="ticket-name"> <%= ticket.ticket_name %> </p>
-				<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+
+			<% if ticket.ticket_quantity > 0 %>
+
+			<%= link_to new_ticket_order_path(ticket), data: { turbolinks: false } do %>
+
+			<div class="ticket-box clearfix hvrbox">
+
+			    <div class="hvrbox-layer_top">
+			          <div class="hvrbox-text">
+			            Get Pass
+			          </div>
+			    </div>
+
+
+					<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+						<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+						<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+					</div>
+
+					<div class="hvrbox-layer_bottom">
+						<p class="btn-tickets-modal-page "> <%= number_to_currency(ticket.ticket_price + @bongopass_fee) %> </p>	
+					</div>
+
 			</div>
 
-			<div>
-				<p class="btn-tickets-modal-page hvrbox-layer_bottom"> <%= number_to_currency(ticket.ticket_price + @bongopass_fee) %> </p>	
+			<% end %>
+
+			<% else %>
+
+			<div class="ticket-box clearfix hvrbox">
+			    <div class="hvrbox-layer_top">
+			    	  <div class="hvrbox-text">
+			            Sold Out
+			          </div>
+			    </div>
+
+				<div class="ticket-name-price-desc hvrbox-layer_bottom">							
+					<p class="ticket-name"> <%= ticket.ticket_name %> </p>
+					<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+				</div>
+
+				<div>
+					<p class="btn-tickets-modal-page hvrbox-layer_bottom"> Sold Out </p>	
+				</div>
 			</div>
 
-
-		</div>
-
-		<% end %>
-
-		<% else %>
-
-		<div class="ticket-box clearfix hvrbox">
-		    <div class="hvrbox-layer_top">
-		    	  <div class="hvrbox-text">
-		            Sold Out
-		          </div>
+			<% end %>
 
 
-		    </div>
+		<% end %>	
 
 
-			<div class="ticket-name-price-desc hvrbox-layer_bottom">							
-				<p class="ticket-name"> <%= ticket.ticket_name %> </p>
-				<p class="ticket-description"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
-			</div>
 
-			<div>
-				<p class="btn-tickets-modal-page hvrbox-layer_bottom"> Sold Out </p>	
-			</div>
+	</div> <!-- ticket-wrapper-for-mobile -->
 
 
-		</div>
 
-		<% end %>
-
-
-	<% end %>	
-
-
-	</div>
 
 <%if false %>
 	<div class="messenger-button">
@@ -252,64 +520,15 @@
 			</div>
 <% end %>
 
-
-
-
 			</div>
 
 
-			<div id="show-map">
-				<div>
-
-			    <style>
-			  		#map {
-			        height: 350px;
-			        width: 100%;
-			       }
-			       
-			    </style>
-
-			    <div id="map"></div>
-			    <script>
-			      function initMap() {
-			        var uluru = {lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
-			        var map = new google.maps.Map(document.getElementById('map'), {
-			          zoom: 14,
-			          center: uluru
-			        });
-			        var marker = new google.maps.Marker({
-			          position: uluru,
-			          map: map
-			        });
-			      }
-			    </script>
-			    <script async defer
-			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&callback=initMap">
-			    </script>
-
-
-				</div>
-			</div>
-
-
-
-						<!-- address below map  -->
-
-
-				<div class="address-below-map">
-
-					<p >
-						<%= @event.venue %> <br> at
-					</p>
-					
-					<p class="date-location-bold">
-						<%= @event.location %> 
-					</p>
-				</div>
 
 		
 
 </div>
+
+
 </div>
 
 

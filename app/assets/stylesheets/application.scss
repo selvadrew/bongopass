@@ -19,7 +19,6 @@ font-family: 'Montserrat', sans-serif;
 
 
 
-
 body, html {
   margin: 0;
   padding: 0;
@@ -27,14 +26,89 @@ body, html {
   height: 100%;
   background-color: #f6f7f8;
   -webkit-font-smoothing: antialiased;
+  overflow: auto;
 }
+
+html {
+	background-color: #232323 ;
+	overflow: auto;
+	height: 100%;
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) { 
+	.cover-photo {
+	  max-height: 220px !important;
+	}
+}
+
+
+
+
+
+	.background-splash {
+		height: 275px;
+		display: block;
+	  position: absolute;
+	  left: 0px;
+	  right: 0px;
+	  overflow: hidden;
+	}
+
+@media (min-width: 992px) { 
+	.background-splash {
+		height: 425px;
+	}
+
+	.cover-photo-big-screen {
+		min-height: 340px;
+	}
+
+}
+
+
+@media (min-width: 1200px) { 
+	.background-splash {
+	  height: 440px;
+	}
+
+	.cover-photo-big-screen {
+		min-height: 362px;
+	}
+}
+
+
+.splash-image {
+  width: 200%;
+  height: 100%;
+  filter: blur(70px) brightness(0.9);
+  transform: rotate(180deg);
+
+}
+
+
+
+
+
 
 .navbar {
 	margin-bottom: 0px !important;
 }
 
+.navbar-style {
+	background: rgba(47,47,47,0.98) !important;
+	border-radius: 0px !important;
+	border: none !important ;
+}
+
+.navbar-toggle {
+	border: none !important;
+}
+
+
+
 .nav-text {
-	color: #484848 !important;
+	color: #999 !important;
 	font-weight: 400 !important;
 }
 
@@ -725,6 +799,7 @@ body, html {
 
 .main-info {
 	font-family: 'Roboto', sans-serif;
+	padding-bottom: 60px;
 }
 .event-title {
 	font-size: 25px;
@@ -925,7 +1000,8 @@ body, html {
 	display: block;
 	font-family: 'Montserrat', sans-serif;
 	letter-spacing: 0.5px;
-	color: black;
+	color: white;
+	background: #2f2f2f;
 }
 
 
@@ -970,7 +1046,7 @@ body, html {
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.85);
 	color: #348efa;
 	padding: 15px;
 	-moz-transition: all 0.4s ease-in-out 0s;
@@ -985,6 +1061,7 @@ body, html {
 .hvrbox .hvrbox-text {
 	text-align: center;
 	font-size: 18px;
+	font-weight: 500;
 	display: inline-block;
 	position: absolute;
 	top: 50%;
@@ -1017,12 +1094,11 @@ body, html {
 
 .btn-tickets-modal-page {
 	/* background-color: #e61d2b; */
-    color: black;
+    color: white;
     /* vertical-align: middle; */
     float: right;
     max-width: 100%;
     width: 80px;
-    position: relative;
     padding-right: 0px;
     padding-left: 0px;
     text-align: right;
@@ -1037,7 +1113,6 @@ body, html {
 	float: right;
 	max-width: 100%;
 	width: 80px;
-	position: relative;
 	padding-right: 0px;
 	padding-left: 0px;
 }
@@ -1049,7 +1124,9 @@ body, html {
 	display: block;
 	overflow: hidden;
 	line-height: 22px;
-	color: #1d1d1d;
+	color: white;
+	font-weight: 500;
+	padding-top: 50px;
 }
 
 .description-title {
@@ -1061,9 +1138,9 @@ body, html {
 }
 
 .description-title-display {
-	font-size: 16px !important;
+	font-size: 18px !important;
 	padding-bottom: 15px !important;
-	color: #292929 !important;
+	color: wheat !important;
 }
 
 .no-display-larger {
@@ -1071,13 +1148,13 @@ body, html {
 	font-weight: 500;
 	padding-bottom: 20px;
 	padding-top: 0px;
-	color: #292929;
+	color: wheat;
 }
 
 .holder-social-media-share-buttons {
 	text-align: center;
 	display: inline-block;
-    width: 150px;
+    width: 200px;
     height: 162px;
     vertical-align: middle;
     margin-top: 15px;
@@ -1086,25 +1163,26 @@ body, html {
 .social-media-share-buttons-fb {
     background: #3B5998;
     border-color: #3B5998 !important;
-    width: 150px;
+    width: 100%;
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 10px;
     color: white;
     display: inline-block;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
+    display: block;
 }
 
 
 .social-media-share-buttons-clipboard {
 	background: gray;
-	width: 150px;
+	width: 100%;
 	padding-left: 10px;
 	padding-right: 10px;
 	color: white;
 	display: block;
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: 600;
 }
 
@@ -1159,13 +1237,13 @@ body, html {
 .social-media-share-buttons-twitter {
 	background-color: #55ACEE;
     border-color: #55ACEE !important;
-    width: 150px;
+    width: 100%;
     padding-left: 10px;
     padding-right: 10px;
     color: white;
     display: block;
     margin-bottom: 10px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
 }
 
@@ -1174,7 +1252,7 @@ body, html {
 	padding-left: 20px;
 	display: block;
 	line-height: 22px;
-	color: #1d1d1d;
+	color: white;
 
 }
 
@@ -1198,6 +1276,7 @@ body, html {
 	font-size: 20px;
 	text-align: center;
 	padding-top: 10px;
+	color: white;
 }
 
 .fa-calendar-check-o, .fa-calendar, .fa-map-marker, .fa-usd, .fa-user-circle {
@@ -1219,7 +1298,7 @@ body, html {
 	}
 
 	.gray-background {
-		z-index: 0;
+
 	}
 	.cover-photo {
 		height: auto;
@@ -1229,7 +1308,7 @@ body, html {
 		display: block;
 		overflow-x: hidden;
 		margin: 0 auto;
-		z-index: 10;
+
 	}
 
 	.background-photo {
@@ -1238,7 +1317,7 @@ body, html {
 		height: 280px;
 		border: 0;
 		position: absolute;
-		z-index: 1;
+
 		filter: blur(90px);
 	}
 
@@ -1248,7 +1327,7 @@ body, html {
 		height: 300px;
 		border: 0;
 		position: absolute;
-		z-index: 1;
+
 	}
 
 	.cover-photo-container {
@@ -1256,11 +1335,7 @@ body, html {
 		max-height: 362.5px; /*360px*/
 		max-width: 100%;
 		height: auto;
-		background-color: #E0E1E5 !important;
 		text-align: center;
-		z-index: 100;
-		border: solid 0.5px rgba(128, 128, 128, 0.16);
-		box-shadow: 0 0px 2px rgba(0, 0, 0, .35);
 		overflow: hidden;
 		display: inline-block;
 		vertical-align: top;
@@ -1273,7 +1348,7 @@ body, html {
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
-		padding-bottom: 60px;
+		margin-top: 35px;
 		
 	}
 
@@ -1282,9 +1357,8 @@ body, html {
 	}
 
 	.main-info {
-		padding-left: 30px;
-		padding-right: 30px;
-		font-size: 16px;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 	.onatby-first-container {
@@ -1345,7 +1419,7 @@ body, html {
 		font-size: 16px;
 		font-weight: 500;
 		margin-bottom: 0px;
-		color: black;
+		color: white;
 	}
 
 	.ticket-button-holder {
@@ -1455,10 +1529,10 @@ body, html {
 
 	.ticket-box {
 	    padding: 10px;
-	    border: 1px solid #232323;
+	    box-shadow: -1px 2px 5px 1px black;
 	    margin-bottom: 10px;
 	    font-family: 'Montserrat', sans-serif;
-	    background: white;
+	    background: #2f2f2f;
 	    border-radius: 3px;
 	}
 
@@ -1505,7 +1579,7 @@ section.hero {
 }
 
 .bongo-design {
-	color: #232f3e !important;
+	color: white !important;
 	font-family: 'Comfortaa', cursive;
     font-size: 25px;
     font-weight: 900;
@@ -1561,10 +1635,7 @@ section.hero {
 
 }
 
-.navbar-default {
-	border-bottom: 1px solid #e4e4e4 !important;
-	background-color: #f6f7f8 !important;
-}
+
 
 .about-button-position  {
 	padding-top: 2px ;
@@ -1604,7 +1675,7 @@ section.hero {
 }
 
 .image-text {
-  z-index: 10;
+
   color: #fff;
   font-size: 60px;
   position: absolute;
@@ -1619,7 +1690,6 @@ section.hero {
 }
 
 .style1 {
-    background: url(https://drscdn.500px.org/photo/67141103/q%3D80_m%3D1500/v2?user_id=22403173&webp=true&sig=39cc9acb2df2899997421f2b9dcd3a245f7166e233fa6b8e4f359dad1db6bc16) no-repeat center center ;
     filter: brightness(60%);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1627,7 +1697,7 @@ section.hero {
     background-size: cover;
     height: 500px;
     width: 100%;
-    z-index: -1;
+
     position: absolute
 
 }
@@ -1851,7 +1921,9 @@ table {
 	width: 80px;
 }
 
-
+.sidebar {
+	display: none;
+}
 
 
 
@@ -1863,6 +1935,13 @@ table {
 
 	.bongo-design {
 		padding-top: 2px;
+	}
+
+	 .sidebar {
+	 	display: block;
+	  position: -webkit-sticky;
+	  position: sticky;
+	  top: 0px;
 	}
 
 }
@@ -1938,26 +2017,27 @@ table {
 
 .font-set-show-page {
 	font-family: 'Montserrat', sans-serif;
-	background-color: #f6f7f8;
+	/* background-color: #f6f7f8; */
+	background-color: #2f2f2f;
+	position: relative;
 }
 
 
 .top-color-section {
 	background-color: #232323;
-	border: none;
 }
 
 
 
 .page-header {
 	display: block;
-	padding-bottom: 20px;
-	margin-bottom: 20px;
 	line-height: 1.42857143;
 	padding-top: 20px;
 	border-bottom: 0px;
 	letter-spacing: 0.5px;
 	margin-top: 0px;
+	margin-bottom: 0px !important;
+	padding-bottom: 12px !important;
 }
 
 
@@ -2031,6 +2111,7 @@ table {
     margin-bottom: 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    color: wheat;
 }
 
 .headline-event-title {
@@ -2077,8 +2158,10 @@ table {
 }
 
 .ticket-border-wrapper {
-	padding-top: 10px;
-	padding-bottom: 25px;
+	background: #232323;
+	padding-top: 20px;
+	padding-bottom: 35px;
+	border-radius: 3px;
 }
 
 .ticket-name {
@@ -2119,6 +2202,10 @@ table {
 	padding-top: 20px;
 }
 
+.event-description-content {
+	padding-bottom: 40px;
+}
+
 
 
 
@@ -2144,6 +2231,10 @@ table {
 		color: black;
 	}
 
+	.background-splash {
+		display: none;
+	}
+
 	.invite-section-for-mobile {
 		display: block !important;
 		text-align: center;
@@ -2154,7 +2245,7 @@ table {
 
 
 	.main-info {
-		padding: 0px !important;  
+		padding: 0px!important; 
 	}
 
 	.onatby-first-container {
@@ -2169,8 +2260,15 @@ table {
 		padding: 0px !important;
 	}
 
+	.description-title-mobile {
+		padding-top: 0px !important;
+	}
+
+
+
 	.event-organizer-presents {
 		margin-bottom: 8px;
+		color: wheat;
 	}
 
 	.page-header {
@@ -2237,7 +2335,12 @@ table {
 	font-size: 18px;
 	font-weight: 700; 
 	max-width: 780px;
+	color: white;
+}
 
+.invite-explanation {
+	color: white;
+	font-weight: 500;
 }
 
 .boxy {
@@ -2250,10 +2353,14 @@ table {
     vertical-align: top;
     margin-right: 10px;
     height: 162px !important;
+    background-color: #348efa !important;
+    border: none;
 }
 
 .share-link-header {
 	font-weight: 700;
+	color: wheat;
+	font-size: 16px;
 }
 
 .boxed-text-add {
@@ -2276,13 +2383,12 @@ table {
 .only-you-can-see {
     font-size: 14px;
     text-align: center;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     margin-top: 20px;
-    border: 1px solid gray;
+    border-top: 1px solid wheat;
     font-weight: 500;
+    color: white;
+    margin-bottom: 50px;
 }
 
 
@@ -2291,31 +2397,33 @@ table {
 }
 
 #bar {
-	width: 150px;
-    border-bottom: 1px dotted black;
-    overflow: scroll;
-    font-size: 10px;
-    height: 28px;
-    vertical-align: middle;
-    line-height: 28px;
-    padding-left: 5px;
+	width: 100%;
+  border-bottom: 1px dotted white;
+  overflow: scroll;
+  font-size: 11px;
+  height: 28px;
+  vertical-align: middle;
+  line-height: 28px;
+  padding-left: 5px;
+  color: white;
 }
 
 #bar::selection {
-	background: #13B57D;
+	background: wheat;
 	color: white;
 	letter-spacing: 0.5px;
 }
 
 .show-friends {
-	font-size: 10px;
+	font-size: 11px;
 	text-decoration: underline;
 	cursor: pointer;
 	margin-top: 2px;
 	color: white;
 	font-weight: 600;
-
 }
+
+
 
 .friends-name {
 	text-transform: capitalize;
@@ -2326,6 +2434,8 @@ table {
 .modal-header-joined {
 	background: #348efa;
 	color: white;
+	font-size: 16px;
+	font-weight: 700;
 }
 
 
@@ -2342,6 +2452,7 @@ table {
 	    padding: 10px;
 	    margin-top: 20px;
 	    border: 1px solid gray;
+	    color: white
 
 	}
 
@@ -2349,6 +2460,7 @@ table {
 		font-size: 10px;
 		padding-top: 10px;
 		display: none;
+		color: white;
 }
 }
 
@@ -2588,8 +2700,8 @@ table {
 }
 
 .cover-photo-mobile-container {
-	padding-left: 5px !important;
-	padding-right: 5px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
 
 .cover-photo-big-screen {

@@ -13,11 +13,11 @@
 		<div class="event-content col-xs-12 col-sm-6 col-md-6">
 
 			<p class="you-are-going-top">
-				Woohoo, you're going! Now you can invite your friends with your personal event page and receive up to $100 for helping them discover a new experience.<br>
+				Woohoo, you're going! Now you can invite your friends with your personal event page and receive up to $100 for helping them discover a new experience on Bongopass.<br>
 			</p>
 
 			<div class="invite-explanation">
-			Know any friends that would be interested in this event or are already planning to join you? Bongopass will credit your account with <b>$10 for every 3 passes purchased on this page, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass!
+			Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation and we'll credit your account with <b>$10 for every 3 passes purchased on your page, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass!
 			</div>
  			<br>
 
@@ -42,9 +42,16 @@
 	 				<% end %>
 				</div>
 
+				<% unless @friends_joined.count == 0 %>
+					
 					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
+						<% if @current_purchases == 1 %>
+						Show Friend
+						<% else %>
 						Show Friends 	
+						<% end %>
 					</div>
+				<% end %>
  			</div>
  			</div>
 
@@ -79,7 +86,7 @@
 
 
  			<div class="only-you-can-see-mobile">
- 				Note: When you invite others, they will see the event details below. </i>
+ 				Note: When you invite others, they will only see the content below. </i>
  				<br> 
  			</div>
 		</div>
@@ -87,7 +94,7 @@
 
 
  	<div class="only-you-can-see">
-		Note: When you invite others, they will see the event details below. 
+		Note: When you invite others, they will only see the content below. 
 		<br>
 	</div>
 
@@ -107,11 +114,13 @@
 				
 				<div class="modal-body">
 					<div class="friends-joined">
+						
 						<% @friends_joined.order(:created_at).each do |friends|%>
 							<div class="friends-name">
 								<%= friends.first_name %> <%= friends.last_name %>
 							</div>	
 						<% end %>
+
 					</div>
 				</div>
 			</div>
@@ -134,9 +143,10 @@
 	           			is going to this event and has invited you to join. Check it out! <br>
 	           			<% if @friends_joined.count > 0 %>
 		           			<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
-								Show friends joining <%= @referral.order.first_name %>  	
+								Show friends joining <%= @referral.order.first_name %>	
 							</div>
 						<% end %>
+
 	           		</p>
 	           	</div>
 
@@ -165,15 +175,14 @@
 						<h5 class="on-only">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 						</h5>
-						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map see-location" href="#show-map">View Address</a>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map see-location" href="#section2">View Address</a>
 						</h5>
 					</div>
 					</div>
 				</div>
-
-
 				</div><!--titles-->
 	  		</div>
+
 
 	  		<div class="col-xs-12 col-sm-5 col-md-4">
 	  			<div class="event-venue-section">
@@ -191,6 +200,14 @@
 	</div>
 </div>
 
+
+			<div class="background-splash">
+				<%if @photos.present? %>
+					<%= image_tag @photos[0].image.url(:thumb), class: "splash-image"%>
+				<% end %>
+			</div>
+
+
 <div class="container cover-photo-mobile-container">
 	<div class="cover-photo-container">	
 		<!-- Image -->
@@ -203,6 +220,8 @@
 		<% end %>
 	</div>
 </div>
+
+
 
 <div class="container big-container">
 <div class="col-xs-12 col-sm-7 col-md-8 main-content-section">
@@ -219,11 +238,14 @@
 	</div>
 
 
+
 		<!-- Event Description -->
 
 	<div class="event-description">
-		<div class="description-title description-title-display">DESCRIPTION</div>
+		<div class="description-title description-title-display description-title-mobile">DESCRIPTION</div>
+		<div class="event-description-content">
 		<%= @event.event_description.html_safe %>
+		</div>
 	</div>
 
 	<% if @event.organizer_description %>
@@ -239,13 +261,256 @@
 
 	<% end %>
 
+<div class="event-organizer-block">
+		<div class="description-title description-title-display" id="section2">
+			LOCATION 
+		</div>
+
+				  <p class="date-location-bold">
+						<%= @event.location %> 
+					</p>
+
+			<div id="show-map">
+				<div>
+
+			    <style>
+			  		#map {
+			        height: 350px;
+			        width: 100%;
+			       }
+			       
+			    </style>
+
+			    <div id="map"></div>
+			    <script>
+			      function initMap() {
+			        var uluru = {lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			          zoom: 14,
+			          center: uluru,
+			          mapTypeControl: false, 
+			          styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#212121"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#181818"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#1b1b1b"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#2c2c2c"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8a8a8a"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#373737"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#3c3c3c"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#4e4e4e"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#000000"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#3d3d3d"
+      }
+    ]
+  }
+]
+			        });
+			        var marker = new google.maps.Marker({
+			          position: uluru,
+			          map: map,
+			              icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        strokeColor: "#E6BE73",
+        scale: 5
+    },
+			        });
+
+			        marker.addListener('click', function() {
+    infowindow.open(map, marker);
+});
+new google.maps.event.trigger( marker, 'click' );
+
+
+			      }
+			    </script>
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&callback=initMap">
+			    </script>
+
+
+				</div>
+			</div>
+
+</div>
+
 
 </div>
 
 
 
 
-<div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile">
+<div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile sidebar" id="sidebar">
 
 	<div class="ticket-wrapper-for-mobile">
 		<div class="description-title no-display-larger">
@@ -391,54 +656,7 @@
 			</div>
 
 
-			<div id="show-map">
-				<div>
 
-			    <style>
-			  		#map {
-			        height: 350px;
-			        width: 100%;
-			       }
-			       
-			    </style>
-
-			    <div id="map"></div>
-			    <script>
-			      function initMap() {
-			        var uluru = {lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
-			        var map = new google.maps.Map(document.getElementById('map'), {
-			          zoom: 14,
-			          center: uluru
-			        });
-			        var marker = new google.maps.Marker({
-			          position: uluru,
-			          map: map
-			        });
-			      }
-			    </script>
-			    <script async defer
-			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&callback=initMap">
-			    </script>
-
-
-				</div>
-			</div>
-
-
-
-						<!-- address below map  -->
-
-
-				<div class="address-below-map">
-
-					<p >
-						<%= @event.venue %> <br> at
-					</p>
-					
-					<p class="date-location-bold">
-						<%= @event.location %> 
-					</p>
-				</div>
 
 		
 
