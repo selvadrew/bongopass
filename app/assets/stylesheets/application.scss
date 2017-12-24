@@ -2140,6 +2140,7 @@ table {
 	background-color: #e9ebee;
 	letter-spacing: 0.5px;
 	overflow: auto;
+	min-height: 100%; 
 }
 
 
@@ -2432,6 +2433,11 @@ table {
 
 	.bongo-design {
 		margin-left: 10px;
+	}
+
+	.boxed-gray {
+		border-right: none !important;
+		border-bottom: 1px solid white;
 	}
 
 
@@ -2742,7 +2748,7 @@ table {
 .order-container {
 	background-color: #e9ebee !important;
 	overflow: auto;
-	height: 100%;
+	height: -webkit-fill-available;
 }
 
 .pass-information {
@@ -2885,7 +2891,7 @@ table {
 
 	.new_order {
 		border-left: 1px solid grey;
-		height: 100%;
+		height: -webkit-fill-available;
 	}
 }
 
