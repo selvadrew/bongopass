@@ -1,0 +1,176 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+
+
+<div class="font-set-show-page mypass-section">
+	<div class="page-hug">
+
+	<div class="top-color-section">
+	<div class="clearfix page-header container big-container">
+	
+
+
+		<div class="row">
+		<div class="event-content col-xs-12 col-sm-12 col-md-12 ">
+			<div class="section-mypass">
+
+			<div class="welcome">
+				Welcome to your event dashboard <%= @referral.order.first_name %>!
+			</div>
+		
+			<p class="you-are-going-top">
+				Now you can receive up to $100 by helping others discover "<%= @event.event_title%>" through your personal event page.
+				<br>
+			</p>
+
+			<div id="learn-more">Learn more</div>
+			<div class="invite-explanation hidden" id="learn-more-content">
+			Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation by sharing your personal event page and we'll credit your account with <b>$10 for every 3 passes purchased from your link, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass! 
+			<br>
+			When friends open your invitation they will see <%= link_to "this", referral_url(@referral), class: "invitation-here", target: :_blank  %>.
+
+			</div>
+ 			<br>
+
+ 			</div>
+
+		</div>
+
+
+		</div>
+	</div>
+	</div>
+
+
+<div class="row container mypass-container">
+
+		<div class="col-xs-12 col-sm-12 col-md-6 ">
+			<div class="section-mypass">
+			
+			<div class="mypass-share-headers">
+					1) Share your link to send an invitation
+			</div>
+
+				<div class="holder-social-media-share-buttons">
+
+ 				<!-- Target -->
+				<div id="bar"><%= referral_url(@referral) %></div>
+
+ 				<!-- Trigger -->
+				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
+				    Copy to Clipboard
+				</button>
+
+				<a class="btn social-media-share-buttons-twitter"
+				  href="https://twitter.com/share"
+				  data-size="large"
+				  data-text="Check out <%= @event.event_title %>"
+				  data-url="<%= event_url(@event) %>"
+				  data-related="twitterapi,twitter"
+				  <% if @photos.present? %>
+				  data-image="<%=@photos[0].image.url(:original)%>"
+				  <% end %>
+				  >
+				Share on Twitter
+				</a>
+
+				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
+			</div>
+
+			</div>
+
+		</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="section-mypass">
+
+				<div class="mypass-share-headers">
+					2) Keep track of the friends who have accepted your invitation so you know who's coming 
+				</div>
+
+
+			<div class="panel panel-default panel-shadow referral-panel">
+				<div class="panel-heading panel-share">
+					Friends Joining You
+				</div>
+				<div class="panel-body body-panel-referral">
+
+					<div class="friends-joined">
+						<% if @friends_joined.count == 0 %>
+						<div class="no-friends-name">
+							No friends have purchased a pass through your personal event page yet
+						</div>
+						<% else %>
+							<% @friends_joined.order(:created_at).each do |friends|%>
+								<div class="friends-joined">
+									<%= friends.first_name %> <%= friends.last_name %>
+								</div>	
+							<% end %>
+						<% end %>
+					</div>
+						
+				</div>
+			</div>    
+
+		</div>
+		</div>
+
+		</div>
+
+
+
+	</div>
+	</div>
+
+	
+
+
+
+
+
+	<div class="modal fade" id="share-modal">
+		<div class="modal-dialog">	
+			<div class="modal-content modal-margin-exit">
+				<div class="modal-header text-center modal-header-joined">
+					Events are always better with more friends
+				</div>
+				
+				<div class="modal-body">
+				<div class="holder-social-media-share-buttons">
+
+ 				<!-- Target -->
+				<div id="bar"><%= referral_url(@referral) %></div>
+
+ 				<!-- Trigger -->
+				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
+				    Copy to Clipboard
+				</button>
+
+				<a class="btn social-media-share-buttons-twitter"
+				  href="https://twitter.com/share"
+				  data-size="large"
+				  data-text="Check out <%= @event.event_title %>"
+				  data-url="<%= event_url(@event) %>"
+				  data-related="twitterapi,twitter"
+				  <% if @photos.present? %>
+				  data-image="<%=@photos[0].image.url(:original)%>"
+				  <% end %>
+				  >
+				Share on Twitter
+				</a>
+
+				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
+			</div>
+
+				</div>
+			</div>
+		</div>
+	</div>  <!-- modal -->
+
+
+
+
+
+
+
+
+

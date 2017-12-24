@@ -39,6 +39,8 @@ html {
 	.cover-photo {
 	  max-height: 220px !important;
 	}
+
+
 }
 
 
@@ -52,6 +54,7 @@ html {
 	  left: 0px;
 	  right: 0px;
 	  overflow: hidden;
+	  background: white;
 	}
 
 @media (min-width: 992px) { 
@@ -62,6 +65,7 @@ html {
 
 	.background-splash {
 		height: 425px;
+		background: white;
 	}
 
 	.cover-photo-big-screen {
@@ -105,21 +109,41 @@ html {
 }
 
 .navbar-style {
-	background: rgba(47,47,47,0.98) !important;
+	background: #f4f5f7 !important;
 	border-radius: 0px !important;
-	border: none !important ;
+	border: none ;
+	border-bottom: 1px solid lightgray;
+
 }
 
 .navbar-toggle {
 	border: none !important;
 }
 
+.navbar-toggle:focus {
+	background-color: transparent !important;
+}
+
 
 
 .nav-text {
-	color: #999 !important;
+	color: rgba(0, 0, 0, 0.7) !important;
 	font-weight: 400 !important;
 }
+
+.dropdown-menu {
+	background: white !important;
+}
+
+
+ .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #e9ebee;
+ }
+
+
+ .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+ 	background-color: #cacaca ;
+ }
 
 
 /* HOME PAGE */
@@ -233,6 +257,26 @@ html {
 	.title h2 {
 		font-size: 48px;
 		font-weight: 200;
+	}
+
+		.boxed-add {
+		height: 120px;
+	}
+
+	.box-data-add {
+		font-size: 40px;
+	}
+
+	.box-description-add {
+		font-size: 14px;
+	}
+
+}
+
+
+@media (max-width: 991px) {
+	.passes-details {
+		text-align: center;
 	}
 
 }
@@ -802,10 +846,7 @@ html {
 }
 
 
-.cover-photo-container {
-	border-radius: 5px;
 
-}
 
 .main-info {
 	font-family: 'Roboto', sans-serif;
@@ -921,6 +962,9 @@ html {
 
 }
 
+.section2 {
+	color: white !important;
+}
 
 
 #button {
@@ -1011,7 +1055,7 @@ html {
 	font-family: 'Montserrat', sans-serif;
 	letter-spacing: 0.5px;
 	color: white;
-	background: #2f2f2f;
+	background: #232323;
 }
 
 
@@ -1134,7 +1178,7 @@ html {
 	display: block;
 	overflow: hidden;
 	line-height: 22px;
-	color: white;
+	color: rgba(0,0,0,0.8);
 	font-weight: 500;
 	padding-top: 50px;
 }
@@ -1150,7 +1194,7 @@ html {
 .description-title-display {
 	font-size: 18px !important;
 	padding-bottom: 15px !important;
-	color: wheat !important;
+	color: black !important;
 }
 
 .no-display-larger {
@@ -1158,23 +1202,23 @@ html {
 	font-weight: 500;
 	padding-bottom: 20px;
 	padding-top: 0px;
-	color: wheat;
+	color: black;
 }
 
 .holder-social-media-share-buttons {
 	text-align: center;
-	display: inline-block;
-    width: 200px;
+	display: block;
+    max-width: 500px;
     height: 162px;
     vertical-align: middle;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 0px auto;
+
 }
 
 .social-media-share-buttons-fb {
     background: #3B5998;
     border-color: #3B5998 !important;
+    max-width: 350px;
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
@@ -1184,11 +1228,13 @@ html {
     font-size: 13px;
     font-weight: 700;
     display: block;
+    margin: auto;
 }
 
 
 .social-media-share-buttons-clipboard {
 	background: gray;
+	max-width: 350px;
 	width: 100%;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -1196,8 +1242,9 @@ html {
 	display: block;
 	font-size: 13px;
 	font-weight: 700;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-bottom: 10px !important;
+	margin-top: 10px !important;
+	margin: auto;
 }
 
 .messenger-button {
@@ -1243,6 +1290,44 @@ html {
 }
 
 
+.top-color-section {
+	background-color: #232323;
+}
+
+.bottom-color-section {
+	background-color: #232323; 
+	color: white;
+	min-height: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+
+	display:-ms-flexbox;
+-ms-flex-pack:center;
+-ms-flex-align:center;
+
+/* Firefox */
+display:-moz-box;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari, Opera, and Chrome */
+display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+
+/* W3C */
+display:box;
+box-pack:center;
+box-align:center;
+}
+
+.fa-check-circle {
+  background-color: #232323;
+  color: #348efa;
+}
+
+
 
 
 
@@ -1250,15 +1335,19 @@ html {
 
 .social-media-share-buttons-twitter {
 	background-color: #55ACEE;
-    border-color: #55ACEE !important;
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-    display: block;
-    margin-bottom: 10px;
-    font-size: 13px;
-    font-weight: 700;
+  border-color: #55ACEE !important;
+  max-width: 350px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px !important;
+	margin-top: 10px !important;
+  margin: auto;
 }
 
 .event-organizer-block {
@@ -1266,7 +1355,8 @@ html {
 	padding-left: 20px;
 	display: block;
 	line-height: 22px;
-	color: white;
+	color: rgba(0, 0, 0, 0.8);
+	font-weight: 500;
 
 }
 
@@ -1290,7 +1380,7 @@ html {
 	font-size: 20px;
 	text-align: center;
 	padding-top: 10px;
-	color: white;
+	color: black;
 }
 
 .fa-calendar-check-o, .fa-calendar, .fa-map-marker, .fa-usd, .fa-user-circle {
@@ -1433,7 +1523,7 @@ html {
 		font-size: 16px;
 		font-weight: 500;
 		margin-bottom: 10px;
-		color: white;
+		color: rgba(0, 0, 0, 0.8);
 	}
 
 	.ticket-button-holder {
@@ -1548,7 +1638,7 @@ html {
 			box-shadow: 0 4px 4px black;
 	    margin-bottom: 10px;
 	    font-family: 'Montserrat', sans-serif;
-	    background: #2f2f2f;
+	    background: #232323;
 	    border-radius: 3px;
 	}
 
@@ -1595,7 +1685,7 @@ section.hero {
 }
 
 .bongo-design {
-	color: white !important;
+	color: black !important;
 	font-family: 'Comfortaa', cursive;
     font-size: 25px;
     font-weight: 900;
@@ -1883,11 +1973,14 @@ table {
 
 .boxed-gray {
 	background-color: #353535;
-    border: 1px;
-    border-style: solid;
-    border-color: white;
+    border-right: 1px solid white;
+
     height: 150px;
     text-align: center;
+}
+
+.boxed-offset {
+	border-right: none !important;
 }
 
 
@@ -1924,7 +2017,7 @@ table {
 }
 
 .panel-my-events {
-	background: #f6f7f8 !important;
+	background: #e9ebee !important;
 	font-weight: 900;
 
 }
@@ -1935,6 +2028,11 @@ table {
 
 .index-buttons {
 	width: 80px;
+	background-color: rgba(202, 202, 202, 0.4) !important;
+}
+
+.index-buttons:hover {
+	color: black;
 }
 
 .sidebar {
@@ -1962,11 +2060,15 @@ table {
 	 	display: block;
 	  position: -webkit-sticky;
 	  position: sticky;
-	  top: 0px;
+	  top: 10px;
 	}
 
 	.ticket-wrapper-for-mobile {
 		display: none;
+	}
+
+	.cover-photo-container {
+		border-radius: 5px;
 	}
 
 }
@@ -2035,24 +2137,28 @@ table {
 
 
 .set-background {
-	background-color: #f6f7f8;
+	background-color: #e9ebee;
 	letter-spacing: 0.5px;
+	height: 100%;
+	overflow: auto;
 }
 
 
 .font-set-show-page {
 	font-family: 'Montserrat', sans-serif;
-	/* background-color: #f6f7f8; */
-	background-color: #2f2f2f;
+	background-color: rgb(233,235,238);
+	/* background-color: #232323; */
 	position: relative;
-	overflow: auto;
+
+}
+
+.page-hug {
 	height: 100%;
+	position: relative;
 }
 
 
-.top-color-section {
-	background-color: #232323;
-}
+
 
 
 
@@ -2138,7 +2244,7 @@ table {
     margin-bottom: 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: wheat;
+    color: white;
 }
 
 .headline-event-title {
@@ -2185,8 +2291,7 @@ table {
 }
 
 .ticket-border-wrapper {
-	background: #232323;
-	padding-top: 20px;
+	background: transparent;
 	padding-bottom: 35px;
 	border-radius: 3px;
 }
@@ -2295,7 +2400,7 @@ table {
 
 	.event-organizer-presents {
 		margin-bottom: 8px;
-		color: wheat;
+		color: white;
 	}
 
 	.page-header {
@@ -2355,7 +2460,10 @@ table {
 }
 
 
-
+.page-overflow {
+	height: 100%; 
+	overflow: auto;
+}
 
 .inviter-name {
 	text-transform: capitalize;
@@ -2366,11 +2474,18 @@ table {
 	padding-top: 40px;
 }
 
+
+
 .you-are-going-top {
 	font-size: 18px;
 	font-weight: 700; 
-	max-width: 780px;
 	color: white;
+	padding-top: 30px;
+}
+
+.invitation-here {
+	color: #5bb7f6;
+	font-weight: bold;
 }
 
 .invite-explanation {
@@ -2394,7 +2509,7 @@ table {
 
 .share-link-header {
 	font-weight: 700;
-	color: wheat;
+	color: #E6BE73;
 	font-size: 16px;
 }
 
@@ -2420,7 +2535,7 @@ table {
     text-align: center;
     padding: 10px;
     margin-top: 20px;
-    border-top: 1px solid wheat;
+    border-top: 1px solid #E6BE73;
     font-weight: 500;
     color: white;
     margin-bottom: 50px;
@@ -2433,20 +2548,39 @@ table {
 
 #bar {
 	width: 100%;
-  border-bottom: 1px dotted white;
-  overflow: scroll;
+  border-bottom: 1px dotted black;
   font-size: 11px;
-  height: 28px;
   vertical-align: middle;
-  line-height: 28px;
   padding-left: 5px;
-  color: white;
+  color: black;
+  margin-top: 15px;
 }
 
 #bar::selection {
-	background: wheat;
+	background: #348efa;
 	color: white;
 	letter-spacing: 0.5px;
+}
+
+
+
+.referral-share-button {
+	background-color: #348efa;
+	color: white; 
+	text-align: center;
+	width: 100px;
+	padding: 10px;
+	cursor: pointer;
+	margin-left: 40px;
+	margin-right: 40px;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+.panel-share {
+	background-color: gray !important; 
+	color: white !important;
+	font-weight: bold;
 }
 
 .show-friends {
@@ -2458,6 +2592,88 @@ table {
 	font-weight: 600;
 }
 
+.friends-joined {
+	text-align: center; 
+	color: #444;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+
+.welcome-dashboard {
+	margin-bottom: 20px;
+}
+
+.mypass-section {
+	height: 100%;
+	overflow: auto;
+}
+
+.mypass-share-headers {
+	text-align: center;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+	max-width: 550px;
+  margin: 30px auto 0px auto;
+  width: 100%;
+}
+
+.mypass-container {
+	margin: 0 auto;
+}
+
+.invite-number {
+	background: #348efa;
+	color: white;
+	border-radius: 50%;
+	padding: 5px;
+	margin-right: 8px;
+	min-width: 30px !important;
+	width: 30px !important;
+	max-height: 30px !important ;
+	height: 30px !important;
+	display: inline-block;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 800;
+}
+
+.section-mypass {
+	text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.welcome {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  display: inline-block;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  border-radius: 3px;
+  background-color: #348efa;
+  padding: 10px;
+}
+
+
+
+
+.referral-panel {
+	max-width: 400px;
+	margin: 10px auto 40px auto;
+	text-align: center;
+	border: none !important;
+
+}
+
+.body-panel-referral {
+	border: 1px solid #dcdada;
+	border-top: none;
+}
 
 
 .friends-name {
@@ -2510,8 +2726,8 @@ table {
 /* Order form */
 
 .order-page-row {
-	background-color: #232323;
-	color: white;
+	background-color: #e9ebee;
+	color: black;
 }
 
 
@@ -2525,7 +2741,9 @@ table {
 }
 
 .order-container {
-	background-color: #232323 !important;
+	background-color: #e9ebee !important;
+	overflow: auto;
+	height: 100%;
 }
 
 .pass-information {
@@ -2561,8 +2779,8 @@ table {
 	float: left;
 	display: block;
 	width: 100%;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 
 }
 
@@ -2620,8 +2838,8 @@ table {
 
 .order-page-button {
 	width: 100%;
-  background: #2f2f2f;
-  color: wheat;
+  background: #232323;
+  color: white;
   font-weight: bold;
 }
 
@@ -2652,9 +2870,7 @@ table {
 }
 
 .order-form-inputs {
-	background-color: #2f2f2f; 
-	border: none !important;
-	color: white; font-weight: 600;
+	font-weight: 600;
 }
 
 
@@ -2720,16 +2936,45 @@ table {
 
 
 .purchases-share-button {
-	color: #348efa;
-	padding: 10px;
+	color: white;
+	padding: 6px;
 	border-radius: 3px;
-	font-size: 17px;
+	font-size: 13px;
 	font-weight: 700;
+	background: #348efa;
+	max-width: 120px;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	margin: 0px auto 10px auto;
+	border: 1px solid #348efa;
 }
 
+.purchases-share-button:hover {
+	color: white;
+	text-decoration: none;
+	background: rgba(52, 142, 250, 0.9);
+}
+
+.view-event-button, .view-event-button:hover  {
+	background: white;
+	color: #353535;
+	border: 1px solid #353535;
+}
+
+
 .share-button-wrapper {
-	padding: 15px;
 	text-align: center;
+	display: block;
+	min-width: 110px;
+}
+
+.bp-credits-available {
+	float: right;
+}
+
+.bp-passes-purchased {
+	float: left;
 }
 
 .share-button-mobile {

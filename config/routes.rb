@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:create, :destroy]
   resources :images, only: [:create, :destroy]
 
+
   
   
   resources :events do 
@@ -39,6 +40,12 @@ resources :events, except: [:edit] do
   end
 end
 
+resources :referrals,:path => 'invitation' do 
+  member do 
+    get 'mypass'
+  end
+end
+
 
 devise_scope :user do
   root to: "devise/sessions#new"
@@ -49,6 +56,7 @@ end
   get 'purchases' => "orders#purchases"
   get '/payout_method' => "users#paypal_payout"
 
+
   #get 'support' => "pages#support"
 
 
@@ -56,6 +64,8 @@ end
   get 'support' => "supports#new"
   resources "joins", only: [:new, :create]
   resources "supports", only: [:new, :create]
+
+
 
   
  

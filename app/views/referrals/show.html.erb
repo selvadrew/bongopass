@@ -3,106 +3,9 @@
 
 <div class="font-set-show-page">
 
-<% if current_user.present? && current_user.id == @referral.order.buyer_id %>
-
-	<div class="clearfix page-header container big-container page-header-referral">
+	<div class="page-hug">
 
 
-
-	<div class="row">
-		<div class="event-content col-xs-12 col-sm-6 col-md-6">
-
-			<p class="you-are-going-top">
-				Woohoo, you're going! Now you can invite friends with your personal event page and receive up to $100 for helping them discover a new experience.<br>
-			</p>
-
-			<div id="learn-more">Learn more</div>
-			<div class="invite-explanation hidden" id="learn-more-content">
-			Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation and we'll credit your account with <b>$10 for every 3 passes purchased on your page, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass!
-			</div>
- 			<br>
-
-		</div>
-
-	
-
-		<div class="col-xs-12 col-sm-6 col-md-6 boxy">
-
-			<p class="share-link-header">Share your link to send an invitation. </p>
-
-
- 			<div class="holder-social-media-share-buttons">
-
- 				<!-- Target -->
-				<div id="bar"><%= referral_url(@referral) %></div>
-
- 				<!-- Trigger -->
-				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
-				    Copy to Clipboard
-				</button>
-
-				<a class="btn social-media-share-buttons-twitter"
-				  href="https://twitter.com/share"
-				  data-size="large"
-				  data-text="Check out <%= @event.event_title %>"
-				  data-url="<%= event_url(@event) %>"
-				  data-related="twitterapi,twitter"
-				  <% if @photos.present? %>
-				  data-image="<%=@photos[0].image.url(:original)%>"
-				  <% end %>
-				  >
-				Share on Twitter
-				</a>
-
-				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
-			</div>
-
-
-
-
-
-			<div class="boxed boxed-add">
-			<div class="boxed-text boxed-text-add">
-				<div class="box-data box-data-add">
-					<%= @current_purchases %>
-				</div>
-				<div class="box-description box-description-add">
-					<% if @current_purchases == 1 %>
-	 					friend is joining you! 
-	 				<% else %>
-	 					friends are joining you!
-	 				<% end %>
-				</div>
-					
-					<div class="show-friends" data-toggle="modal" data-target="#friends-modal">
-						<% if @current_purchases == 1 %>
-						Show Friend
-						<% else %>
-						Show Friends 	
-						<% end %>
-					</div>
- 			</div>
- 			</div>
-
-
-
- 			<div class="only-you-can-see-mobile">
- 				Note: When you invite friends, they will only see the content below. </i>
- 				<br> 
- 			</div>
-		</div>
-	</div>
-
-
- 	<div class="only-you-can-see">
-		Note: When you invite friends, they will only see the content below. 
-		<br>
-	</div>
-
-
-	</div>
-
-<% end %>
 
 
 
@@ -186,7 +89,8 @@
 						<h5 class="on-only">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 						</h5>
-						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="show-map see-location" href="#section2">View Address</a>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> 
+							<a class="section2 see-location" href="#section2">View Address</a>
 						</h5>
 					</div>
 					</div>
@@ -366,202 +270,11 @@
 			          zoom: 14,
 			          center: uluru,
 			          mapTypeControl: false, 
-			          fullscreenControl: false,
-			          styles: [
-  {
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#212121"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#212121"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.land_parcel",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#bdbdbd"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#181818"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#1b1b1b"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#2c2c2c"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#8a8a8a"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#373737"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#3c3c3c"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway.controlled_access",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#4e4e4e"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#000000"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#3d3d3d"
-      }
-    ]
-  }
-]
+			          fullscreenControl: false
 			        });
 			        var marker = new google.maps.Marker({
 			          position: uluru,
-			          map: map,
-			              icon: {
-        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-        strokeColor: "#E6BE73",
-        scale: 5
-    },
+			          map: map
 			        });
 
 			        marker.addListener('click', function() {
@@ -591,9 +304,7 @@ new google.maps.event.trigger( marker, 'click' );
 <div class="col-xs-12 col-sm-5 col-md-4 ticket-border-wrapper ticket-border-wrapper-mobile sidebar" id="sidebar">
 
 	<div class="">
-		<div class="description-title no-display-larger">
-			SELECT YOUR PASS
-		</div>
+
 
 	<% @tickets.order(:ticket_price).each do |ticket| %>
 
@@ -729,21 +440,12 @@ new google.maps.event.trigger( marker, 'click' );
 <% end %>
 
 
-
-
 			</div>
-
-
-
-
-		
-
 	</div>
-
-
-
 </div>
 
+
+</div> <!-- page hug -->
 <!-- Show button-->
 </div>
 
@@ -754,6 +456,19 @@ new google.maps.event.trigger( marker, 'click' );
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
 </div>
+
+
+<div class="bottom-color-section">
+	<div class="verified-section container">
+		<%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
+
+	</div>
+
+</div>
+
+
+
+
 
 
 <script>

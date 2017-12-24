@@ -3,6 +3,7 @@
 
 <div class="font-set-show-page">
 
+<div class="page-hug">
 
 <div class="edit-event-large">
 	<% if current_user.present? && current_user.id == @event.user_id %>
@@ -44,7 +45,7 @@
 						<h5 class="on-only">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 						</h5>
-						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="section2"  href="#section2">View Address</a>
+						<h5 class="headline-event-date"><%= @event.venue %> <br> <a class="section2 see-location"  href="#section2">View Address</a>
 						</h5>
 					</div>
 					</div>
@@ -248,202 +249,11 @@
 			          zoom: 14,
 			          center: uluru,
 			          mapTypeControl: false, 
-			          fullscreenControl: false,
-			          styles: [
-  {
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#212121"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#212121"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.land_parcel",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#bdbdbd"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#181818"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#1b1b1b"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#2c2c2c"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#8a8a8a"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#373737"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#3c3c3c"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway.controlled_access",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#4e4e4e"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#000000"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#3d3d3d"
-      }
-    ]
-  }
-]
+			          fullscreenControl: false
 			        });
 			        var marker = new google.maps.Marker({
 			          position: uluru,
-			          map: map,
-			              icon: {
-        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-        strokeColor: "#E6BE73",
-        scale: 5
-    },
+			          map: map
 			        });
 
 			        marker.addListener('click', function() {
@@ -475,9 +285,7 @@ new google.maps.event.trigger( marker, 'click' );
 	
 	<div class="">
 
-		<div class="no-display-larger">
-				SELECT YOUR PASS
-		</div>
+
 
 		<% @tickets.order(:ticket_price).each do |ticket| %>
 
@@ -604,6 +412,8 @@ new google.maps.event.trigger( marker, 'click' );
 </div>
 
 
+</div> <!-- page hug -->
+
 </div>
 
 
@@ -616,6 +426,25 @@ new google.maps.event.trigger( marker, 'click' );
 </div>
 
 
+
+<div class="bottom-color-section">
+	<div class="verified-section container">
+		<%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -623,11 +452,9 @@ var modal = document.getElementById('myModal');
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementById('myImg');
 var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
 img.onclick = function(){
     modal.style.display = "block";
     modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
 }
 
 // Get the <span> element that closes the modal

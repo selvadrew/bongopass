@@ -120,7 +120,7 @@ class OrdersController < ApplicationController
 
        respond_to do |format|
             if @order.save
-              format.html { redirect_to referral_path(@order.referral) }
+              format.html { redirect_to mypass_referral_path(@order.referral) }
               format.json { render :show, status: :created, location: @order }
             else
               format.html { render :new }
