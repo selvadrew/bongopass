@@ -17,17 +17,17 @@
         <!-- if user is NOT signed in  -->
         <% if (!user_signed_in?) %>
 
-          <li class="hidden-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
-          <li><%= link_to "Log In", new_user_session_path, class: "nav-text" %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path, class: "nav-text"  %></li> 
-          <li class="visible-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
+          <li class="hidden-xs"><%= link_to "Help", support_path, class: "nav-menu" %></li>
+          <li><%= link_to "Log In", new_user_session_path, class: "nav-menu" %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: "nav-menu"  %></li> 
+          <li class="visible-xs"><%= link_to "Help", support_path, class: "nav-menu" %></li>
 
         <% else %>
 
-          <li class="hidden-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
+          <li class="hidden-xs"><%= link_to "Help", support_path, class: "nav-menu" %></li>
 
           <li class="dropdown hidden-xs">
-            <a href="#" class="dropdown-toggle nav-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="dropdown-toggle nav-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <% if avatar_url(current_user) %>
                 <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp; 
               <% end -%>
@@ -46,7 +46,7 @@
           </li>
 
           <% if current_user && current_user.create_permission == "allow" %>
-            <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "nav-text hidden-xs" %></li>
+            <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "nav-menu hidden-xs" %></li>
           <% end %>
 
     <!-- for mobile dropdown -->
@@ -67,88 +67,4 @@
     </div>
   </div>
 </nav>
-
-
-
-
-<% if false %>
-
-
-<!-- Static navbar -->
-<nav class=" navbar-default navbar-collapse">
-  <div class="container">
-    <div class="navbar-header">
-
-      <div class="bongo-design bongo-design">bongopass </div>
-    </div>
-
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-
-<!-- if user is NOT signed in  -->
-        <% if (!user_signed_in?) %>
-<!--
-          <li class="dropdown"><a href="#about" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Support", support_path %></li>
-              <li><%= link_to "About BongoPass", events_path %></li>
-            </ul>
-          </li> 
--->       
-          <li class="l"><%= link_to "Help", support_path, class: "" %></li>
-
-          <li class="l"><%= link_to "Log In", new_user_session_path, class: "" %></li>
-          <!-- <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "" %></li> -->
-
-          <!-- <li><%= link_to "Log In", new_user_session_path %></li> -->
-           <li><%= link_to "Sign Up", new_user_registration_path %></li> 
-
-<!-- if user IS signed in  -->
-        <% else %>
-          
-          <li class="l"><%= link_to "Help", support_path, class: "" %></li>
-
-          <!-- username and dropdown menu  -->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <% if avatar_url(current_user) %>
-                <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp; 
-              <% end -%>
-              <%= current_user.fullname %> <span class="caret"></span>
-            </a>
-
-            <ul class="dropdown-menu">
-            <% if current_user && current_user.create_permission == "allow" %>
-              <li><%= link_to "My Events", events_path %></li>
-            <% end %>
-            
-              <li><%= link_to "My Passes", purchases_path %></li>
-              <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
-
-          <!-- create event  -->
-          <% if current_user && current_user.create_permission == "allow" %>
-          <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "" %></li>
-          <% end %>
-            
-        <% end %>
-
-      </ul>
-      
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
-
-<% end %>
-
-
-
-
-
-
-
-  
 
