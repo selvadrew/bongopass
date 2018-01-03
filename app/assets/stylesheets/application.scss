@@ -27,16 +27,16 @@ body, html {
   background-color: #f6f7f8;
   -webkit-font-smoothing: antialiased;
   overflow: auto;
+  min-height: 100% !important;
 }
 
 .events_body-action_new {
-	height: auto !important;
-	overflow: initial;
+	height: initial;
 }
 
 html {
 	background-color: #232323 ;
-	height: 100%;
+	
 }
 
 
