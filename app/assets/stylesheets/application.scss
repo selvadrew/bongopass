@@ -1433,6 +1433,11 @@ box-align:center;
 	padding-bottom: 5px;
 }
 
+.create-pass-adjust {
+	height: 100% !important;
+	overflow: auto;
+}
+
 
 /*@media screen and (min-width: 800px) { */
 
@@ -1442,9 +1447,7 @@ box-align:center;
 		display: none;
 	}
 
-	.gray-background {
 
-	}
 	.cover-photo {
 		height: auto;
 		width: auto;
