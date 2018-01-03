@@ -29,6 +29,10 @@ body, html {
   overflow: auto;
 }
 
+.events_body-action_new {
+	height: auto !important;
+}
+
 html {
 	background-color: #232323 ;
 	height: 100%;
@@ -1433,11 +1437,7 @@ box-align:center;
 	padding-bottom: 5px;
 }
 
-.create-pass-adjust {
-	height: 100% !important;
-	overflow: auto;
-	z-index: 100;
-}
+
 
 
 /*@media screen and (min-width: 800px) { */
