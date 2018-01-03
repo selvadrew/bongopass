@@ -31,19 +31,31 @@
               <% if avatar_url(current_user) %>
                 <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp; 
               <% end -%>
-              <%= current_user.fullname %> <span class="caret"></span>
+              <span class="navbar-user">
+              <%= current_user.fullname %> </span> <span class="caret"></span>
             </a>
 
               <ul class="dropdown-menu ">
               <% if current_user && current_user.create_permission == "allow" %>
                 <li><%= link_to "My Events", events_path, class: "nav-text"  %></li>
               <% end %>
-                <li><%= link_to "My Passes", purchases_path, class: "nav-text"  %></li>
+                <% if current_user && current_user.create_permission == "allow" %>
+                  <li><%= link_to "My Passes", purchases_path, class: "nav-text"  %></li>
+                <% end %>
+
+                <% if current_user && current_user.create_permission != "allow" %>
+                  <li><%= link_to "Become a Host", join_path, class: "nav-text"  %></li>
+                <% end %>
+
                 <li><%= link_to "Account Settings", edit_user_registration_path, class: "nav-text"  %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Log Out", destroy_user_session_path, class: "nav-text" , method: :delete %></li>
               </ul>
           </li>
+
+          <% if current_user && current_user.create_permission != "allow" %>
+            <li class=""><%= link_to "My Passes", purchases_path, class: "nav-menu hidden-xs" %></li>
+          <% end %>
 
           <% if current_user && current_user.create_permission == "allow" %>
             <li class=""><%= link_to "Create Event", new_event_path, data: { turbolinks: false }, class: "nav-menu hidden-xs" %></li>
@@ -57,6 +69,9 @@
           <% end %>
 
           <li class="visible-xs"><%= link_to "My Passes", purchases_path, class: "nav-text"  %></li>
+          <% if current_user && current_user.create_permission != "allow" %>
+            <li class="visible-xs"><%= link_to "Become a Host", join_path, class: "nav-text"  %></li>
+          <% end %>
           <li class="visible-xs"><%= link_to "Account Settings", edit_user_registration_path, class: "nav-text"  %></li>
           <li class="visible-xs"><%= link_to "Help", support_path, class: "nav-text" %></li>
           <li class="visible-xs"><%= link_to "Log Out", destroy_user_session_path, class: "nav-text" , method: :delete %></li>

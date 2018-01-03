@@ -113,6 +113,7 @@ html {
 	border-radius: 0px !important;
 	border: none ;
 	border-bottom: 1px solid lightgray;
+	font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -124,6 +125,10 @@ html {
 	background-color: transparent !important;
 }
 
+.navbar-user {
+	text-transform: capitalize;
+}
+
 
 
 .nav-text {
@@ -132,7 +137,7 @@ html {
 }
 
 .nav-menu {
-	font-weight: 400 !important;
+	font-weight: 500 !important;
 }
 
 .dropdown-menu {
@@ -198,11 +203,30 @@ html {
     margin-top: 25px;
     margin-bottom: 25px;
     position: relative;
-    font-size: 60px;
+    font-size: 25px;
     font-weight: 400;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	letter-spacing: 1px;
 }
+
+.black-header {
+    margin-top: 35px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 1px;
+	text-align: left;
+	color: white;
+	padding: 10px;
+	display: inline-block;
+	max-width: 100px;
+	width: 100%;
+	border-bottom: 4px solid #232323;
+	padding-left: 0px;
+}
+
+
 
 .wpb_content_element{
     margin-bottom: 35px;
@@ -221,7 +245,7 @@ html {
 
 .application-form a {
 	padding: 10px;
-	background: #348efa;
+	background: #232323;
 	border-radius: 20px;
 	display: inline-block;
 	color: white !important;
@@ -232,15 +256,16 @@ html {
 	margin-bottom: 80px;
 	text-transform: uppercase;
 	font-size: 13px;
+	margin-top: 35px;
 }
 
 
 .application-form-button {
-	color: white !important;
 }
 
 .application-form-button:hover {
 	text-decoration: none;
+	color: #348efa !important;
 }
 
 @media (min-width: 992px) {
@@ -257,11 +282,16 @@ html {
 }
 
 
+
+
+
 @media (max-width: 767px) {
 	.title h2 {
 		font-size: 48px;
 		font-weight: 200;
 	}
+
+
 
 		.boxed-add {
 		height: 120px;
@@ -511,6 +541,10 @@ html {
 	margin-left: -9px;
 }
 
+.login-header-pu {
+	font-family: 'Montserrat', sans-serif;
+}
+
 @media screen and (min-width: 500px) {
 	.icon-big-screen {
 		margin-left: -10px !important;
@@ -519,16 +553,19 @@ html {
 	.popup-box {
 		box-shadow: 0 0 8px rgba(0,0,0,0.4);
 		background: #EDF0F3;
-		padding: 10px 50px 10px 50px;
-		margin-top: 30px;
-		border-radius: 10px;
+		padding: 35px 50px 10px 50px;
+		min-height: 100%;
 	}
 
 	.black-background {
-		background: #1d1d1d;
+		background-image: linear-gradient(to top, #4481eb 0%, #348efa 100%);
 		height: 100%;
 		width: 100%;
 		overflow: auto;
+	}
+
+	.login-long {
+		min-height: 100%;
 	}
 }
 
@@ -2664,7 +2701,6 @@ table {
   word-wrap: break-word;
   text-transform: uppercase;
   border-radius: 3px;
-  background-color: #348efa;
   padding: 10px;
 }
 
@@ -2747,6 +2783,10 @@ table {
 .o-event-title, .o-ticket-name {
 	text-align: center;
 	font-weight: 600;
+}
+
+.o-event-title {
+	margin-top: 5px !important; 
 }
 
 .order-container {
@@ -3011,6 +3051,22 @@ table {
 }
 
 @media screen and (min-width: 768px) { 
+
+	.title h2 {
+		font-size: 20px;
+		color: white;
+		text-align: left;
+	}
+
+	.black-header {
+		font-size: 35px;
+
+	}
+
+	.dot-color {
+		color: black;
+	}
+
 
 	.cover-photo-mobile-container {
 		display: none;

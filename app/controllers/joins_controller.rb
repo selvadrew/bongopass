@@ -1,9 +1,8 @@
 class JoinsController < ApplicationController
-  before_action :authenticate_user!
 
   def new
     @join = Join.new
-    @email = current_user.email 
+    @email = current_user.email if current_user.present? && current_user.id
   end
 
   def create
