@@ -34,10 +34,14 @@ body, html {
 	height: auto !important;
 }
 
+body {
+
+}
+
+
+
 html {
 	background-color: #232323 ;
-
-	
 }
 
 
@@ -164,7 +168,7 @@ html {
 /* HOME PAGE */
 
 .home-background {
-	background: #1d1d1d;
+	background: linear-gradient(90deg,#6fa8ef,#5a65db);
 	color: white;
 	height: 100%;
 	width: 100%;
@@ -226,9 +230,8 @@ html {
 	color: white;
 	padding: 10px;
 	display: inline-block;
-	max-width: 100px;
 	width: 100%;
-	border-bottom: 4px solid #232323;
+	max-width: 100px;
 	padding-left: 0px;
 }
 
@@ -561,10 +564,11 @@ html {
 		background: #EDF0F3;
 		padding: 35px 50px 10px 50px;
 		min-height: 100%;
+		border-radius: 0px 0px 5px 5px
 	}
 
 	.black-background {
-		background-image: linear-gradient(to top, #4481eb 0%, #348efa 100%);
+		background: linear-gradient(90deg,#6fa8ef,#5a65db);
 		height: 100%;
 		width: 100%;
 		overflow: auto;
@@ -3065,7 +3069,7 @@ table {
 	}
 
 	.black-header {
-		font-size: 35px;
+		font-size: 55px;
 
 	}
 
@@ -3143,7 +3147,7 @@ table {
 
 .support-question {
 	display: inline-block;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Helvetica Neue', sans-serif;
 	width: 100%;
 	margin-top: 0px;
 	letter-spacing: 0.5px;
@@ -3172,7 +3176,7 @@ table {
 	font-size: 15px;
     font-weight: 500;
     margin-bottom: 80px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 .apply-here-line {
@@ -3191,7 +3195,7 @@ table {
     max-width: 700px;
     margin: 25px auto;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 .feedback-form {

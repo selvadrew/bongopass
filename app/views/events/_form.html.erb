@@ -98,7 +98,7 @@
 				<div class="row">	
 					<div class="col-md-7 select">	
 						<div class="form-group">
-							<%= f.input :location, placeholder: "Be specific", class: "form-control", input_html: {id: "user_input_autocomplete_address", class: "input_box"}%>
+							<%= f.input :location, placeholder: "Venue address", class: "form-control", input_html: {id: "user_input_autocomplete_address", class: "input_box"}%>
 						</div>
 					</div>
 				</div>
@@ -115,13 +115,13 @@
 				<div class="col-md-6 date-override">
 				    <p id="basicExample">
 				    	<label class="date-selection"> Begins </label> <br>
-				        <%= f.date_field :start_date, type: "text", class: "date start input_box form-control start-date", value: f.object.start_date.try(:strftime,"%d/%m/%Y"), placeholder: "Date"%>
-				        <%= f.time_field :start_time, type: "text", class: "time start input_box form-control start-date", value: f.object.start_time.try(:strftime,"%l:%M.%p"), placeholder: "Time" %> 
+				        <%= f.date_field :start_date, type: "text", class: "date start input_box form-control start-date", value: f.object.start_date.try(:strftime,"%d/%m/%Y"), placeholder: "Date", :autocomplete => :off%>
+				        <%= f.time_field :start_time, type: "text", class: "time start input_box form-control start-date", value: f.object.start_time.try(:strftime,"%l:%M.%p"), placeholder: "Time", :autocomplete => :off %> 
 				        <br><br>
 				        <label class="date-selection"> Ends </label> 
 				        <br>
-				        <%= f.date_field :end_date, type: "text", class: "date end input_box form-control start-date", value: f.object.end_date.try(:strftime,"%d/%m/%Y") %>
-				        <%= f.time_field :end_time, type: "text", class: "time end input_box form-control start-date", value: f.object.end_time.try(:strftime,"%l:%M.%p") %>
+				        <%= f.date_field :end_date, type: "text", class: "date end input_box form-control start-date", value: f.object.end_date.try(:strftime,"%d/%m/%Y"), :autocomplete => :off %>
+				        <%= f.time_field :end_time, type: "text", class: "time end input_box form-control start-date", value: f.object.end_time.try(:strftime,"%l:%M.%p"), :autocomplete => :off %>
 				    </p>
 				</div>
 
