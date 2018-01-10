@@ -103,7 +103,6 @@
 					<div class="friends-joined">
 						<% if @friends_joined.count == 0 %>
 						<div class="no-friends-name">
-							Help others enjoy this experience with you.
 						</div>
 						<% else %>
 							<% @friends_joined.order(:created_at).each do |friends|%>
