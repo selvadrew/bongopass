@@ -35,8 +35,14 @@
   </head>
 
   <body class="<%= controller_name %>_body-action_<%= action_name %>">
+
+    <% if content_for?(:navbar) %>
+    <%= yield(:navbar) %>
+    <% else %>
+       <%= render 'shared/navbar'%>
+    <% end %>
   	
-  	<%= render 'shared/navbar'%>
+  	
     <%= render 'shared/message'%>
   	
 		

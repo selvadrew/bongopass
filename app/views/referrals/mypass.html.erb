@@ -4,7 +4,15 @@
 <div class="font-set-show-page mypass-section">
 	<div class="page-hug">
 
-	<div class="top-color-section">
+	<div class="blue-header-section">
+		<div class="section-mypass">
+		<div class="welcome">
+			Welcome to your event dashboard <%= @referral.order.first_name %>!
+		</div>
+		</div>
+	</div>
+
+	<div class="blue-color-section">
 	<div class="clearfix page-header container big-container">
 	
 
@@ -13,9 +21,7 @@
 		<div class="event-content col-xs-12 col-sm-12 col-md-12 ">
 			<div class="section-mypass">
 
-			<div class="welcome">
-				Welcome to your event dashboard <%= @referral.order.first_name %>!
-			</div>
+
 		
 			<p class="you-are-going-top">
 				Now you can receive up to $100 by helping others discover "<%= @event.event_title%>" through your personal event page.
@@ -84,7 +90,7 @@
 				<div class="section-mypass">
 
 				<div class="mypass-share-headers">
-					2) Keep track of the friends who have accepted your invitation so you know who's coming 
+					2) When friends get a pass from your link, you will see them here!
 				</div>
 
 
@@ -97,7 +103,7 @@
 					<div class="friends-joined">
 						<% if @friends_joined.count == 0 %>
 						<div class="no-friends-name">
-							No friends have purchased a pass through your personal event page yet
+							Help others enjoy this experience with you.
 						</div>
 						<% else %>
 							<% @friends_joined.order(:created_at).each do |friends|%>

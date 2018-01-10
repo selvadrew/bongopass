@@ -1,12 +1,17 @@
+ <% content_for :navbar do %>
+      <%= render 'shared/nav-bar-login-logout' %>
+ <% end %>
+
+
 <div class="container black-background">
-<div class="row black-background"> 
+<div class="row"> 
   <div class="col-xs-11 col-sm-7 col-md-5 col-centered text-center">  
 
    
 
-   <div class="popup-box">
+   <div class="popup-box popup-signup">
 
-    <h4 class="login-header-pu">Join the Bongopass Community</h4>
+    <h2 class="login-header-pu">Join the Bongopass Community</h2>
 
   <%= link_to user_facebook_omniauth_authorize_path, class: "google-button__text google-button facebook-button" do %>
     <span class="google-button__icon">

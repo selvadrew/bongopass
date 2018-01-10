@@ -1,26 +1,27 @@
-<div class="container black-background">
-<div class="row black-background"> 
-
-  
-
+ <% content_for :navbar do %>
+      <%= render 'shared/nav-bar-login-logout' %>
+ <% end %>
 
 
+<div class="container black-background login-background">
+<div class="row login-background"> 
 
-  <div class="col-xs-11 col-sm-6 col-md-7 login-large">
+
+  <div class="col-xs-12 col-sm-6 col-md-7 login-large">
           <div class="vc_column-inner ">
             <div class="wpb_wrapper">
               <div class="black-header">
                 Great Experiences Together
               </div>
               <div class="title">
-                <h2 class="">Bongopass partners with world-class event organizers and shares our profits with you, the attendee, when you help friends discover events you're going to. Because we understand that the ones attending an event are as important as the ones organizing it. 
+                <h2 class="">Bongopass partners exclusively with great event organizers and shares our profits with you, the attendee, when you help friends discover events you're going to. 
                 </h2>
               </div>
 
 
 
   <div class="application-form">
-    <%= link_to "Apply to Host With Bongopass", join_path, class: "application-form-button"%>
+    <%= link_to "Apply to Host Events With Bongopass", join_path, class: "application-form-button"%>
   </div>
 
 </div>
@@ -29,7 +30,7 @@
 
 
 
-  <div class="col-xs-11 col-sm-6 col-md-5 text-center login-long">
+  <div class="col-xs-12 col-sm-6 col-md-5 text-center login-long">
 
       <div class="popup-box">
 
@@ -97,5 +98,65 @@
 
 </div> <!--black bacground-->
 </div> <!--container -->
+
+
+<div class="how-works-bar">
+  <div class="how-works-content">
+    How Bongopass Works
+  </div>
+</div>
+
+<div class="">
+  <div class="row manual-container">
+    <div class="col-md-5 explanation-wrapper">
+      <div class="explanation-header">
+      <div class="ordering">1</div> 
+      <div class="explanation-content">
+        After you purchase a Pass to an event, you will receive a Personal Event Page. Your Personal Event Page is a shareable link that allows you to easily invite friends to the same event. 
+      </div>
+      </div>
+    
+      <div class="explanation-header">
+      <div class="ordering">2</div> 
+      <div class="explanation-content">
+        Receive up to $100 in credit from Bongopass when friends purchase Passes from your Personal Event Page.
+      </div>
+      </div>
+      
+      <div class="explanation-header">
+      <div class="ordering">3</div> 
+      <div class="explanation-content">
+        Use your credit to go to future events for free!
+      </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="col-md-7 landing-mobile-image-wrapper">
+      <%= image_tag 'https://s3.ca-central-1.amazonaws.com/bongopass/landing+page+demo.png', class: "landing-page-image-large"%>
+      <div class="sample-pep"> 
+        <div class="sample-pep-content">
+         Sample Personal Event Page Content 
+        </div>
+      </div>  
+    </div>
+
+    <div class="col-md-7 landing-mobile-image-wrapper">
+      <%= image_tag 'https://s3.ca-central-1.amazonaws.com/bongopass/landing+page+-+mobile+view.png', class: "landing-page-image-mobile"%>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
 
 
