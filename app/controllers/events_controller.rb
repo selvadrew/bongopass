@@ -80,7 +80,7 @@ class EventsController < ApplicationController
     @bongopass_fee = 3.50
 
     set_meta_tags title: @event.event_title,
-            site: 'Bongo Pass',
+            site: 'Bongopass',
             reverse: true,
             description: @event.event_description, 
             twitter: {

@@ -22,6 +22,8 @@ class ReferralsController < ApplicationController
     	@current_purchases = Order.where(referral_id: @referral.id).count
     	@friends_joined = Order.where(referral_id: @referral.id)
     	@bongopass_fee = 3.50 
+
+
 	end
 
 

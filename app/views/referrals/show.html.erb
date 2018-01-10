@@ -428,7 +428,7 @@ new google.maps.event.trigger( marker, 'click' );
 				  href="https://twitter.com/share"
 				  data-size="large"
 				  data-text="Check out <%= @event.event_title %>"
-				  data-url="<%= event_url(@event) %>"
+				  data-url="<%= referral_url(@referral) %>"
 				  data-related="twitterapi,twitter"
 				  <% if @photos.present? %>
 				  data-image="<%=@photos[0].image.url(:original)%>"

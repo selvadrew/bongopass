@@ -1,12 +1,4 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
-<meta property="fb:app_id"             content="1870680056482347" /> 
-<meta property="og:url"                content="<%= referral_url(@referral) %>" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="<%= @event.event_title %>" />
-<meta property="og:description"        content="<%= @event.organizer_name %>" />
-<% if @photos[0] %>
-<meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />	
-<% end %>	
 
 
 <div class="font-set-show-page mypass-section">
@@ -76,9 +68,8 @@
 
 				<a class="btn social-media-share-buttons-twitter"
 				  href="https://twitter.com/share"
-				  data-size="large"
 				  data-text="Check out <%= @event.event_title %>"
-				  data-url="<%= referral_url(@referral) %>"
+				  data-url= "<%= referral_url(@referral) %>"
 				  data-related="twitterapi,twitter"
 				  <% if @photos.present? %>
 				  data-image="<%=@photos[0].image.url(:original)%>"
@@ -138,116 +129,6 @@
 
 
 
-
-
-	<div class="modal fade" id="share-modal">
-		<div class="modal-dialog">	
-			<div class="modal-content modal-margin-exit">
-				<div class="modal-header text-center modal-header-joined">
-					Events are always better with more friends
-				</div>
-				
-				<div class="modal-body">
-				<div class="holder-social-media-share-buttons">
-
- 				<!-- Target -->
-				<div id="bar"><%= referral_url(@referral) %></div>
-
- 				<!-- Trigger -->
-				<button class="clipboard-btn btn-addcart btn social-media-share-buttons-clipboard" data-clipboard-action="copy" data-clipboard-target="#bar">
-				    Copy to Clipboard
-				</button>
-
-				<a class="btn social-media-share-buttons-twitter"
-				  href="https://twitter.com/share"
-				  data-size="large"
-				  data-text="Check out <%= @event.event_title %>"
-				  data-url="<%= referral_url(@referral) %>"
-				  data-related="twitterapi,twitter"
-				  <% if @photos.present? %>
-				  data-image="<%=@photos[0].image.url(:original)%>"
-				  <% end %>
-				  >
-				Share on Twitter
-				</a>
-
-				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
-			</div>
-
-				</div>
-			</div>
-		</div>
-	</div>  <!-- modal -->
-
-
-
-<!-- Facebook Share Features-->
-
-
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '1870680056482347',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.10'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));</script>
-
-
-<script>
-document.getElementById('shareBtn').onclick = function() {
-  FB.ui({
-    method: 'share',
-    mobile_iframe: true,
-    href: "<%= event_url(@event) %>",
-  }, function(response){});
-}
-document.getElementById('messengerBtn').onclick = function() {
-	FB.ui({
-	  method: 'send',
-	  link: '<%= event_url(@event) %>',
-	  href: "http://www.facebook.com/dialog/send?app_id=1870680056482347",
-	});
-}</script>
-
-
-
-
-
-
-<!-- Twitter Share Features-->
-
-
-
-<script>
-window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
 
 
 
