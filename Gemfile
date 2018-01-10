@@ -57,8 +57,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "refile-s3", '~> 0.2.0'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'social-share-button'
-gem 'meta-tags'
+#gem 'social-share-button'
+#gem 'meta-tags'
 gem "braintree", "~> 2.78.0"
 gem 'clipboard-rails'
 gem 'wicked_pdf'

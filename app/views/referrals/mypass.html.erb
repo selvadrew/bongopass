@@ -69,14 +69,16 @@
 				<a class="btn social-media-share-buttons-twitter"
 				  href="https://twitter.com/share"
 				  data-text="Check out <%= @event.event_title %>"
-				  data-url= "<%= referral_url(@referral) %>"
+				  data-url="<%= referral_url(@referral) %>"
 				  data-related="twitterapi,twitter"
-				  <% if @photos.present? %>
-				  data-image="<%=@photos[0].image.url(:original)%>"
-				  <% end %>
+
 				  >
 				Share on Twitter
 				</a>
+
+
+
+
 
 				<div id="shareBtn" class="btn social-media-share-buttons-fb">Share on Facebook</div>
 			</div>
