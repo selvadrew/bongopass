@@ -22,6 +22,7 @@
 //= require jquery.datepair.js
 //= require bootstrap-datepicker
 //= require summernote
+//= require social-share-button
 //= require clipboard
 
 

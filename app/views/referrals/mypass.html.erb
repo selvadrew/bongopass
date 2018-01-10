@@ -66,15 +66,23 @@
 				    Copy to Clipboard
 				</button>
 
-				<a class="btn social-media-share-buttons-twitter"
+				<a class="btn social-media-share-buttons-twitter twitter-share-button"
 				  href="https://twitter.com/share"
-				  data-text="Check out <%= @event.event_title %>"
-				  data-url="<%= referral_url(@referral) %>"
+				  data-text="Check out '<%= @event.event_title %>'"
+				  data-url= "<%= referral_url(@referral) %>"
 				  data-related="twitterapi,twitter"
-
+				  data-size="large"
+				  <% if @photos.present? %>
+				  data-image="<%=@photos[0].image.url(:original)%>"
+				  <% end %>
 				  >
 				Share on Twitter
 				</a>
+
+				  <div class="fb-share-button" 
+    data-href="<%= referral_url(@referral) %>"
+   >
+  </div>
 
 
 
@@ -127,10 +135,59 @@
 	</div>
 	</div>
 
+
+  <script src="//platform.twitter.com/widgets.js"></script>
 	
 
 
+<!-- Facebook Share Features-->
 
+<meta property="fb:app_id"             content="1870680056482347" /> 
+<meta property="og:url"                content="<%= referral_url(@referral) %>" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="<%= @event.event_title %>" />
+<meta property="og:description"        content="<%= @event.organizer_name %>" />
+<% if @photos[0] %>
+<meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />	
+<% end %>	
+
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '1870680056482347',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.10'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    mobile_iframe: true,
+    href: "<%= referral_url(@referral) %>",
+  }, function(response){});
+}
+document.getElementById('messengerBtn').onclick = function() {
+	FB.ui({
+	  method: 'send',
+	  link: '<%= referral_url(@referral) %>',
+	  href: "http://www.facebook.com/dialog/send?app_id=1870680056482347",
+	});
+}</script>
 
 
 
