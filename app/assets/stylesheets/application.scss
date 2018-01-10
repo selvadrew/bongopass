@@ -309,6 +309,18 @@ html {
 	}
 
 
+	.application-form-mobile {
+		display: block !important; 
+	}
+
+	.application-form a {
+		display: block !important;
+		text-align: center;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+
 
 		.boxed-add {
 		height: 120px;
@@ -382,7 +394,9 @@ html {
 }
 
 
-
+.flash.alert:empty {
+  display: none;
+}
 /* Login forms */
 
 
@@ -640,6 +654,7 @@ html {
 
 .sample-pep-content {
 	font-style: italic;
+	margin-bottom: -30px;
 }
 
 
@@ -2267,6 +2282,10 @@ table {
 
 	.cover-photo-container {
 		border-radius: 5px;
+	}
+
+	.application-form-mobile {
+		display: none !important; 
 	}
 
 }
