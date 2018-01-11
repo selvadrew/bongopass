@@ -161,7 +161,7 @@
 	<div class="event-description">
 		<div class="description-title description-title-display description-title-mobile">DESCRIPTION</div>
 		<div class="event-description-content">
-		<%= @event.event_description.html_safe %>
+		<%= sanitize @event.event_description %>
 		</div>
 	</div>
 
