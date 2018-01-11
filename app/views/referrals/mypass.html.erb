@@ -66,8 +66,8 @@
 				    Copy to Clipboard
 				</button>
 
-				<a class="btn social-media-share-buttons-twitter twitter-share-button"
-				  href="https://twitter.com/share"
+				<a class="btn social-media-share-buttons-twitter "
+				  href="https://twitter.com/intent/tweet?text=<%=URI.encode("I'm going to ")%>'<%=@event.event_title%>'. <%=URI.encode("Check it out on Bongopass! ")%><%= referral_url(@referral) %> "
 				  data-text="Check out '<%= @event.event_title %>'"
 				  data-url= "<%= referral_url(@referral) %>"
 				  data-related="twitterapi,twitter"
@@ -78,13 +78,6 @@
 				  >
 				Share on Twitter
 				</a>
-
-				  <div class="fb-share-button" 
-    data-href="<%= referral_url(@referral) %>"
-   >
-  </div>
-
-
 
 
 
@@ -176,9 +169,18 @@
 <script>
 document.getElementById('shareBtn').onclick = function() {
   FB.ui({
-    method: 'share',
+    method: 'share_open_graph',
+    action_type: 'og.shares',
     mobile_iframe: true,
-    href: "<%= referral_url(@referral) %>",
+    display: 'popup',
+    action_properties: JSON.stringify({
+    	object: {
+	      'og:url': "<%= referral_url(@referral) %>",
+	      'og:title': "<%= @event.event_title %>",
+	      'og:description': "<%= @referral.order.first_name %> 'recommends an event on Bongopass!'",
+	      'og:image': "<%=@photos[0].image.url(:original)%>",
+    }
+  })
   }, function(response){});
 }
 document.getElementById('messengerBtn').onclick = function() {
