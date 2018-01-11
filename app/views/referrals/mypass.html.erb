@@ -177,7 +177,7 @@ document.getElementById('shareBtn').onclick = function() {
     	object: {
 	      'og:url': '<%= referral_url(@referral) %>',
 	      'og:title': '<%= @referral.order.first_name.html_safe %> is going to <%= @event.event_title.html_safe %>',
-	      'og:description': '<%= @event.event_description.html_safe %>',
+	      'og:description': '<%= @event.event_description %>',
 	      'og:image': '<%=@photos[0].image.url(:original)%>',
     }
   })
