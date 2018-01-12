@@ -19,7 +19,8 @@ class ReferralsController < ApplicationController
 			description: @event.event_description.html_safe,
 			type:        'article',
 			url:         referral_url(@referral),
-			image:       @photos[0].image.url(:original)
+			image:       @photos[0].image.url(:original),
+			app_id:   1870680056482347
         }
 	end
 
@@ -38,7 +39,8 @@ class ReferralsController < ApplicationController
 			description: @event.event_description.html_safe,
 			type:        'article',
 			url:         referral_url(@referral),
-			image:       @photos[0].image.url(:original)
+			image:       @photos[0].image.url(:original),
+			app_id:   1870680056482347
         }
 
 	end
