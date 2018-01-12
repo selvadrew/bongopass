@@ -176,8 +176,8 @@ document.getElementById('shareBtn').onclick = function() {
     action_properties: JSON.stringify({
     	object: {
 	      'og:url': "<%= referral_url(@referral) %>",
-	      'og:title': "<%= @referral.order.first_name.html_safe %> is going to <%= @event.event_title.html_safe %>",
-	      'og:description': "<%= @event.event_description %>",
+	      'og:title': "<%= @referral.order.first_name %> is going to <%= @event.event_title %>",
+	      'og:description': "<%= sanitize @event.event_description %>",
 	      'og:image': "<%=@photos[0].image.url(:original)%>",
     }
   })
