@@ -16,7 +16,7 @@ class ReferralsController < ApplicationController
 
     	set_meta_tags og: {	  
 			title:       @referral.order.first_name + @going + @event.event_title,
-			description: @event.event_description,
+			description: @event.event_description.html_safe,
 			type:        'article',
 			url:         referral_url(@referral),
 			image:       @photos[0].image.url(:original)
@@ -31,10 +31,11 @@ class ReferralsController < ApplicationController
     	@current_purchases = Order.where(referral_id: @referral.id).count
     	@friends_joined = Order.where(referral_id: @referral.id)
     	@bongopass_fee = 3.50 
+    	@going = ' is going to '
 
     	set_meta_tags og: {	  
 			title:       @referral.order.first_name + @going + @event.event_title,
-			description: @event.event_description,
+			description: @event.event_description.html_safe,
 			type:        'article',
 			url:         referral_url(@referral),
 			image:       @photos[0].image.url(:original)
