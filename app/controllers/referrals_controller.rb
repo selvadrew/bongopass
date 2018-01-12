@@ -14,7 +14,7 @@ class ReferralsController < ApplicationController
     	@bongopass_fee = 3.50
 
     	set_meta_tags og: {	  
-			title:       @referral.order.first_name ' is going to ' @event.event_title,
+			title:       "@referral.order.first_name ' is going to ' @event.event_title",
 			description: @event.event_description,
 			type:        'article',
 			url:         referral_url(@referral),
@@ -32,7 +32,7 @@ class ReferralsController < ApplicationController
     	@bongopass_fee = 3.50 
 
     	set_meta_tags og: {	  
-			title:       @referral.order.first_name ' is going to ' @event.event_title,
+			title:       "@referral.order.first_name ' is going to ' @event.event_title",
 			description: @event.event_description,
 			type:        'article',
 			url:         referral_url(@referral),
