@@ -64,6 +64,8 @@ gem 'clipboard-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'mail_form', '~> 1.7' 
+gem 'sanitize'
+
 
 
 
