@@ -15,7 +15,7 @@ class ReferralsController < ApplicationController
 
     	set_meta_tags og: {	  
 			title:       @event.event_title,
-			description: @event.title_description,
+			description: @event.event_description,
 			type:        'article',
 			url:         referral_url(@referral),
 			image:       @photos[0].image.url(:thumb)
@@ -33,7 +33,7 @@ class ReferralsController < ApplicationController
 
     	set_meta_tags og: {	  
 			title:       @event.event_title,
-			description: @event.title_description,
+			description: @event.event_description,
 			type:        'article',
 			url:         referral_url(@referral),
 			image:       @photos[0].image.url(:thumb)
