@@ -1,14 +1,4 @@
-<% set_meta_tags title: 'hello' %> 
 
-
-<meta property="fb:app_id"             content="1870680056482347" /> 
-<meta property="og:url"                content="<%= referral_url(@referral) %>" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="<%= @event.event_title %>" />
-<meta property="og:description"        content="<%= @event.organizer_name %>" />
-<% if @photos[0] %>
-<meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />	
-<% end %>	
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 

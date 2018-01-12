@@ -23,7 +23,7 @@ class ReferralsController < ApplicationController
     	@friends_joined = Order.where(referral_id: @referral.id)
     	@bongopass_fee = 3.50 
 
-    	set_meta_tags :og => {
+    	set_meta_tags og: {
                   :title    => 'The Rock',
                   :type     => 'article',
                   :image    => 'http://ia.media-imdb.com/rock.jpg'

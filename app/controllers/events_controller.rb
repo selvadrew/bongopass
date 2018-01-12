@@ -79,27 +79,6 @@ class EventsController < ApplicationController
     @ticket_price_max = @tickets.maximum(:ticket_price)
     @bongopass_fee = 3.50
 
-    set_meta_tags title: @event.event_title,
-            site: 'Bongopass',
-            reverse: true,
-            description: @event.event_description, 
-            twitter: {
-              card: "summary",
-              site: "@event",
-              title: "Crazy About Cats",
-              description:  @event.event_description
-             # image: 'http://lorempixel.com/320/240/cats'
-            },
-            og: {
-              title:    @event.event_title,
-              description: @event.organizer_name,
-              type:     'article',
-              url:      event_url(@event)#,
-             # image:    @photos[0].image.url(:original)
-            }#,
-            #alternate: [
-            #  { href: 'http://example.fr/base/url', hreflang: 'fr' },
-            #  { href: 'http://example.com/feed.rss', type: 'application/rss+xml', title: 'RSS' }
 
 
   end
