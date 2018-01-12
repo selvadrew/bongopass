@@ -23,6 +23,12 @@ class ReferralsController < ApplicationController
     	@friends_joined = Order.where(referral_id: @referral.id)
     	@bongopass_fee = 3.50 
 
+    		set_meta_tags og: {
+              title: 'hey',
+              description: @event.organizer_name,
+              type:     'article',
+          	}
+
 
 	end
 
