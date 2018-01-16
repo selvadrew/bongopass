@@ -177,7 +177,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Guest List for <%= @event.event_title%>",
+        render pdf: "Guest List",
                template: "events/sold.pdf.erb",
                locals: {:event_orders => @event_orders_pdf}
       end
