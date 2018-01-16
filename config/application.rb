@@ -25,5 +25,9 @@ module BongoPass
     end
 
 
+    config.middleware.use Rack::Attack
+
+
+
   end
 end

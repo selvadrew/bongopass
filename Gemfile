@@ -65,6 +65,9 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'mail_form', '~> 1.7' 
 gem 'sanitize'
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra/sinatra' 
+gem 'rack-attack'
 
 
 

@@ -161,7 +161,7 @@
 	<div class="event-description">
 		<div class="description-title description-title-display description-title-mobile">DESCRIPTION</div>
 		<div class="event-description-content">
-		<%= sanitize @event.event_description %>
+		<%= @event.event_description.html_safe %>
 		</div>
 	</div>
 
@@ -418,27 +418,7 @@ new google.maps.event.trigger( marker, 'click' );
 
 
 
-<%if false %>
-			<!-- Share Buttons -->
-			<div class="holder-social-media-share-buttons">
-				<div id="shareBtn" class="btn btn-default social-media-share-buttons-fb">Share on Facebook</div>
 
-
-				<a class="btn btn-default social-media-share-buttons-twitter"
-				  href="https://twitter.com/share"
-				  data-size="large"
-				  data-text="Check out <%= @event.event_title %>"
-				  data-url="<%= referral_url(@referral) %>"
-				  data-related="twitterapi,twitter"
-				  <% if @photos.present? %>
-				  data-image="<%=@photos[0].image.url(:original)%>"
-				  <% end %>
-				  >
-				Share on Twitter
-				</a>
-
-			</div>
-<% end %>
 
 
 			</div>
@@ -496,92 +476,6 @@ span.onclick = function() {
 </script>
 
 
-
-
-
-<!-- Facebook Share Features-->
-
-<meta property="fb:app_id"             content="1870680056482347" /> 
-<meta property="og:url"                content="<%= event_url(@event) %>" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="<%= @event.event_title %>" />
-<meta property="og:description"        content="<%= @event.organizer_name %>" />
-<% if @photos[0] %>
-<meta property="og:image"              content='<%=@photos[0].image.url(:original)%>' />		
-<% end %>
-
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '1870680056482347',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.10'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));</script>
-
-
-<script>
-document.getElementById('shareBtn').onclick = function() {
-  FB.ui({
-    method: 'share',
-    mobile_iframe: true,
-    href: "<%= event_url(@event) %>",
-  }, function(response){});
-}
-document.getElementById('messengerBtn').onclick = function() {
-	FB.ui({
-	  method: 'send',
-	  link: '<%= event_url(@event) %>',
-	  href: "http://www.facebook.com/dialog/send?app_id=1870680056482347",
-	});
-}</script>
-
-<!-- Twitter Share Features-->
-
-
-
-<script>
-window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-
-
-
-<script>
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-}
-</script>
 
 
 

@@ -16,6 +16,13 @@ font-family: 'PT Sans', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
 
+.c1 {
+	color: black
+}
+
+.c2 {
+	color: #348efa;
+}
 
 
 
@@ -657,6 +664,9 @@ html {
 	margin-bottom: -30px;
 }
 
+.background-override {
+	height: auto !important; 
+}
 
 
 @media screen and (min-width: 500px) {

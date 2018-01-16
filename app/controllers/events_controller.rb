@@ -171,8 +171,8 @@ class EventsController < ApplicationController
     @tickets = Ticket.all.where(event_id: @event.id)
     @event_orders = Order.joins(:ticket).where(tickets: { event_id: @event.id })
     @bongopass_purchases = Order.joins(:ticket).where(tickets: { event_id: @event.id }).count(:referral_id)
+    
     @event_orders_pdf = Order.joins(:ticket).where(tickets: { event_id: @event.id }).order('LOWER(last_name)')
-
 
     respond_to do |format|
       format.html

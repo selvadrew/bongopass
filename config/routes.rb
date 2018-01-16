@@ -65,7 +65,8 @@ end
   resources "joins", only: [:new, :create]
   resources "supports", only: [:new, :create]
 
-
+require 'sidekiq/web'
+mount Sidekiq::Web => "/sidekiq"
 
   
  
