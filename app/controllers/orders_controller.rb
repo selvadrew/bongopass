@@ -98,7 +98,7 @@ class OrdersController < ApplicationController
        charge = Stripe::Charge.create(
          :amount => ((@ticket.ticket_price * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
          :currency => @ticket.event.event_currency,
-         :description => "Example charge",
+         :description => @order.id,
          :source => token
          #:receipt_email => "andrew.selvadurai6@gmail.com",
          #:destination => {
