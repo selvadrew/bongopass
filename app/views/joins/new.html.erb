@@ -2,7 +2,7 @@
       <%= render 'shared/nav-bar-login-logout' %>
  <% end %>
 
-<div class="container  home-background">
+<div class="container  home-background home-background-adjust">
 <div align="center">
  
 
@@ -21,7 +21,7 @@
     <%= f.input :website, label: false, :required => true, :placeholder => "Website or Facebook Page", input_html: {class: "join-form-inputs"} %>
     <%= f.input :ticket_count, label: false, :required => true, :placeholder => "# Guests per event", input_html: {class: "join-form-inputs"} %>
     <%= f.input :event_count, label: false, :required => true, :placeholder => "# Events per year", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :tell_us_more, label: false, :required => true, :placeholder => "Tell us more so we could serve you better", input_html: {class: "join-form-inputs"} %>
+    <%= f.input :tell_us_more, label: false, :required => true, :placeholder => "Tell us more so we could serve you better", input_html: {class: "join-form-inputs"}, as: :text %>
 
 
     <div class= "hidden">

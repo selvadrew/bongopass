@@ -214,6 +214,12 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
+.home-background-adjust {
+	height: auto !important;
+}
+
+
+
 .parallax-overlay {
     position: relative;
     padding-top: 40px;
@@ -818,6 +824,9 @@ html {
       Event create page
       */
 
+.image-text {
+	color: #348efa;
+}
 
 .bongopass-instruction-modal {
 	font-size: 20px;
@@ -902,7 +911,8 @@ html {
 }
 
 .form-control {
-	height: 40px;
+	height: 50px;
+	font-size: 16px;
 }
 
 .event-description-div {
@@ -1006,7 +1016,7 @@ html {
 @media screen and (min-width: 800px) {
 
 	.form-control {
-		height: 45px;
+		height: 50px;
 	}
 
 	.width-container {
