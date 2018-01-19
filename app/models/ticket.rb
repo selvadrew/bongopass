@@ -4,7 +4,7 @@ class Ticket < ApplicationRecord
   	has_many :orders, dependent: :restrict_with_error
 
 	validates :ticket_name, presence: true
-	validates :ticket_quantity, presence: true, numericality: {greater_than_or_equal_to: 1}
+	validates :ticket_quantity, presence: true#, numericality: {greater_than_or_equal_to: 0}
   	validates :ticket_price, presence: true, numericality: {greater_than_or_equal_to: 5}
   #validates :ticket_description, presence: true
  # validates :ticket_start_date, presence: true

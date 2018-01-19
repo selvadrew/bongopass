@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+    @bongopass_fee =3.50
   end
 
   # GET /orders/1
@@ -86,11 +87,9 @@ class OrdersController < ApplicationController
       end
     end
   
-  if @ticket.ticket_quantity > 0
-    @ticket.ticket_quantity = update_inventory
-    @ticket.save
-  end
 
+
+unless @ticket.ticket_quantity == 0 
   Stripe.api_key = ENV["STRIPE_API_KEY"]
      token = params[:stripeToken]
  
@@ -117,6 +116,7 @@ class OrdersController < ApplicationController
         return redirect_to new_ticket_order_path
 
      end
+end
 
        respond_to do |format|
             if @order.save

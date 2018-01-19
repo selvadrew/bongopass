@@ -1072,7 +1072,7 @@ html {
 	width: 100%;
 	height: auto;
 	border: 0;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 
@@ -3095,7 +3095,7 @@ table {
 
 .order-page-button {
 	width: 100%;
-  background: #232323;
+  background: #4990E2;
   color: white;
   font-weight: bold;
 }
