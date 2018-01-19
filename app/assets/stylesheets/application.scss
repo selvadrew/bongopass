@@ -283,7 +283,7 @@ html {
 
 .application-form a {
 	padding: 10px;
-	background: #232323;
+	background: rgba(35, 35, 35, 0.6);
 	border-radius: 20px;
 	display: inline-block;
 	color: white !important;
@@ -624,7 +624,7 @@ html {
 
 .ordering {
 	border-radius: 50%;
-    background: #232323;
+    background: #4990E2;
     color: white;
     width: 30px;
     height: 30px;
@@ -3179,7 +3179,7 @@ table {
 }
 
 .purchases-panel {
-	background: #353535 !important;
+	background: rgba(53, 53, 53, 0.9) !important;
 	color: white !important;
 	margin-top: 20px;
 	font-size: 16px;
