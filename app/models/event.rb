@@ -16,7 +16,11 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :sponsors, allow_destroy: true, reject_if: proc {|att| att['logo'].blank? }
 
   geocoded_by :location
-  after_validation :geocode, if: :location_changed? 
+  after_validation :geocode #, if: :location_changed? 
+
+  after_validation :check_lat
+  after_validation :check_long
+
 
 
   validates :event_title, presence: true, length: {maximum:75}
@@ -35,6 +39,18 @@ class Event < ApplicationRecord
 
   def to_param 
     "#{id}-25-7b509a4-s59i7l86-#{event_title.parameterize}"
+  end
+
+  def check_lat
+    unless self.latitude
+      geocode
+    end
+  end
+
+  def check_long
+    unless self.longitude 
+      geocode
+    end
   end
 
 
