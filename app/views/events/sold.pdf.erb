@@ -2,7 +2,9 @@
 <% if event_orders.first %>
 <b> Guest List for <%= event_orders.first.ticket.event.event_title %> </b>
 <br>
-as of <%= Time.zone.now.strftime('%A, %B %e, %l:%M%p')%>
+as of <%= Time.now.strftime('%A, %B %e, %l:%M%p')%>
+<br>
+Sorted alphabetically by last name. 
 <% else %>
 There are currently no guests for this event.
 <% end %>

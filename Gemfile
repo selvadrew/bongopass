@@ -68,6 +68,8 @@ gem 'sanitize'
 gem 'sidekiq'
 gem 'sinatra', github: 'sinatra/sinatra' 
 gem 'rack-attack'
+gem 'newrelic_rpm'
+
 
 
 
