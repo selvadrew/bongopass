@@ -79,6 +79,14 @@ class EventsController < ApplicationController
     @ticket_price_max = @tickets.maximum(:ticket_price)
     @bongopass_fee = 3.50
 
+    set_meta_tags og: {   
+      title:       @event.event_title,
+      description: @event.event_description.html_safe,
+      type:        'article',
+      url:         event_url(@event),
+      image:       @photos[0].image.url(:original).present?
+        }
+
 
 
   end
