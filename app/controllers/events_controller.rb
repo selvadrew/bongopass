@@ -84,7 +84,7 @@ class EventsController < ApplicationController
       description: @event.event_description.html_safe,
       type:        'article',
       url:         event_url(@event),
-      image:       @photos[0].image.url(:original).present?
+      image:       @photos[0].image.url(:original) if @photos.present? 
         }
 
 
