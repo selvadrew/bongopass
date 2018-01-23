@@ -1525,11 +1525,12 @@ html {
 }
 
 .blue-header-section {
-	background: #025996;
+	background: #3A66E5;
 }
 
 .blue-color-section {
-	background: rgba(0, 103, 176, 0.92);
+	background: #3A66E5;
+	padding-bottom: 8px;
 }
 
 
@@ -2709,7 +2710,11 @@ table {
 	cursor: pointer;
 	color: white;
 	font-weight: bold;
-	text-decoration: underline;
+	border: 1px dotted white;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    padding: 4px;
 }
 
 
@@ -2831,7 +2836,7 @@ table {
 }
 
 .panel-share {
-	background-color: #0d66b0 !important; 
+	background-color: #348efa !important; 
 	color: white !important;
 	font-weight: bold;
 }
@@ -2861,6 +2866,20 @@ table {
 .mypass-section {
 	min-height: 100%;
 	overflow: auto;
+}
+
+.line-under-wrapper {
+	text-align: center;
+	display: block;
+}
+
+.line-under {
+	background-color: white;
+	height: 5px;
+	border-radius: 10px;
+    text-align: center;
+    width: 80px;
+    display: inline-block;
 }
 
 .mypass-share-headers {
@@ -2909,7 +2928,7 @@ table {
   word-wrap: break-word;
   text-transform: uppercase;
   border-radius: 3px;
-  padding: 10px;
+  padding: 15px 10px 0px 10px;
 }
 
 
@@ -3179,12 +3198,17 @@ table {
 }
 
 .purchases-panel {
-	background: rgba(53, 53, 53, 0.9) !important;
+	background: rgba(53, 53, 53, 0.8) !important;
 	color: white !important;
 	margin-top: 20px;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bold;
-	border-radius: 2px;
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid black !important;
+	padding: 5px 15px !important;
+
+
 }
 
 .purchases-passes {
@@ -3193,6 +3217,8 @@ table {
 	margin-bottom: 10px;
 	border-radius: 3px;
 }
+
+
 
 
 
@@ -3504,10 +3530,11 @@ table {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: wheat !important;
+    color: white !important;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
+    opacity: 0.8;
 }
 
 .close:hover,
