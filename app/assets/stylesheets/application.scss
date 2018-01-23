@@ -46,6 +46,8 @@ body, html {
   -webkit-font-smoothing: antialiased;
   overflow: auto;
   min-height: 100% !important;
+  -webkit-overflow-scrolling: touch;
+
 }
 
 .events_body-action_new, .events_body-action_edit {
