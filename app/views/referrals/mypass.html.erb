@@ -30,15 +30,16 @@
 
 		
 			<p class="you-are-going-top">
-				Now you can receive up to $100 by helping others discover "<%= @event.event_title%>" through your Personal Event Page.
+				Now you can receive up to $100 by inviting friends to "<%= @event.event_title%>" through your Personal Event Page. Your Personal Event Page is a shareable link that allows you to easily invite friends to this event. We'll credit your account with <b>$10 for every 3 passes purchased from your link, up to a maximum of $100</b>.
 				<br>
 			</p>
 
 			<div id="learn-more">Learn more</div>
 			<div class="invite-explanation hidden" id="learn-more-content">
-			Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation by sharing the link to your Personal Event Page and we'll credit your account with <b>$10 for every 3 passes purchased from your link, up to a maximum of $100</b>. You can use this credit towards any future event on Bongopass! 
-			<br>
-			When friends open your invitation they will see <%= link_to "this", referral_url(@referral), class: "invitation-here", target: :_blank  %>.
+				 You can use this credit towards any future event on Bongopass! Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation by sharing the link below. 
+				<br>
+				When friends open your invitation, they will see <%= link_to "this", referral_url(@referral), class: "invitation-here", target: :_blank  %>
+
 
 			</div>
  			<br>
