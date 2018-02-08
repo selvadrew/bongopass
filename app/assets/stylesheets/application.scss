@@ -749,6 +749,20 @@ html {
     	width: 88%;
 	}
 
+	.home-line-under {
+	background-color: black;
+	height: 5px;
+	border-radius: 10px;
+    text-align: center;
+    width: 120px;
+    display: inline-block;
+    margin-bottom: 20px;
+	}
+
+	.how-works-content {
+		margin-bottom: 0px !important;
+	}
+
 
 }
 
@@ -2884,6 +2898,7 @@ table {
     width: 80px;
     display: inline-block;
 }
+
 
 .mypass-share-headers {
 	text-align: center;
