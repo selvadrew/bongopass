@@ -1,206 +1,167 @@
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 
 
+    <section id="home">
+      <!-- Video background-->
+      <div id="video-wrapper">
+        <video autoplay="true" loop="true" preload="auto">
+          <!-- <source src="video/video.mp4" type="video/mp4"> -->
+            <source src="https://s3.ca-central-1.amazonaws.com/bongopass/video.webm" type="video/webm">
+        </video>
+      </div>
+      <!-- end of video background-->
+      <!-- Home slider-->
+      <div id="home-slider" class="flexslider">
+        <ul class="slides">
+          <li>
+            <div class="slide-wrap">
+              <div class="slide-content bold-text">
+                <div class="container">
+                  <h6>Support <span class="dot"></span> Feedback</h6>
+                  <h1 class="upper smaller">We're available 24/7 to ensure you have the ultimate experience<span class="red-dot"></span></h1>
+                  <p><a href="#faq" data-scroll="true" class="btn btn-color">View FAQ</a><a href="#contact" data-scroll="true" class="btn btn-light-out">Contact</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- end of home slider-->
+    </section>
+
+    <section id="faq">
+      <div class="container" >
+        <div class="section-content" >
+          <div class="row">
+          	<div class="title text-center">
+              <h2 class="upper">FAQ<span class="red-dot"></span></h2>
+              <div class="title center text-center"><hr></div>
+            </div>
+            <div class="col-md-4 mb-25">
+              <h5 class="mb-25 upper">General</h5>
+              <ul data-multiple="true" class="accordion nav">
+                <li>
+                  <div class="accordion-title">
+                    <h4>How do Bongopass credits work?</h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>For every purchase from your unique event link you will receive credit that you can use towards any future event. Check your event dashboard after you purchase a Pass to view how much credit you receive for every purchase. </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="accordion-title">
+                    <h4>What will friends see when I share my unique event link?</h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>When your friends open your unique event link they will see a message letting them know they have been invited by you, along with the event details. They will also be able to see the names of the individuals who have purchased a Pass through your link. </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="accordion-title">
+                    <h4>I can't access my account.</h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>If your Google and Facebook accounts use different emails, Bongopass will have created two different accounts if you signed up with both social accounts in the past. Please check which email/social account you first signed up with.</p>
+                  </div>
+                </li>
+              </ul>
+              <!-- end of accordion-->
+            </div>
+
+            <div class="col-md-4 mb-25">
+              <h5 class="mb-25 upper">Passes</h5>
+              <ul data-multiple="true" class="accordion nav">
+                <li>
+                  <div class="accordion-title">
+                    <h4>How many Passes can I purchase to an event?</h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>Everyone is limited to one Pass per event.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="accordion-title">
+                    <h4>What do I bring to the event once I've purchased my Pass?</h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>If you purchased a Pass, all you need to bring is a verified government ID so we know it's you.</p>
+                  </div>
+                </li>
+              </ul>
+              <!-- end of accordion-->
+            </div>
+
+            <div class="col-md-4 mb-25">
+              <h5 class="mb-25 upper">Cancellations</h5>
+              <ul data-multiple="true" class="accordion nav">
+                <li>
+                  <div class="accordion-title">
+                    <h4>Can I change or return my Pass?</h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>Passes are non-refundable, non-transferable and cannot be changed for other Passes, as mentioned at the checkout page.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="accordion-title">
+                    <h4>The event was cancelled. What should I do now? </h4>
+                  </div>
+                  <div class="accordion-content">
+                    <p>You will be informed by the event host or the Bongopass team about your next steps. You will have the choice to be given a refund or attend the event on a rescheduled date. </p>
+                  </div>
+                </li>
+              </ul>
+              <!-- end of accordion-->
+            </div>
+
+          </div>
+        </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="title center" id="contact">
+          <h4 class="upper">Didn't find what you were looking for?</h4>
+          <h2>Leave a Message<span class="red-dot"></span></h2>
+          <hr>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+              <div class="">
+                <%= simple_form_for @support, :html => {:class => '' } do |f| %>
+                  <div class="form-group">
+                    <%= f.input :email, :required => true, label: false, :placeholder => "Email (required)", input_html: {class: "feedback-form"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :feedback, label: false, :placeholder => "Leave us your question or feedback! Our average response time is 2 hours.", input_html: {class: "feedback-form feedback-input"}, :as => 'text' %>
+                  </div>
+                  <div class= "hidden">
+				    <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+				    <% if @email %>
+				    <%= f.input :user, :input_html => { :value => @email} %>
+				    <% end %>
+				  </div>
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-color">Send Message</button>
+                  </div>
+                <% end %>
+              </div>
+              <!-- end of contact form-->
+            </div>
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+    </section>
 
-<div class="container">
-	<h1 class="support-header">
-		Support
-	</h1>
 
-<div class="row">
- <div class="col-sm-12 col-lg-4 col-md-4 col-xs-12">
- 	<h2 class="question-headers">
- 		Most Frequently Asked 
- 	</h2>
 
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
 
-	  	<h4 class="support-question"> 
-		  	How does Bongopass work?
-		</h4>
-
-			<p class="trams-con">
-				Bongopass is a live events platform that partners with established artists, DJs, venues, and event organizers to bring our community awesome live experiences. Unlike any other live events platform, we share our profits with our attendees when they help friends discover events they're going to because we believe great events are always people driven.
-			</p>
-		</div>
-	  </div>
-	</div>
-
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
-
-	  	<h4 class="support-question"> 
-		  	How do Bongopass credits work?
-		</h4>
-
-			<p class="trams-con">
-				After you purchase a Pass on Bongopass we share our profits with you for helping others discover a great experience. Bongopass will credit your account with $10 for every 3 passes purchased on your Personal Event Page, up to a maximum of $100. You can find your Personal Event Page and track your credits when you click "Invite Friends" under "My Passes".
-			</p>
-		</div>
-	  </div>
-	</div>
-
-
-
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
-
-	  	<h4 class="support-question"> 
-		  	What will others see when I share my Personal Event Page. 
-		</h4>
-
-			<p class="trams-con">
-				You will receive a Personal Event Page for every Pass you purchase on Bongopass. To invite friends, share the link to your Personal Event Page. When your friends open this link they will see the actual event details and a message letting them know they have been invited by you. They will also be able to see the names of the individuals who have purchased a Pass through your Personal Event Page. 
-			</p>
-		</div>
-	  </div>
-	</div>
-
-
-
-
-</div>
-
- <div class="col-sm-12 col-lg-4 col-md-4 col-xs-12">
- 	<h2 class="question-headers">
- 		Passes
- 	</h2>
-
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
-
-	  	<h4 class="support-question"> 
-		  	How many Passes can I purchase to an event?
-		</h4>
-
-			<p class="trams-con">
-				Everyone is limited to only one Pass type per event. If there are two different Passes to an event, you can purchase one of each if needed. 
-			</p>
-		</div>
-	  </div>
-	</div>
-
-
-
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
-
-	  	<h4 class="support-question"> 
-		  	What do I bring to the event once I've purchased my Pass?
-		</h4>
-
-			<p class="trams-con">
-				If you purchased a Pass, all you need to bring is a verified government ID so we know it's you.  
-			</p>
-		</div>
-	  </div>
-	</div>
-
-
-
-</div>
-
-
-
- <div class="col-sm-12 col-lg-4 col-md-4 col-xs-12">
- 	<h2 class="question-headers">
- 		Cancellations
- 	</h2>
-
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
-
-	  	<h4 class="support-question"> 
-		  	Can I change or return my Pass?
-		</h4>
-
-			<p class="trams-con">
-				Passes are non-refundable, non-transferable and cannot be changed for other Passes, as mentioned at the checkout page. 
-			</p>
-		</div>
-	  </div>
-	</div>
-
-	<div class="trams-conditions">
-	  <div href="#" id="toggle2" class="fa fa-plus question-wrapper">
-	  	<div class="question-answer"> 
-
-	  	<h4 class="support-question"> 
-		  	The event was cancelled. What should I do now? 
-		</h4>
-
-			<p class="trams-con">
-				You will be informed by the event organizer or the Bongopass team about your next steps. In most cases, you will have the choice to be given a refund or attend the event at a rescheduled date. 
-			</p>
-		</div>
-	  </div>
-	</div>
-
-
-
-</div>
-</div>
-
-
-<p class="contact-for-more-support">
-	Didn't find what you were looking for? Reply to your order confirmation email or contact us at support@bongopass.com
-</p>
-
-
-	<h1 class="support-header">
-		Feedback
-	</h1>
-
-
-	<h4 class="feedback-opening">
-		Events are organized by people and attended by people, so it's obvious why Bongopass values the feedback of every person on our platform. 
- 		<br>
-		<br>
-		<b>If it's helpful we'll credit your account with $10!  </b>
-	</h4>
-
-
-<%= simple_form_for @support, :html => {:class => '' } do |f| %>
-
-<div class="col-md-9 col-centered">
-    
-    <%= f.input :feedback, label: false, :placeholder => "Feedback: Let us know what you love or want to see changed on Bongopass.", input_html: {class: "feedback-form feedback-input"}, :as => 'text' %>
-    <%= f.input :email, :required => true, label: false, :placeholder => "Email (required)", input_html: {class: "feedback-form"} %>
-
-
-    <div class= "hidden">
-      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
-      <% if @email %>
-      <%= f.input :user, :input_html => { :value => @email} %>
-      <% end %>
-    </div>
-    <div>
-      <br>
-      <%= f.submit 'Send Feedback', :class=> "btn join-submit send-feedback-submit" %>
-    </div>
-
-
-</div>
-  <% end %>
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
 
 

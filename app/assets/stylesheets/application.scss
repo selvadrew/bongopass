@@ -8,6 +8,18 @@
 @import "summernote";
 
 
+
+@import "bundle";
+@import "style";
+
+
+@import "lib/et-line-icons";
+@import "lib/themify-icons";
+@import "lib/flexslider";
+@import "lib/owl.carousel";
+
+
+
 /*
 font-family: 'Open Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
@@ -15,6 +27,722 @@ font-family: 'Lato', sans-serif;
 font-family: 'PT Sans', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
+
+
+.font-override-1 {
+	font-size: 55px !important;
+}
+
+
+.bongo-design-white {
+	color: white !important;
+	font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    font-weight: 900;
+    text-transform: uppercase;
+    -webkit-font-smoothing: auto;
+}
+
+
+.bongo-color {
+	color: #191b1d !important;
+}
+
+
+.avatar-small {
+	width: 18px; 
+}
+
+.avatar-medium {
+	width: 75px; 
+}
+
+
+
+.img-circle {
+    border-radius: 50%;
+}
+
+
+
+.google-border-wrapper {
+	border: 1px solid #dddddd;
+}
+    
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+
+  box-sizing: border-box;
+}
+
+.icon-adjuster {
+	margin: 8px 0 8px 25px !important;
+
+}
+
+.google-button__icon--plus {
+  width: 27px;
+}
+
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 16px;
+}
+
+.google-button {
+  height: 40px;
+  background: white;
+  color: #737373;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+  width: 100%;
+
+  
+  &:focus,
+  &:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+  }
+  
+  &:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+  }
+}
+
+
+.facebook-button {
+	background: #4267b2 !important;
+	color: white !important;
+	margin-bottom: 10px !important;
+	margin-top: 20px;
+}
+
+.fb-square-login {
+	font-size: 21px;
+}
+
+
+.remember-forgot {
+	display: block;
+	overflow: auto;
+}
+
+.remember-me {
+	float: left;
+	display: inline-block;
+}
+
+.forgot-password {
+	float: right;
+	display: inline-block;
+	color: #191b1d;
+}
+
+.join-log-in {
+	margin-top: 20px;
+}
+
+.join-sign-up {
+	background: #1d1d1d;
+	color: white;
+	width: 100px;
+	font-weight: bold;
+}
+
+.col-centered{
+	float: none;
+	margin: 0 auto;
+}
+
+
+.line-ting {
+    overflow: hidden;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: gray;
+}
+.line-ting:before,
+.line-ting:after {
+    background-color: gray;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+.line-ting:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.line-ting:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.or-sign-in {
+	margin-top: 15px;
+}
+
+.log-in-out {
+	margin-bottom: 40px;
+}
+
+.button-curve {
+	border-radius: 5px;
+}
+
+/*************** event page show ***************/
+.section-adjust {
+	padding-top: 25px !important;
+	padding-bottom: 0px !important;
+}
+
+
+	.calendar-map-wrapper {
+		text-align: center;
+	}
+
+	.alignment-wrapper {
+	display: inline-block;
+	text-align: left;
+}
+
+.event-section-w-on {
+	display: inline-block;
+}
+
+
+.on-only {
+	display: inline-block;
+	vertical-align: top;
+	width: 30px;
+	text-align: center;
+}
+
+
+.headline-event-date {
+	font-size: 15px;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 10px;
+	line-height: 20px;
+}
+
+.event-venue-section {
+	display: none;
+}
+
+.icon-box-basic-adjust {
+	padding-left: 50px !important;
+	margin: 10px 0px !important;
+}
+
+.date-location-text {
+	margin-top: 0px !important;
+}
+
+
+.parallax-remove-red:after {
+	background-color: transparent !important;
+}
+
+.bp-credit-info {
+	color: #191b1d;
+	margin-bottom: 10px;
+	font-size: 17px;
+}
+
+.related-links {
+	background: transparent !important;
+	padding-left: 0px !important;
+}
+
+.social-buttons {
+	text-align: left !important;
+}
+
+
+.line-ting {
+    overflow: hidden;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.line-ting:before,
+.line-ting:after {
+    background-color: #EF2D56;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 8%;
+}
+.line-ting:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.line-ting:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.bar-section {
+	display: none;
+}
+
+#map {
+	height: 500px;
+	width: 100%;
+}
+
+.map-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.location-info-overlay {
+  position: absolute;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 30px 20px 30px;
+  left: 10%;
+  top: 45%;
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+  color: #333;
+  z-index: 100;
+  font-size: .9em;
+  text-align: center;
+  background: #fff;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.event-venue-map {
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.date-location-bold {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.directions-button {
+	font-weight: 600!important;
+}
+
+.direction-arrow-icon {
+  -o-transform:rotate(90deg);
+  -ms-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);
+  transform:rotate(90deg);
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 800;
+  position: relative;
+  top: 4px;
+  font-size: 20px;
+  margin-left: 0px !important;
+}
+
+.price-in-button {
+	background: white;
+}
+
+.pass-purchase-button:hover {
+	background-color: #c20b3e !important;
+	border-left-color: #c20b3e !important;
+}
+
+
+
+.plus-passes {
+	margin-left: 0px !important;
+	font-weight: 900;
+	font-size: 15px;
+}
+
+.modal-header-design {
+	background: #EF2D56;
+	color: white;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.close-modal {
+  color: black;
+  font-weight: bolder;
+}
+
+.invite-section-row {
+	display: block;
+  vertical-align: middle;
+  text-align: center;
+  /*background-color: #EF2D56;
+  color: #fff; */
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.avatar-block {
+	display: block;
+	margin: 0px auto 5px ;	
+	max-width: 900px;
+}
+
+.invite-sentence-avatar {
+	display: inline-block;
+	margin-bottom: 15px;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 0.5px;
+
+}
+
+.avatar-design {
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+.inviter {
+}
+
+.invitee {
+	border: 3px solid #f8f8fa;
+}
+
+
+.tooltip-1 {
+    position: relative;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    margin: 0px -8px 10px;
+}
+
+.tooltext-inviter {
+	background-color: #EF2D56 !important;
+}
+
+.tooltip-1 .tooltiptext-1 {
+    visibility: hidden;
+    width: 200px;
+    display: inline-block;
+    background-color: #313131;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 15px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 115%;
+    left: 50%;
+    margin-left: -100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tooltip-1 .tooltiptext-1::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip-1:hover .tooltiptext-1 {
+    visibility: visible;
+}
+
+.bar-section-mobile {
+	display: block;
+	height: 100px;
+	line-height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #f8f8fa;
+  border-top: 1px solid #e8e8e8;
+}
+
+.bar-header-button-left {
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+	text-transform: uppercase;
+	font-size: 14px !important;
+	margin-left: 20px;
+	margin-right: 0px;
+	font-weight: 600;
+	border-radius: 5px 0px 0px 5px !important;
+}
+
+.bar-header-button-right {
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	text-transform: uppercase;
+	font-size: 14px !important;
+	margin-left: -4px !important;
+	margin-right: 20px;
+	font-weight: 600;
+	border-radius: 0px 5px 5px 0px !important;
+	background-color: #c20b3e;
+	border-color: #c20b3e;
+}
+
+.pass-purchase-wrapper {
+	height: 40px!important;
+	line-height: 36px!important;
+}
+
+
+
+.price-credit-wrapper {
+	display: block;
+	width: 100%;
+	padding-top: 35px;
+}
+
+.price-credit-title {
+	display: inline-block;
+	width: 60%;
+	float: left;
+}
+
+.price-credit-data {
+	display: inline-block;
+	width: 40%;
+	float: right;
+	text-align: right;
+}
+
+.minus-sign {
+	margin-right: 5px;
+
+
+}
+
+.total-wrapper {
+	float: left;
+	display: block;
+	width: 100%;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+
+}
+
+.total-title {
+	display: inline-block;
+	width: 60%;
+	float: left;
+}
+
+.total-data {
+	display: inline-block;
+	width: 40%;
+	float: right;
+	text-align: right;
+}
+
+.total-title-text {
+	font-weight: 500;
+}
+
+.total-data-text {
+	font-weight: 500;
+}
+
+.wrapting {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+.order-form-inputs {
+	border-radius: 5px;
+}
+
+.fine-print {
+	color: rgba(25, 27, 29, 0.8);
+}
+
+.purchases-overlay {
+	background-color: rgb(239, 46, 85) !important;
+}
+
+.upper-rewards {
+	font-size: 65px;
+}
+
+.purchases-parallax {
+	height: 300px!important;
+}
+
+.purchases-panel {
+	color: black;
+	text-align: center;
+	background: #e9f5ff!important;
+}
+
+.purchases-buttons {
+	border-radius: 5px !important;
+	height: 45px !important;
+  line-height: 43px !important;
+  margin: 5px !important;
+}
+
+.purchases-event-title {
+	margin-top: 5px!important;
+	font-weight: 700;
+}
+
+.no-passes {
+	margin-top: 20px;
+	font-size: 16px;
+	text-align: center;
+}
+
+
+
+
+@media (min-width: 768px) {
+	.scroll-raiser {
+		position: relative;
+		bottom: 45px;
+	}
+	.scroll-raiser-photo {
+		position: relative;
+		bottom: -29px;
+	}
+	.calendar-map-wrapper {
+		text-align: left;
+	}
+
+	.location-for-mobile{
+		/* display: none !important; */
+	}
+
+	.event-venue-section {
+		display: block;
+	}
+
+	.icon-center {
+		text-align: center;
+	}
+
+	.icon-box-basic-adjust {
+		margin: 25px 0px !important;
+		text-align: left;
+		display: inline-block;
+	}
+
+	.related-links {
+		background: transparent !important;
+		padding-left: 10px !important;
+	}
+
+	.bar-section {
+		display: block;
+		height: 100px;
+		line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #f8f8fa;
+    border-top: 1px solid #e8e8e8;
+	}
+
+	.bar-section-mobile {
+		display: none;
+	}
+
+	.bar-headers {
+		padding: 0px 20px 0px 20px;
+		color: rgba(25, 27, 29, 0.7);
+		text-transform: uppercase;
+		font-size: 14px;
+		letter-spacing: 0.5px;
+		font-weight: 500;
+	}
+
+
+
+	#map {
+		height: 550px;
+		width: 100%;
+  }
+
+  .ticket-name-price-desc { 
+  	padding-left: 30px;
+  }
+
+
+
+  .highlight-tab-color {
+  	color: #c20b3e!important;
+  }
+}
+
+
+
+.ticket-info-section {
+	display: block;
+	width: 100%;
+}
+
+
+.ticket-name-price-desc {
+	width: 68%;
+	float: left;
+	padding-right: 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-name-modal {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.modal-buttons {
+	min-width: 100px;
+	font-size: 12px !important;
+}
+
+.fa-check-circle {
+	color: #EF2D56;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 .favi-wrapper {
 	background-color: #232323;
@@ -205,7 +933,7 @@ html {
  }
 
 
-/* HOME PAGE */
+/* HOME PAGE 
 
 .home-background {
 	background: linear-gradient(90deg,#5a65db,#6fa8ef);
@@ -372,7 +1100,7 @@ html {
 
 
 
-/* JOIN FORM */
+/* JOIN FORM 
 
 .join-popup {
 	padding: 10px 15px 15px 15px;
@@ -423,7 +1151,7 @@ html {
 .flash.alert:empty {
   display: none;
 }
-/* Login forms */
+/* Login forms 
 
 
 
@@ -838,7 +1566,7 @@ html {
 
       /*
       Event create page
-      */
+      
 
 .image-text {
 	color: #348efa;
@@ -1071,7 +1799,7 @@ html {
 
       /*
       Event show page
-      */
+      
 
 
 
@@ -1160,7 +1888,7 @@ html {
 	height: 40px;
 	color: white;
 	font-weight: 400;
-	background: #333/*#525c65*/;
+	background: #333/*#525c65;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 40px;
@@ -1374,7 +2102,7 @@ html {
 }
 .hvrbox .hvrbox-text_mobile {
 	font-size: 15px;
-	border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+	border-top: 1px solid rgb(179, 179, 179); /* for old browsers 
 	border-top: 1px solid rgba(179, 179, 179, 0.7);
 	margin-top: 5px;
 	padding-top: 2px;
@@ -1393,9 +2121,9 @@ html {
 }
 
 .btn-tickets-modal-page {
-	/* background-color: #e61d2b; */
+	/* background-color: #e61d2b; 
     color: white;
-    /* vertical-align: middle; */
+    /* vertical-align: middle; 
     float: right;
     max-width: 100%;
     width: 80px;
@@ -1562,17 +2290,17 @@ html {
 -ms-flex-pack:center;
 -ms-flex-align:center;
 
-/* Firefox */
+/* Firefox 
 display:-moz-box;
 -moz-box-pack:center;
 -moz-box-align:center;
 
-/* Safari, Opera, and Chrome */
+/* Safari, Opera, and Chrome 
 display:-webkit-box;
 -webkit-box-pack:center;
 -webkit-box-align:center;
 
-/* W3C */
+/* W3C 
 display:box;
 box-pack:center;
 box-align:center;
@@ -1651,7 +2379,7 @@ box-align:center;
 
 
 
-/*@media screen and (min-width: 800px) { */
+/*@media screen and (min-width: 800px) { 
 
 
 
@@ -1691,8 +2419,8 @@ box-align:center;
 	}
 
 	.cover-photo-container {
-		width: 725px; /*720px*/
-		max-height: 362.5px; /*360px*/
+		width: 725px; /*720px
+		max-height: 362.5px; /*360px
 		max-width: 100%;
 		height: auto;
 		text-align: center;
@@ -1926,7 +2654,7 @@ box-align:center;
 
 
 
-/* red- #e61d2b  blue- #0061d5*/
+/* red- #e61d2b  blue- #0061d5
 
 
 section.hero {
@@ -1960,7 +2688,7 @@ section.hero {
 	color: white ;
 
 }
-/* green - #39B54A */
+/* green - #39B54A 
 
 .create-event-button {
 	color: white;
@@ -2123,7 +2851,7 @@ table {
 }
 */
 
-/************ SOLD **************/
+/************ SOLD *************
 
 .sold-ticket-table-header {
 	color: white;
@@ -2213,7 +2941,7 @@ table {
 }
 
 
-/************ INDEX PAGE EVENTS **************/
+/************ INDEX PAGE EVENTS *************
 
 .sold-container {
 	width: 880px;
@@ -2339,7 +3067,7 @@ table {
 
 }
 
-/* new show page */
+/* new show page 
 
 @media screen and (min-width: 768px) {
 	.location-for-mobile{
@@ -2413,7 +3141,7 @@ table {
 .font-set-show-page {
 	font-family: 'Montserrat', sans-serif;
 	background-color: rgb(233,235,238);
-	/* background-color: #232323; */
+	/* background-color: #232323; 
 	position: relative;
 
 }
@@ -2712,7 +3440,7 @@ table {
 
 
 
-/* Referral Page */
+/* Referral Page 
 
 .invite-sentence {
 	font-size: 18px;
@@ -3013,7 +3741,7 @@ table {
 
 
 
-/* Order form */
+/* Order form 
 
 .order-page-row {
 	background-color: #e9ebee;
@@ -3202,7 +3930,7 @@ table {
 
 
 
-/* Purchases */
+/* Purchases 
 
 .no-passes {
 	margin-top: 20px;
@@ -3356,7 +4084,7 @@ table {
 
 
 
-/* Support Page */
+/* Support Page 
 .trams-conditions #toggle4 {
   font-size: 15px;
   color: #747474;
@@ -3489,22 +4217,22 @@ table {
 
 #myImg:hover {opacity: 0.7;}
 
-/* The Modal (background) */
+/* The Modal (background) 
 .modal-picture {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none; /* Hidden by default 
+    position: fixed; /* Stay in place 
+    z-index: 1; /* Sit on top 
+    padding-top: 100px; /* Location of the box 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 100%; /* Full width 
+    height: 100%; /* Full height 
+    overflow: auto; /* Enable scroll if needed 
+    background-color: rgb(0,0,0); /* Fallback color 
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity 
 }
 
-/* Modal Content (image) */
+/* Modal Content (image) 
 .modal-content {
     margin: auto;
     display: block;
@@ -3513,7 +4241,7 @@ table {
     max-width: 80%;
 }
 
-/* Caption of Modal Image */
+/* Caption of Modal Image 
 #caption {
     margin: auto;
     display: block;
@@ -3525,7 +4253,7 @@ table {
     height: 150px;
 }
 
-/* Add Animation */
+/* Add Animation 
 .modal-content, #caption {    
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
@@ -3543,7 +4271,7 @@ table {
     to {transform:scale(1)}
 }
 
-/* The Close Button */
+/* The Close Button 
 .close {
     position: absolute;
     top: 15px;
@@ -3562,13 +4290,13 @@ table {
     cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens */
+/* 100% Image Width on Smaller Screens 
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
 }
 
-
+*/
 
 

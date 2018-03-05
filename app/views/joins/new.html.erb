@@ -1,42 +1,261 @@
- <% content_for :navbar do %>
-      <%= render 'shared/nav-bar-login-logout' %>
- <% end %>
-
-<div class="container  home-background home-background-adjust">
-<div align="center">
- 
-
-  <%= simple_form_for @join, :html => {:class => '' } do |f| %>
-
-<div class="col-md-5 col-centered">
-  
-  <div class="join-popup">
-     <h3 class="join-network">Join the Bongopass Network</h3>
-     <h5 class="join-network-sub"> Our team will contact you if you meet our host requirements.</h5>
-  
-    <%= f.input :full_name, :required => true, :placeholder => "Full Name", label: false, input_html: {class: "join-form-inputs"} %>
-    <%= f.input :email, :required => true, label: false, :placeholder => "Email", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :phone, label: false, :placeholder => "Phone Number", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :company, label: false, :required => true, :placeholder => "Company", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :website, label: false, :required => true, :placeholder => "Website or Facebook Page", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :ticket_count, label: false, :required => true, :placeholder => "# Guests per event", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :event_count, label: false, :required => true, :placeholder => "# Events per year", input_html: {class: "join-form-inputs"} %>
-    <%= f.input :tell_us_more, label: false, :required => true, :placeholder => "Tell us more so we could serve you better", input_html: {class: "join-form-inputs"}, as: :text %>
 
 
-    <div class= "hidden">
-      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
-      <%= f.input :user, :input_html => { :value => @email} %>
-    </div>
-    <div>
-      <br>
-      <%= f.submit 'Submit Application', :class=> "btn join-submit" %>
-    </div>
-</div>
-
-</div>
-  <% end %>
 
 
-</div> 
-</div>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="title txt-sm-center txt-xs-center mt-0">
+              <h3>Re-defining what a ticketing company should be<span class="red-dot"></span></h3>
+              <!-- <p class="serif"><b>Bongopass adds a reward fee of $3.50 to every Pass. For example, if the price of a Pass is $20.00, attendees will pay $23.50. There are two possible scenarios in this case, both beneficial to the host.</b></p> -->
+              <hr>
+            </div>
+          </div>
+          <div class="col-md-7 col-md-offset-1">
+            <p class="grey-text serif lead-text">Bongopass adds a reward fee of $3.50 to each Pass - used to reward your attendees if they help you sell more Passes. For example, if you set the price of a Pass to $20.00, attendees will pay $23.50. There are two possible scenarios for how the $23.50 will be allocated:</p>
+            <ul role="tablist" class="nav nav-tabs outline">
+              <li role="presentation" class="active"><a href="#method-tab" role="tab" data-toggle="tab">Scenario 1</a>
+              </li>
+              <li role="presentation"><a href="#method-tab-1" role="tab" data-toggle="tab">Scenario 2</a>
+              </li>        
+            </ul>
+            <div class="tab-content">
+              <div id="method-tab" role="tabpanel" class="tab-pane fade in active">
+                <p class="alt-paragraph mb-15">You will receive the full $23.50 everytime a person purchases a Pass through the original event page.</p>
+              </div>
+              <div id="method-tab-1" role="tabpanel" class="tab-pane fade ">
+                <p class="alt-paragraph mb-15">You will receive $20 anytime a person purchases a Pass through an <%= link_to "attendee's invitation link", root_path(:anchor => "about"), target: :_blank %>. The attendee who sent the invitation will receive $3.50 as a credit. </br> </br>
+                Want to customize your reward fee? Contact support@bongopass.com and we'll set you up at no extra cost.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of row                    -->
+      </div>
+      <!-- end of container                  -->
+    </section>
+
+    <section id="process" class="dark">
+      <div class="container">
+        <div class="title center">
+          <h4 class="upper">We don't take advantage of your hard work.</h4>
+          <h2>Simple Pricing<span class="red-dot"></span></h2>
+          <hr>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 text-center">
+              <div class="number-box"><span>Bongopass Fee</span>
+                <h2 class="font-override-1">$10.00</h2>
+                <h3>Per Event.</h3>
+                <div class="title center text-center"><hr></div>
+                <p>We charge $10.00 per event to help us pay the bills. You will only be charged if you sell more than 10 Passes and it will be deducted from your final payout amount.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 text-center">
+              <div class="number-box"><span>Bank Transaction Cost</span>
+                <h2 class="font-override-1">2.9% + $0.30</h2>
+                <h3>Per Transaction.</h3>
+                <div class="title center text-center"><hr></div>
+                <p>We use Stripe to process all our payments securely and the transaction costs are passed on to the hosts. <b>Bongopass does not make money on any sale you make.</b> Read more about Stripe <a  href="https://stripe.com/us/pricing" target="_blank">here</a>. Stripe is used by companies like Amazon and Lyft. </p>
+              </div>
+            </div>
+
+          </div>
+          <!-- end of row-->
+        </div>
+      </div>
+      <!-- end of section content-->
+    </section>
+    <!-- end of container-->
+
+
+
+    <section>
+      <div class="container">
+        <div class="title center">
+          <h4 class="upper">Is Bongopass the right fit for your next event?</h4>
+          <h2>Advantages<span class="red-dot"></span></h2>
+          <hr>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="icon-box-basic"><i class="icon-global"></i>
+                    <h4>Attendees With More Purchasing Power</h4>
+                    <p>Access hundreds of attendees (and growing!) that can use their credit to attend your events for free, while you still receive your full payout.</p>
+                  </div>
+                  <div class="icon-box-basic"><i class="icon-hotairballoon"></i>
+                    <h4>Empower your Attendees</h4>
+                    <p>Empower the ones most interested in your events with personalized sharing tools.</p>
+                  </div>
+                  <div class="icon-box-basic"><i class="icon-genius"></i>
+                    <h4>Create a shared economy</h4>
+                    <p>Attendees work with you to help make your event great.</p>
+                  </div>
+                </div>
+                <div class="col-sm-5 col-md-offset-2">
+                  <div class="icon-box-basic"><i class="icon-megaphone"></i>
+                    <h4>Untapped marketing potential</h4>
+                    <p>Allow your attendees to carry out your most effective marketing campaign by spreading the word about your event/company through word of mouth.</p>
+                  </div>
+                  <div class="icon-box-basic"><i class="icon-telescope"></i>
+                    <h4>Know Your Attendees</h4>
+                    <p>Know your loyal attendees that invite the most friends so you can build a relationship with them.</p>
+                  </div>
+                  <div class="icon-box-basic"><i class="icon-browser"></i>
+                    <h4>Attendee Focused</h4>
+                    <p>We never distract your attendees by showing them other events, hosts, or ads so they stay focused on your events.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+    </section>
+
+
+    <section class="parallax">
+      <div data-parallax="scroll" data-image-src="https://s3.ca-central-1.amazonaws.com/bongopass/5.jpg" class="parallax-bg"></div>
+      <div class="parallax-overlay pb-50 pt-50">
+        <div class="container">
+          <div class="title center">
+            <h3>What Our Hosts Say<span class="red-dot"></span></h3>
+            <hr>
+          </div>
+          <div class="section-content">
+            <div id="testimonials-slider" data-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;controlNav&quot;: true}" class="flexslider nav-outside">
+              <ul class="slides">
+                <li>
+                  <blockquote>
+                    <p>"Facebook ads never work for me, they seem to drive awareness but they don't drive ticket sales. Bongopass helps me drive more sales and I can see which fans are helping me do it."</p>
+                    <footer>Martina T. - Recording Artist</footer>
+                  </blockquote>
+                </li>
+                <li>
+                  <blockquote>
+                    <p>"My regular customers always invite their friends and attend my events for free... I'm able to help the customers that help me sell more passes, very impressive business model."</p>
+                    <footer>Benji K. - Chicago Nightclub</footer>
+                  </blockquote>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end of container-->
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 col-sm-12">
+            <div class="counter">
+              <div class="counter-icon"><i class="icon-chat"></i>
+              </div>
+              <div class="counter-content">
+                <h5><span data-count="372" class="number-count">372</span><span>%</span></h5><span>More Social Media Shares</span>
+              </div>
+            </div>
+            <!-- end of counter-->
+          </div>
+
+          <div class="col-md-4 col-sm-12">
+            <div class="counter">
+              <div class="counter-icon"><i class="icon-presentation"></i>
+              </div>
+              <div class="counter-content">
+                <h5><span data-count="8" class="number-count">8</span><span>x</span></h5><span>More event views</span>
+              </div>
+            </div>
+            <!-- end of counter-->
+          </div>
+
+          <div class="col-md-4 col-sm-12">
+            <div class="counter">
+              <div class="counter-icon"><i class="icon-profile-male"></i>
+              </div>
+              <div class="counter-content">
+                <h5> <span data-count="30" class="number-count">30</span><span>%</span></h5><span>Bought from an invitation</span>
+              </div>
+            </div>
+            <!-- end of counter-->
+          </div>
+
+
+        </div>
+        <!-- end of row-->
+      </div>
+      <!-- end of container-->
+    </section>
+
+
+
+    <section>
+      <div class="container">
+        <div class="title center">
+          <h4 class="upper">Submit your application.</h4>
+          <h2>Let's Work Together<span class="red-dot"></span></h2>
+          <hr>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+              <div class="">
+                <%= simple_form_for @join, :html => {:class => '' } do |f| %>
+                  <div class="form-group">
+                    <%= f.input :full_name, :required => true, :placeholder => "Full Name", label: false, input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :email, :required => true, label: false, :placeholder => "Email", input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :phone, label: false, :placeholder => "Phone Number", input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :website, label: false, :required => true, :placeholder => "Website or Facebook Page", input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :ticket_count, label: false, :required => true, :placeholder => "# Guests per event", input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :event_count, label: false, :required => true, :placeholder => "# Events per year", input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :tell_us_more, label: false, :required => true, :placeholder => "Tell us more so we could serve you better", input_html: {class: "join-form-inputs"}, as: :text %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.input :invite, label: false, :placeholder => "Include your access code here if you were invited by us", input_html: {class: "join-form-inputs"} %>
+                  </div>
+                  <div class= "hidden">
+                    <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+                    <%= f.input :user, :input_html => { :value => @email} %>
+                  </div>
+
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-color">Submit Application</button>
+                  </div>
+                <% end %>
+              </div>
+              <!-- end of contact form-->
+            </div>
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+    
+    </section>
+
+
+
+
+

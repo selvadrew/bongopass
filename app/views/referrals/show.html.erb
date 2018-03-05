@@ -1,3 +1,410 @@
+
+    
+<div class="scroll-raiser" id="highlights"></div>
+
+    <section class="section-adjust">
+      <div class="container">
+        <div class="row">
+        	<div class="col-xs-12 col-sm-12 col-md-12">
+	        	<div class="title center">
+	              <h4 class="upper"><%= @event.organizer_name %> Presents:</h4>
+	              <h3><%= @event.event_title %><span class="red-dot"></span></h3>
+	              <hr>
+	          </div>
+	        </div>
+
+			<div class="col-xs-12 col-sm-12 col-md-12"> <!-- Start of under title row -->
+
+						<div class="col-xs-12 col-sm-6 col-md-4 icon-center">
+						  <div class="icon-box-basic icon-box-basic-adjust"><i class="icon-calendar"></i>
+                <h3 class="date-location-text"><%= @event.start_date.strftime('%A, %B %e') %></h3>
+                <h5><%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %></h5>
+              </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-4 icon-center">
+						  <div class="icon-box-basic icon-box-basic-adjust"><i class="icon-map"></i>
+                <h3 class="date-location-text"><%= @event.venue %> </h3>
+                <p><a href="#location" data-scroll="true">View Address</a></p>
+              </div>
+            </div>
+          
+
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-0 col-md-4 icon-center">
+						  <div class="icon-box-basic icon-box-basic-adjust"><i class="icon-trophy"></i>
+                <h5 class="bp-credit-info mt-0">Credit from Bongopass is available for this event </h5>
+                <p><a><%= link_to "Learn more", root_path(:anchor => "about"), target: :_blank %></a></p>
+              </div>
+            </div>
+
+            <% if false %> <!-- related links -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+            	<div id="footer" class="icon-box-basic-adjust related-links "> 
+						  	<p class="bp-credit-info ">Related Links:</p>
+						  	<div class="footer-social social-buttons">
+                <ul>
+                  <li>
+                    <a target="_blank" href="#"><i class="ti-world"></i></a>
+                  </li>                	
+                  <li>
+                    <a target="_blank" href="#"><i class="ti-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="#"><i class="ti-twitter-alt"></i></a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="#"><i class="ti-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+						  </div>
+            </div>    
+            <% end %>        
+
+	        </div> <!-- End of under title row -->
+
+        </div>
+        <!-- end of row                    -->
+      </div>
+      <!-- end of container                  -->
+
+				<div class="invite-section-row container">   <!-- invite section             -->
+
+					<div class="invite-sentence containermb-15">
+		
+						<div class="invite-sentence-avatar"> <!-- inviter sentence -->
+							<span class="inviter-name"> 
+								<%= @referral.order.first_name %> <%= @referral.order.last_name %> 
+							</span> 
+							is going to this event and has invited you to join. Check it out! <br>
+						</div>  <!-- end inviter sentence -->
+						
+
+						<div class="avatar-block">
+							<div class="tooltip-1">
+								<% if @referral.order.buyer.image %>
+			            <%= image_tag @referral.order.buyer.image, class: "img-circle avatar-medium avatar-design inviter" %>
+			          <% else %>
+			          	<%= image_tag 'https://d3mfs0x6fskujo.cloudfront.net/google-avatar.jpg', class: "img-circle avatar-medium avatar-design inviter" %>
+			          <% end %>
+			            	<span class="tooltiptext-1 tooltext-inviter"><%= @referral.order.first_name %> <%= @referral.order.last_name %><br>invited you</span>		            
+			          
+			        </div>
+
+							<% if @friends_joined.count > 0 %>
+									<% @friends_joined.order(:created_at).each do |friends|%>
+										<div class="tooltip-1">
+											<% if friends.buyer.image %>
+												<%= image_tag friends.buyer.image, class: "img-circle avatar-medium avatar-design invitee" %>
+											<% else %>
+												<%= image_tag 'https://d3mfs0x6fskujo.cloudfront.net/google-avatar.jpg', class: "img-circle avatar-medium avatar-design invitee" %>
+											<% end %>
+												<span class="tooltiptext-1"><%= friends.first_name %> <%= friends.last_name %> is joining <%= @referral.order.first_name %> </span>
+										</div>
+									<% end %>
+							<% end %>
+
+						</div>
+					</div>
+
+				</div>                          <!-- end of invite section                   -->
+
+
+
+
+
+      <div id="bar" class="scroll-raiser-photo">
+     	</div>
+
+    		<div class="bar-section">
+    			<a class="bar-headers highlight-tab-color" href="#highlights" data-scroll="true">Event Highlights</a>
+    				<a class="bar-headers" href="#bar" data-scroll="true">Photo</a>
+
+    				<a  data-toggle="modal" data-target="#ticket-modal">
+	    				<span class="btn btn-color btn-sm btn-round bar-header-button-left pass-purchase-wrapper  ">
+	    					Get Pass   
+	    				</span>
+	    				<% if @ticket_price_min == @ticket_price_max %>
+	    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %> </span>  
+	    				<% else %>
+	    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %>+ </span> 
+	    				<% end %>
+    				</a>
+
+
+            <a class="bar-headers" href="#description" data-scroll="true">Event Details</a>
+            <a class="bar-headers" href="#location" data-scroll="true">Location</a>
+        </div>
+
+        <div class="bar-section-mobile">
+  				<a  data-toggle="modal" data-target="#ticket-modal">
+    				<span class="btn btn-color btn-sm btn-round bar-header-button-left pass-purchase-wrapper  ">
+    					Get Pass   
+    				</span>
+    				<% if @ticket_price_min == @ticket_price_max %>
+    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %> </span>  
+    				<% else %>
+    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %>+ </span> 
+    				<% end %>
+  				</a>	 	
+        </div>
+
+    </section>
+
+
+    <!-- Home Section-->
+    <section id="home" class="splash parallax parallax-remove-red">
+
+      <div>	
+      	<%if @photos.present? %>
+					<div class="parallax-bg" data-parallax="scroll" data-image-src= <%= @cover_photo %> > </div>
+				<% end %>	
+			</div>
+
+    </section>
+    <!-- end of home section-->
+
+<div class="scroll-raiser" id="description"></div>
+
+    <section id="" class="pb-10 pt-35">
+      <div class="container">
+        <div class="title center">
+          <h4 class="upper line-ting">Description</h4>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <p class="grey-text serif lead-text"><%=  @event.event_description.html_safe %></p>
+            </div>
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+      <div id="host" class="container">
+        <div class="title center">
+          <h4 class="upper line-ting">About the Host</h4>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <p class="grey-text serif lead-text"><%= @event.organizer_description.html_safe %></p>
+            </div>
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+    </section>
+
+
+<section id="location" class="pt-0 pb-35 bb-0">
+
+
+			<div class="map-wrapper">
+
+				<div class="location-info-overlay">
+					<h4 class="event-venue-map mb-10">
+						<%= @event.venue %>
+					</h4>
+		      <p class="date-location-bold mb-30">
+						<%= @event.location %> 
+					</p>
+					<div>
+						<a href=<%= @google_maps %> target="_blank" class="btn btn-color btn-round directions-button"><i class="ti-location-arrow direction-arrow-icon"></i>Directions</a>
+          </div>
+		    </div>
+		    <div id="map"></div>
+
+			</div>
+
+
+</section>
+
+
+		    <script>
+		      function initMap() {
+		        var uluru = {lat: <%= @event.latitude %>, lng: <%= @event.longitude %>};
+
+		        var map = new google.maps.Map(document.getElementById('map'), {
+		          zoom: 16,
+		          center: uluru,
+		          mapTypeControl: false, 
+		          fullscreenControl: false,
+		          scrollwheel: false,
+		          clickableIcons: false
+		        });
+
+		        var marker = new google.maps.Marker({
+		          position: uluru,
+		          map: map
+		        });
+
+
+
+		      }
+		    </script>
+		    <script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&callback=initMap">
+		    </script>
+
+
+
+	<p class="text-center container pb-35">
+		<%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
+
+	</p>
+
+
+
+
+
+
+
+				<div class="modal fade" id="ticket-modal">	
+					<div class="modal-dialog">	
+						<div class="modal-content">
+							<div class="modal-header text-center modal-header-design">
+								One Pass Maximum Per Person
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close close-modal"></i></span></button>
+							</div>
+							
+
+							<div class="modal-body">
+								<div class="ticket-info-section">
+								<% @tickets.order(:ticket_price).each do |ticket| %>
+									<div class="ticket-box clearfix">
+									<div class="ticket-name-price-desc">							
+										<div class="ticket-name-modal"> <%= ticket.ticket_name %> </div>
+										<div class="ticket-name-modal"> <%= number_to_currency(ticket.ticket_price) %> </div>
+										<p class="mt-10"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
+									</div>
+									<div class="text-center"> 
+										<% if ticket.ticket_quantity > 0 %>
+												<%= link_to "Select", new_ticket_order_path(ticket), class: "btn btn-color btn-round directions-button btn-sm modal-buttons", data: { turbolinks: false } %>
+											<% else %>
+												<div class="btn btn-color-out btn-round directions-button btn-sm modal-buttons">Sold Out</div>
+											<% end %>
+									</div>
+									</div>
+									<hr>
+								<% end %>							
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+ds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if false %>
+
+    <section class="section-adjust">
+      <div class="container">
+        <div class="row">
+        	<div class="col-xs-12 col-sm-7 col-md-8">
+	        	<div class="title">
+	              <h4 class="upper"><%= @event.organizer_name %> Presents:</h4>
+	              <h3><%= @event.event_title %><span class="red-dot"></span></h3>
+	              <hr>
+	          </div>
+
+						<div class="calendar-map-wrapper">
+							<div class="alignment-wrapper">
+							<div class="event-section-w-on">
+								<h5 class="on-only">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</h5>
+								<h5 class="headline-event-date"><%= @event.start_date.strftime('%A, %B %e') %> <br> <%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %>
+								</h5>
+							</div>
+
+
+							<div class="event-section-w-on location-for-mobile">
+								<h5 class="on-only">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</h5>
+								<h5 class="headline-event-date"><%= @event.venue %> <br> <a class=""  href="#section2">View Address</a>
+								</h5>
+							</div>
+							</div>
+						</div>
+
+	        </div>
+
+	    		<div class="col-xs-12 col-sm-5 col-md-4">
+		  			<div class="event-venue-section disable-blue-event">
+		           		<p class="event-venue-actual-name"><%= @event.venue %></p>
+		           		<p class="">
+		           			<a class=""  href="#section2">View Address</a>
+		           		</p>
+		        </div>
+		   		</div>
+
+
+        </div>
+        <!-- end of row                    -->
+      </div>
+      <!-- end of container                  -->
+    </section>
+
+
+
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 
 
@@ -477,5 +884,5 @@ span.onclick = function() {
 
 
 
-
+<% end  %>
 

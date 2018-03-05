@@ -78,6 +78,10 @@ class EventsController < ApplicationController
     @ticket_price_min = @tickets.minimum(:ticket_price)
     @ticket_price_max = @tickets.maximum(:ticket_price)
     @bongopass_fee = 3.50
+    @cover_photo = @photos[0].image.url(:original)
+    @google_maps = "https://maps.google.com/?q=" + URI.encode(@event.location)
+
+
 
     set_meta_tags og: {   
       title:       @event.event_title,

@@ -10,7 +10,7 @@ class SupportsController < ApplicationController
     @support = Support.new(params[:support])
     @support.request = request
     if @support.deliver
-      redirect_to support_path, notice: "Thank you for your feedback!"
+      redirect_to support_path, notice: "Thanks for your message, we'll get back to you ASAP!"
     else
       flash.now[:error] = 'Please review the higlighted errors.'
       render :new

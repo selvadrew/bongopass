@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
@@ -24,6 +26,24 @@
 //= require summernote
 //= require social-share-button
 //= require clipboard
+
+//= require bundle 
+//= require main 
+
+
+//= require lib/countdown
+//= require lib/flexslider
+//= require lib/isotope
+//= require lib/jquery.ajaxchimp
+//= require lib/jquery.appear
+//= require lib/jquery.countTo
+//= require lib/jquery.mb.YTPlayer
+//= require lib/jquery.particleground.min
+//= require lib/owl.carousel.min
+//= require lib/parallax
+//= require lib/SmoothScroll
+
+
 
 
 
@@ -139,8 +159,8 @@ $(document).on('turbolinks:load', function(){
 
 
 
-var sidebar = document.getElementById('sidebar');
-Stickyfill.add(sidebar);
+//var sidebar = document.getElementById('sidebar');
+//Stickyfill.add(sidebar);
 
 
 

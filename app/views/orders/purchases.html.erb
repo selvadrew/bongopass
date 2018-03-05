@@ -1,33 +1,30 @@
 
+    <section class="page-title parallax purchases-parallax mb-50">
+      <div data-parallax="scroll" class="parallax-bg"></div>
+      <div class="parallax-overlay purchases-overlay">
+        <div class="centrize">
+          <div class="v-center">
+            <div class="container">
+              <div class="title center">
+                <h1 class="upper upper-rewards"><%= number_to_currency(@net_rewards_available) %></h1>
+                <h4>Bongopass Credits Available</h4>
+                <hr>
+              </div>
+            </div>
+            <!-- end of container-->
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-<div class="container">	
-<div class="index-event-container">
-
-
-<div class="col-xs-12 col-sm-4 col-md-4 bp-credits-available">
-
-
-
-			<div class="boxed boxed-add boxed-for-purchases">
-			<div class="boxed-text boxed-text-add">
-				<div class="box-data box-data-add">
-					<%= number_to_currency(@net_rewards_available) %>
-				</div>
-				<div class="box-description box-description-add">
-					BONGOPASS CREDITS AVAILABLE
-				</div>
-
- 			</div>
- 			</div>
-
-
-	
-</div>
+<div class="">	
+<div class="">
 
 
 
-<div class=" panel-default col-xs-12 col-sm-8 col-md-8 bp-passes-purchased ">
+
+
+<div class=" panel-default col-xs-12 col-sm-12 col-md-8 col-md-offset-2 bp-passes-purchased ">
 
 		<div class="panel-heading purchases-panel">
 			MY PASSES
@@ -48,22 +45,27 @@
 				<div class="row purchases-passes">
 
 					<div class="col-md-9 col-sm-12 passes-details">
-						<p class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
-						<p class="purchases-event-title"> <%= order.ticket.ticket_name %> </p>
+						<h3 class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
+						<h4 class=""> <%= order.ticket.ticket_name %> </p>
 						<p class="purchases-date"> <%= order.ticket.event.venue %> </p>
 						<p class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </p>
 					</div>
 
 					<div class="col-md-3 col-sm-12 share-button-wrapper">
-						<%= link_to "Invite Friends", mypass_referral_path(Referral.find(order.referral.id)), class:"purchases-share-button" %>
-						
+						<div>
 
-						<%= link_to "View Event", event_path(order.ticket.event.id,'25-3-7b509a4-s59i7l86'), class:"purchases-share-button view-event-button" %>
+						<%= link_to "Invite Friends", mypass_referral_path(Referral.find(order.referral.id)), class:"btn btn-color btn-block purchases-buttons", data: { turbolinks: false } %>
+						</div>
+
+						<div>
+						<%= link_to "View Event", event_path(order.ticket.event.id,'25-3-7b509a4-s59i7l86'), class:"btn btn-dark-out btn-block purchases-buttons", data: { turbolinks: false } %>
+						</div>
 						
 					</div>
 
 
 				</div>
+				<hr>
 			<% end %>
 		</div>
 </div>

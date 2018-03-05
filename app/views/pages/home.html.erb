@@ -1,49 +1,178 @@
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400|Raleway:400,600" rel="stylesheet">
+
+
+    <!-- Home Section-->
+    <section id="home" class="splash parallax">
+      <div data-parallax="scroll" data-image-src="https://s3.ca-central-1.amazonaws.com/bongopass/austin-neill-247047-2+copy.jpg" class="parallax-bg"></div>
+      <div class="centrize">
+        <div class="v-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="title">
+                  <h2 class="fw-400">Great Experiences Together</h2>
+                  <p>Bongopass rewards the attendees who help friends discover an event to join in on because great experiences are always people driven! Just invite your friends to each event you go to and receive credit for every purchase they make. </p> 
+                  <p>
+                  	<a href="#about" data-scroll="true" class="btn btn-light-out btn-round">How it works<i class="ti-control-play"></i></a>
+                  	<a class=""><%= link_to "Become a host", join_path, class: "btn btn-light btn-round", data: { turbolinks: false } %> </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end of row-->
+          </div>
+          <!-- end of container-->
+        </div>
+      </div>
+    </section>
+    <!-- end of home section-->
+
+    <section id="about">
+      <div class="container">
+      <div class="title center">
+          <h4 class="upper">How Bongopass Works - attendees</h4>
+          <h2>Welcome to the future of events<span class="red-dot"></span></h2>
+          <hr>
+        </div>
+        <div class="section-content">
+          <div class="row">
+
+            <div class="col-sm-4">
+              <div class="icon-box-small outlined mb-25"><i class="ti-comment-alt"></i><span class="back-icon"><i class="ti-comment-alt"></i></span>
+                <hr>
+                <h4>1. Share your link</h4>
+                <p>After you purchase a Pass to an event, you will receive a unique event link. Share your link with friends or post it on social media to easily invite others to the same event.</p>
+              </div>
+              <!-- end of icon box-->
+            </div>
+
+            <div class="col-sm-4">
+              <div class="icon-box-small boxed mb-25"><i class="icon-trophy"></i><span class="back-icon"><i class="icon-trophy"></i></span>
+                <hr>
+                <h4>2. Receive credit</h4>
+                <p>Bongopass credits your account for each friend that purchases a Pass from your unique event link.</p>
+              </div>
+              <!-- end of icon box-->
+            </div>
 
 
 
-<div class="home-background">
+            <div class="col-sm-4">
+              <div class="icon-box-small mb-25"><i class="icon-wallet"></i><span class="back-icon"><i class="icon-wallet"></i></span>
+                <hr>
+                <h4>3. Use Credit</h4>
+                <p>Use your credit to go to any future event for free!</p>
+              </div>
+              <!-- end of icon box-->
+            </div>
+
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+    </section>
 
 
-<div class="parallax-overlay">
-	<div class="centrize">
-		<div class="v-center">
-			<div class="container home-container">
-				<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-md-8">
-					<div class="vc_column-inner ">
-						<div class="wpb_wrapper">
-							<div class="title">
-								<h2 class="">Bongopass shares its profits with your attendees<span class="blue-dot">.</span></h2>
-							</div>
-  <div class="wpb_text_column wpb_content_element">
-    <div class="wpb_wrapper">
-      	<p style="font-size: 18px;"> 
-    		Bongopass collects traditional "ticketing service fees" and pays out up to 90% of it to your attendees when they successfuly invite friends to join the same event. Start empowering the ones most interested in your events with personalized sharing tools, to acheive a better turnout for your next event. 
-		</p>
-		<p style="font-size: 15px;">
-			We are currently an invite only platform but if you are you an established artist, DJ, venue, or event organizer we'd love to work with you to bring great events to our community. 
-		</p>
-
-    </div>
-
+    <section class="dark">
+      <div class="container">
+        <div class="title center">
+          <h4 class="upper">Built for you.</h4>
+          <h2>Quality Events<span class="red-dot"></span></h2>
+          <hr>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <p class="grey-text serif lead-text">We look for event organizers that have a high attendee satisfaction rate, great track record of events, and venue that meets our criteria so you can have the ultimate social experience.</p>
+            </div>
+          </div>
+          <!-- end of row-->
+        </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+    </section>
 
 
-  </div>
+    <!-- Footer-->
+    <footer id="footer-widgets">
+      <div class="container">
+        <div class="go-top">
+          <a href="#top">
+            <i class="ti-arrow-up"></i>
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-md-6 ov-h">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="widget">
+                  <h6 class="upper">Contact</h6>
+                  <p>
+                    <span>Every email is replied to within 24 hours.</span>
+                    <span><%= mail_to "support@bongopass.com" %></span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4 col-md-offset-2">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="widget">
+                  <h6 class="upper">Stay in touch</h6>
+                  <p>Sign up to get early access to our event discovery mobile app. Coming soon!</p>
+                  <div class="footer-newsletter">
+                    <form data-mailchimp="true" class="inline-form">
+                      <div class="input-group">
+                        <input type="email" name="email" placeholder="Your Email" class="form-control"><span class="input-group-btn"><button type="submit" data-loading-text="Loading..." class="btn btn-color">Signup</button></span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of row-->
+      </div>
+      <!-- end of container-->
+    </footer>
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-wrap">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="copy-text">
+                <p><i class="icon-heart red mr-15"></i>© 2018 Bongopass.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline">
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Services</a>
+                </li>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- end of row-->
+        </div>
+      </div>
+      <!-- end of container-->
+    </footer>
+    <!-- end of footer-->
 
 
-  <div class="application-form">
-  	<%= link_to "Apply to Host With Bongopass", join_path, class: "application-form-button"%>
-  </div>
 
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-</div>
-</div>

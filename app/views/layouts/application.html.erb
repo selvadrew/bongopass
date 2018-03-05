@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
   <head>
     <title>BONGOPASS</title>
 
     <%= display_meta_tags %>
     <%= csrf_meta_tags %>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <%= content_for?(:head) ? yield(:head) : '' %>
 
 
@@ -15,23 +17,28 @@
     <%= javascript_include_tag "https://code.jquery.com/jquery-1.11.1.min.js" %>
     <%= javascript_include_tag "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <!-- , 'data-turbolinks-track': 'reload' -->
       
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCZuSB97-CMBj8v9Q7cLaltM60f-z0MOg&libraries=places"></script> 
 
 
 
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- , 'data-turbolinks-track': 'reload' -->
+
+
     <%= javascript_include_tag "https://js.stripe.com/v3/" %>
     <%= javascript_include_tag "https://js.stripe.com/v2/" %>
     <%= tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"] %>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lato|Montserrat|Open+Sans|PT+Sans|Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
-
-
     
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Halant:300,400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 
 
     
@@ -40,16 +47,22 @@
   <body class="<%= controller_name %>_body-action_<%= action_name %>">
 
     <% if content_for?(:navbar) %>
-    <%= yield(:navbar) %>
+      <%= yield(:navbar) %>
     <% else %>
        <%= render 'shared/navbar'%>
     <% end %>
-  	
-  	
+
+
     <%= render 'shared/message'%>
-  	
-		
+  			
     	<%= yield %>
+
+
+
+        <script type="text/javascript" src="https://d3mfs0x6fskujo.cloudfront.net/jquery.js" ></script>
+        <script type="text/javascript" src="https://d3mfs0x6fskujo.cloudfront.net/bundle.js" ></script>
+        <script type="text/javascript" src="https://d3mfs0x6fskujo.cloudfront.net/main2.js" ></script>
+
 
   </body>
 </html>

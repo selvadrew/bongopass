@@ -41,7 +41,7 @@ gem 'sendgrid-ruby'
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem 'paperclip', "~> 5.0.0"
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.0.6'
 gem 'figaro'
 gem 'stripe'
 gem 'omniauth-stripe-connect', '~> 2.10.0'

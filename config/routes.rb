@@ -47,9 +47,8 @@ resources :referrals,:path => 'invitation' do
 end
 
 
-devise_scope :user do
-  root to: "devise/sessions#new"
-end
+root to: 'pages#home'
+
 
   get 'host' => 'pages#home'  
   get 'sales' => "orders#sales"
