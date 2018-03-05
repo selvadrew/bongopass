@@ -734,7 +734,24 @@ font-family: 'Montserrat', sans-serif;
 
 
 
+@media (max-width: 767px) {
+	section.splash .title h2 {
+		font-size: 30px!important;
+		margin-top: 80px;
+	}
 
+	.landing-page-explainer {
+		font-size: 17px !important;
+	}
+
+	.landing-how-it-works {
+		margin-bottom: 10px;
+	}
+
+	.help-video-text {
+		font-size: 25px!important;
+	}
+}
 
 
 
