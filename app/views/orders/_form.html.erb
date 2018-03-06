@@ -65,3 +65,106 @@
 
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+  <div class="col-xs-12 col-sm-7 col-md-7 order-page-row">
+    <%= form_for([@ticket, @order]) do |form| %>
+      <% if order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+          <ul>
+          <% order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div id="stripe_error" class="alert alert-danger" style="display:none">
+        <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+      </div>
+   
+
+      <div class="name-title">
+        Full Name of Attendee 
+      </div>
+
+      <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <div class="field">
+              <%= form.text_field :first_name, id: :first_name, placeholder: "First Name", class: "form-control order-form-inputs", required: true %>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <div class="field">
+              <%= form.text_field :last_name, id: :last_name, placeholder: "Last Name", class: "form-control order-form-inputs", required: true %>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="payment-title">
+        Pay by Credit Card
+      </div>
+
+      <div class="form-group">
+        <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control order-form-inputs", placeholder: "Credit Card Number" } %>
+          </div>
+        </div>
+
+        <div class="row payment-rows">
+
+          <div class="col-md-5 col-xs-8 order-alignment ">
+            <div class="expiration-date-month">
+            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control order-form-inputs", placeholder:"Month" } %>
+            </div>
+
+            <div class="expiration-date-year">
+            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control order-form-inputs", placeholder:"Year" } %>
+            </div>
+          </div>
+          
+          <div class="col-md-3 col-xs-4">
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control order-form-inputs", required: true, placeholder: "CVC" } %>
+          </div>
+
+        </div>
+
+
+        
+        <div class="row payment-rows">
+          <div class="col-md-8 order-alignment ">
+            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control order-form-inputs", required: true, placeholder: "Zip Code" } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row payment-rows">
+      <div class="col-md-8 order-alignment ">
+        <div class="actions">
+          <%= form.submit "Complete Order", class: "btn order-page-button" %>
+        </div>
+      </div>
+      </div>
+
+
+
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
