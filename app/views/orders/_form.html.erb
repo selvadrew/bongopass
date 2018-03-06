@@ -1,170 +1,146 @@
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+    <section class="pt-35">
+      <div class="container">
+          <div class="checkout-form">
+            <div class="row">
 
+              <div class="col-md-5 mb-30"> <!-- left side -->
 
-<div class="font-set-show-page order-container"> 
-<div class="container big-container order-page-row">
-<div class="row order-page-row"> 
-  <div class="col-xs-12 col-sm-5 col-md-5 order-de">
+                <div class="text-center">
+                  <h3><%= @ticket.event.event_title %></h3>
+                  <h4>Pass Name: <%= @ticket.ticket_name %></h4>
+                </div>
+                <div class="wrapting">
+                <div class="price-credit-wrapper">
+                  <div class="price-credit-title">
+                    <h5 class="price-title">Price</h5>
+                    <h5 class="credit-title">Credit Applied</h5>
+                  </div>
 
-    <h3 class="o-event-title"><%= @ticket.event.event_title %></h3>
-    <div class="pass-information">
-      <div class="o-ticket-name">
-        <h4>Pass Name: <%= @ticket.ticket_name %></h4>    
-      </div>
+                  <div class="price-credit-data">
+                    <h5><%= number_to_currency(@ticket.ticket_price + @bongopass_fee) %></h5>
+                    <h5><span class="minus-sign">-</span><%= number_to_currency(@order.rewards_used) %> </h5> 
+                  </div>
+                </div>
 
-      <div class="price-credit-wrapper">
-        <div class="price-credit-title">
-          <h5 class="price-title">Price</h5>
-          <h5 class="credit-title">Credits Applied</h5>
-        </div>
+                <div class="total-wrapper">
+                  <div class="total-title">
+                     <h5 class="total-title-text">Total</h5>
+                  </div>
+                  <div class="total-data">
+                    <h5 class="total-data-text"><%= number_to_currency(@payment_amount) %> </h5>
+                  </div>
+                </div>
 
-        <div class="price-credit-data">
-          <h5><%= number_to_currency(@ticket.ticket_price + @bongopass_fee) %></h5>
-          <h5><span class="minus-sign">-</span><%= number_to_currency(@order.rewards_used) %> </h5> 
-        </div>
-      </div>
+                <% if @payment_amount == 3.50 %>
+                  <div class="minimum-amount">
+                    There is a minimum limit of $3.50 for this event
+                  </div>
+                <% end %>
+                </div>
 
-      <div class="total-wrapper">
-        <div class="total-title">
-           <h5 class="total-title-text">Total</h5>
-        </div>
-        <div class="total-data">
-          <h5 class="total-data-text"><%= number_to_currency(@payment_amount) %> </h5>
-        </div>
-      </div>
+                <h6 class="fw-600 fine-print">
+                  Delivery Method 
+                </h6>
 
-<% if @payment_amount == 3.50 %>
-      <div class="minimum-amount">
-        There is a minimum limit of $3.50 for this event
-      </div>
-<% end %>
+                <h6 class="fw-300">
+                  Will Call: Please arrive at the venue with your photo ID and confirmation email. 
+                </h6>
 
-      <div class="delivery-method">
-        Delivery Method 
-      </div>
+                <h6 class="fw-600 fine-print">
+                  Refund Policy 
+                </h6>
 
-      <div class="will-call">
-        Will Call: Please arrive at the venue with your photo ID and confirmation email. 
-      </div>
+                <h6 class="fw-300">
+                  No refunds.
+                </h6>
 
-      <div class="refund-policy">
-        Refund Policy 
-      </div>
+                <h6 class="fw-600 fine-print">
+                  Purchase Limit
+                </h6>
 
-      <div class="will-call">
-        No refunds.
-      </div>
+                <h6 class="fw-300">
+                  One Pass per attendee.
+                </h6>
 
-      <div class="refund-policy">
-        Purchase Limit
-      </div>
-
-      <div class="will-call">
-        One Pass per attendee.
-      </div>
-
-    </div>
-  </div>
-
+              </div>
 
 
 
+              <div class="col-md-5 col-md-offset-1"> <!-- right side -->
+              <%= form_for([@ticket, @order]) do |form| %>
+                <% if order.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
+                    <ul>
+                    <% order.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
 
+                <div id="stripe_error" class="alert alert-danger" style="display:none">
+                  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+                </div>
 
+                <div class="title">
+                  <h5 class="upper fw-600">Full Name of Attendee</h5>
+                  <hr>
+                </div>
+                <div class="form-group">
+                  <%= form.text_field :first_name, id: :first_name, placeholder: "First Name", class: "form-control order-form-inputs", required: true %>
+                </div>
+                <div class="form-group">
+                  <%= form.text_field :last_name, id: :last_name, placeholder: "Last Name", class: "form-control order-form-inputs", required: true %>
+                </div>
+                <div class="title">
+                  <h5 class="upper fw-600">Credit Card Info</h5>
+                  <hr>
+                </div>
 
-
-  <div class="col-xs-12 col-sm-7 col-md-7 order-page-row">
-    <%= form_for([@ticket, @order]) do |form| %>
-      <% if order.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-          <ul>
-          <% order.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div id="stripe_error" class="alert alert-danger" style="display:none">
-        <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-      </div>
-   
-
-      <div class="name-title">
-        Full Name of Attendee 
-      </div>
-
-      <div class="row payment-rows">
-          <div class="col-md-8 order-alignment ">
-            <div class="field">
-              <%= form.text_field :first_name, id: :first_name, placeholder: "First Name", class: "form-control order-form-inputs", required: true %>
+                <div class="form-group">
+                  <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control order-form-inputs", placeholder: "Credit Card Number" } %>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-4 pl-0">
+                    <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control order-form-inputs", required: true, placeholder: "CVC" } %>
+                  </div>
+                  <div class="col-xs-4 pl-0">
+                    <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control order-form-inputs", placeholder: "Month" } %>
+                  </div>
+                  <div class="col-xs-4 p-0">
+                    <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control order-form-inputs", placeholder:"Year" } %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control order-form-inputs", required: true, placeholder: "Zip Code" } %>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <h5 class="upper">Order Total</h5>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <h5><%= number_to_currency(@payment_amount) %></h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="checkout-submit">
+                    <%= form.submit "Complete Order", class: "btn btn-color btn-block order-form-inputs" %>
+                  </div>
+                </div>
+              <% end %>
+              </div>
             </div>
-        </div>
-      </div>
-
-
-      <div class="row payment-rows">
-          <div class="col-md-8 order-alignment ">
-            <div class="field">
-              <%= form.text_field :last_name, id: :last_name, placeholder: "Last Name", class: "form-control order-form-inputs", required: true %>
-            </div>
-        </div>
-      </div>
-
-
-      <div class="payment-title">
-        Pay by Credit Card
-      </div>
-
-      <div class="form-group">
-        <div class="row payment-rows">
-          <div class="col-md-8 order-alignment ">
-            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control order-form-inputs", placeholder: "Credit Card Number" } %>
+            <!-- end of row-->
           </div>
-        </div>
-
-        <div class="row payment-rows">
-
-          <div class="col-md-5 col-xs-8 order-alignment ">
-            <div class="expiration-date-month">
-            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control order-form-inputs", placeholder:"Month" } %>
-            </div>
-
-            <div class="expiration-date-year">
-            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control order-form-inputs", placeholder:"Year" } %>
-            </div>
-          </div>
-          
-          <div class="col-md-3 col-xs-4">
-            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control order-form-inputs", required: true, placeholder: "CVC" } %>
-          </div>
-
-        </div>
-
-
-        
-        <div class="row payment-rows">
-          <div class="col-md-8 order-alignment ">
-            <%= text_field_tag :postal_code, nil, { :name => nil, :'data-stripe' => "address-zip", class: "form-control order-form-inputs", required: true, placeholder: "Zip Code" } %>
-          </div>
-        </div>
       </div>
-
-      <div class="row payment-rows">
-      <div class="col-md-8 order-alignment ">
-        <div class="actions">
-          <%= form.submit "Complete Order", class: "btn order-page-button", data: { turbolinks: false } %>
-        </div>
-      </div>
-      </div>
+    </section>
 
 
 
-    <% end %>
-  </div>
-</div>
-</div>
-</div>
+
+
+
