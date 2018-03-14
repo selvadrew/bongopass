@@ -54,7 +54,7 @@ root to: 'pages#home'
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
   get '/payout_method' => "users#paypal_payout"
-
+  get 'sindu' => 'supports#sindu'
 
   #get 'support' => "pages#support"
 

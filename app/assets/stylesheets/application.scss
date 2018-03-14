@@ -624,8 +624,20 @@ font-family: 'Montserrat', sans-serif;
 	text-align: center;
 }
 
-.landing-splash {
-	background-color: #ff1647;
+section.landing-splash:after {
+	background-color: #ff214a !important;
+}
+
+.join-lead-text {
+	color: #191b1e!important;
+}
+
+.how-works-text-box {
+	color: rgb(25, 27, 29);
+}
+
+.raleway-font-fam {
+	font-family: 'Raleway', sans-serif !important;
 }
 
 
@@ -757,6 +769,8 @@ font-family: 'Montserrat', sans-serif;
 		font-size: 25px!important;
 	}
 }
+
+
 
 
 /* ********************************************* test */
