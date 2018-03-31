@@ -28,6 +28,9 @@ font-family: 'PT Sans', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
 
+.dark-blue-background {
+	background-color: #2a428a !important;
+}
 
 .font-override-1 {
 	font-size: 55px !important;
@@ -41,11 +44,21 @@ font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     -webkit-font-smoothing: auto;
+    min-height: 72px;
+    vertical-align: middle;
+    line-height: 72px;
+    padding: 0px !important;
+}
+
+.bongo-logo-adjust {
+	padding: 0px !important;
 }
 
 
 .bongo-color {
 	color: #191b1d !important;
+	min-height: 62px!important;
+	line-height: 62px!important;
 }
 
 
@@ -249,11 +262,20 @@ font-family: 'Montserrat', sans-serif;
 .icon-box-basic-adjust {
 	padding-left: 50px !important;
 	margin: 10px 0px !important;
+	
+}
+
+.icon-adjuster i {
+	font-size: 36px;
+}
+
+.join-icon-header {
+	font-size: 17px !important;
 }
 
 .date-location-text {
 	margin-top: 0px !important;
-	font-size: 20px!important;
+	font-size: 22px!important;
 }
 
 
@@ -286,7 +308,7 @@ font-family: 'Montserrat', sans-serif;
 }
 .line-ting:before,
 .line-ting:after {
-    background-color: #EF2D56;
+    background-color: #ed314a;
     content: "";
     display: inline-block;
     height: 1px;
@@ -381,7 +403,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .modal-header-design {
-	background: #EF2D56;
+	background: #ed314a;
 	color: white;
 	font-weight: 600;
 	margin-bottom: 20px;
@@ -396,7 +418,7 @@ font-family: 'Montserrat', sans-serif;
 	display: block;
   vertical-align: middle;
   text-align: center;
-  /*background-color: #EF2D56;
+  /*background-color: #ed314a;
   color: #fff; */
   font-size: 20px;
   font-weight: 500;
@@ -413,6 +435,7 @@ font-family: 'Montserrat', sans-serif;
 	margin-bottom: 15px;
 	font-family: 'Montserrat', sans-serif;
 	letter-spacing: 0.5px;
+	color: #0070c9;
 
 }
 
@@ -439,7 +462,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .tooltext-inviter {
-	background-color: #EF2D56 !important;
+	background-color: #ed314a !important;
 }
 
 .tooltip-1 .tooltiptext-1 {
@@ -589,7 +612,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .purchases-overlay {
-	background-color: rgb(239, 46, 85) !important;
+	background-color: #DC2841 !important;
 }
 
 .upper-rewards {
@@ -611,11 +634,17 @@ font-family: 'Montserrat', sans-serif;
 	height: 45px !important;
   line-height: 43px !important;
   margin: 5px !important;
+  font-weight: 600;
 }
 
 .purchases-event-title {
 	margin-top: 5px!important;
 	font-weight: 700;
+	font-size: 21px!important;
+}
+
+.purchases-date {
+	font-size: 19px!important;
 }
 
 .no-passes {
@@ -634,6 +663,7 @@ section.landing-splash:after {
 
 .how-works-text-box {
 	color: rgb(25, 27, 29);
+	font-size: 16px;
 }
 
 .raleway-font-fam {
@@ -641,7 +671,9 @@ section.landing-splash:after {
 }
 
 
-
+.passes-details {
+	margin-bottom: 25px;
+}
 
 @media (min-width: 768px) {
 	.scroll-raiser {
@@ -669,7 +701,7 @@ section.landing-splash:after {
 	}
 
 	.icon-box-basic-adjust {
-		margin: 25px 0px !important;
+		margin: 0px !important;
 		text-align: left;
 		display: inline-block;
 	}
@@ -683,10 +715,10 @@ section.landing-splash:after {
 		display: block;
 		height: 100px;
 		line-height: 100px;
-    vertical-align: middle;
-    text-align: center;
-    background-color: #f8f8fa;
-    border-top: 1px solid #e8e8e8;
+	    vertical-align: middle;
+	    text-align: center;
+	    background-color: #f8f8fa;
+	    border-top: 1px solid #e8e8e8;
 	}
 
 	.bar-section-mobile {
@@ -695,11 +727,15 @@ section.landing-splash:after {
 
 	.bar-headers {
 		padding: 0px 20px 0px 20px;
-		color: rgba(25, 27, 29, 0.7);
+		color: #777;
 		text-transform: uppercase;
 		font-size: 14px;
 		letter-spacing: 0.5px;
-		font-weight: 500;
+		font-weight: 600;
+	}
+
+	.landing-page-explainer {
+		padding-right: 30px;
 	}
 
 
@@ -713,11 +749,13 @@ section.landing-splash:after {
   	padding-left: 30px;
   }
 
+  .passes-details {
+	margin-bottom: 0px;
+}
 
 
-  .highlight-tab-color {
-  	color: #c20b3e!important;
-  }
+
+
 }
 
 
@@ -746,10 +784,46 @@ section.landing-splash:after {
 }
 
 .fa-check-circle {
-	color: #EF2D56;
+	color: #ed314a;
+}
+
+.great-experiences {
+	font-size: 45px!important;
 }
 
 
+.landing-buttons {
+	padding: 0px 8px;
+}
+
+@media (min-width: 321px) { 
+	.landing-buttons {
+		padding: 0px 18px;
+	}
+	.info-alt-create {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 20px;
+	    max-width: 10%;
+	    margin-top: 2px;
+	    font-weight: bold;
+	    color: #222323;
+	}
+
+	.share-button-text {
+	    font-size: 13px!important;
+	}
+}
+@media (min-width: 361px) { 
+	.landing-buttons {
+		padding: 0px 21px;
+	}
+}
+@media (min-width: 400px) { 
+	.landing-buttons {
+		padding: 0px 28px;
+	}
+}
 
 @media (max-width: 767px) {
 	section.splash .title h2 {
@@ -761,20 +835,374 @@ section.landing-splash:after {
 		font-size: 17px !important;
 	}
 
-	.landing-how-it-works {
-		margin-bottom: 10px;
-	}
 
 	.help-video-text {
 		font-size: 25px!important;
 	}
+
 }
 
 
 
+.pink-nav {
+	background: #ed314a !important;
+	color: white !important;
+}
 
+.pink-nav-text {
+	color: white !important;
+	font-weight: 500 !important;
+
+}
+
+.pink-toggle span {
+	background-color: white !important;
+}
+
+.my-passes-title {
+	border-bottom: solid 1px #ddd !important;
+	text-align: center;
+	color: #0070c9;
+    font-weight: bold;
+}
+
+
+
+.red-header-section {
+	background: #ed314a;
+	padding: 10px 0px;
+
+}
+.dashboard-section {
+	padding: 10px 0px;
+	margin-top: 20px;
+
+}
+
+.welcome {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  display: inline-block;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding:10px;
+}
+.welcome-top {
+	color: #191b1d;
+	letter-spacing: 1px;
+
+}
+
+.section-mypass {
+	text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.blue-color-section {
+	background: #FFF;
+	margin-bottom: 50px;
+}
+
+.you-are-going-top {
+	font-size: 19px;
+	font-weight: 500; 
+	background: #DC2841;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#learn-more {
+	cursor: pointer;
+	color: #191b1d;
+	font-weight: bold;
+	border: 1px dotted white;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    padding: 4px;
+}
+
+.invite-explanation {
+	color: #191b1d;
+	font-weight: 500;
+}
+
+
+.mypass-container {
+	margin: 0 auto;
+	background: #f6f7f8;
+}
+
+.holder-social-media-share-buttons {
+	text-align: center;
+	display: block;
+    max-width: 500px;
+    height: auto;
+    vertical-align: middle;
+    margin: 0px auto;
+
+}
+
+.social-media-share-buttons-clipboard {
+	background: #eaeaea;
+    color: #777;
+	max-width: 320px;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: block;
+	font-size: 13px;
+	font-weight: 700;
+	margin-bottom: 10px !important;
+	margin-top: 10px !important;
+	margin: auto;
+	margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 5px;
+
+}
+
+.social-media-share-buttons-clipboard:hover .link-icon{
+	background: #ed314a;
+    color: #fff !important;
+    transition: all .0s ease;
+
+}
+.social-media-share-buttons-clipboard:hover  {
+	background: #ed314a;
+    color: #fff !important;
+    transition: all .0s ease;
+
+}
+
+
+
+.social-media-share-buttons-twitter {
+	background: #eaeaea;
+    color: #777;
+	max-width: 320px;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: block;
+	margin-bottom: 10px;
+	font-size: 13px;
+	font-weight: 700;
+	margin-bottom: 10px !important;
+	margin-top: 10px !important;
+	margin: auto;
+	margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 5px;
+
+}
+
+.social-media-share-buttons-twitter:hover .twitter-icon {
+	background-color: #1da1f2;
+	border-color: #1da1f2 !important;
+	color:#fff;
+	transition: all .0s ease;
+}
+.social-media-share-buttons-twitter:hover  {
+	background-color: #1da1f2;
+	border-color: #1da1f2 !important;
+	color:#fff;
+	transition: all .0s ease;
+}
+
+.social-media-share-buttons-fb {
+	background: #eaeaea;
+    color: #777;
+    max-width: 320px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 5px;
+
+}
+
+.social-media-share-buttons-fb:hover .facebook-fb-icon {
+    background: #3B5998;
+    border-color: #3B5998 !important;
+	color: #fff;
+	transition: all .0s ease;
+}
+.social-media-share-buttons-fb:hover {
+    background: #3B5998;
+    border-color: #3B5998 !important;
+	color: #fff;
+	transition: all .0s ease;
+}
+
+.share-icons {
+	font-size: 28px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 24%;
+    float: left;
+    height: 100%;
+    line-height: 55px;
+}
+
+
+.link-icon {
+    color: #ed324a;
+}
+.twitter-icon {
+	color: #1da1f2;
+}
+.facebook-fb-icon {
+	color: #3B5998;
+}
+
+.share-button-text {
+	float: left;
+	margin-left: 10px;
+	font-size: 12px!important;
+}
+
+
+.mypass-share-headers {
+	text-align: center;
+	color: #777;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+	max-width: 550px;
+	margin: 30px auto 25px auto;
+	width: 100%;
+}
+
+.panel-share {
+	background: #eaeaea !important;
+    color: #777 !important;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#bar {
+	width: 100%;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	font-size: 12px;
+	vertical-align: middle;
+	padding-left: 5px;
+	color: #777;
+	margin-top: 15px;
+}
+
+#bar::selection {
+	background: #ed324a;
+	color: white;
+	letter-spacing: 0.5px;
+}
+
+.black-going{
+	color: white;
+	background: #333;
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	top: 64px;
+	font-size: 22px;
+    font-weight: 600;
+    border-radius: 30px;
+}
+
+.black-going-wrapper {
+	text-align: center;
+}
+.red-bottom-header {
+	margin-top: 30px;
+	padding-top: 25px
+}
+
+.bottom-welcome {
+	font-size: 18px;
+	letter-spacing: 1px;
+
+}
+
+.friends-joined {
+	text-align: center; 
+    color: #00a2c7;
+    letter-spacing: 1px;
+    font-weight: bold;
+	text-transform: capitalize;
+}
+
+
+.parallax-mypass {
+	height: auto !important;
+	margin-bottom: 0px !important;
+
+}
+
+.mypass-overlay {
+	padding: 90px 0px 20px;
+ 
+}
+
+.section-mypass-top {
+	max-width: 1038px;
+
+}
+
+.bottom-verified {
+	font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+
+.note-btn-bold, .btn-fullscreen, .note-btn-underline, .note-font, .note-view {
+	display: none !important;
+}
+
+.yellowbox-create-icon {
+	vertical-align: top !important;
+    margin-top: 3px !important;
+}
+
+.navigation-menu {
+	font-family: 'Raleway', sans-serif !important;
+	
+}
+#topnav .navigation-menu > li > a { 
+	font-weight: bold !important;
+}
+
+#topnav-red {
+	background: #dd1141;
+}
+
+
+@media (max-height: 500px) {
+	.landing-page-explainer {
+		margin: 12px 0px !important;
+	}
+
+	.landing-height-adjust {
+		margin-top: 0px!important;
+	}
+}
 /* ********************************************* test */
-
 
 
 
@@ -1668,9 +2096,7 @@ html {
 }
 
 
-.input_box {
-	border: 1px solid #bbc6cc;
-}
+
 
 .date-selection {
 	font: sans-serif;
@@ -1717,9 +2143,7 @@ html {
 	padding-top: 15px;
 }
 
-.currency_box {
-	width: 140px;
-}
+
 
 .quantity-price-box {
 	width: 45%;
@@ -1774,11 +2198,7 @@ html {
 	width: 100%;
 }
 
-.create-event-header {
-    border-bottom: 1px solid black;
-    padding-bottom: 20px;
-    margin-top: 40px;
-}
+
 
 .cover-photo-box {
 	border-style: outset ;
@@ -2253,7 +2673,7 @@ html {
 
 
 .social-media-share-buttons-clipboard {
-	background: gray;
+	background: rgb(67, 115, 224);
 	max-width: 350px;
 	width: 100%;
 	padding-left: 10px;
@@ -2314,13 +2734,10 @@ html {
 	background-color: #232323;
 }
 
-.blue-header-section {
-	background: #3A66E5;
-}
+
 
 .blue-color-section {
-	background: #3A66E5;
-	padding-bottom: 8px;
+	background: #FFF;
 }
 
 
@@ -3499,7 +3916,7 @@ table {
 
 #learn-more {
 	cursor: pointer;
-	color: white;
+	color: #191b1d;
 	font-weight: bold;
 	border: 1px dotted white;
     width: 100px;
@@ -3527,8 +3944,8 @@ table {
 
 .you-are-going-top {
 	font-size: 18px;
-	font-weight: 700; 
-	color: white;
+	font-weight: 500; 
+	color: #191b1d;
 	padding-top: 15px;
 }
 
@@ -3641,13 +4058,7 @@ table {
 	font-weight: 600;
 }
 
-.friends-joined {
-	text-align: center; 
-	color: #444;
-	font-weight: 500;
-	font-size: 16px;
-	text-transform: capitalize;
-}
+
 
 
 .welcome-dashboard {
@@ -3687,6 +4098,7 @@ table {
 
 .mypass-container {
 	margin: 0 auto;
+	background: #f6f7f8;
 }
 
 .invite-number {
@@ -3712,16 +4124,6 @@ table {
 	width: 100%;
 }
 
-.welcome {
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  display: inline-block;
-  word-wrap: break-word;
-  text-transform: uppercase;
-  border-radius: 3px;
-  padding: 15px 10px 0px 10px;
-}
 
 
 
@@ -4344,5 +4746,230 @@ table {
 }
 
 */
+.create-event-header {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.overflow-override {
+	max-width: 1100px;
+}
+
+.input_box {
+	margin-bottom: 25px;
+	color: #333333 !important;
+	font-weight: 500 !important;
+
+}
+
+.form-group label {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+  font-size: 14px;
+}
+
+.date-selection {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #191b1d;
+}
+
+.date-override {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+
+.start-date {
+	max-width: 150px;
+	display: inline-block;
+}
+
+#basicExample {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.date-blocks {
+	display: inline-block;
+}
+
+.currency_box {
+	width: 140px;
+}
+
+.panel-form-pass {
+	padding: 0px;
+	border-color: #ed314a;
+}
+
+
+.input_box-pass-name {
+	margin: 0px!important;
+	background: #ed314a;
+	color: white !important;
+	border: 0px solid #ed314a;
+	font-weight: 600 !important;
+
+}
+
+
+.input_box-pass-name, .pass-placeholder ::placeholder {
+    color: white !important;
+    opacity: 1; /* Firefox */
+}
+
+.input_box-pass-name.pass-placeholder :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: white !important;
+}
+
+.input_box-pass-name.pass-placeholder ::-ms-input-placeholder { /* Microsoft Edge */
+   color: white !important;
+}
+
+.quantity-price-box {
+	width: 46.7%;
+	display: inline-block;
+	vertical-align: top;
+}
+.quantity-price-box-second {
+	margin-left: 5%;
+}
+
+.remove-ticket-button {
+	display: block;
+	text-align: right;
+}
+
+.total-base-reward {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin-left: 10px;
+    color: #191b1d;
+    background: #ffc;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.sum-base-reward {
+	color: #191b1d;
+}
+
+.learn-pricing {
+    text-decoration: dotted underline;
+    text-transform: none;
+    color: #777;
+    display: block;
+}
+
+.create-ticket-wrapper {
+	border: none !important;
+}
+
+.form-button-create {
+	width: 100% !important;
+	margin-top: 25px;
+}
+
+.info-alt {
+	float: left;
+}
+
+.info-box {
+	background: #ffc;
+	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 19px;
+	margin-bottom: -10px;
+	display: block;
+	border: 1px solid #ddd;
+}
+
+.blue-box {
+	background: #c2e4ff;
+	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 19px;
+	margin-bottom: -10px;
+	display: block;
+	border: 1px solid #ddd;
+	margin-bottom: 15px;
+	margin-top: 40px;
+
+
+}
+
+.info-alt-create {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 20px;
+    max-width: 7%;
+    margin-top: 2px;
+    font-weight: bold;
+    color: #222323;
+}
+
+.yellow-text {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 1000px;
+	margin-left: 10px;
+	vertical-align: middle;
+	display: inline-block;
+    max-width: 87%;
+    text-align: left;
+
+}
+
+.new-window-button {
+	background: #fff;
+	color: #777;
+	border: solid 1px rgba(0,0,0,0.2);
+	text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+@media (min-width: 684px) {
+	.second-date-blocks {
+		margin-left: 42px;
+	}
+	.quantity-price-box {
+		width: 46.1%;
+	}
+	.quantity-price-box-second {
+		margin-left: 7%;
+	}
+
+	.info-alt-create {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 20px;
+	    max-width: 10%;
+	    margin-top: 0px;
+	}
+
+	.new-window-button {
+		margin-top: 0px;
+		margin-left: 10px;
+	}
+
+
+}
+
+.tooltip-1 .tooltiptext-1::after {
+	border-color: #ed324a transparent transparent transparent;
+}
 
 

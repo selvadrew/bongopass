@@ -63,12 +63,8 @@
 						<h4> <%= event.start_date.to_time.strftime('%A, %B %d') %></h4>
 					</div>
 
-					<div class="col-md-1">
-						<h4> <%= Order.joins(:ticket).where(tickets: { event_id: event.id }).count %>/<%= Order.joins(:ticket).where(tickets: { event_id: event.id }).count + event.tickets.where(event_id: event.id).sum(:ticket_quantity) %></h4>
-					</div>
-
-					<div class="col-md-1">
-						<h4> <%= number_to_currency(Order.joins(:ticket).where(tickets: { event_id: event.id }).sum(:organizer_sales)) %> </h4>
+					<div class="col-md-2">
+						<h4> <%= Order.joins(:ticket).where(tickets: { event_id: event.id }).count %>/<%= Order.joins(:ticket).where(tickets: { event_id: event.id }).count + event.tickets.where(event_id: event.id).sum(:ticket_quantity) %> - <%= number_to_currency(Order.joins(:ticket).where(tickets: { event_id: event.id }).sum(:organizer_sales)) %></h4>
 					</div>
 
 					<div class="col-md-1 col-xs-4 ">

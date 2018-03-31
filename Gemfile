@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'toastr-rails'
@@ -69,6 +69,7 @@ gem 'sidekiq'
 gem 'sinatra', github: 'sinatra/sinatra' 
 gem 'rack-attack'
 gem 'newrelic_rpm'
+
 
 
 

@@ -13,7 +13,7 @@
             </div>
           </div>
           <div class="col-md-7 col-md-offset-1">
-            <p class="grey-text serif lead-text join-lead-text">On Bongopass, the total price of a Pass is composed of a base price and a reward fee. For example, if the base price of a Pass is $20.00 and the reward fee is $5.00, attendees will always pay the sum of $25.00.<br> The host will always receive the base price of $20.00 for each sale. For the reward fee of $5.00, there are two possible scenarios for how it will be allocated:</p>
+            <p class="grey-text serif lead-text join-lead-text">On Bongopass, the total price of a Pass is composed of a base price and a reward fee, both set by the host. <br><br>Example:<br> If the base price of a Pass is $20.00 and the reward fee is $5.00, attendees will pay $25.00.<br> The host is guaranteed the base price of $20.00 for each sale. <br>For the reward fee of $5.00, it will be allocated to the host or an attendee:</p>
             <ul role="tablist" class="nav nav-tabs outline">
               <li role="presentation" class="active"><a href="#method-tab" role="tab" data-toggle="tab">Scenario 1</a>
               </li>
@@ -22,10 +22,10 @@
             </ul>
             <div class="tab-content">
               <div id="method-tab" role="tabpanel" class="tab-pane fade in active">
-                <p class="alt-paragraph mb-15">The host will receive the full $25.00, including the reward fee of $5.00 everytime an attendee purchases a Pass through the host's event page.</p>
+                <p class="alt-paragraph mb-15">The host will receive the full $25.00, including the reward fee of $5.00 when an attendee purchases a Pass through the <b>host's event page.</b></p>
               </div>
               <div id="method-tab-1" role="tabpanel" class="tab-pane fade ">
-                <p class="alt-paragraph mb-15">After an attendee purchases a Pass, he or she will receive their own personalized event page/url that they can share on social media or with friends to easily invite them to the same event. For every Pass purchased through an <%= link_to "attendee's event page", root_path(:anchor => "about"), target: :_blank %>, they will receive the reward fee of $5.00 and the host will receive the base price of $20.00.
+                <p class="alt-paragraph mb-15">After an attendee purchases a Pass, he or she will receive their own personalized event page/url that they can share on social media or with friends to easily invite them to the same event. For every Pass purchased through an <%= link_to "attendee's event page", root_path(:anchor => "about"), target: :_blank %>, the attendee will receive the reward fee of $5.00 as a credit and the host will receive the base price of $20.00. The attendee will be able to use the $5.00 credit towards any future event on the platform.
                   <br></br>
                   Note: The base price and reward fee can be customized for each Pass by the host.
                 </p>
@@ -38,7 +38,7 @@
       <!-- end of container                  -->
     </section>
 
-    <section id="process" class="dark">
+    <section id="process" class="dark dark-blue-background">
       <div class="container">
         <div class="title center">
           <h4 class="upper">We don't take advantage of your hard work.</h4>
@@ -80,7 +80,7 @@
       <div class="container">
         <div class="title center">
           <h4 class="upper">Is Bongopass the right fit for your next event?</h4>
-          <h2>Advantages<span class="red-dot"></span></h2>
+          <h2>Features<span class="red-dot"></span></h2>
           <hr>
         </div>
         <div class="section-content">
@@ -88,30 +88,30 @@
             <div class="col-md-10 col-md-offset-1">
               <div class="row">
                 <div class="col-sm-5">
-                  <div class="icon-box-basic"><i class="icon-global"></i>
-                    <h4>Attendees With More Purchasing Power</h4>
-                    <p>Access hundreds of attendees (and growing!) that can use their credit to attend your events for free, while you still receive your full payout.</p>
+                  <div class="icon-box-basic icon-adjuster "><i class="icon-global"></i>
+                    <h4 class="join-icon-header">Attendees With More Purchasing Power</h4>
+                    <p>Access thousands of attendees (and growing!) that can use their credit to attend your events for free, while you still receive your full payout.</p>
                   </div>
-                  <div class="icon-box-basic"><i class="icon-hotairballoon"></i>
-                    <h4>Empower your Attendees</h4>
+                  <div class="icon-box-basic icon-adjuster "><i class="icon-hotairballoon"></i>
+                    <h4 class="join-icon-header">Empower your Attendees</h4>
                     <p>Empower the ones most interested in your events with personalized sharing tools.</p>
                   </div>
-                  <div class="icon-box-basic"><i class="icon-genius"></i>
-                    <h4>Create a shared economy</h4>
-                    <p>Attendees work with you to help make your event great.</p>
+                  <div class="icon-box-basic icon-adjuster "><i class="icon-telescope"></i>
+                    <h4 class="join-icon-header">Know Your Attendees</h4>
+                    <p>Know your loyal attendees that invite the most friends so you can build a relationship with them.</p>
                   </div>
                 </div>
                 <div class="col-sm-5 col-md-offset-2">
-                  <div class="icon-box-basic"><i class="icon-megaphone"></i>
-                    <h4>Untapped marketing potential</h4>
-                    <p>Allow your attendees to carry out your most effective marketing campaign by spreading the word about your event/company through word of mouth.</p>
+                  <div class="icon-box-basic icon-adjuster "><i class="icon-megaphone"></i>
+                    <h4 class="join-icon-header">Untapped marketing potential</h4>
+                    <p>Allow your attendees to carry out your most effective marketing campaign - by spreading the word about your event and company through word of mouth.</p>
                   </div>
-                  <div class="icon-box-basic"><i class="icon-telescope"></i>
-                    <h4>Know Your Attendees</h4>
-                    <p>Know your loyal attendees that invite the most friends so you can build a relationship with them.</p>
+                  <div class="icon-box-basic icon-adjuster "><i class="icon-genius"></i>
+                    <h4 class="join-icon-header">Create a shared economy</h4>
+                    <p>Attendees work with you to help make your event a success. You have full control of how they earn rewards. </p>
                   </div>
-                  <div class="icon-box-basic"><i class="icon-browser"></i>
-                    <h4>Attendee Focused</h4>
+                  <div class="icon-box-basic icon-adjuster "><i class="icon-browser"></i>
+                    <h4 class="join-icon-header">Attendee Focused</h4>
                     <p>We never distract your attendees by showing them other events, hosts, or ads so they stay focused on your events.</p>
                   </div>
                 </div>
@@ -157,7 +157,7 @@
       </div>
     </section>
 
-    <section class="dark">
+    <section class="dark dark-blue-background">
       <div class="container">
         <div class="row">
 

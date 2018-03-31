@@ -41,7 +41,7 @@ class TicketsController < ApplicationController
 
 		def ticket_params 
       		params.require(ticket).permit(:ticket_type, :ticket_name, :ticket_quantity, :tickt_price, :ticket_description,
-                                    	  :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time)
+                                    	  :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time, :reward_fee)
         end
 
 

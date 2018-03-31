@@ -46,6 +46,8 @@ class User < ApplicationRecord
   end
 
 
+
+
   def referral_available 
 
     "hi" + self.email + "w" 

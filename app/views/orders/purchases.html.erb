@@ -7,7 +7,7 @@
             <div class="container">
               <div class="title center">
                 <h1 class="upper upper-rewards"><%= number_to_currency(@net_rewards_available) %></h1>
-                <h4>Bongopass Credits Available</h4>
+                <h4>BONGOPASS CREDITS AVAILABLE</h4>
                 <hr>
               </div>
             </div>
@@ -26,10 +26,10 @@
 
 <div class=" panel-default col-xs-12 col-sm-12 col-md-8 col-md-offset-2 bp-passes-purchased ">
 
-		<div class="panel-heading purchases-panel">
-			MY PASSES
-		</div>
 
+	<h3 class="create-event-header my-passes-title">
+		<div class="">MY PASSES</div>
+	</h3>
 
 		<% if @orders.count < 1 %>
 		<div class="panel-body no-passes">
@@ -46,9 +46,9 @@
 
 					<div class="col-md-9 col-sm-12 passes-details">
 						<h3 class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
-						<h4 class=""> <%= order.ticket.ticket_name %> </p>
-						<p class="purchases-date"> <%= order.ticket.event.venue %> </p>
-						<p class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </p>
+						<h4 class="purchases-date"> <%= order.ticket.ticket_name %> </h4>
+						<h4 class="purchases-date"> <%= order.ticket.event.venue %> </h4>
+						<h4 class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </h4>
 					</div>
 
 					<div class="col-md-3 col-sm-12 share-button-wrapper">
@@ -58,7 +58,7 @@
 						</div>
 
 						<div>
-						<%= link_to "View Event", event_path(order.ticket.event.id,'25-3-7b509a4-s59i7l86'), class:"btn btn-dark-out btn-block purchases-buttons", data: { turbolinks: false } %>
+						<%= link_to "View Event", event_path(order.ticket.event.id), class:"btn btn-dark-out btn-block purchases-buttons", data: { turbolinks: false } %>
 						</div>
 						
 					</div>

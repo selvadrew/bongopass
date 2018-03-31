@@ -72,25 +72,19 @@
 				<div class="invite-section-row container">   <!-- invite section             -->
 
 					<div class="invite-sentence containermb-15">
-		
-						<div class="invite-sentence-avatar"> <!-- inviter sentence -->
-							<span class="inviter-name"> 
-								<%= @referral.order.first_name %> <%= @referral.order.last_name %> 
-							</span> 
-							is going to this event and has invited you to join. Check it out! <br>
-						</div>  <!-- end inviter sentence -->
+
 						
 
 						<div class="avatar-block">
 							<div class="tooltip-1">
 								<% if @referral.order.buyer.image %>
-			            <%= image_tag @referral.order.buyer.image, class: "img-circle avatar-medium avatar-design inviter" %>
-			          <% else %>
-			          	<%= image_tag 'https://d3mfs0x6fskujo.cloudfront.net/google-avatar.jpg', class: "img-circle avatar-medium avatar-design inviter" %>
-			          <% end %>
+					            <%= image_tag @referral.order.buyer.image, class: "img-circle avatar-medium avatar-design inviter" %>
+					          <% else %>
+					          	<%= image_tag 'https://d3mfs0x6fskujo.cloudfront.net/google-avatar.jpg', class: "img-circle avatar-medium avatar-design inviter" %>
+					          <% end %>
 			            	<span class="tooltiptext-1 tooltext-inviter"><%= @referral.order.first_name %> <%= @referral.order.last_name %><br>invited you</span>		            
 			          
-			        </div>
+			        		</div>
 
 							<% if @friends_joined.count > 0 %>
 									<% @friends_joined.order(:created_at).each do |friends|%>
@@ -106,6 +100,14 @@
 							<% end %>
 
 						</div>
+
+		
+						<div class="invite-sentence-avatar"> <!-- inviter sentence -->
+							<span class="inviter-name"> 
+								<%= @referral.order.first_name %> <%= @referral.order.last_name %> 
+							</span> 
+							is going to this event and has invited you to join. Check it out!
+						</div>  <!-- end inviter sentence -->
 					</div>
 
 				</div>                          <!-- end of invite section                   -->
@@ -118,7 +120,7 @@
      	</div>
 
     		<div class="bar-section">
-    			<a class="bar-headers highlight-tab-color" href="#highlights" data-scroll="true">Event Highlights</a>
+    			<a class="bar-headers highlight-tab-color" href="#highlights" data-scroll="true">Highlights</a>
     				<a class="bar-headers" href="#bar" data-scroll="true">Photo</a>
 
     				<a  data-toggle="modal" data-target="#ticket-modal">
@@ -133,7 +135,7 @@
     				</a>
 
 
-            <a class="bar-headers" href="#description" data-scroll="true">Event Details</a>
+            <a class="bar-headers" href="#description" data-scroll="true">Details</a>
             <a class="bar-headers" href="#location" data-scroll="true">Location</a>
         </div>
 
@@ -253,7 +255,7 @@
 
 
 
-	<div class="text-center container pb-35">
+	<div class="text-center container pb-35 bottom-verified">
 		<%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
 
 	</div>
