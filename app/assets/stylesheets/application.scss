@@ -339,7 +339,7 @@ body, html {
 }
 
 #map {
-	height: 500px;
+	height: 750px;
 	width: 100%;
 }
 
@@ -347,6 +347,8 @@ body, html {
 	position: relative;
 	width: 100%;
 }
+
+
 
 .location-info-overlay {
   position: absolute;
@@ -706,9 +708,37 @@ section.landing-splash:after {
 	display: inline-block;
 	vertical-align: top;
 	}
+
 }
 
+.location-info-overlay {
+  position: absolute;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 30px 20px 30px;
+  left: 5%;
+  top: 10%;
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+  color: #333;
+  z-index: 100;
+  font-size: .9em;
+  text-align: center;
+  background: #fff;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+
 @media (min-width: 768px) {
+
+
+	.location-info-overlay {
+		width: 300px;
+		left: 10%;
+    	top: 45%;
+	}
+
+
 	.scroll-raiser {
 		position: relative;
 		bottom: 45px;
