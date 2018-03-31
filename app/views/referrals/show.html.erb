@@ -94,7 +94,7 @@
 											<% else %>
 												<%= image_tag 'https://d3mfs0x6fskujo.cloudfront.net/google-avatar.jpg', class: "img-circle avatar-medium avatar-design invitee" %>
 											<% end %>
-												<span class="tooltiptext-1"><%= friends.first_name %> <%= friends.last_name %> is joining <%= @referral.order.first_name %> </span>
+												<span class="tooltiptext-1 tooltiptext-2"><%= friends.first_name %> <%= friends.last_name %> is joining <%= @referral.order.first_name %> </span>
 										</div>
 									<% end %>
 							<% end %>
@@ -156,7 +156,7 @@
 
 
     <!-- Home Section-->
-    <section id="home" class="splash parallax parallax-remove-red">
+    <section id="home" class="splash parallax parallax-remove-red photo-bigs">
 
       <div>	
       	<%if @photos.present? %>
@@ -165,6 +165,21 @@
 			</div>
 
     </section>
+
+  <section class="photo-smalls pt-0 pb-0">
+    <div class=" cover-photo-mobile-container">
+      <div class="cover-photo-container"> 
+        <!-- Image -->
+        <%if @photos.present? %>
+          <%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+        <% else %>
+          <div class="photo-request">
+            Please upload an event photo. All events on Bongopass require a photo. 
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
     <!-- end of home section-->
 
 <div class="scroll-raiser" id="description"></div>

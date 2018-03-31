@@ -113,7 +113,7 @@
 
 
     <!-- Home Section-->
-    <section id="home" class="splash parallax parallax-remove-red">
+    <section id="home" class="splash parallax parallax-remove-red photo-bigs">
 
       <div>	
       	<%if @photos.present? %>
@@ -122,6 +122,21 @@
 			</div>
 
     </section>
+
+  <section class="photo-smalls pt-0 pb-0">
+    <div class=" cover-photo-mobile-container">
+      <div class="cover-photo-container"> 
+        <!-- Image -->
+        <%if @photos.present? %>
+          <%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
+        <% else %>
+          <div class="photo-request">
+            Please upload an event photo. All events on Bongopass require a photo. 
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
     <!-- end of home section-->
 
 <div class="scroll-raiser" id="description"></div>
@@ -227,7 +242,7 @@
 					<div class="modal-dialog">	
 						<div class="modal-content">
 							<div class="modal-header text-center modal-header-design">
-								One Pass Maximum Per Person
+								One pass maximum per person
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close close-modal"></i></span></button>
 							</div>
 							
