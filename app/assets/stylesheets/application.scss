@@ -350,22 +350,7 @@ body, html {
 
 
 
-.location-info-overlay {
-  position: absolute;
-  width: 300px;
-  box-sizing: border-box;
-  padding: 30px 20px 30px;
-  left: 10%;
-  top: 45%;
-  -webkit-transform: translateY(-40%);
-  transform: translateY(-40%);
-  color: #333;
-  z-index: 100;
-  font-size: .9em;
-  text-align: center;
-  background: #fff;
-  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
-}
+
 
 .event-venue-map {
 	font-size: 25px;
@@ -717,15 +702,16 @@ section.landing-splash:after {
   box-sizing: border-box;
   padding: 30px 20px 30px;
   left: 5%;
-  top: 10%;
-  -webkit-transform: translateY(-40%);
-  transform: translateY(-40%);
+  top: 5%;
+  -webkit-transform: translateY(-10%);
+  transform: translateY(-10%);
   color: #333;
   z-index: 100;
   font-size: .9em;
   text-align: center;
   background: #fff;
   box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+  
 }
 
 
@@ -736,6 +722,9 @@ section.landing-splash:after {
 		width: 300px;
 		left: 10%;
     	top: 45%;
+    	  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+  
 	}
 
 

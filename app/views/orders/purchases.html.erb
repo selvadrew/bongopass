@@ -44,14 +44,14 @@
 			<% @orders.each do |order| %>
 				<div class="row purchases-passes">
 
-					<div class="col-md-9 col-sm-12 passes-details">
+					<div class="col-md-8 col-sm-12 passes-details">
 						<h3 class="purchases-event-title"> <%= order.ticket.event.event_title %> </p>
 						<h4 class="purchases-date"> <%= order.ticket.ticket_name %> </h4>
 						<h4 class="purchases-date"> <%= order.ticket.event.venue %> </h4>
 						<h4 class="purchases-date"> <%= order.ticket.event.start_date.to_time.strftime('%A, %b %d') %> at <%= order.ticket.event.start_time.strftime('%l:%M%p') %> </h4>
 					</div>
 
-					<div class="col-md-3 col-sm-12 share-button-wrapper">
+					<div class="col-md-4 col-sm-12 share-button-wrapper">
 						<div>
 
 						<%= link_to "Invite Friends", mypass_referral_path(Referral.find(order.referral.id)), class:"btn btn-color btn-block purchases-buttons", data: { turbolinks: false } %>
