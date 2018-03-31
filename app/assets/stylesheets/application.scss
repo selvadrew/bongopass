@@ -28,6 +28,11 @@ font-family: 'PT Sans', sans-serif;
 font-family: 'Montserrat', sans-serif;
 */
 
+body, html {
+  -webkit-overflow-scrolling: touch;
+
+}
+
 .dark-blue-background {
 	background-color: #2a428a !important;
 }

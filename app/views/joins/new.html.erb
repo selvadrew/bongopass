@@ -237,7 +237,7 @@
                     <%= f.input :tell_us_more, label: false, :required => true, :placeholder => "Tell us more so we could serve you better", input_html: {class: "join-form-inputs"}, as: :text %>
                   </div>
                   <div class="form-group">
-                    <%= f.input :invite, label: false, :placeholder => "Include your access code here if you were invited by us", input_html: {class: "join-form-inputs"} %>
+                    <%= f.input :invite, label: false, :placeholder => "Include your access code here if you were invited by us", input_html: {class: "join-form-inputs"}, as: :text %>
                   </div>
                   <div class= "hidden">
                     <%= f.input :nickname, :hint => 'Leave this field blank!' %>

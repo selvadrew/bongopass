@@ -564,7 +564,7 @@
 
     $('form[data-mailchimp]').each(function(index, el) {
       $(el).ajaxChimp({
-        url: 'http://hody.us12.list-manage.com/subscribe/post?u=d9d1052c1b2ba81576842a9fb&id=c70c5d0c82',
+        url: 'https://bongopass.us12.list-manage.com/subscribe/post?u=f83fc32a8e38952a6ad078c0f&id=e6c2c51944',
         callback: function (res) {
           var template = '<div class="modal fade" id="modal" tabindex="-1" role="dialog">';
           template += '<div class="centrize">';
