@@ -9,7 +9,7 @@
 				Welcome to your event dashboard <%= @referral.order.first_name %>!
 			</div>
 			<p class="you-are-going-top">
-				Now you can receive credit for helping friends discover this event. Know any friends that would be interested in this event or are already planning to join you? Just send them an invitation by sharing your unique event link below.
+				Now you can receive credit for helping friends discover <i>"<%= @event.event_title %>"</i>. Just send them an invitation by sharing your unique event link below.
 			</p>
 			</div>
             </div>
@@ -32,7 +32,7 @@
 
 
 			<div class=" blue-box">
-				<i class="icon-trophy info-alt-create"></i>
+				<i class="icon-trophy info-alt-create info-alt-create-trophy"></i>
 				<div class="yellow-text"> 
 					Receive $10 in credit for every purchase from your unique event link.
 				</div>
@@ -113,7 +113,7 @@
 				<div class="section-mypass">
 
 				<div class="mypass-share-headers">
-					2) Friends who have Purcahsed a Pass from your link
+					2) See the friends who have purchased a Pass from your link
 				</div>
 
 
@@ -145,19 +145,9 @@
 	</div>
 
 
-			<div class="black-going-wrapper">
-				<h4 class="black-going">YOU'RE GOING!</h4>
-			</div>
 
-		<div class="red-header-section red-bottom-header">
 
-			<div class="section-mypass">
-	
-			<div class="welcome bottom-welcome">
-				<%= @event.event_title %>
-			</div>
-			</div>
-		</div>
+
 
 	
 </section>

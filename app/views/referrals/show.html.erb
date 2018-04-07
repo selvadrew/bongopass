@@ -17,15 +17,15 @@
 
 						<div class="col-xs-12 col-sm-6 col-md-4 icon-center">
 						  <div class="icon-box-basic icon-box-basic-adjust"><i class="icon-calendar"></i>
-                <h3 class="date-location-text"><%= @event.start_date.strftime('%A, %B %e') %></h3>
-                <h5><%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %></h5>
+                <h3 class="date-location-text fw-400"><%= @event.start_date.strftime('%A, %B %e') %></h3>
+                <h5 class="fw-400"><%= @event.start_time.strftime('%l:%M%p') %> - <%= @event.end_time.strftime('%l:%M%p') %></h5>
               </div>
             </div>
 
 
             <div class="col-xs-12 col-sm-6 col-md-4 icon-center">
 						  <div class="icon-box-basic icon-box-basic-adjust"><i class="icon-map"></i>
-                <h3 class="date-location-text"><%= @event.venue %> </h3>
+                <h3 class="date-location-text fw-400"><%= @event.venue %> </h3>
                 <p><a href="#location" data-scroll="true">View Address</a></p>
               </div>
             </div>
@@ -33,7 +33,7 @@
 
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-0 col-md-4 icon-center">
 						  <div class="icon-box-basic icon-box-basic-adjust"><i class="icon-trophy"></i>
-                <h5 class="bp-credit-info mt-0">Credit from Bongopass is available for this event </h5>
+                <h5 class="bp-credit-info mt-0 fw-400">Credit from Bongopass is available for this event </h5>
                 <p><a><%= link_to "Learn more", root_path(:anchor => "about"), target: :_blank %></a></p>
               </div>
             </div>
@@ -107,6 +107,17 @@
 								<%= @referral.order.first_name %> <%= @referral.order.last_name %> 
 							</span> 
 							is going to this event and has invited you to join. Check it out!
+							<br>
+							<% if @friends_joined.count == 1 %>
+								<span class="count-invites-green">
+									1 friend is joining <%= @referral.order.first_name %>
+								</span>
+							<% end %>
+							<% if @friends_joined.count > 1 %>
+								<span class="count-invites-green">
+									<% @friends_joined.count %> friends are joining <%= @referral.order.first_name %>
+								</span>
+							<% end %>
 						</div>  <!-- end inviter sentence -->
 					</div>
 
@@ -125,13 +136,9 @@
 
     				<a  data-toggle="modal" data-target="#ticket-modal">
 	    				<span class="btn btn-color btn-sm btn-round bar-header-button-left pass-purchase-wrapper  ">
-	    					Get Pass   
+	    					Join <%= @referral.order.first_name %>   
 	    				</span>
-	    				<% if @ticket_price_min == @ticket_price_max %>
-	    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %> </span>  
-	    				<% else %>
-	    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %>+ </span> 
-	    				<% end %>
+
     				</a>
 
 
@@ -142,13 +149,9 @@
         <div class="bar-section-mobile">
   				<a  data-toggle="modal" data-target="#ticket-modal">
     				<span class="btn btn-color btn-sm btn-round bar-header-button-left pass-purchase-wrapper  ">
-    					Get Pass   
+    					Join <%= @referral.order.first_name %>   
     				</span>
-    				<% if @ticket_price_min == @ticket_price_max %>
-    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %> </span>  
-    				<% else %>
-    					<span class="btn btn-color btn-sm btn-round bar-header-button-right pass-purchase-button pass-purchase-wrapper"> <%=number_to_currency(@ticket_price_min, :precision => 0) %>+ </span> 
-    				<% end %>
+
   				</a>	 	
         </div>
 

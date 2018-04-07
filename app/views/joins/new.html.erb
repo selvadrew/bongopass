@@ -1,78 +1,105 @@
+<style>
 
+#topnav {
+  position: absolute;
+  -webkit-transition: all 0s ease;
+  transition: all 0s ease;
+}
 
+</style>
+<!--  
+  After an attendee makes a purchase from the host's event page 
+  The attendee receives their own event page, used to easily invite friends, as well as display the friends they are attending with. For every purchase from an attendee's event page, the attendee receives a share of the sale price as a credit.
+ -->
 
-
-    <section>
-      <div class="container">
+     <section id="about" class="pt-0 parallax mb-50">
+      <div class="ny-image-bg">
         <div class="row">
-          <div class="col-md-4">
-            <div class="title txt-sm-center txt-xs-center mt-0">
-              <h3>Re-defining event discovery for the shared economy<span class="red-dot"></span></h3>
-              <!-- <p class="serif"><b>Bongopass adds a reward fee of $3.50 to every Pass. For example, if the price of a Pass is $20.00, attendees will pay $23.50. There are two possible scenarios in this case, both beneficial to the host.</b></p> -->
+          <div class="col-md-10 col-md-offset-1 pt-100">
+            <div class="title center mb-50">
+              <h3 class="white-text">Re-defining event discovery for the shared economy<span class="red-dot"></span></h3>
               <hr>
             </div>
           </div>
-          <div class="col-md-7 col-md-offset-1">
-            <p class="grey-text serif lead-text join-lead-text">On Bongopass, the total price of a Pass is composed of a base price and a reward fee, both set by the host. <br><br>Example:<br> If the base price of a Pass is $20.00 and the reward fee is $5.00, attendees will pay $25.00.<br> The host is guaranteed the base price of $20.00 for each sale. <br>For the reward fee of $5.00, it will be allocated to the host or an attendee:</p>
-            <ul role="tablist" class="nav nav-tabs outline">
-              <li role="presentation" class="active"><a href="#method-tab" role="tab" data-toggle="tab">Scenario 1</a>
-              </li>
-              <li role="presentation"><a href="#method-tab-1" role="tab" data-toggle="tab">Scenario 2</a>
-              </li>        
-            </ul>
-            <div class="tab-content">
-              <div id="method-tab" role="tabpanel" class="tab-pane fade in active">
-                <p class="alt-paragraph mb-15">The host will receive the full $25.00, including the reward fee of $5.00 when an attendee purchases a Pass through the <b>host's event page.</b></p>
-              </div>
-              <div id="method-tab-1" role="tabpanel" class="tab-pane fade ">
-                <p class="alt-paragraph mb-15">After an attendee purchases a Pass, he or she will receive their own personalized event page/url that they can share on social media or with friends to easily invite them to the same event. For every Pass purchased through an <%= link_to "attendee's event page", root_path(:anchor => "about"), target: :_blank %>, the attendee will receive the reward fee of $5.00 as a credit and the host will receive the base price of $20.00. The attendee will be able to use the $5.00 credit towards any future event on the platform.
-                  <br></br>
-                  Note: The base price and reward fee can be customized for each Pass by the host.
-                </p>
-              </div>
+        </div>
+
+          <div class="ny-image-holder">
+            <div >
+              <h4 class="ss-image-desc-text-top"> 
+                Once an attendee makes a purchase from the host's event page... 
+              </h4>
+            </div>
+            <img src="https://s3.ca-central-1.amazonaws.com/bongopass/host+demo+page.png" alt="" class="">
+            <div class="ss-image-holder-1 mb-50">
+            <div class="ss-image-holder-2">
+              <h4 class="ss-image-desc-text-bottom "> 
+                ...the attendee receives their own event page - used to easily invite friends, as well as display the friends they are attending with.
+              </h4>
+            </div>
+          </div>
+          </div>
+
+        <div class="row bg-join-lb">
+          <div class="col-md-10 col-md-offset-1 pt-25">
+            <div class="title center mb-50">
+              <h3 class="white-text">
+                For every purchase from an attendee's event page, the attendee receives a percentage of the sale price as a credit.
+              </h3>
             </div>
           </div>
         </div>
-        <!-- end of row                    -->
+
+        <!-- end of row-->
       </div>
-      <!-- end of container                  -->
+      <!-- end of container-->
     </section>
 
-    <section id="process" class="dark dark-blue-background">
+
+    <section class="dark dark-blue-background">
       <div class="container">
-        <div class="title center">
-          <h4 class="upper">We don't take advantage of your hard work.</h4>
-          <h2>Simple Pricing<span class="red-dot"></span></h2>
-          <hr>
-        </div>
-        <div class="section-content">
-          <div class="row">
-            <div class="col-md-6 col-sm-6 text-center">
-              <div class="number-box"><span>Bongopass Fee</span>
-                <h2 class="font-override-1">$0.99</h2>
-                <h3>Per Transaction.</h3>
-                <h3>Passed on to Attendees.</h3>
-                <div class="title center text-center"><hr></div>
-                <p>Competitive pricing that can't be beat by other event registration companies.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 text-center">
-              <div class="number-box"><span>Bank Transaction Cost</span>
-                <h2 class="font-override-1">2.9% + $0.30</h2>
-                <h3>Per Transaction.</h3>
-                <h3>Passed on to Hosts.</h3>
-                <div class="title center text-center"><hr></div>
-                <p>We use Stripe to process all our payments securely. Read more about Stripe <a  href="https://stripe.com/us/pricing" target="_blank">here</a>. Stripe is used by companies like Amazon and Lyft. <b>Bongopass does not make money from this transaction cost.</b> </p>
-              </div>
-            </div>
+        <div class="row">
 
+          <div class="col-md-4 col-sm-12">
+            <div class="counter">
+              <div class="counter-icon"><i class="icon-chat"></i>
+              </div>
+              <div class="counter-content">
+                <h5><span data-count="372" class="number-count">372</span><span>%</span></h5><span>More Social Media Shares</span>
+              </div>
+            </div>
+            <!-- end of counter-->
           </div>
-          <!-- end of row-->
+
+          <div class="col-md-4 col-sm-12">
+            <div class="counter">
+              <div class="counter-icon"><i class="icon-presentation"></i>
+              </div>
+              <div class="counter-content">
+                <h5><span data-count="8" class="number-count">8</span><span>x</span></h5><span>More event views</span>
+              </div>
+            </div>
+            <!-- end of counter-->
+          </div>
+
+          <div class="col-md-4 col-sm-12">
+            <div class="counter">
+              <div class="counter-icon"><i class="icon-profile-male"></i>
+              </div>
+              <div class="counter-content">
+                <h5> <span data-count="30" class="number-count">30</span><span>%</span></h5><span>Bought from an invitation</span>
+              </div>
+            </div>
+            <!-- end of counter-->
+          </div>
+
+
         </div>
+        <!-- end of row-->
       </div>
-      <!-- end of section content-->
+      <!-- end of container-->
     </section>
-    <!-- end of container-->
+
+
 
 
 
@@ -108,7 +135,7 @@
                   </div>
                   <div class="icon-box-basic icon-adjuster "><i class="icon-genius"></i>
                     <h4 class="join-icon-header">Create a shared economy</h4>
-                    <p>Attendees work with you to help make your event a success. You have full control of how they earn rewards. </p>
+                    <p>Attendees work with you to help make your event a success. You have full control of how they can earn rewards. </p>
                   </div>
                   <div class="icon-box-basic icon-adjuster "><i class="icon-browser"></i>
                     <h4 class="join-icon-header">Attendee Focused</h4>
@@ -157,50 +184,43 @@
       </div>
     </section>
 
-    <section class="dark dark-blue-background">
+
+
+    <section id="process" class="dark dark-blue-background">
       <div class="container">
-        <div class="row">
-
-          <div class="col-md-4 col-sm-12">
-            <div class="counter">
-              <div class="counter-icon"><i class="icon-chat"></i>
-              </div>
-              <div class="counter-content">
-                <h5><span data-count="372" class="number-count">372</span><span>%</span></h5><span>More Social Media Shares</span>
-              </div>
-            </div>
-            <!-- end of counter-->
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="counter">
-              <div class="counter-icon"><i class="icon-presentation"></i>
-              </div>
-              <div class="counter-content">
-                <h5><span data-count="8" class="number-count">8</span><span>x</span></h5><span>More event views</span>
-              </div>
-            </div>
-            <!-- end of counter-->
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="counter">
-              <div class="counter-icon"><i class="icon-profile-male"></i>
-              </div>
-              <div class="counter-content">
-                <h5> <span data-count="30" class="number-count">30</span><span>%</span></h5><span>Bought from an invitation</span>
-              </div>
-            </div>
-            <!-- end of counter-->
-          </div>
-
-
+        <div class="title center">
+          <h4 class="upper">We don't take advantage of your hard work.</h4>
+          <h2>Simple Pricing<span class="red-dot"></span></h2>
+          <hr>
         </div>
-        <!-- end of row-->
-      </div>
-      <!-- end of container-->
-    </section>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 text-center">
+              <div class="number-box"><span>Bongopass Fee</span>
+                <h2 class="font-override-1">$0.99</h2>
+                <h3>Per Transaction.</h3>
+                <h3>Passed on to Attendees.</h3>
+                <div class="title center text-center"><hr></div>
+                <p>Competitive pricing that can't be beat by other event registration companies.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 text-center">
+              <div class="number-box"><span>Bank Transaction Cost</span>
+                <h2 class="font-override-1">2.9% + $0.30</h2>
+                <h3>Per Transaction.</h3>
+                <h3>Passed on to Hosts.</h3>
+                <div class="title center text-center"><hr></div>
+                <p>We use Stripe to process all our payments securely. Read more about Stripe <a  href="https://stripe.com/us/pricing" target="_blank">here</a>. Stripe is used by companies like Amazon and Lyft. <b>Bongopass does not make money from this transaction cost.</b> </p>
+              </div>
+            </div>
 
+          </div>
+          <!-- end of row-->
+        </div>
+      </div>
+      <!-- end of section content-->
+    </section>
+    <!-- end of container-->
 
 
     <section>
