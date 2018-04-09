@@ -5323,12 +5323,16 @@ table {
 .font-join {
 	font-size: 42px !important;
 }
-	.jt-big {
-		display: block;
-	}
-		.jt-small {
-		display: none;
-	}
+.jt-big {
+	display: block;
+}
+	.jt-small {
+	display: none;
+}
+
+.jt-3 {
+	font-size: 30px !important;
+}
 
 @media (max-width: 767px) {
 	.jt-1 {
