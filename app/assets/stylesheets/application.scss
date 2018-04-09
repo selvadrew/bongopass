@@ -5259,8 +5259,9 @@ table {
 }
 
 .ny-image-bg {
-	background: #152e50;
-	background-image: linear-gradient(to bottom, #152e50, #051428);
+	background: #183960 !important;
+	/*background-image: linear-gradient(to bottom, #152e50, #051428);*/
+	border: none;
 }
 
 .ny-image-holder {
@@ -5269,23 +5270,25 @@ table {
 }
 
 .ss-image-desc-text-top {
-	color: #c4f0ff;
+	color: #fff;
     display: inline-block;
-    border: 2px solid rgba(196, 240, 255, 0.3);
+    border-bottom: 2px solid rgba(196, 240, 255, 0.3);
     padding: 12px;
     padding-left: 125px;
     margin-left: -125px;
     font-weight: 600;
+    font-size: 22px;
 }
 
 .ss-image-desc-text-bottom {
-	color: #c4f0ff;
-    border: 2px solid rgba(196, 240, 255, 0.3);
+	color: #fff;
+    border-bottom: 2px solid rgba(196, 240, 255, 0.3);
     padding: 12px;
     padding-right: 125px;
     margin-right: -125px;
-    max-width: 930px;
+    max-width: 890px;
     font-weight: 600;
+    font-size: 22px;
 }
 
 .ss-image-holder-1 {
@@ -5298,8 +5301,27 @@ table {
 }
 
 .bg-join-lb {
-	background-color: #377fab;
-	background-image: linear-gradient(to bottom, #5c9fc8, #377fab);
+	background-color: #ed324a !important;
+}
+
+.blue-on-blue-text {
+	color: #fff;
+	font-size: 36px !important;
+	font-weight: 600;
+	letter-spacing: 0.5px; 
+}
+
+.blue-on-blue {
+	color: #c4f0ff;
+	font-size: 30px;
+}
+
+.screenshot-section {
+
+}
+
+.font-join {
+	font-size: 42px !important;
 }
 /*
 .image-slant-1 {
