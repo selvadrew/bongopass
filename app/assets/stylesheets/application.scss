@@ -34,7 +34,7 @@ body, html {
 }
 
 .dark-blue-background {
-	background-color: #3F51B5 !important;
+	background-color: #183960 !important;
 }
 
 .font-override-1 {
@@ -5323,15 +5323,42 @@ table {
 .font-join {
 	font-size: 42px !important;
 }
-/*
-.image-slant-1 {
-    background: black;
-    position: relative;
-    height: 750px;
-    top: 444px;
-    z-index: 1;
-    width: 200%;
-    margin-left: -144px;
-    transform: rotate(-10deg);
+	.jt-big {
+		display: block;
+	}
+		.jt-small {
+		display: none;
+	}
+
+@media (max-width: 767px) {
+	.jt-1 {
+	    font-size: 26px !important;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+	.jt-mb-0 {
+		margin-bottom: 0px !important;
+	}
+	.jt-p-50 {
+		padding-bottom: 50px !important;
+		padding-top: 50px !important;
+	}
+	.jt-2 {
+		font-size: 16px !important;
+	}
+	.jt-3 {
+		font-size: 16px !important;
+	}
+	.jt-4 {
+		font-size: 26px !important;
+	}
+	.jt-big {
+		display: none;
+	}
+	.jt-small {
+		display: block;
+	}
+	
 }
-*/
+
+
