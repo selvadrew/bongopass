@@ -14,70 +14,88 @@
   Do you sell alcohol, food, or merchandise? Let attendees use their credits to make purchases from their dashboard before the event even starts. 
   Because our fees are very low, the extra "service fee" your attendees would pay on other platforms can now be used for rewards. Learn more after you apply below.  
  -->
+<% content_for :navbar do %>
+  <%= render 'shared/navbar-dark'%>
+<% end %>
 
-     <section id="about" class="pt-0 parallax">
-      <div class="ny-image-bg">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1 pt-100">
-            <div class="title center mb-50 jt-mb-0">
-              <h3 class="white-text jt-1">Re-defining event discovery by democratizing event hosting</h3>
-              <hr>
+    <section class="ny-image-bg pt-0">
+      <div class="container">
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="title center mb-50 jt-mb-0">
+                <h3 class="jt-1">Re-defining event discovery through a shared economy between event hosts and attendees</h3>
+              </div>
             </div>
           </div>
+          <div class="row">
+            <div class="text-center">
+              <ul role="tablist" class="nav nav-tabs center">
+                <li role="presentation" class="active fw-500"><a href="#first-tab" role="tab" data-toggle="tab">Before Purchase</a>
+                </li>
+                <li role="presentation" class=" fw-500"><a href="#second-tab" role="tab" data-toggle="tab">After Purchase</a>
+                </li>
+                <li role="presentation" class=" fw-500"><a href="#third-tab" role="tab" data-toggle="tab">Inviting Friends</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div id="first-tab" role="tabpanel" class="tab-pane active">
+                  <div class="col-md-8 col-md-offset-2">
+                    <img src="https://s3.ca-central-1.amazonaws.com/bongopass/demo+screenshot+1.png" alt="" class="">
+                  </div>
+                </div>
+                <div id="second-tab" role="tabpanel" class="tab-pane">
+                  <div class="col-md-8 col-md-offset-2">
+                    <p class="text-center">After purchasing a Pass on Bongopass, attendees get their own unique event page/url, so they can easily let friends know they're going and invite them to the same event.  </p>
+                    <img src="https://s3.ca-central-1.amazonaws.com/bongopass/demo+screenshot+2.png" alt="" class="">
+                  </div>
+                </div>
+                <div id="third-tab" role="tabpanel" class="tab-pane">
+                  <div class="col-md-8 col-md-offset-2">
+                    <p class="text-center">As friends join the attendee, they will also be displayed on the event page, making it easier for others to see all the attendees related to the same group of friends. </p>
+                    <img src="https://s3.ca-central-1.amazonaws.com/bongopass/demo+screenshot+3.png" alt="" class="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of row-->
         </div>
+        <!-- end of section content-->
+      </div>
+      <!-- end of container-->
+    </section>
 
-          <div class="ny-image-holder">
-            <div >
-              <h4 class="ss-image-desc-text-top jt-2"> 
-                After an attendee makes a purchase from the host's event page... 
-              </h4>
-            </div>
-            <img src="https://s3.ca-central-1.amazonaws.com/bongopass/host+demo+page.png" alt="" class="jt-big">
-            <img src="https://s3.ca-central-1.amazonaws.com/bongopass/host+demo+page+mobile.png" alt="" class="jt-small">
-            <div class="ss-image-holder-1 mb-50">
-            <div class="ss-image-holder-2">
-              <h4 class="ss-image-desc-text-bottom jt-2"> 
-                ...the attendee receives their own shareable event page/url for easily inviting friends to the same event.
-              </h4>
-            </div>
-          </div>
-          </div>
-
-        <div class="row bg-join-lb">
+    <section class="dark">
+        <div class="row ">
           <div class="col-md-10 col-md-offset-1 pt-25">
             <div class="title center mb-50">
               <h3 class="white-text font-join jt-1">
-                Attendees receive credit for every purchase from their event page and can use it towards any future event or product on Bongopass.
+                Attendees receive credit for every purchase from their unique event page and can use it towards any future event or product on Bongopass.
               </h3>
             </div>
           </div>
         </div>
-
-        <!-- end of row-->
-      </div>
-      <!-- end of container-->
     </section>
 
     <section class="ny-image-bg jt-p-50" ><!-- dashboard and mobile screenshot -->
       <div class="container ny-image-holder">
         <div class="row">
-          <div class="col-md-12 ">
-          <div class="title">
-            <h4 class="blue-on-blue-text jt-3">
+          <div class="title col-md-12">
+            <h4 class=" jt-3">
               Let your attendees harness the power of their social network through a dashboard for your event.
             </h4>
           </div>
-          <div class="">
+          <div class="col-md-10 col-md-offset-1">
             <img src="https://s3.ca-central-1.amazonaws.com/bongopass/host+demo+page-dashboard.png" alt="" class="screenshot-section">
           </div>
-          <div class="title">
-            <h4 class="blue-on-blue-text jt-3">
+          <div class="title col-md-12">
+            <h4 class=" jt-3">
               Do you sell alcohol, food, or merchandise? 
             </h4>
-            <h4 class="blue-on-blue-text blue-on-blue jt-3">
+            <h4 class=" jt-3 color-5">
               Let attendees use their credits to make purchases from the dashboard before the event even begins.
             </h4>
-          </div>
           </div>
         </div>
         <!-- end of row-->
@@ -86,7 +104,7 @@
     </section>
 
 
-    <section class="dark bg-join-lb  ">
+    <section class="dark ">
       <div class="container">
             <h4 class="blue-on-blue-text text-center jt-4">
               Go viral - Create conversations - Bring people together
@@ -137,7 +155,7 @@
 
 
 
-    <section class="dark ny-image-bg">
+    <section class=" ">
       <div class="container">
         <div class="title center">
           <h4 class="upper">Is Bongopass the right fit for your next event?</h4>
@@ -220,7 +238,7 @@
 
 
 
-    <section id="process" class="dark ny-image-bg">
+    <section id="process" class="dark">
       <div class="container">
         <div class="title center">
           <h4 class="upper">We don't take advantage of your hard work.</h4>

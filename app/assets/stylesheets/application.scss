@@ -65,6 +65,10 @@ body, html {
 	min-height: 62px!important;
 	line-height: 62px!important;
 }
+.bongo-color-dark {
+	min-height: 62px!important;
+	line-height: 62px!important;
+}
 
 
 .avatar-small {
@@ -5259,7 +5263,7 @@ table {
 }
 
 .ny-image-bg {
-	background: #183960 !important;
+	background: #f7f7f7 !important;
 	/*background-image: linear-gradient(to bottom, #152e50, #051428);*/
 	border: none;
 }
@@ -5333,12 +5337,26 @@ table {
 .jt-3 {
 	font-size: 30px !important;
 }
+.jt-1 {
+    font-size: 36px !important;
+    font-weight: 400 !important;
+}
+.color-5 {
+	color: #555;
+}
+
+@media (min-width: 992px) {
+	.dark .navigation-menu > li .submenu li a {
+		color: white!important;
+	}
+}
 
 @media (max-width: 767px) {
 	.jt-1 {
 	    font-size: 26px !important;
 	    padding-left: 10px;
 	    padding-right: 10px;
+	    font-weight: 400;
 	}
 	.jt-mb-0 {
 		margin-bottom: 0px !important;
