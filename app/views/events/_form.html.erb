@@ -1,5 +1,6 @@
-
+<% content_for :navbar do %>
 <%= render 'shared/navbar-pink'%>
+<% end %>
 
 <% if current_user && current_user.create_permission == 'allow' %>
 
@@ -8,7 +9,7 @@
 	<%= simple_form_for @event, html: {multipart: true} do |f| %>
 	<%= f.error_notification %>
 
-	<div class=" info-box"><i class="ti-info-alt info-alt-create yellowbox-create-icon"></i><div class="yellow-text"> All fields are required unless indicated. Typically, 20-60% of all event views are through your attendees' event pages - by viewers who may not have heard about your event or organization. Please be as detailed as possible.</div></div> 
+	<div class=" info-box"><i class="ti-info-alt info-alt-create yellowbox-create-icon"></i><div class="yellow-text"> All fields are required unless indicated. Please be as detailed as possible since 20-60% of all event views are typically through your attendees' event pages - by viewers who may not have heard about your event or organization.</div></div> 
 
 
 	<h3 class="create-event-header ">
