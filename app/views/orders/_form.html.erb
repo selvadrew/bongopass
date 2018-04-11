@@ -13,11 +13,13 @@
                 <div class="price-credit-wrapper">
                   <div class="price-credit-title">
                     <h5 class="price-title">Price</h5>
+                    <h5 class="credit-title">Fee</h5>
                     <h5 class="credit-title">Credit Applied</h5>
                   </div>
 
                   <div class="price-credit-data">
-                    <h5><%= number_to_currency(@ticket.ticket_price + @bongopass_fee) %></h5>
+                    <h5><%= number_to_currency(@ticket.ticket_price + @ticket.event.reward_fee) %></h5>
+                    <h5><%= number_to_currency(@bongo_fee) %></h5>
                     <h5><span class="minus-sign">-</span><%= number_to_currency(@order.rewards_used) %> </h5> 
                   </div>
                 </div>
@@ -31,9 +33,9 @@
                   </div>
                 </div>
 
-                <% if @payment_amount == 3.50 %>
+                <% if (@payment_amount - @bongo_fee) == @ticket.event.reward_fee %>
                   <div class="minimum-amount">
-                    There is a minimum limit of $3.50 for this event
+                    There is a minimum price limit of <%= number_to_currency(@ticket.event.reward_fee) %> for this event.
                   </div>
                 <% end %>
                 </div>

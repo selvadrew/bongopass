@@ -14,16 +14,14 @@
 								<%= f.input :ticket_price, placeholder: "20.00", class: "form-control", label: "Base Price", input_html: {class: "input_box txtn"} %>
 						</div>
 						<div class="quantity-price-box quantity-price-box-second">	
-								<%= f.input :reward_fee, :step => "0.01", placeholder: "5.00", class: "form-control", label: "Reward Fee", input_html: {class: "input_box txtn"} %>
+								<%= f.input :ticket_quantity, :step => "0.01", placeholder: "300", class: "form-control", label: "Quantity", input_html: {class: "input_box txtn"} %>
 						</div>
 						<div class="total-base-reward">
 							<i class="ti-info-alt info-alt"></i>Total Price = Base price + Reward Fee <!-- <span class="sum-base-reward">$</span><span class="sum-base-reward" id="sumn">0</span> -->
 							<%= link_to "How pricing works?", join_path, target: :_blank, class: "learn-pricing" %>
 						</div>
 						
-						<div class="">	
-								<%= f.input :ticket_quantity, placeholder: "300", class: "form-control", label: "Quantity", input_html: {class: "input_box"} %>
-						</div>
+
 					</div>
 					<div>	
 						<div >	

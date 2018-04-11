@@ -8,61 +8,14 @@ class EventsController < ApplicationController
     @events = current_user.events
     @bongopass_purchases = Order.all.where(seller: current_user).count(:referral_id)
     @referral_id_count_array = Order.all.where(seller: current_user).group(:referral_id).where.not("referral_id" => nil).count
-    @referral_count = @referral_id_count_array.values
 
     @reward_value_array = []
-    if @referral_count 
-      @referral_count.each do |referral|
-        
-        if referral <= 1
-          amount = 0 
-          @reward_value_array << amount 
-        
-        elsif referral == 2 
-          amount = 5
-          @reward_value_array << amount
+    if @referral_id_count_array
+      @referral_id_count_array.each do |id, count|
 
-        elsif referral >= 3 && referral <= 5
-          amount = 10
-          @reward_value_array << amount
+        amount = Referral.where(id: id).first.order.organizer_set_reward * count 
+        @reward_value_array << amount
 
-        elsif referral >= 6 && referral <= 8
-          amount = 20
-          @reward_value_array << amount
-
-        elsif referral >= 9 && referral <= 11
-          amount = 30
-          @reward_value_array << amount
-
-        elsif referral >= 12 && referral <= 14
-          amount = 40
-          @reward_value_array << amount
-
-        elsif referral >= 15 && referral <= 17
-          amount = 50
-          @reward_value_array << amount
-
-        elsif referral >= 18 && referral <= 20
-          amount = 60
-          @reward_value_array << amount     
-
-        elsif referral >= 21 && referral <= 23
-          amount = 70
-          @reward_value_array << amount    
-
-        elsif referral >= 24 && referral <= 26
-          amount = 80
-          @reward_value_array << amount    
-
-        elsif referral >= 27 && referral <= 29
-          amount = 90
-          @reward_value_array << amount          
-
-        else referral >= 30
-          amount = 100
-          @reward_value_array << amount
-
-        end
       end
     end
 
@@ -208,7 +161,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:event_title, :location, :start_date, :start_time, :end_date, :end_time,
                                     :event_description, :organizer_name, :organizer_description, :event_type,
-                                    :facebook_link, :twitter_link, :instagram_link, :venue, :event_currency,
+                                    :facebook_link, :twitter_link, :instagram_link, :venue, :event_currency, :reward_fee,
                                     tickets_attributes: Ticket.attribute_names.map(&:to_sym).push(:_destroy),
                                     questions_attributes: Question.attribute_names.map(&:to_sym).push(:id, :_destroy),
                                     speakers_attributes: Speaker.attribute_names.map(&:to_sym).push(:id, :avatar, :_destroy),
@@ -219,7 +172,7 @@ class EventsController < ApplicationController
 
     def ticket_params 
       params.require(:ticket).permit(:ticket_type, :ticket_name, :ticket_quantity, :ticket_price, :ticket_description,
-                                    :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time, :reward_fee)
+                                    :ticket_start_date, :ticket_start_time, :ticket_end_date, :ticket_end_time)
 
     end
 

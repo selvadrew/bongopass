@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-    @bongopass_fee =3.50
+   # @bongopass_fee =3.50
   end
 
   # GET /orders/1
@@ -33,9 +33,9 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @ticket = Ticket.find(params[:ticket_id])
+    @bongo_fee = 0.99
     @order.referral_id = session[:referral]
     @referral = Referral.find(session[:referral]) if session[:referral]
-    @bongopass_fee = 3.50
 
     #calculate how much rewards are used 
     if @net_rewards_available >= @ticket.ticket_price
@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
       @order.rewards_used = @net_rewards_available 
     end
 
-    @payment_amount = (@ticket.ticket_price - @order.rewards_used) + @bongopass_fee
+    @payment_amount = (@ticket.ticket_price - @order.rewards_used) + @ticket.event.reward_fee + @bongo_fee
 
   end
 
@@ -65,9 +65,13 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id 
     @order.seller_id = @seller.id 
 
-    @order.stripe_fee = @ticket.ticket_price * 0.029 + 0.3
-    @order.organizer_sales = @ticket.ticket_price - @order.stripe_fee
-    @order.bongo_fee = 3.50 
+    @order.bongo_fee = 0.99 
+    @bongo_fee = 0.99
+    @order.stripe_fee = (@ticket.ticket_price + @ticket.event.reward_fee + @bongo_fee) * 0.029 + 0.3 
+    @order.organizer_set_reward = @ticket.event.reward_fee
+
+    
+    
 
     #calculate how much rewards are used 
     if @net_rewards_available >= @ticket.ticket_price
@@ -86,6 +90,12 @@ class OrdersController < ApplicationController
         @order.referral_id = session[:referral]
       end
     end
+
+    if @referral && @referral.order.ticket.event_id == @ticket.event_id
+        @order.organizer_sales = @ticket.ticket_price - @order.stripe_fee
+    else
+      @order.organizer_sales = @ticket.ticket_price + @ticket.event.reward_fee - @order.stripe_fee
+    end
   
 
 
@@ -95,7 +105,7 @@ unless @ticket.ticket_quantity == 0
  
      begin
        charge = Stripe::Charge.create(
-         :amount => ((@ticket.ticket_price * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
+         :amount => ((@ticket.ticket_price * 100).floor + (@ticket.event.reward_fee * 100).floor - (@order.rewards_used * 100).floor) + (@order.bongo_fee * 100).floor,
          :currency => @ticket.event.event_currency,
          :description => "Example charge",
          :source => token
@@ -185,62 +195,15 @@ end
 
     #COUNTS THE NUMBER OF TIMES THAT REFERRAL ID IS USED
     @something = Order.where(referral_id: @referral_id).group(:referral_id).count
-    @referral_count = @something.values
 
-    #TAKES THE REFERRAL COUNT AND CALCULATES THE DOLLAR VALUE OF REWARDS FOR EACH EVENT 
+    #TAKES THE REFERRAL ID AND COUNT AND MULTIPLIES IT BY WHATEVER THE REWARD FEE IS FOR THAT EVENT
     @reward_value_array = []
-    if @referral_count 
-      @referral_count.each do |referral|
-        
-        if referral <= 1
-          amount = 0 
-          @reward_value_array << amount 
-        
-        elsif referral == 2 
-          amount = 5
-          @reward_value_array << amount
+    if @something 
 
-        elsif referral >= 3 && referral <= 5
-          amount = 10
-          @reward_value_array << amount
+      @something.each do |id, count|
+        amount = Referral.where(id: id).first.order.organizer_set_reward * count 
+        @reward_value_array << amount
 
-        elsif referral >= 6 && referral <= 8
-          amount = 20
-          @reward_value_array << amount
-
-        elsif referral >= 9 && referral <= 11
-          amount = 30
-          @reward_value_array << amount
-
-        elsif referral >= 12 && referral <= 14
-          amount = 40
-          @reward_value_array << amount
-
-        elsif referral >= 15 && referral <= 17
-          amount = 50
-          @reward_value_array << amount
-
-        elsif referral >= 18 && referral <= 20
-          amount = 60
-          @reward_value_array << amount     
-
-        elsif referral >= 21 && referral <= 23
-          amount = 70
-          @reward_value_array << amount    
-
-        elsif referral >= 24 && referral <= 26
-          amount = 80
-          @reward_value_array << amount    
-
-        elsif referral >= 27 && referral <= 29
-          amount = 90
-          @reward_value_array << amount          
-
-        else referral >= 30
-          amount = 100
-          @reward_value_array << amount
-
-        end
       end
     end
 

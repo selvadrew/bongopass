@@ -6,7 +6,6 @@ class Ticket < ApplicationRecord
 	validates :ticket_name, presence: true
 	validates :ticket_quantity, presence: true#, numericality: {greater_than_or_equal_to: 0}
   	validates :ticket_price, presence: true, numericality: {greater_than_or_equal_to: 2.50}
-  	validates :reward_fee, presence: true, numericality: {greater_than_or_equal_to: 2.50}
   #validates :ticket_description, presence: true
  # validates :ticket_start_date, presence: true
  # validates :ticket_start_time, presence: true

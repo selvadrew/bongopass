@@ -12,7 +12,7 @@ class ReferralsController < ApplicationController
     	@user = User.where(id: @referral.order.buyer_id).first
     	@current_purchases = Order.where(referral_id: @referral.id).count
     	@friends_joined = Order.where(referral_id: @referral.id)
-    	@bongopass_fee = 3.50
+    	#@bongopass_fee = 3.50
     	@going = ' is going to '
     	@ticket_price_min = @tickets.minimum(:ticket_price)
     	@ticket_price_max = @tickets.maximum(:ticket_price)
@@ -35,7 +35,6 @@ class ReferralsController < ApplicationController
     	@user = User.where(id: @referral.order.buyer_id).first
     	@current_purchases = Order.where(referral_id: @referral.id).count
     	@friends_joined = Order.where(referral_id: @referral.id)
-    	@bongopass_fee = 3.50 
     	@going = ' is going to '
 
     	set_meta_tags og: {	  

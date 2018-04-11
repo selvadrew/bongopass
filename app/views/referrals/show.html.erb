@@ -299,7 +299,7 @@
 									<div class="ticket-box clearfix">
 									<div class="ticket-name-price-desc">							
 										<div class="ticket-name-modal"> <%= ticket.ticket_name %> </div>
-										<div class="ticket-name-modal"> <%= number_to_currency(ticket.ticket_price) %> </div>
+										<div class="ticket-name-modal"> <%= number_to_currency(ticket.ticket_price + @event.reward_fee) %> </div>
 										<p class="mt-10"> <%= ticket.ticket_description if ticket.ticket_description%> </p>	
 									</div>
 									<div class="text-center"> 

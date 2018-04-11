@@ -35,6 +35,8 @@ class Event < ApplicationRecord
   validates :event_type, presence: false
   validates :venue, presence: true
   validates :event_currency, presence: true
+  validates :reward_fee, presence: true, numericality: {greater_than_or_equal_to: 2.50}
+
 
 
   def to_param 
