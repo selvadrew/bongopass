@@ -4,7 +4,7 @@ Hi <%= @buyer.fullname %>,
 Thanks for purchasing a pass to "<%= @event.event_title %>". We hope you have a great experience!
 <br>
 <br>
-Now you can receive $10 for every 3 purchases from your Personal Event Page. Get started by inviting your friends.
+Now you can receive <%= number_to_currency(@event.reward_fee) %> for every friend you invite. Learn more from your event dashboard.
 <br>
 <br>
 <a href="https://www.bongopass.com/purchases" class="email-invite-friends">Invite Friends</a>

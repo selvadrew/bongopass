@@ -5353,14 +5353,17 @@ table {
 }
 
 .click-boxes-join {
-    background: #eef4ff;
+    background: rgb(78, 168, 204);
     padding: 10px;
-    border: 1px solid #afafaf;
+    border: 1px solid rgb(78, 168, 204);
     margin-bottom: 15px;
     max-width: 780px;
     margin: auto;
-
+    color: white;
+    border-radius: 3px;
 }
+
+
 
 @media (min-width: 992px) {
 	.dark .navigation-menu > li .submenu li a {
