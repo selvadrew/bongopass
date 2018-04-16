@@ -5336,8 +5336,8 @@ table {
 
 .jt-3 {
 	font-size: 30px !important;
-	max-width: 1000px;
-	text-align: center;
+	max-width: 960px;
+	text-align: left;
 	margin: auto;
 }
 .jt-1 {
@@ -5350,6 +5350,16 @@ table {
 
 .jt-5 {
 	font-size: 18px;
+}
+
+.click-boxes-join {
+    background: #eef4ff;
+    padding: 10px;
+    border: 1px solid #afafaf;
+    margin-bottom: 15px;
+    max-width: 780px;
+    margin: auto;
+
 }
 
 @media (min-width: 992px) {
