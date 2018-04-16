@@ -115,7 +115,7 @@
 							<% end %>
 							<% if @friends_joined.count > 1 %>
 								<span class="count-invites-green">
-									<% @friends_joined.count %> friends are joining <%= @referral.order.first_name %>
+									<%= @friends_joined.count %> friends are joining <%= @referral.order.first_name %>
 								</span>
 							<% end %>
 						</div>  <!-- end inviter sentence -->
