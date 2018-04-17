@@ -835,7 +835,7 @@ section.landing-splash:after {
 
 
 .ticket-name-price-desc {
-	width: 68%;
+	width: 60%;
 	float: left;
 	padding-right: 10px;
 	font-family: 'Montserrat', sans-serif;
@@ -920,6 +920,8 @@ section.landing-splash:after {
 .pink-nav {
 	background: #ed314a !important;
 	color: white !important;
+	max-height: 62px;
+
 }
 
 .pink-nav-text {
@@ -937,6 +939,11 @@ section.landing-splash:after {
 	text-align: center;
 	color: #0070c9;
     font-weight: bold;
+}
+
+.nav-height-adjust {
+	min-height: 62px !important;
+    line-height: 62px !important;
 }
 
 
@@ -1913,12 +1920,7 @@ html {
 }
 
 
-@media (max-width: 991px) {
-	.passes-details {
-		text-align: center;
-	}
 
-}
 
 
 
@@ -5144,10 +5146,10 @@ table {
 }
 
 .learn-pricing {
-    text-decoration: dotted underline;
     text-transform: none;
     color: #777;
     display: block;
+    text-align: left;
 }
 
 .create-ticket-wrapper {
@@ -5353,9 +5355,9 @@ table {
 }
 
 .click-boxes-join {
-    background: rgb(78, 168, 204);
+    background: #5cabcc;
     padding: 10px;
-    border: 1px solid rgb(78, 168, 204);
+    border: 1px solid #5cabcc;
     margin-bottom: 15px;
     max-width: 780px;
     margin: auto;
@@ -5368,6 +5370,19 @@ table {
 @media (min-width: 992px) {
 	.dark .navigation-menu > li .submenu li a {
 		color: white!important;
+	}
+}
+
+.modal-backdrop.in {
+	opacity: 0.3 !important;
+}
+
+@media (max-width: 991px) {
+	.bongo-color {
+		line-height: 65px!important;
+	}
+	.bongo-color-dark {
+		line-height: 65px!important;
 	}
 }
 

@@ -4115,6 +4115,9 @@ footer.dark p {
 .fw-300 {
   font-weight: 300!important;
 }
+.fw-900 {
+  font-weight: 900!important;
+}
 
 .fw-400 h1,
 .fw-400 h2,
@@ -4128,7 +4131,7 @@ footer.dark p {
   color: #79818a;
 }
 .white-text {
-  color: #fff;
+  color: #fff !important;
 }
 .black-text {
   color: #191b1d !important;
