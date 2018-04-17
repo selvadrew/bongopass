@@ -5379,9 +5379,12 @@ table {
 
 @media (max-width: 991px) {
 	.bongo-color {
-		line-height: 65px!important;
+		line-height: 67px!important;
 	}
 	.bongo-color-dark {
+		line-height: 67px!important;
+	}
+	.nav-height-adjust {
 		line-height: 65px!important;
 	}
 }
