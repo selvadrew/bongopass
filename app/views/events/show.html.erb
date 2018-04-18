@@ -105,15 +105,17 @@
 
 
     <!-- Home Section-->
+    <%if @photos.present? %>
     <section id="home" class="splash parallax parallax-remove-red photo-bigs">
-
       <div>	
-      	<%if @photos.present? %>
 					<div class="parallax-bg" data-parallax="scroll" data-image-src= <%= @cover_photo %> > </div>
-				<% end %>	
 			</div>
-
     </section>
+        <% else %>
+          <div class="photo-request">
+            Please upload an event photo. All events on Bongopass require a photo. 
+          </div>
+        <% end %> 
 
   <section class="photo-smalls pt-0 pb-0">
     <div class=" cover-photo-mobile-container">
@@ -121,10 +123,6 @@
         <!-- Image -->
         <%if @photos.present? %>
           <%= image_tag @photos[0].image.url(:original), class: "img-responsive cover-photo"%>
-        <% else %>
-          <div class="photo-request">
-            Please upload an event photo. All events on Bongopass require a photo. 
-          </div>
         <% end %>
       </div>
     </div>

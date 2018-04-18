@@ -3194,12 +3194,7 @@ box-align:center;
 
 
 
-.photo-request {
-	font-size: 20px;
-	text-align: center;
-	padding-top: 10px;
-	color: black;
-}
+
 
 .fa-calendar-check-o, .fa-calendar, .fa-map-marker, .fa-usd, .fa-user-circle {
 	font-size: 25px;
@@ -5415,6 +5410,14 @@ table {
 	.nav-height-adjust {
 		line-height: 65px!important;
 	}
+}
+
+.photo-request {
+    color: #0070c9;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 40px;
 }
 
 @media (max-width: 767px) {

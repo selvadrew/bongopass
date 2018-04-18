@@ -26,14 +26,14 @@ class EventsController < ApplicationController
 
 
   def show
-    @photos = @event.photos
+    @photos = @event.photos 
     @tickets = @event.tickets 
     @speakers = @event.speakers
     @sponsors = @event.sponsors
     @ticket_price_min = @tickets.minimum(:ticket_price)
     @ticket_price_max = @tickets.maximum(:ticket_price)
     @bongopass_fee = 3.50
-    @cover_photo = @photos[0].image.url(:original)
+    @cover_photo = @photos[0].image.url(:original) if @photos.present? 
     @google_maps = "https://maps.google.com/?q=" + URI.encode(@event.location)
 
 
