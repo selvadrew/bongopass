@@ -7,7 +7,7 @@
 <div class="container center width-container">
 <div class="row">
 
-	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+	<div class="col-md-5ths col-sm-12 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
 				<%= @events.count %>
@@ -18,27 +18,48 @@
 		</div>
 	</div>
 
-	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+	<div class="col-md-5ths col-sm-12 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
+				<%= @bongopass_actual_sales %>
+			</div>
+			<div class="box-description">
+			TOTAL SALES
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-5ths col-sm-12 col-xs-12 boxed-gray">
+		<div class="boxed-text">
+			<div class="box-data event-index-box-padding-adjust">
 				<%= @bongopass_purchases %>
 			</div>
 			<div class="box-description">
-			ATTENDEE GENERATED SALES
+			SALES MADE BY YOUR ATTENDEES
 			</div>
 <!-- After an attendee purchases a ticket they have access to a personalized bongopass page to share with friends. This is the total count of purchases from all of your attendees' bongopass pages -->
 		</div>
 	</div>
 
-	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray boxed-offset">
+	<div class="col-md-5ths col-sm-12 col-xs-12 boxed-gray ">
 		<div class="boxed-text">
-			<div class="box-data">
-				$<%= @all_rewards_earned %>
+			<div class="box-data event-index-box-padding-adjust-2 ">
+				<%= number_to_currency(@all_rewards_earned) %>
 			</div>
 			<div class="box-description">
-			CREDITED TO YOUR ATTENDEES
+			PAID TO YOUR ATTENDEES
 			</div>
-<!-- The total amount Bongopass has credited your attendees. Attendees will be able to use their credits for all future events on Bongopass, including yours! This credit is paid out from Bongopass fees collected from all events on our platform and does not include any of your ticket sales. -->
+		</div>
+	</div>
+
+	<div class="col-md-5ths col-sm-12 col-xs-12 boxed-gray boxed-offset">
+		<div class="boxed-text">
+			<div class="box-data">
+				<%= number_to_currency(@total_net_sales) %>
+			</div>
+			<div class="box-description">
+			TOTAL NET SALES
+			</div>
 		</div>
 	</div>	
 </div>

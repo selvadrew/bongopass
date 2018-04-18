@@ -7,6 +7,8 @@ class EventsController < ApplicationController
   def index
     @events = current_user.events
     @bongopass_purchases = Order.all.where(seller: current_user).count(:referral_id)
+    @bongopass_actual_sales = Order.all.where(seller: current_user).count
+    @total_net_sales = Order.all.where(seller: current_user).sum(:organizer_sales)
     @referral_id_count_array = Order.all.where(seller: current_user).group(:referral_id).where.not("referral_id" => nil).count
 
     @reward_value_array = []
@@ -136,6 +138,7 @@ class EventsController < ApplicationController
     @tickets = Ticket.all.where(event_id: @event.id)
     @event_orders = Order.joins(:ticket).where(tickets: { event_id: @event.id })
     @bongopass_purchases = Order.joins(:ticket).where(tickets: { event_id: @event.id }).count(:referral_id)
+    @paid_to_attendees = Order.joins(:ticket).where(tickets: { event_id: @event.id }).where.not("referral_id" => nil).sum(:organizer_set_reward)
     
     @event_orders_pdf = Order.joins(:ticket).where(tickets: { event_id: @event.id }).order('LOWER(last_name)')
 

@@ -1399,7 +1399,7 @@ section.landing-splash:after {
   	position: relative;
   	top: 50%;
   	transform: translateY(-50%);
-  	color: #333;
+  	color: #444;
   }
 
 .box-data {
@@ -1435,13 +1435,22 @@ section.landing-splash:after {
 	border-bottom: 1px dashed #e8e8e8;
 }
 
-.event-row:hover {
+.sold-row:hover {
 	background: #ffc;
-	border: 1px solid #ddd;
+	
 
 }
 
-.JELLY{}
+.net-sales-desc {
+	font-size: 14px;
+	margin-top: -15px;
+	padding-left: 1px;
+}
+.nsd-lf {
+	font-size: 20px
+}
+
+
 
 .sold-container {
 	width: 880px;
@@ -1551,8 +1560,26 @@ section.landing-splash:after {
 	    margin-left: 14px;
 	}
 
+	.col-md-5ths {
+        width: 20%;
+        float: left;
+        position: relative;
+    }
+
 }
 
+
+@media (min-width: 992px) and (max-width: 1323px) { 
+	.event-index-box-padding-adjust {
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1064px) { 
+	.event-index-box-padding-adjust-2 {
+		padding-top: 15px;
+	}
+}
 
 
 
@@ -5133,7 +5160,8 @@ table {
 .total-base-reward {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    margin-left: 10px;
+    margin-left: 10px;    
+    margin-right: 10px;
     color: #191b1d;
     background: #ffc;
     text-align: center;

@@ -7,7 +7,7 @@
 <div class="container center width-container">
 <div class="row">
 
-	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+	<div class="col-md-3 col-sm-3 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
 				<%= @event_orders.count %>
@@ -18,19 +18,30 @@
 		</div>
 	</div>
 
-	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray">
+	<div class="col-md-3 col-sm-3 col-xs-12 boxed-gray">
 		<div class="boxed-text">
 			<div class="box-data">
 				<%= @bongopass_purchases %>
 			</div>
 			<div class="box-description">
-			SALES GENERATED THROUGH YOUR ATTENDEES
+			SALES MADE BY YOUR ATTENDEES
 			</div>
 <!-- After an attendee purchases a ticket they have access to a personalized bongopass page to share with friends. This is the total count of purchases from all of your attendees' bongopass pages -->
 		</div>
 	</div>
 
-	<div class="col-md-4 col-sm-4 col-xs-12 boxed-gray boxed-offset">
+	<div class="col-md-3 col-sm-3 col-xs-12 boxed-gray">
+		<div class="boxed-text">
+			<div class="box-data">
+				<%= number_to_currency(@paid_to_attendees) %>
+			</div>
+			<div class="box-description">
+			PAID TO YOUR ATTENDEES
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 col-sm-3 col-xs-12 boxed-gray boxed-offset">
 		<div class="boxed-text">
 			<div class="box-data">
 				<%= number_to_currency(@event_orders.sum(:organizer_sales)) %>
@@ -78,6 +89,7 @@
 
 	<% end %>	
 </table>
+<div class="net-sales-desc">Net Sales <span class="nsd-lf">=</span> Sale Price <span class="nsd-lf">-</span> Transaction Cost <span class="nsd-lf">-</span> Amount Rewarded to Attendees</div>
 
 </div>
 
@@ -118,7 +130,7 @@
 
 
 	<% ticket.orders.order(:created_at).reverse_order.each do |orders| %>
-		  <tr>
+	<tr class="sold-row">
     <td> <%= orders.first_name %> <%= orders.last_name %> </td>
     <td> <%= orders.created_at.strftime('%b %e') %> </td>
     <td> <%= Order.where(referral_id: orders.referral.id).count if Order.where(referral_id: orders.referral.id).count > 0 %> </td>
