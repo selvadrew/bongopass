@@ -33,6 +33,22 @@ body, html {
 
 }
 
+
+.bongo-b {
+    display: inline-block;
+    background: red;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    color: white;
+    font-weight: 900 !important;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+    padding-left: 1px;
+    font-family: 'Comfortaa', cursive;
+}
+
 .dark-blue-background {
 	background-color: #183960 !important;
 }
@@ -231,11 +247,54 @@ body, html {
 	border-radius: 5px;
 }
 
+.community-section-bg {
+	background: #f6f7f8;
+}
+
+.community-image {
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.community-image-wrapper {
+	height: 210px;
+    float: left;
+    padding-left: 0px;
+    background: #E0E1E5;
+}
+
+.community-event-row {
+	margin-bottom: 20px;
+    color: #555;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
+    border-radius: 4px;
+}
+
+
+
+.apple-blue-text-color {
+	color: #0070c9 !important;
+}
+
+.bongopass-color-text {
+	color: #ed314a;
+}
+
+
+
 /*************** event page show ***************/
 .section-adjust {
 	padding-top: 25px !important;
 	padding-bottom: 0px !important;
 }
+
+.bbnone {
+	border-bottom: none;
+}
+
+
 
 
 	.calendar-map-wrapper {
@@ -729,6 +788,18 @@ section.landing-splash:after {
 
 @media (min-width: 768px) {
 
+.community-image-wrapper {
+	height: 160px;
+}
+
+.community-get-pass {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    text-transform: uppercase;
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
 
 	.location-info-overlay {
 		width: 300px;
@@ -746,7 +817,7 @@ section.landing-splash:after {
 	}
 	.scroll-raiser-photo {
 		position: relative;
-		bottom: -29px;
+		bottom: -39px;
 	}
 	.calendar-map-wrapper {
 		text-align: left;
@@ -893,6 +964,10 @@ section.landing-splash:after {
 	}
 }
 
+.comunity-get-pass-block {
+	display: none;
+}
+
 @media (max-width: 767px) {
 	section.splash .title h2 {
 		font-size: 30px!important;
@@ -911,6 +986,22 @@ section.landing-splash:after {
 	.mobile-container-adjust-eindex {
 		padding-left: 0px !important;
 		padding-right: 0px !important;
+	}
+
+	.community-tc {
+		text-align: center;
+	}
+
+	.comunity-get-pass-block {
+		background: #ed314a;
+		border: 1px solid #ed314a;
+		color: white;
+		width: 100%;
+		height: 50px;
+		display: block;
+		font-size: 14px !important;
+    	font-weight: 600 !important;
+
 	}
 
 }
@@ -1257,6 +1348,19 @@ section.landing-splash:after {
     letter-spacing: 1px;
     font-size: 15px;
     text-transform: uppercase;
+    padding: 25px 15px;
+    background-color: #f8f8fa;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.event-block-dark {
+	background-color: #202325;
+	border-radius: 10px;
 }
 
 
@@ -1369,7 +1473,26 @@ section.landing-splash:after {
     margin-top: 0px;
     padding-left: 10px;
     color: #808080;
+}
 
+.index-my-events {
+	display: inline-block;
+	float: left;
+}
+
+.com-float-right {
+	display: none;
+}
+
+.com-float-right-mobile {
+	display: block;
+	float: right;
+
+}
+
+
+.index-event-header-adjust {
+	display: inline-block;
 }
 
 	.boxed-gray {
@@ -1552,7 +1675,16 @@ section.landing-splash:after {
 
 }
 
+@media (min-width: 1200px) { 
 
+    .community-get-pass {
+		padding-left: 40px !important;
+		padding-right: 40px !important;
+	    margin-left: 10px;
+	    margin-right: 10px;
+}
+
+}
 
 
 @media (min-width: 992px) { 
@@ -1565,6 +1697,8 @@ section.landing-splash:after {
         float: left;
         position: relative;
     }
+
+
 
 }
 
@@ -5277,6 +5411,23 @@ table {
 		margin-left: 10px;
 	}
 
+	.com-float-right {
+		display: inline-block;
+		float: right;
+		position: relative;
+	}
+	.com-float-right-mobile {
+		display: none;
+	}
+	.index-my-community {
+	    bottom: -22px;
+	    position: relative;
+	}
+
+
+}
+
+@media (max-width: 683px) {
 
 }
 
@@ -5420,6 +5571,8 @@ table {
     margin-top: 40px;
 }
 
+
+
 @media (max-width: 767px) {
 	.jt-1 {
 	    font-size: 26px !important;
@@ -5451,6 +5604,19 @@ table {
 	}
 	.jt-mb-30 {
 		margin-bottom: 80px !important;
+	}
+
+
+	.community-event-row {
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 25px;
+
+	}
+
+	.community-get-pass {
+		display: none;
 	}
 	
 }

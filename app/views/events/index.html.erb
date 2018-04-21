@@ -1,7 +1,7 @@
 
 <%= render 'shared/navbar-pink'%>
 
-<section class="pt-0">
+<section class="pt-0 bbnone">
 
 
 <div class="container center width-container">
@@ -64,15 +64,31 @@
 	</div>	
 </div>
 
+		<div class="com-float-right com-float-right-mobile">
+			<%= link_to community_user_path(@user), data: { turbolinks: false }, target: :_blank  do %> 
+				<h4 class="new-window-button index-my-community">
+					VIEW MY COMMUNITY PAGE <i class="ti-new-window"></i>
+				</h4> 
+			<% end %>
+		</div>
+
 <br>
 <br>
 
 <div class="container mobile-container-adjust-eindex">	
 <div class="index-event-container">
 	<div class=" panel-default">
-	<h3 class="index-event-header ">
-		<div class="">My Events</div>
-	</h3>
+	<div class="index-event-header index-event-header-adjust">
+		<h3 class="index-my-events mb-0">My Events</h3>
+		<div class="com-float-right">
+			<%= link_to community_user_path(@user), data: { turbolinks: false }, target: :_blank  do %> 
+				<h4 class="new-window-button index-my-community">
+					VIEW MY COMMUNITY PAGE <i class="ti-new-window"></i>
+				</h4> 
+			<% end %>
+		</div>
+	</div>
+
 		<div class="panel-body">
 			
 			<% @events.order(:start_date).reverse.each do |event| %>

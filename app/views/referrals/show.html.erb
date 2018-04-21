@@ -221,7 +221,7 @@
     </section>
 
 
-<section id="location" class="pt-0 pb-35 bb-0">
+<section id="location" class="pt-0 pb-0 bb-0">
 
 
 			<div class="map-wrapper">
@@ -272,11 +272,51 @@
 		    </script>
 
 
+      <% if @organizer_events.count > 0 %>
+      <section class="dark bbnone pt-50 pb-50">
+        <div class="container">
+          <div class="title center">
+            <h3 class="fw-400 capitalize">More Events by <%= @event.organizer_name%></h3>
+            <hr>
+          </div>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div id="testimonials-slider" data-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;directionNav&quot;: true}" class="flexslider nav-outside">
+                  <ul class="slides">
+                    <% @organizer_events.each do |event| %>
+                      <% if event != @event %>
+                        <li class="event-block-dark">
+                          <blockquote>
+                            <h1> <%= event.event_title %></h1>
+                            <p><%= event.venue %></p>
+                            <p><%= event.start_date.strftime('%A, %B %e') %></p>
+                          </blockquote>
+                        </li>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                </div>
 
-	<div class="text-center container pb-35 bottom-verified">
-		<%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <div class="mt-50 text-center">
+                    <%= link_to "View All", community_user_path(@user), data: { turbolinks: false }, target: :_blank, class: "btn btn-color"  %>
+                </div>
+              </div>
+            </div>
+            <!-- end of row-->
+          </div>
+          <!-- end of section content-->
+        </div>
+        <!-- end of container-->
+      </section>
+      <% end %>
 
-	</div>
+
+
+  <div class="text-center bottom-verified">
+    <%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
+
+  </div>
 
 
 
@@ -288,7 +328,7 @@
 					<div class="modal-dialog">	
 						<div class="modal-content">
 							<div class="modal-header text-center modal-header-design">
-								One Pass Maximum Per Person
+								One pass maximum per person
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close close-modal"></i></span></button>
 							</div>
 							

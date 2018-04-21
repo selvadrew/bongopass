@@ -40,6 +40,12 @@ resources :events, except: [:edit] do
   end
 end
 
+resources :users, :path =>"upcoming", only: [:community] do 
+  member do 
+    get 'community'
+  end
+end
+
 resources :referrals,:path => 'invitation' do 
   member do 
     get 'mypass'
@@ -57,6 +63,10 @@ root to: 'pages#home'
   get 'sindu' => 'supports#sindu'
 
   #get 'support' => "pages#support"
+
+get '/mara', :to => redirect('/upcoming/13/community')
+get '/MARA', :to => redirect('/upcoming/13/community')
+get '/Mara', :to => redirect('/upcoming/13/community')
 
 
   get 'join' => "joins#new"

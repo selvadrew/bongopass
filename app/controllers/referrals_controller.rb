@@ -17,6 +17,17 @@ class ReferralsController < ApplicationController
     	@ticket_price_min = @tickets.minimum(:ticket_price)
     	@ticket_price_max = @tickets.maximum(:ticket_price)
     	@google_maps = "https://maps.google.com/?q=" + URI.encode(@event.location)
+    	@user = User.where(id: @event.user_id).first
+    	@organizer_events = Event.all.where(user_id: @user.id).order(:start_date).where('start_date >= ?', Date.today)
+
+		#Check if there is a referral ID in my order 
+		#If yes, find all the orders with that referral ID
+		if @referral.order.referral_id 
+    		@referred_me_object = Referral.where(id: @referral.order.referral_id)
+    	end
+
+    	
+
 
 
     	set_meta_tags og: {	  

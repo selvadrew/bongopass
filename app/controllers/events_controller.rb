@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @bongopass_actual_sales = Order.all.where(seller: current_user).count
     @total_net_sales = Order.all.where(seller: current_user).sum(:organizer_sales)
     @referral_id_count_array = Order.all.where(seller: current_user).group(:referral_id).where.not("referral_id" => nil).count
+    @user = current_user
 
     @reward_value_array = []
     if @referral_id_count_array
@@ -35,6 +36,8 @@ class EventsController < ApplicationController
     @bongopass_fee = 3.50
     @cover_photo = @photos[0].image.url(:original) if @photos.present? 
     @google_maps = "https://maps.google.com/?q=" + URI.encode(@event.location)
+    @user = User.where(id: @event.user_id).first
+    @organizer_events = Event.all.where(user_id: @user.id).order(:start_date).where('start_date >= ?', Date.today)
 
 
 

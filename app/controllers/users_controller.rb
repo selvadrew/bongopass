@@ -1,5 +1,6 @@
 class UsersController < ApplicationController 
 	before_action :authenticate_user!, only: [:paypal_payout]
+	before_action :set_user, only: [:community]
 
 	def show 
 		@user = User.find(params[:id])
@@ -25,7 +26,16 @@ class UsersController < ApplicationController
   	end
 
 
+  	def community 
+  		@user = User.find(params[:id])
 
+  	end
+
+
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end
 
 
 end

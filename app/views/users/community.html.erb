@@ -1,0 +1,67 @@
+<style>
+
+#topnav {
+  position: absolute;
+  -webkit-transition: all 0s ease;
+  transition: all 0s ease;
+}
+
+.nav-tabs > li.active > a {
+  background-color: #ed314a !important;
+  color: white !important;
+}
+
+body {
+	min-height: 100% !important;
+	background: #f6f7f8 !important;
+}
+
+</style>
+
+<% content_for :navbar do %>
+  <%= render 'shared/navbar-dark'%>
+<% end %>
+
+
+<section class="bbnone community-section-bg pt-25 ">
+<div class="container mobile-container-adjust-eindex">	
+<div class="index-event-container">
+	<% if @user.organization_name.present? %>
+     <div class="title center mb-50">
+      <h2><%= @user.organization_name %><span class="red-dot"></span></h2>
+    </div>
+    <% end %>
+	<div class=" panel-default">
+	<h3 class="index-event-header pb-0 mb-0 pl-0 community-tc ">
+		<div class="">UPCOMING EVENTS</div>
+	</h3>
+		<div class="panel-body">
+			
+			<% Event.all.where(user_id: @user.id).order(:start_date).each do |event| %>
+				<% if event.start_date >= Date.today %>
+					<div class="row community-event-row">
+						<div class="col-xs-12 col-sm-3 col-md-3 text-center community-image-wrapper pr-0">
+							<% if event.photos.length > 0 %>
+								<%= image_tag event.photos[0].image.url(:medium), class: "community-image" %>
+							<% end %>
+						</div>
+						<div class="col-xs-12 col-sm-9 col-md-9 pr-0 event-row-large">
+							<div class="col-sm-9 col-md-9 index-event-title pr-0">
+								<h4 class="index-event-title bongopass-color-text"> <%= event.event_title %></h4>
+								<h4 > <%= event.venue %></h4>
+								<h4> <%= event.start_date.to_time.strftime('%A, %B %d') %></h4>
+							</div>
+							<div class="col-sm-3 col-md-3 index-event-title">
+								<h4> <%= link_to "Get Pass", event_path(event), data: {turbolinks: false}, class: "btn btn-color btn-sm btn-round community-get-pass pass-purchase-wrapper  " %></h4>
+							</div>
+						</div>
+								<%= link_to "Get Pass", event_path(event), data: {turbolinks: false}, class: "btn btn-color btn-sm  pass-purchase-wrapper  col-xs-12 comunity-get-pass-block" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div>
+
+</section>
