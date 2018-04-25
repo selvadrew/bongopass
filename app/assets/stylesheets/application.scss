@@ -35,17 +35,17 @@ body, html {
 
 
 .bongo-b {
-    display: inline-block;
+	display: inline-block;
     background: red;
     border-radius: 50%;
     height: 25px;
     width: 25px;
     color: white;
     font-weight: 900 !important;
-    font-size: 16px;
+    font-size: 17px;
     text-align: center;
-    line-height: 25px;
-    padding-left: 1px;
+    line-height: 27px;
+    padding-left: 2px;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -79,11 +79,11 @@ body, html {
 .bongo-color {
 	color: #191b1d !important;
 	min-height: 62px!important;
-	line-height: 62px!important;
+	line-height: 67px!important;
 }
 .bongo-color-dark {
 	min-height: 62px!important;
-	line-height: 62px!important;
+	line-height: 67px!important;
 }
 
 
@@ -486,7 +486,7 @@ body, html {
 .avatar-block {
 	display: block;
 	margin: 0px auto 5px ;	
-	max-width: 900px;
+	max-width: 251px;
 }
 
 .invite-sentence-avatar {
@@ -531,7 +531,7 @@ body, html {
 
 .tooltip-1 .tooltiptext-1 {
     visibility: hidden;
-    width: 200px;
+    width: 180px;
     display: inline-block;
     background-color: #313131;
     color: #fff;
@@ -539,10 +539,10 @@ body, html {
     border-radius: 6px;
     padding: 15px 5px;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     bottom: 115%;
     left: 50%;
-    margin-left: -100px;
+    margin-left: -90px;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 600;
@@ -785,8 +785,18 @@ section.landing-splash:after {
   
 }
 
+.desc-styling {
+    font-size: 21px;
+    color: #79818a;
+    font-family: 'Halant', serif;
+}
+
 
 @media (min-width: 768px) {
+
+.avatar-block {
+	max-width: 900px !important;
+}
 
 .community-image-wrapper {
 	height: 160px;
@@ -865,7 +875,7 @@ section.landing-splash:after {
 		color: #777;
 		text-transform: uppercase;
 		font-size: 14px;
-		letter-spacing: 0.5px;
+		letter-spacing: 1px;
 		font-weight: 600;
 	}
 
@@ -958,14 +968,43 @@ section.landing-splash:after {
 		padding: 0px 21px;
 	}
 }
+
+@media (min-width: 360px) {
+	.tooltip-1 .tooltiptext-1 {
+		width: 200px ;
+		margin-left: -100px ;
+	}
+}
+
+@media (min-width: 375px) { 
+	.avatar-block {
+		max-width: 315px;
+	}
+	.tooltip-1 .tooltiptext-1 {
+		width: 180px ;
+		margin-left: -90px ;
+	}
+}
 @media (min-width: 400px) { 
 	.landing-buttons {
 		padding: 0px 28px;
+	}
+	.tooltip-1 .tooltiptext-1 {
+		width: 200px ;
+		margin-left: -100px ;
 	}
 }
 
 .comunity-get-pass-block {
 	display: none;
+}
+
+.more-events-by {
+	font-size: 35px!important;
+}
+
+.fs-48 {
+	font-size: 48px;
 }
 
 @media (max-width: 767px) {
@@ -1004,7 +1043,16 @@ section.landing-splash:after {
 
 	}
 
+	.more-events-by {
+		font-size: 28px !important
+	}
+
+
+
 }
+
+
+
 
 
 
@@ -1716,7 +1764,9 @@ section.landing-splash:after {
 }
 
 
-
+.inviter-name {
+	text-transform: capitalize;
+}
 
 /* ********************************************* test */
 
@@ -4374,9 +4424,7 @@ table {
 	overflow: auto;
 }
 
-.inviter-name {
-	text-transform: capitalize;
-}
+
 
 .page-header-referral {
 	background: none !important;

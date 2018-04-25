@@ -138,7 +138,7 @@
         </div>
         <div class="section-content">
           <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="col-md-8 col-md-offset-2 text-center desc-styling">
               <p class="grey-text serif lead-text"><%=  @event.event_description.html_safe %></p>
             </div>
           </div>
@@ -153,7 +153,7 @@
         </div>
         <div class="section-content">
           <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="col-md-8 col-md-offset-2 text-center desc-styling">
               <p class="grey-text serif lead-text"><%= @event.organizer_description.html_safe %></p>
             </div>
           </div>
@@ -217,11 +217,11 @@
 		    </script>
 
 
-      <% if @organizer_events.count > 0 %>
+      <% if @organizer_events.count > 0 && @organizer_events.first != @event %>
       <section class="dark bbnone pt-50 pb-50">
         <div class="container">
           <div class="title center">
-            <h3 class="fw-400 capitalize">More Events by <%= @event.organizer_name%></h3>
+            <h3 class="fw-400 capitalize more-events-by">More Events by <%= @event.organizer_name%></h3>
             <hr>
           </div>
           <div class="section-content">
@@ -233,7 +233,7 @@
                       <% if event != @event %>
                         <li class="event-block-dark">
                           <blockquote>
-                            <h1> <%= event.event_title %></h1>
+                            <h1> <%= event.event_title %><span class="red-dot fs-48"></span></h1>
                             <p><%= event.venue %></p>
                             <p><%= event.start_date.strftime('%A, %B %e') %></p>
                           </blockquote>
@@ -259,8 +259,7 @@
 
 
   <div class="text-center bottom-verified">
-    <%= @event.organizer_name %> is a Bongopass verified host <i class="fa fa-check-circle" aria-hidden="true"></i>
-
+    <span class="bongo-b">B</span> <%= @event.organizer_name %> is a Bongopass verified host 
   </div>
 
 
