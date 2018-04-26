@@ -525,9 +525,19 @@ body, html {
     margin: 0px -8px 10px;
 }
 
+.tooltip-party {
+    width: auto;
+    height: auto;
+}
+
+
 .tooltext-inviter {
 	background-color: #ed314a !important;
 }
+.tooltext-party {
+	background-color: #1e8c00 !important;
+}
+
 
 .tooltip-1 .tooltiptext-1 {
     visibility: hidden;
@@ -1005,6 +1015,10 @@ section.landing-splash:after {
 
 .fs-48 {
 	font-size: 48px;
+}
+
+.party {
+	border-bottom: 2px dotted;
 }
 
 @media (max-width: 767px) {
@@ -5475,15 +5489,15 @@ table {
 
 }
 
-@media (max-width: 683px) {
-
-}
 
 .tooltip-1 .tooltiptext-1::after {
 	border-color: #ed324a transparent transparent transparent;
 }
 .tooltip-1 .tooltiptext-2::after {
 	border-color: #313131 transparent transparent transparent !important;
+}
+.tooltip-1 .tooltiptext-3::after {
+	border-color: #1e8c00 transparent transparent transparent !important;
 }
 
 .ny-image-bg {

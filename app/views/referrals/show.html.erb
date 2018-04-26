@@ -85,7 +85,12 @@
 											<% else %>
 												<%= image_tag 'https://d3mfs0x6fskujo.cloudfront.net/google-avatar.jpg', class: "img-circle avatar-medium avatar-design inviter" %>
 											<% end %>
-												<span class="tooltiptext-1 tooltext-inviter"><%= @started_party_array.first_name %> <%= @started_party_array.last_name %> started the party </span>
+												<% if @joined_array.count == 0 %>
+													<span class="tooltiptext-1 tooltext-inviter"><%= @started_party_array.first_name %> <%= @started_party_array.last_name %> invited you </span>
+												<% else %>
+													<span class="tooltiptext-1 tooltext-inviter"><%= @started_party_array.first_name %> <%= @started_party_array.last_name %> started the party </span>
+												<% end %>
+
 										</div>
 							<% end %>
 
@@ -153,14 +158,27 @@
 							is going to this event and has invited you to join. Check it out!
 							<br>
 							<% if @invited_array.count + @joined_array.count == 1 %>
-								<span class="count-invites-green">
-									1 friend has joined <span class="capitalize"><%= @referral.order.first_name %></span>
+								<span class="count-invites-green tooltip-1 tooltip-party">
+									1 friend has joined  
+									<span class="capitalize"> <%= @referral.order.first_name %></span>'s
+									<span class="party  "> 
+										  party.
+										 <span class="tooltiptext-1 tooltiptext-3 tooltext-party">
+										 	A party includes all the people going from the same group of friends and does not represent everyone attending the event. 
+										 </span>
+									</span>
 								</span>
 							<% end %>
 							<% if @invited_array.count + @joined_array.count > 1 %>
-								<span class="count-invites-green">
+								<span class="count-invites-green tooltip-1 tooltip-party">
 									<%= @invited_array.count + @joined_array.count %> friends have joined 
-									<span class="capitalize"> <%= @referral.order.first_name %></span>'s party.
+									<span class="capitalize"> <%= @referral.order.first_name %></span>'s
+									<span class="party  "> 
+										  party.
+										 <span class="tooltiptext-1 tooltiptext-3 tooltext-party">
+										 	A party includes all the people going from the same group of friends and does not represent everyone attending the event. 
+										 </span>
+									</span>
 								</span>
 							<% end %>
 						</div>  <!-- end inviter sentence -->
