@@ -45,7 +45,7 @@ body, html {
     font-size: 17px;
     text-align: center;
     line-height: 27px;
-    padding-left: 2px;
+    padding-left: 1.5px;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -500,6 +500,7 @@ body, html {
 
 .count-invites-green {
 	color: #1e8c00;
+    border-bottom: 2px rgba(30, 140, 0, 0.9) dotted;
 
 }
 
@@ -1017,9 +1018,8 @@ section.landing-splash:after {
 	font-size: 48px;
 }
 
-.party {
-	border-bottom: 2px dotted;
-}
+
+
 
 @media (max-width: 767px) {
 	section.splash .title h2 {
@@ -1313,6 +1313,14 @@ section.landing-splash:after {
 	font-size: 12px!important;
 }
 
+.button-5 {
+	border-radius: 5px !important;
+}
+
+.ss-border-image {
+    border: 1px solid #ececec;
+
+}
 
 .mypass-share-headers {
 	text-align: center;
@@ -5591,14 +5599,13 @@ table {
 }
 
 .click-boxes-join {
-    background: #5cabcc;
+    background: transparent;
     padding: 10px;
-    border: 1px solid #5cabcc;
     margin-bottom: 15px;
-    max-width: 780px;
     margin: auto;
-    color: white;
-    border-radius: 3px;
+    color: #ed324a;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 
