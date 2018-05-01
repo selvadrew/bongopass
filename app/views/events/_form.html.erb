@@ -91,7 +91,7 @@
 
 </div>
 	<h3 class="create-event-header ">
-		<div class="">Create Passes</div>
+		<div class="">Create Tickets</div>
 	</h3>
 
 <div class="">
@@ -100,13 +100,13 @@
 					How Pricing Works (Important!)
 					<div class="learn-pricing">
 						<ul>
-							<li>Each Pass is composed of a BASE PRICE and REWARD FEE. The total price attendees pay is the sum of both. The REWARD FEE is the portion of your total price you are willing to use to reward attendees whenever they help you sell more Passes! </li>
+							<li>Each ticket is composed of a BASE PRICE and REWARD FEE. The total price attendees pay is the sum of both. The REWARD FEE is the portion of your total price you are willing to use to reward attendees whenever they help you sell more tickets! </li>
 							<ul>
-							<li>When an attendee purchases a Pass from your event page(without an invite), you receive both the REWARD FEE and the BASE PRICE.</li>
-							<li>If someone purchases a Pass through an invitation from an attendee, the attendee that sent the invitation receives the REWARD FEE and you get the BASE PRICE. Therefore, you are always guaranteed the BASE PRICE. </li>
+							<li>When an attendee purchases a ticket from your event page(without an invite), you receive both the REWARD FEE and the BASE PRICE.</li>
+							<li>If someone purchases a ticket through an invitation from an attendee, the attendee that sent the invitation receives the REWARD FEE and you get the BASE PRICE. Therefore, you are always guaranteed the BASE PRICE. </li>
 							</ul>
-							<li>The REWARD FEE you set below will be added to all of your Passes. We recommend a REWARD FEE of $5.00 </li>
-							<li>Example: If you set your BASE PRICE to $15 and the REWARD FEE to $5 - attendees always pay $20. If John purchases a Pass from your event page, he will pay $20 and you will receive $20. Now, if John invites Mary and she purchases a Pass, John will receive $5(REWARD FEE) and you will receive $15(BASE PRICE) from Mary's payment. John can use this $5 credit towards a future event. </li>
+							<li>The REWARD FEE you set below will be added to all of your tickets. We recommend a REWARD FEE of $5.00 </li>
+							<li>Example: If you set your BASE PRICE to $15 and the REWARD FEE to $5 - attendees always pay $20. If John purchases a ticket from your event page, he will pay $20 and you will receive $20. Now, if John invites Mary and she purchases a ticket, John will receive $5(REWARD FEE) and you will receive $15(BASE PRICE) from Mary's payment. John can use this $5 credit towards a future event. </li>
 						</ul>  
 					</div>
 				</div>	
@@ -116,7 +116,7 @@
 					[["USD","usd"],
 					 ["CAD","cad"],
 					 ],
-					id: "event_currency", prompt: "Select...", class: "form-control", input_html: {class: "currency_box input_box"}, label: "Pass Currency" %>
+					id: "event_currency", prompt: "Select...", class: "form-control", input_html: {class: "currency_box input_box"}, label: "Ticket Currency" %>
 				</div>
 				<div class="">	
 					<%= f.input :reward_fee, placeholder: "5.00", class: "form-control", label: "Reward Fee", input_html: {class: "input_box"} %>
@@ -145,7 +145,7 @@
 
 
 			<div class="form-actions">	
-				<%= link_to_add_row_t('New Pass', f, :tickets, class: "btn btn-color-out new-ticket-button", data: { turbolinks: false }) %>
+				<%= link_to_add_row_t('New Ticket', f, :tickets, class: "btn btn-color-out new-ticket-button", data: { turbolinks: false }) %>
 			</div>
 
 		</div>
