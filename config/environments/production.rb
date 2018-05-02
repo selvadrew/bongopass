@@ -124,4 +124,11 @@ Rails.application.configure do
       s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com",
     }
   }
+
+config.public_file_server.headers = {
+  'Access-Control-Allow-Origin' => '*'
+}
+
+
+  
   end
