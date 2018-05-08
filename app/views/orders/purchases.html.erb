@@ -58,7 +58,7 @@
 						</div>
 
 						<div>
-						<%= link_to "View Event", event_path(order.ticket.event.id), class:"btn btn-dark-out btn-block purchases-buttons", data: { turbolinks: false } %>
+						<%= link_to "View My Event Page", referral_path(Referral.find(order.referral.id)), class:"btn btn-dark-out btn-block purchases-buttons", data: { turbolinks: false } %>
 						</div>
 						
 					</div>
