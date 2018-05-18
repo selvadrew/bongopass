@@ -609,8 +609,8 @@ body, html {
 }
 
 .pass-purchase-wrapper {
-	height: 40px!important;
-	line-height: 36px!important;
+    height: 50px !important;
+    line-height: 47px !important;
 }
 
 
@@ -954,6 +954,15 @@ section.landing-splash:after {
 
 .landing-buttons {
 	padding: 0px 8px;
+}
+
+.blue-landing {
+	background-color: #0073e6 !important;
+	background-image: url(https://s3.ca-central-1.amazonaws.com/bongopass/splash-background-join.png);
+}
+
+.red-landing {
+	background-color: #ed324a !important;
 }
 
 @media (min-width: 321px) { 
