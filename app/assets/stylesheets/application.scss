@@ -133,14 +133,14 @@ body, html {
   display: inline-block;
   vertical-align: middle;
   padding: 0 24px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .google-button {
-  height: 40px;
+  height: 50px;
   background: white;
   color: #737373;
-  border-radius: 20px;
+  border-radius: 3px;
   white-space: nowrap;
   box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
   transition-property: background-color, box-shadow;
@@ -172,7 +172,7 @@ body, html {
 }
 
 .fb-square-login {
-	font-size: 21px !important;
+	font-size: 32px !important;
 }
 
 
@@ -241,6 +241,11 @@ body, html {
 
 .log-in-out {
 	margin-bottom: 40px;
+	background: white;
+    padding-top: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    padding-bottom: 10px;
+    border-radius: 5px;
 }
 
 .button-curve {
@@ -1008,6 +1013,11 @@ section.landing-splash:after {
 		width: 180px ;
 		margin-left: -90px ;
 	}
+
+	.google-button__text {
+	    letter-spacing: 1px;
+	}
+
 }
 @media (min-width: 400px) { 
 	.landing-buttons {
@@ -1090,11 +1100,7 @@ section.landing-splash:after {
 
 }
 
-.pink-nav-text {
-	color: white !important;
-	font-weight: 500 !important;
 
-}
 
 .pink-toggle span {
 	background-color: white !important;
@@ -1781,6 +1787,11 @@ section.landing-splash:after {
         position: relative;
     }
 
+	.pink-nav-text {
+		color: white !important;
+		font-weight: 500 !important;
+
+	}
 
 
 }
